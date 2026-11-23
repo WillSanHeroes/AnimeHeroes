@@ -1,0 +1,31 @@
+Site: https://animeheroes.vercel.app/
+Discord: https://discord.gg/VBctFVAtAJ
+
+
+Esta é uma versão de teste de todas as inovações no sistema de combate do jogo; portanto, apenas alguns personagens que já foram reformulados estarão disponíveis.
+
+Uma Barra de Despertar foi implementada e fica fixa abaixo do personagem. Para se transformar ou executar o Golpe Supremo, você precisa dela cheia. (Personagens sem transformação recebem um bônus de status temporário)
+
+Os personagens podem ter transformações estáveis ​​ou temporárias:
+
+Transformação Estável: redefine sua Barra de Despertar e mantém sua forma; você pode retornar à sua forma base quando a barra estiver cheia novamente e pressionar baixo + X.
+
+Transformação Temporária: recarrega a Barra de Despertar e mantém a transformação enquanto a barra durar, e você pode executar o Golpe Supremo a qualquer momento enquanto estiver transformado.
+
+Novos Comandos:
+
+O tradicional baixo, frente, A foi removido. A nova mecânica requer apenas segurar o botão de carga "S" + qualquer ataque. Com isso, o personagem agora tem 4 habilidades em vez de 6, e algumas variam suas habilidades ao ativar o estado Despertar.
+
+Habilidade 1: S+A -1 nível de poder
+Habilidade 2: S+B - 1,5 nível de poder
+Habilidade 3: S+C - 1,5 nível de poder
+Super: S+Y - 2 níveis de poder
+
+Sistema de Esquiva e Aparar: Agora todos os personagens têm a opção de esquivar e aparar usando o botão Y.
+
+Y: Esquivar
+->+Y: Esquivar para frente
+->+Y: Esquivar para trás
+Baixo+Y: Aparar
+
+Boa sorte e, por favor, deixe seu feedback em nossa comunidade do Discord :)

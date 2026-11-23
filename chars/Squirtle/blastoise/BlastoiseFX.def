@@ -1,0 +1,10 @@
+; CommonFX so Squirtle can play Blastoise sprites, anims and sounds.
+[Info]
+prefix = BLST
+fx.scale = 1
+localcoord = 320, 240
+
+[Files]
+sff = Blastoise.sff
+air = Blastoise.air
+snd = Blastoise.snd

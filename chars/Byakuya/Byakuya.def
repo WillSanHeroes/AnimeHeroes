@@ -1,0 +1,33 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name="Byakuya Kuchiki"
+displayname="Byakuya"
+versiondate=19/04/2017
+mugenversion=1.0
+author="Akashi Mugen" ;Bankai by Willsan
+pal.defaults=1
+
+[Files]
+sprite=Byakuya.sff
+anim =Byakuya.air
+sound =Byakuya.snd
+cmd=Byakuya.cmd
+cns=Byakuya.cns
+st=Byakuya.cns
+stcommon=common1.cns
+st1=IA.cns
+st2=Specials.cns
+st3=Bankai.cns
+st4=Hyper.cns
+st5=Configs.cns
+st6=Glows.zss
+movelist = movelist.dat     ;Ikemen feature
+movelist.2 = data\movelist_general.dat
+movelist1 = movelistBANKAI.dat
+movelist1.2 = data\movelist_general.dat
+movelist2 = movelistSENKEI.dat
+movelist2.2 = data\movelist_general.dat

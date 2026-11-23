@@ -1,0 +1,95 @@
+{
+  "playtime": 487.17,
+  "currentArc": 0,
+  "modes": {
+    "versus": {
+      "playtime": 51.9,
+      "clear": 9,
+      "clearcount": {
+        "minato": 1,
+        "ichigotybw": 1,
+        "karin": 2,
+        "squirtle": 1
+      }
+    },
+    "freeforall": {
+      "playtime": 0,
+      "clear": 0
+    },
+    "versuscoop": {
+      "playtime": 89.45,
+      "clear": 0
+    },
+    "training": {
+      "playtime": 0,
+      "clear": 0
+    },
+    "freebattle": {
+      "playtime": 0,
+      "clear": 0
+    },
+    "arcade": {
+      "playtime": 345.82,
+      "clear": 2,
+      "ranking": [
+        {
+          "score": 308000,
+          "time": 218,
+          "win": 6,
+          "lose": 0,
+          "consecutive": 6,
+          "name": "WIL",
+          "chars": [
+            "trunksdbs"
+          ],
+          "tmode": 0,
+          "ailevel": 2
+        },
+        {
+          "score": 290900,
+          "time": 96.55,
+          "win": 6,
+          "lose": 0,
+          "consecutive": 6,
+          "name": "WIL",
+          "chars": [
+            "natsu",
+            "trunksdbs"
+          ],
+          "tmode": 1,
+          "ailevel": 2
+        },
+        {
+          "score": 9300,
+          "time": 27.47,
+          "win": 0,
+          "lose": 1,
+          "consecutive": 0,
+          "name": "WIL",
+          "chars": [
+            "karin"
+          ],
+          "tmode": 0,
+          "ailevel": 2
+        },
+        {
+          "score": 5000,
+          "time": 3.8,
+          "win": 0,
+          "lose": 1,
+          "consecutive": 0,
+          "name": "WIL",
+          "chars": [
+            "karin"
+          ],
+          "tmode": 0,
+          "ailevel": 2
+        }
+      ],
+      "clearcount": {
+        "trunksdbs": 1,
+        "natsu": 1
+      }
+    }
+  }
+}

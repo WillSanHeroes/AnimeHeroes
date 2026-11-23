@@ -1,0 +1,4786 @@
+;--------------------------------------------------------
+[Info]
+name = "Konoha Outskirts(Day)"
+displayname = "Konoha Outskirts"
+versiondate = 10,30,8930
+mugenversion = 1.2
+author = "Vogel"
+;--------------------------------------------------------
+[Camera]
+startx =0
+starty =0
+boundleft=-190
+boundright= 190
+boundhigh= -1000
+boundlow = 0
+tension = 320 ;250
+tensionhigh = 400 ;500
+tensionlow = -300
+overdrawhigh = 100
+overdrawlow = 100
+cuthigh = 0
+cutlow = 0
+zoomin = 1.5
+startzoom = 0.65
+zoomout = .95
+
+;Ikemen nightly exclusive
+ZoomInSpeed = 0.5
+ZoomOutSpeed = 0.5
+autocenter = 1
+;--------------------------------------------------------
+[PlayerInfo]
+;--- Player 1 ---
+p1startx = -300      
+p1starty = 0            ;
+p1facing = 1            ;Direction player faces: 1=right, -1=left
+
+;--- Player 2 ---
+p2startx = 300
+p2starty = 0
+p2facing = -1
+
+;--- Player 3 ---
+p3startx = -420          ;Starting x coordinates
+p3starty = 0            ;Starting y coordinates
+p3facing = 1            ;Direction player faces: 1=right, -1=left
+
+;--- Player 4 ---
+p4startx = 420
+p4starty = 0
+p4facing = -1
+
+;--- Common ---
+ ;Don't change these values.
+
+
+leftbound  = -1800
+rightbound =  3000
+
+
+;--------------------------------------------------------
+[Bound]
+ ;Distance from left/right edge of screen that player can move to
+ ;Typically 15
+screenleft = 60;Dist from left of screen that player can move to
+screenright = 60  ;Right edge
+; use 15 for low res
+; use 30 for high res
+; use 60 for HD res
+;--------------------------------------------------------
+[StageInfo]
+ ;"Ground" level where players stand at, measured in pixels from the
+ ;top of the screen.
+ ;Adjust this value to move the ground level up/down in the screen.
+ ;***
+zoffset = 650
+
+ ;Leave this at 1. It makes the players face each other
+autoturn = 1
+
+ ;Set the following to 1 to have the background reset itself between
+ ;rounds.
+resetBG = 0
+localcoord = 1280, 720
+
+
+ ;Horizontal and vertical scaling factor for drawing.
+xscale = 1
+yscale = 1
+
+  ;Specifies the display scale of the portrait for screenpack rendering
+  ;This value overwrites localcoord-compliant display scale
+portraitscale = 4
+;--------------------------------------------------------
+[Shadow]
+intensity = 87
+color = 0,0,0
+yscale = -0.07
+fade.range = -400, -100
+
+;--------------------------------------------------------
+[Reflection]
+intensity = 0
+
+;--------------------------------------------------------
+[Music]
+;only the top one will work
+;if you are using this in a youtube video do not use "copyrighted (default)" the song is blocked in every country :(
+
+;Pick one delete the other
+bgmusic=sound/LostForest.mp3
+bgmvolume = 100
+
+
+; Main background definition
+;____________________________________________________________________________________________________________________________________
+[BGdef]
+spr = KonohaOutskirts.sff
+debugbg = 1
+
+[BG 0,sky grad]
+type = normal
+spriteno = 10,11
+start = 0,641
+delta = 0.000,0.000
+mask = 1
+tile = 1
+scalestart = 1,1
+
+[BG 0,clouds 1]
+type = parallax
+spriteno = 40,0
+start = 0,0
+delta = 0.002,0.001
+mask = 1
+Tile = 1
+scaledelta = 0, 0
+scalestart = 1,1
+width = 2000,1000
+velocity = -0.25
+trans = addalpha
+alpha = 200,256
+
+[BG 0,clouds 2]
+type = parallax
+spriteno = 40,1
+start = 0,0
+delta = 0.004,0.001
+mask = 1
+Tile = 1
+scaledelta = 0, 0
+scalestart = 1,1
+width = 4000,2000
+velocity = -0.5
+trans = addalpha
+alpha = 200,256
+
+[BG 0,clouds 3]
+type = parallax
+spriteno = 40,2
+start = 0,0
+delta = 0.08,0.001
+mask = 1
+Tile = 1
+scaledelta = 0, 0
+scalestart = 1,1
+width = 8000,4000
+velocity = -1
+trans = addalpha
+alpha = 200,256
+
+[BG 0,mountain2]
+type = normal
+spriteno = 10,100
+start = 0,641
+delta = 0.0015,0.0008
+mask = 1
+tile = 1
+scalestart = 1,1
+
+[BG 0,mountain]
+type = normal
+spriteno = 10,10
+start = 0,641
+delta = 0.002,0.001
+mask = 1
+tile = 1
+scalestart = 1,1
+
+[BG 0,hokage rock]
+type = normal
+spriteno = 10,12
+start = 0,641
+delta = 0.004,0.003
+mask = 1
+tile = 1
+scalestart = 1,1
+
+
+[BG 0,Konoha]
+type = normal
+spriteno = 15,0
+start = 0,641
+delta = 0.01,0.01
+mask = 1
+tile = 1
+scalestart = 1,1
+
+
+[BG 0,background trees 1 9]
+type = normal
+spriteno = 10,6
+start = 0,641
+delta = 0.07,0.03
+mask = 1
+tile = 1
+scalestart = 1,1
+Window = -50000,-100,50000,0
+windowdelta = 0.07,0.03
+sin.x = 5, 241
+
+
+[BG 0,background trees 1 9]
+type = normal
+spriteno = 10,6
+start = 0,641
+delta = 0.07,0.03
+mask = 1
+tile = 1
+scalestart = 1,1
+Window = -50000,0,50000,50
+windowdelta = 0.07,0.03
+sin.x = 4.5, 241
+
+
+[BG 0,background trees 1 8]
+type = normal
+spriteno = 10,6
+start = 0,641
+delta = 0.07,0.03
+mask = 1
+tile = 1
+scalestart = 1,1
+Window = -50000,50,50000,100
+windowdelta = 0.07,0.03
+sin.x = 4, 241
+
+
+[BG 0,background trees 1 7]
+type = normal
+spriteno = 10,6
+start = 0,641
+delta = 0.07,0.03
+mask = 1
+tile = 1
+scalestart = 1,1
+Window = -50000,100,50000,150
+windowdelta = 0.07,0.03
+sin.x = 3.5, 241
+
+
+[BG 0,background trees 1 6]
+type = normal
+spriteno = 10,6
+start = 0,641
+delta = 0.07,0.03
+mask = 1
+tile = 1
+scalestart = 1,1
+Window = -50000,150,50000,200
+windowdelta = 0.07,0.03
+sin.x = 3, 241
+
+[BG 0,background trees 1 5]
+type = normal
+spriteno = 10,6
+start = 0,641
+delta = 0.07,0.03
+mask = 1
+tile = 1
+scalestart = 1,1
+Window = -50000,200,50000,250
+windowdelta = 0.07,0.03
+sin.x = 2.5, 241
+
+[BG 0,background trees 1 4]
+type = normal
+spriteno = 10,6
+start = 0,641
+delta = 0.07,0.03
+mask = 1
+tile = 1
+scalestart = 1,1
+Window = -50000,250,50000,300
+windowdelta = 0.07,0.03
+sin.x = 2, 241
+
+[BG 0,background trees 1 4]
+type = normal
+spriteno = 10,6
+start = 0,641
+delta = 0.07,0.03
+mask = 1
+tile = 1
+scalestart = 1,1
+Window = -50000,300,50000,350
+windowdelta = 0.07,0.03
+sin.x = 1.5, 241
+
+[BG 0,background trees 1 3]
+type = normal
+spriteno = 10,6
+start = 0,641
+delta = 0.07,0.03
+mask = 1
+tile = 1
+scalestart = 1,1
+Window = -50000,350,50000,400
+windowdelta = 0.07,0.03
+sin.x = 1, 241
+
+
+
+[BG 0,background trees 1 2]
+type = normal
+spriteno = 10,6
+start = 0,641
+delta = 0.07,0.03
+mask = 1
+tile = 1
+scalestart = 1,1
+Window = -50000,400,50000,450
+windowdelta = 0.07,0.03
+sin.x = 0.5, 241
+
+
+[BG 0,background trees 1 1]
+type = normal
+spriteno = 10,6
+start = 0,641
+delta = 0.07,0.03
+mask = 1
+tile = 1
+scalestart = 1,1
+Window = -50000,450,50000,500
+windowdelta = 0.07,0.03
+
+[BG 0,background bushes 1 4]
+type = normal
+spriteno = 10,5
+start = 0,641
+delta = 0.11625,0.068
+mask = 1
+tile = 1
+scalestart = 1,1
+Window = -50000,-400,50000,440
+windowdelta = 0.11625,0.068
+sin.x = 1.5, 215
+
+
+[BG 0,background bushes 1 3]
+type = normal
+spriteno = 10,5
+start = 0,641
+delta = 0.11625,0.068
+mask = 1
+tile = 1
+scalestart = 1,1
+Window = -50000,440,50000,460
+windowdelta = 0.11625,0.068
+sin.x = 1, 215
+
+[BG 0,background bushes 1 2]
+type = normal
+spriteno = 10,5
+start = 0,641
+delta = 0.11625,0.068
+mask = 1
+tile = 1
+scalestart = 1,1
+Window = -50000,460,50000,480
+windowdelta = 0.11625,0.068
+sin.x = 0.5, 215
+
+
+[BG 0,background bushes 1 1]
+type = normal
+spriteno = 10,5
+start = 0,641
+delta = 0.11625,0.068
+mask = 1
+tile = 1
+scalestart = 1,1
+Window = -50000,480,50000,600
+windowdelta = 0.11625,0.068
+
+[BG 0,fence]
+type = normal
+spriteno = 13,0
+start = 0,641
+delta = 0.118,0.0685
+mask = 1
+tile = 1
+scalestart = 1,1
+
+
+
+
+[BG 0,grass floor 4]
+type = parallax
+spriteno = 0,3
+start = 0,641
+delta = 0.11625,0.82
+mask = 1
+width = 733, 1466
+tile = 1
+;xscale = 1,2.5
+scaledelta = 0, -0.006
+scalestart = 1,1
+
+
+[BG 0,Dirt floor 3]
+type = parallax
+spriteno = 0,2
+start = 0,641
+delta = 0.2325,0.82
+mask = 1
+width = 1466, 2928
+;xscale = 1,2.5
+scaledelta = 0, -0.006
+scalestart = 1,1
+tile = 1
+
+
+
+;hey who ever is reading this youre cool, never forget that.
+;Also, good luck finding whatever you are looking for... 
+;oh god theres so many layers
+
+[BG 0,Background tree 1 15]
+type = normal
+spriteno = 11,0
+start = 0,641
+delta = 0.12,0.09
+mask = 1
+scalestart = 1,1
+tile = 1
+tilespacing = 50
+Window = -50000,125,50000,150
+windowdelta = 0.12,0.09
+sin.x = 1.88, 150
+
+
+[BG 0,Background tree 1 14]
+type = normal
+spriteno = 11,0
+start = 0,641
+delta = 0.12,0.09
+mask = 1
+scalestart = 1,1
+tile = 1
+tilespacing = 50
+Window = -50000,150,50000,175
+windowdelta = 0.12,0.09
+sin.x = 1.75, 150
+
+
+[BG 0,Background tree 1 13]
+type = normal
+spriteno = 11,0
+start = 0,641
+delta = 0.12,0.09
+mask = 1
+scalestart = 1,1
+tile = 1
+tilespacing = 50
+Window = -50000,175,50000,200
+windowdelta = 0.12,0.09
+sin.x = 1.5, 150
+
+
+[BG 0,Background tree 1 12]
+type = normal
+spriteno = 11,0
+start = 0,641
+delta = 0.12,0.09
+mask = 1
+scalestart = 1,1
+tile = 1
+tilespacing = 50
+Window = -50000,200,50000,225
+windowdelta = 0.12,0.09
+sin.x = 1.375, 150
+
+[BG 0,Background tree 1 11]
+type = normal
+spriteno = 11,0
+start = 0,641
+delta = 0.12,0.09
+mask = 1
+scalestart = 1,1
+tile = 1
+tilespacing = 50
+Window = -50000,225,50000,250
+windowdelta = 0.12,0.09
+sin.x = 1.25, 150
+
+[BG 0,Background tree 1 10]
+type = normal
+spriteno = 11,0
+start = 0,641
+delta = 0.12,0.09
+mask = 1
+scalestart = 1,1
+tile = 1
+tilespacing = 50
+Window = -50000,250,50000,275
+windowdelta = 0.12,0.09
+sin.x = 1.125, 150
+
+[BG 0,Background tree 1 9]
+type = normal
+spriteno = 11,0
+start = 0,641
+delta = 0.12,0.09
+mask = 1
+scalestart = 1,1
+tile = 1
+tilespacing = 50
+Window = -50000,275,50000,300
+windowdelta = 0.12,0.09
+sin.x = 1, 150
+
+[BG 0,Background tree 1 8]
+type = normal
+spriteno = 11,0
+start = 0,641
+delta = 0.12,0.09
+mask = 1
+scalestart = 1,1
+tile = 1
+tilespacing = 50
+Window = -50000,300,50000,325
+windowdelta = 0.12,0.09
+sin.x = 0.87, 150
+
+[BG 0,Background tree 1 7]
+type = normal
+spriteno = 11,0
+start = 0,641
+delta = 0.12,0.09
+mask = 1
+scalestart = 1,1
+tile = 1
+tilespacing = 50
+Window = -50000,325,50000,350
+windowdelta = 0.12,0.09
+sin.x = 0.75, 150
+
+[BG 0,Background tree 1 6]
+type = normal
+spriteno = 11,0
+start = 0,641
+delta = 0.12,0.09
+mask = 1
+scalestart = 1,1
+tile = 1
+tilespacing = 50
+Window = -50000,350,50000,375
+windowdelta = 0.12,0.09
+sin.x = 0.625, 150
+
+[BG 0,Background tree 1 5]
+type = normal
+spriteno = 11,0
+start = 0,641
+delta = 0.12,0.09
+mask = 1
+scalestart = 1,1
+tile = 1
+tilespacing = 50
+Window = -50000,375,50000,400
+windowdelta = 0.12,0.09
+sin.x = 0.5, 150
+
+[BG 0,Background tree 1 4]
+type = normal
+spriteno = 11,0
+start = 0,641
+delta = 0.12,0.09
+mask = 1
+scalestart = 1,1
+tile = 1
+tilespacing = 50
+Window = -50000,400,50000,425
+windowdelta = 0.12,0.09
+sin.x = 0.375, 150
+
+[BG 0,Background tree 1 3]
+type = normal
+spriteno = 11,0
+start = 0,641
+delta = 0.12,0.09
+mask = 1
+scalestart = 1,1
+tile = 1
+tilespacing = 50
+Window = -50000,425,50000,450
+windowdelta = 0.12,0.09
+sin.x = 0.25, 150
+
+
+[BG 0,Background tree 1 2]
+type = normal
+spriteno = 11,0
+start = 0,641
+delta = 0.12,0.09
+mask = 1
+scalestart = 1,1
+tile = 1
+tilespacing = 50
+Window = -50000,450,50000,475
+windowdelta = 0.12,0.09
+sin.x = 0.125, 150
+
+
+[BG 0,Background tree 1 1]
+type = normal
+spriteno = 11,0
+start = 0,641
+delta = 0.12,0.09
+mask = 1
+scalestart = 1,1
+tile = 1
+tilespacing = 50
+Window = -50000,475,50000,500
+windowdelta = 0.12,0.09
+
+[BG 0,Falling leaves left rear]
+type = normal
+spriteno = 12,0
+start = 0,641
+delta = 0.12,0.09
+mask = 1
+tile = 1,1
+Velocity = 0, 0.5
+scalestart = 0.25,0.25
+Window = -50000,200,550,485
+Windowdelta = 0.12,0.09
+sin.x = 5, 222
+sin.y = 2, 222
+
+[BG 0,Falling leaves right rear]
+type = normal
+spriteno = 12,0
+start = 0,641
+delta = 0.12,0.09
+mask = 1
+tile = 1,1
+Velocity = 0, 0.3
+scalestart = 0.25,0.25
+Window = 620,200,50000,485
+Windowdelta = 0.12,0.09
+sin.x = 7, 240
+sin.y = 3, 240
+
+
+[BG 0,grass 10 right]
+type = normal
+spriteno = 14,0
+start = -235,487
+delta = 0.135,0.075
+mask = 1
+scalestart = 0.1,0.2
+tile = 1
+window = 670,-5000,5000,5000
+windowdelta = 0.135,0.075
+
+[BG 0,grass 10 left]
+type = normal
+spriteno = 14,0
+start = -235,487
+delta = 0.135,0.075
+mask = 1
+scalestart = 0.1,0.2
+tile = 1
+window = -5000,-5000,606,5000
+windowdelta = 0.135,0.075
+
+;BACKGROUND BUSH 1________________________________________________________________
+
+[BG 0,Background bush 1 3 2]
+type = normal
+spriteno = 11,1
+start = 0,641
+delta = 0.145,0.1
+mask = 1
+scalestart = 1,1
+tile = 1
+tilespacing = 50 ;150
+Window = 665,400,50000,460
+Windowdelta = 0.145,0.1
+sin.x = 1, 150
+
+
+
+[BG 0,Background bush 1 2 2]
+type = normal
+spriteno = 11,1
+start = 0,641
+delta = 0.145,0.1
+mask = 1
+scalestart = 1,1
+tile = 1
+tilespacing = 50 ;150
+Window = 665,460,50000,480
+Windowdelta = 0.145,0.1
+sin.x = 0.5, 150
+
+[BG 0,Background bush 1 1 2]
+type = normal
+spriteno = 11,1
+start = 0,641
+delta = 0.145,0.1
+mask = 1
+scalestart = 1,1
+tile = 1
+tilespacing = 50 ;150
+Window = 665,480,50000,500
+Windowdelta = 0.145,0.1
+
+[BG 0,Background bush 1 3 1]
+type = normal
+spriteno = 11,1
+start = 0,641
+delta = 0.145,0.1
+mask = 1
+scalestart = 1,1
+tile = 1
+tilespacing = 50 ;150
+Window = -50000,400,532,460
+Windowdelta = 0.145,0.1
+sin.x = 1, 150
+
+
+
+[BG 0,Background bush 1 2 1]
+type = normal
+spriteno = 11,1
+start = 0,641
+delta = 0.145,0.1
+mask = 1
+scalestart = 1,1
+tile = 1
+tilespacing = 50 ;150
+Window = -50000,460,532,480
+Windowdelta = 0.145,0.1
+sin.x = 0.5, 150
+
+[BG 0,Background bush 1 1 1]
+type = normal
+spriteno = 11,1
+start = 0,641
+delta = 0.145,0.1
+mask = 1
+scalestart = 1,1
+tile = 1
+tilespacing = 50 ;150
+Window = -50000,480,532,500
+Windowdelta = 0.145,0.1
+
+[BG 0,Birds]
+type = anim
+actionno = 1
+start = 0,400
+delta = 0.16,0.112
+mask = 1
+scalestart = 0.5,0.5
+tile = 1
+tilespacing = 20000
+Sin.y = 60,100
+velocity = 8
+trans = add
+alpha = 100,100
+
+
+[Begin Action 1]
+16,0, 0,0,3
+16,1, 0,0,3
+16,2, 0,0,3
+
+
+
+;BACKGROUND BUSH 2__________________________________________________________________________;
+
+
+[BG 0,Background bush 2 3 2]
+type = normal
+spriteno = 11,2
+start = 0,641
+delta = 0.16,0.112
+mask = 1
+scalestart = 1,1
+tile = 1
+tilespacing = 50 ;100
+Window = 688,400,50000,460
+windowdelta = 0.16,0.112
+sin.x = 1,170
+
+[BG 0,Background bush 2 2 2]
+type = normal
+spriteno = 11,2
+start = 0,641
+delta = 0.16,0.112
+mask = 1
+scalestart = 1,1
+tile = 1
+tilespacing = 50 ;100
+Window = 688,460,50000,480
+windowdelta = 0.16,0.112
+sin.x = 0.5,170
+
+[BG 0,Background bush 2 1 2]
+type = normal
+spriteno = 11,2
+start = 0,641
+delta = 0.16,0.112
+mask = 1
+scalestart = 1,1
+tile = 1
+tilespacing = 50 ;100
+Window = 688,480,50000,500
+windowdelta = 0.16,0.112
+
+[BG 0,Background bush 2 3 1]
+type = normal
+spriteno = 11,2
+start = 0,641
+delta = 0.16,0.112
+mask = 1
+scalestart = 1,1
+tile = 1
+tilespacing = 50 ;100
+Window = -50000,400,580,460
+windowdelta = 0.16,0.112
+sin.x = 1,170
+
+[BG 0,Background bush 2 2 1]
+type = normal
+spriteno = 11,2
+start = 0,641
+delta = 0.16,0.112
+mask = 1
+scalestart = 1,1
+tile = 1
+tilespacing = 50 ;100
+Window = -50000,460,580,480
+windowdelta = 0.16,0.112
+sin.x = 0.5,170
+
+[BG 0,Background bush 2 1 1]
+type = normal
+spriteno = 11,2
+start = 0,641
+delta = 0.16,0.112
+mask = 1
+scalestart = 1,1
+tile = 1
+tilespacing = 50 ;100
+Window = -50000,480,580,500
+windowdelta = 0.16,0.112
+
+[BG 0,grass 10 right]
+type = normal
+spriteno = 14,1
+start = -235,493
+delta = 0.18,0.13
+mask = 1
+scalestart = 0.2,0.4
+tile = 1
+window = 697,-5000,5000,5000
+windowdelta = 0.18,0.13
+
+[BG 0,grass 10 left]
+type = normal
+spriteno = 14,1
+start = -235,493
+delta = 0.18,0.13
+mask = 1
+scalestart = 0.2,0.4
+tile = 1
+window = -5000,-5000,582,5000
+windowdelta = 0.18,0.13
+
+;__________________________________________________________________________;
+
+
+
+[BG 0,tree 3 middler]
+type = normal
+spriteno = 10,0
+start = 600,641
+delta = 0.174375,0.12
+mask = 1
+scalestart = 1,1
+Window = -50000,160,50000,260
+windowdelta = 0.174375,0.14
+sin.x = 1.5,275
+
+[BG 0,tree 4 middler]
+type = normal
+spriteno = 10,0
+start = -1300,641
+delta = 0.174375,0.12
+mask = 1
+scalestart = 1,1
+sin.x = 1.5,215
+
+
+
+;________________________________________________________________
+
+[BG 0,tree 4 right side back]
+type = normal
+spriteno = 10,4
+start = -937,641
+delta = 0.174375,0.12
+mask = 1
+scalestart = 1,1
+scaledelta = 0.00125, 
+Window = -50000,-60,50000,60
+windowdelta = 0.174375,0.14
+sin.x = 2.5,315
+
+[BG 0,tree 4 right side front]
+type = normal
+spriteno = 10,2
+start = -936,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+scaledelta = -0.00125, 
+Window = -50000,-60,50000,60
+windowdelta = 0.174375,0.14
+sin.x = 2.5,215
+
+[BG 0,tree 4 Left side back]
+type = normal
+spriteno = 10,3
+start = -972,641
+delta = 0.174375,0.12
+mask = 1
+scalestart = 1,1
+scaledelta = -0.0006125, 
+Window = -50000,-60,50000,60
+windowdelta = 0.174375,0.14
+sin.x = 2.5,315
+
+[BG 0,tree 4 Left side front]
+type = normal
+spriteno = 10,1
+start = -977,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+scaledelta = 0.00125, 
+Window = -50000,-60,50000,60
+windowdelta = 0.174375,0.14
+sin.x = 2.5,215
+
+[BG 0,tree 4 middler]
+type = normal
+spriteno = 10,0
+start = -1300,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+Window = -50000,-60,50000,60
+windowdelta = 0.174375,0.14
+sin.x = 2.5,215
+
+;________________________________________________________________
+
+[BG 0,tree 4 right side back]
+type = normal
+spriteno = 10,4
+start = -937,641
+delta = 0.174375,0.12
+mask = 1
+scalestart = 1,1
+scaledelta = 0.00125, 
+Window = -50000,60,50000,160
+windowdelta = 0.174375,0.14
+sin.x = 2,315
+
+[BG 0,tree 4 right side front]
+type = normal
+spriteno = 10,2
+start = -936,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+scaledelta = -0.00125, 
+Window = -50000,60,50000,160
+windowdelta = 0.174375,0.14
+sin.x = 2,215
+
+[BG 0,tree 4 Left side back]
+type = normal
+spriteno = 10,3
+start = -972,641
+delta = 0.174375,0.12
+mask = 1
+scalestart = 1,1
+scaledelta = -0.0006125, 
+Window = -50000,60,50000,160
+windowdelta = 0.174375,0.14
+sin.x = 2,315
+
+[BG 0,tree 4 Left side front]
+type = normal
+spriteno = 10,1
+start = -977,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+scaledelta = 0.00125, 
+Window = -50000,60,50000,160
+windowdelta = 0.174375,0.14
+sin.x = 2,215
+
+[BG 0,tree 4 middler]
+type = normal
+spriteno = 10,0
+start = -1300,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+Window = -50000,60,50000,160
+windowdelta = 0.174375,0.14
+sin.x = 2,215
+
+;________________________________________________________________
+
+
+;________________________________________________________________
+
+
+
+[BG 0,tree 4 right side back]
+type = normal
+spriteno = 10,4
+start = -937,641
+delta = 0.174375,0.12
+mask = 1
+scalestart = 1,1
+scaledelta = 0.00125, 
+Window = -50000,160,50000,260
+windowdelta = 0.174375,0.14
+sin.x = 1.5,315
+
+[BG 0,tree 4 right side front]
+type = normal
+spriteno = 10,2
+start = -936,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+scaledelta = -0.00125, 
+Window = -50000,160,50000,260
+windowdelta = 0.174375,0.14
+sin.x = 1.5,215
+
+[BG 0,tree 4 Left side back]
+type = normal
+spriteno = 10,3
+start = -972,641
+delta = 0.174375,0.12
+mask = 1
+scalestart = 1,1
+scaledelta = -0.0006125, 
+Window = -50000,160,50000,260
+windowdelta = 0.174375,0.14
+sin.x = 1.5,315
+
+[BG 0,tree 4 Left side front]
+type = normal
+spriteno = 10,1
+start = -977,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+scaledelta = 0.00125, 
+Window = -50000,160,50000,260
+windowdelta = 0.174375,0.14
+sin.x = 1.5,215
+
+[BG 0,tree 4 middler]
+type = normal
+spriteno = 10,0
+start = -1300,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+Window = -50000,160,50000,260
+windowdelta = 0.174375,0.14
+sin.x = 1.5,215
+
+;________________________________________________________________
+
+[BG 0,tree 4 right side back]
+type = normal
+spriteno = 10,4
+start = -937,641
+delta = 0.174375,0.12
+mask = 1
+scalestart = 1,1
+scaledelta = 0.00125, 
+Window = -50000,260,50000,360
+windowdelta = 0.174375,0.14
+sin.x = 1,315
+
+[BG 0,tree 4 right side front]
+type = normal
+spriteno = 10,2
+start = -936,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+scaledelta = -0.00125, 
+Window = -50000,260,50000,360
+windowdelta = 0.174375,0.14
+sin.x = 1,215
+
+[BG 0,tree 4 Left side back]
+type = normal
+spriteno = 10,3
+start = -972,641
+delta = 0.174375,0.12
+mask = 1
+scalestart = 1,1
+scaledelta = -0.0006125, 
+Window = -50000,260,50000,360
+windowdelta = 0.174375,0.14
+sin.x = 1,315
+
+[BG 0,tree 4 Left side front]
+type = normal
+spriteno = 10,1
+start = -977,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+scaledelta = 0.00125, 
+Window = -50000,260,50000,360
+windowdelta = 0.174375,0.14
+sin.x = 1,215
+
+[BG 0,tree 4 middler]
+type = normal
+spriteno = 10,0
+start = -1300,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+Window = -50000,260,50000,360
+windowdelta = 0.174375,0.14
+sin.x = 1,215
+;________________________________________________________________
+
+[BG 0,tree 4 right side back]
+type = normal
+spriteno = 10,4
+start = -937,641
+delta = 0.174375,0.12
+mask = 1
+scalestart = 1,1
+scaledelta = 0.00125, 
+Window = -50000,360,50000,460
+windowdelta = 0.174375,0.14
+sin.x = 0.5,315
+
+[BG 0,tree 4 right side front]
+type = normal
+spriteno = 10,2
+start = -936,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+scaledelta = -0.00125, 
+Window = -50000,360,50000,460
+windowdelta = 0.174375,0.14
+sin.x = 0.5,215
+
+[BG 0,tree 4 Left side back]
+type = normal
+spriteno = 10,3
+start = -972,641
+delta = 0.174375,0.12
+mask = 1
+scalestart = 1,1
+scaledelta = -0.0006125, 
+Window = -50000,360,50000,460
+windowdelta = 0.174375,0.14
+sin.x = 0.5,315
+
+[BG 0,tree 4 Left side front]
+type = normal
+spriteno = 10,1
+start = -977,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+scaledelta = 0.00125, 
+Window = -50000,360,50000,460
+windowdelta = 0.174375,0.14
+sin.x = 0.5,215
+
+[BG 0,tree 4 middler]
+type = normal
+spriteno = 10,0
+start = -1300,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+Window = -50000,360,50000,460
+windowdelta = 0.174375,0.14
+sin.x = 0.5,215
+;________________________________________________________________
+
+;________________________________________________________________
+
+[BG 0,tree 4 right side back]
+type = normal
+spriteno = 10,4
+start = -937,641
+delta = 0.174375,0.12
+mask = 1
+scalestart = 1,1
+scaledelta = 0.00125, 
+Window = -50000,360,50000,460
+windowdelta = 0.174375,0.14
+sin.x = 0.5,315
+
+[BG 0,tree 4 right side front]
+type = normal
+spriteno = 10,2
+start = -936,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+scaledelta = -0.00125, 
+Window = -50000,360,50000,460
+windowdelta = 0.174375,0.14
+sin.x = 0.5,200
+
+[BG 0,tree 4 Left side back]
+type = normal
+spriteno = 10,3
+start = -972,641
+delta = 0.174375,0.12
+mask = 1
+scalestart = 1,1
+scaledelta = -0.0006125, 
+Window = -50000,360,50000,460
+windowdelta = 0.174375,0.14
+sin.x = 0.5,315
+
+[BG 0,tree 4 Left side front]
+type = normal
+spriteno = 10,1
+start = -977,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+scaledelta = 0.00125, 
+Window = -50000,360,50000,460
+windowdelta = 0.174375,0.14
+sin.x = 0.5,200
+
+[BG 0,tree 4 middler]
+type = normal
+spriteno = 10,0
+start = -1300,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+Window = -50000,360,50000,460
+windowdelta = 0.174375,0.14
+sin.x = 0.5,215
+;________________________________________________________________
+
+
+
+[BG 0,tree 4 right side back]
+type = normal
+spriteno = 10,4
+start = -937,641
+delta = 0.174375,0.12
+mask = 1
+scalestart = 1,1
+scaledelta = 0.00125, 
+Window = -50000,460,50000,506
+windowdelta = 0.174375,0.14
+
+[BG 0,tree 4 right side front]
+type = normal
+spriteno = 10,2
+start = -936,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+scaledelta = -0.00125, 
+Window = -50000,460,50000,506
+windowdelta = 0.174375,0.14
+
+[BG 0,tree 4 Left side back]
+type = normal
+spriteno = 10,3
+start = -972,641
+delta = 0.174375,0.12
+mask = 1
+scalestart = 1,1
+scaledelta = -0.0006125, 
+Window = -50000,460,50000,506
+windowdelta = 0.174375,0.14
+
+[BG 0,tree 4 Left side front]
+type = normal
+spriteno = 10,1
+start = -977,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+scaledelta = 0.00125, 
+Window = -50000,460,50000,506
+windowdelta = 0.174375,0.14
+
+[BG 0,tree 4 middler]
+type = normal
+spriteno = 10,0
+start = -1300,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+Window = -50000,460,50000,506
+windowdelta = 0.174375,0.14
+;________________________________________________________________
+;__________________________________________________________
+
+
+
+[BG 0,tree 3 right side back]
+type = normal
+spriteno = 10,4
+start = 963,641
+delta = 0.174375,0.12
+mask = 1
+scalestart = 1,1
+scaledelta = 0.00125, 
+Window = -50000,-60,50000,60
+windowdelta = 0.174375,0.14
+sin.x = 2.5,375
+
+[BG 0,tree 3 right side front]
+type = normal
+spriteno = 10,2
+start = 964,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+scaledelta = -0.00125, 
+Window = -50000,-60,50000,60
+windowdelta = 0.174375,0.14
+sin.x = 2.5,275
+
+[BG 0,tree 3 Left side back]
+type = normal
+spriteno = 10,3
+start = 928,641
+delta = 0.174375,0.12
+mask = 1
+scalestart = 1,1
+scaledelta = -0.0006125, 
+Window = -50000,-60,50000,60
+windowdelta = 0.174375,0.14
+sin.x = 2.5,375
+
+[BG 0,tree 3 Left side front]
+type = normal
+spriteno = 10,1
+start = 923,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+scaledelta = 0.00125, 
+Window = -50000,-60,50000,60
+windowdelta = 0.174375,0.14
+sin.x = 2.5,275
+
+[BG 0,tree 3 middler]
+type = normal
+spriteno = 10,0
+start = 600,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+Window = -50000,-60,50000,60
+windowdelta = 0.174375,0.14
+sin.x = 2.5,275
+
+;__________________________________________________________
+
+
+
+[BG 0,tree 3 right side back]
+type = normal
+spriteno = 10,4
+start = 963,641
+delta = 0.174375,0.12
+mask = 1
+scalestart = 1,1
+scaledelta = 0.00125, 
+Window = -50000,60,50000,160
+windowdelta = 0.174375,0.14
+sin.x = 2,375
+
+[BG 0,tree 3 right side front]
+type = normal
+spriteno = 10,2
+start = 964,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+scaledelta = -0.00125, 
+Window = -50000,60,50000,160
+windowdelta = 0.174375,0.14
+sin.x = 2,275
+
+[BG 0,tree 3 Left side back]
+type = normal
+spriteno = 10,3
+start = 928,641
+delta = 0.174375,0.12
+mask = 1
+scalestart = 1,1
+scaledelta = -0.0006125, 
+Window = -50000,60,50000,160
+windowdelta = 0.174375,0.14
+sin.x = 2,375
+
+[BG 0,tree 3 Left side front]
+type = normal
+spriteno = 10,1
+start = 923,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+scaledelta = 0.00125, 
+Window = -50000,60,50000,160
+windowdelta = 0.174375,0.14
+sin.x = 2,275
+
+[BG 0,tree 3 middler]
+type = normal
+spriteno = 10,0
+start = 600,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+Window = -50000,60,50000,160
+windowdelta = 0.174375,0.14
+sin.x = 2,275
+
+;__________________________________________________________
+
+
+
+[BG 0,tree 3 right side back]
+type = normal
+spriteno = 10,4
+start = 963,641
+delta = 0.174375,0.12
+mask = 1
+scalestart = 1,1
+scaledelta = 0.00125, 
+Window = -50000,160,50000,260
+windowdelta = 0.174375,0.14
+sin.x = 1.5,375
+
+[BG 0,tree 3 right side front]
+type = normal
+spriteno = 10,2
+start = 964,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+scaledelta = -0.00125, 
+Window = -50000,160,50000,260
+windowdelta = 0.174375,0.14
+sin.x = 1.5,275
+
+[BG 0,tree 3 Left side back]
+type = normal
+spriteno = 10,3
+start = 928,641
+delta = 0.174375,0.12
+mask = 1
+scalestart = 1,1
+scaledelta = -0.0006125, 
+Window = -50000,160,50000,260
+windowdelta = 0.174375,0.14
+sin.x = 1.5,375
+
+[BG 0,tree 3 Left side front]
+type = normal
+spriteno = 10,1
+start = 923,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+scaledelta = 0.00125, 
+Window = -50000,160,50000,260
+windowdelta = 0.174375,0.14
+sin.x = 1.5,275
+
+[BG 0,tree 3 middler]
+type = normal
+spriteno = 10,0
+start = 600,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+Window = -50000,160,50000,260
+windowdelta = 0.174375,0.14
+sin.x = 1.5,275
+
+;__________________________________________________________
+
+
+
+[BG 0,tree 3 right side back]
+type = normal
+spriteno = 10,4
+start = 963,641
+delta = 0.174375,0.12
+mask = 1
+scalestart = 1,1
+scaledelta = 0.00125, 
+Window = -50000,260,50000,360
+windowdelta = 0.174375,0.14
+sin.x = 1,375
+
+[BG 0,tree 3 right side front]
+type = normal
+spriteno = 10,2
+start = 964,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+scaledelta = -0.00125, 
+Window = -50000,260,50000,360
+windowdelta = 0.174375,0.14
+sin.x = 1,275
+
+[BG 0,tree 3 Left side back]
+type = normal
+spriteno = 10,3
+start = 928,641
+delta = 0.174375,0.12
+mask = 1
+scalestart = 1,1
+scaledelta = -0.0006125, 
+Window = -50000,260,50000,360
+windowdelta = 0.174375,0.14
+sin.x = 1,375
+
+[BG 0,tree 3 Left side front]
+type = normal
+spriteno = 10,1
+start = 923,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+scaledelta = 0.00125, 
+Window = -50000,260,50000,360
+windowdelta = 0.174375,0.14
+sin.x = 1,275
+
+[BG 0,tree 3 middler]
+type = normal
+spriteno = 10,0
+start = 600,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+Window = -50000,260,50000,360
+windowdelta = 0.174375,0.14
+sin.x = 1,275
+;__________________________________________________________
+
+[BG 0,tree 3 right side back]
+type = normal
+spriteno = 10,4
+start = 963,641
+delta = 0.174375,0.12
+mask = 1
+scalestart = 1,1
+scaledelta = 0.00125, 
+Window = -50000,360,50000,460
+windowdelta = 0.174375,0.14
+sin.x = 0.5,375
+
+[BG 0,tree 3 right side front]
+type = normal
+spriteno = 10,2
+start = 964,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+scaledelta = -0.00125, 
+Window = -50000,360,50000,460
+windowdelta = 0.174375,0.14
+sin.x = 0.5,275
+
+[BG 0,tree 3 Left side back]
+type = normal
+spriteno = 10,3
+start = 928,641
+delta = 0.174375,0.12
+mask = 1
+scalestart = 1,1
+scaledelta = -0.0006125, 
+Window = -50000,360,50000,460
+windowdelta = 0.174375,0.14
+sin.x = 0.5,375
+
+[BG 0,tree 3 Left side front]
+type = normal
+spriteno = 10,1
+start = 923,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+scaledelta = 0.00125, 
+Window = -50000,360,50000,460
+windowdelta = 0.174375,0.14
+sin.x = 0.5,275
+
+[BG 0,tree 3 middler]
+type = normal
+spriteno = 10,0
+start = 600,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+Window = -50000,360,50000,460
+windowdelta = 0.174375,0.14
+sin.x = 0.5,275
+;____________________________________________________________________________
+
+;__________________________________________________________
+
+
+
+[BG 0,tree 3 right side back]
+type = normal
+spriteno = 10,4
+start = 963,641
+delta = 0.174375,0.12
+mask = 1
+scalestart = 1,1
+scaledelta = 0.00125, 
+Window = -50000,460,50000,506
+windowdelta = 0.174375,0.14
+
+[BG 0,tree 3 right side front]
+type = normal
+spriteno = 10,2
+start = 964,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+scaledelta = -0.00125, 
+Window = -50000,460,50000,506
+windowdelta = 0.174375,0.14
+
+[BG 0,tree 3 Left side back]
+type = normal
+spriteno = 10,3
+start = 928,641
+delta = 0.174375,0.12
+mask = 1
+scalestart = 1,1
+scaledelta = -0.0006125, 
+Window = -50000,460,50000,506
+windowdelta = 0.174375,0.14
+
+[BG 0,tree 3 Left side front]
+type = normal
+spriteno = 10,1
+start = 923,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+scaledelta = 0.00125, 
+Window = -50000,460,50000,506
+windowdelta = 0.174375,0.14
+
+[BG 0,tree 3 middler]
+type = normal
+spriteno = 10,0
+start = 600,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+Window = -50000,460,50000,506
+windowdelta = 0.174375,0.14
+
+[BG 0,tree 2 middler];pel
+type = normal
+spriteno = 10,0
+start = -700,641
+delta = 0.174375,0.12
+mask = 1
+scalestart = 1,1
+Window = -50000,-5000,50000,160
+windowdelta = 0.174375,0.12
+;____________________________________________________________________________
+
+[BG 0,tree 2 right side back]
+type = normal
+spriteno = 10,4
+start = -337,641
+delta = 0.174375,0.12
+mask = 1
+scalestart = 1,1
+scaledelta = 0.00125, 
+Window = -50000,-60,50000,60
+windowdelta = 0.174375,0.14
+sin.x = 2.5,320
+
+[BG 0,tree 2 right side front]
+type = normal
+spriteno = 10,2
+start = -336,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+scaledelta = -0.00125, 
+Window = -50000,-60,50000,60
+windowdelta = 0.174375,0.14
+sin.x = 2.5,220
+
+[BG 0,tree 2 Left side back]
+type = normal
+spriteno = 10,3
+start = -372,641
+delta = 0.174375,0.12
+mask = 1
+scalestart = 1,1
+scaledelta = -0.0006125, 
+Window = -50000,-60,50000,60
+windowdelta = 0.174375,0.14
+sin.x = 2.5,320
+
+[BG 0,tree 2 Left side front]
+type = normal
+spriteno = 10,1
+start = -377,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+scaledelta = 0.00125, 
+Window = -50000,-60,50000,60
+windowdelta = 0.174375,0.14
+sin.x = 2.5,220
+
+[BG 0,tree 2 middler]
+type = normal
+spriteno = 10,0
+start = -700,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+Window = -50000,-60,50000,60
+windowdelta = 0.174375,0.14
+sin.x = 2.5,220
+;__________________________________________________
+
+
+[BG 0,tree 2 right side back]
+type = normal
+spriteno = 10,4
+start = -337,641
+delta = 0.174375,0.12
+mask = 1
+scalestart = 1,1
+scaledelta = 0.00125, 
+Window = -50000,60,50000,160
+windowdelta = 0.174375,0.14
+sin.x = 2,320
+
+[BG 0,tree 2 right side front]
+type = normal
+spriteno = 10,2
+start = -336,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+scaledelta = -0.00125, 
+Window = -50000,60,50000,160
+windowdelta = 0.174375,0.14
+sin.x = 2,220
+
+[BG 0,tree 2 Left side back]
+type = normal
+spriteno = 10,3
+start = -372,641
+delta = 0.174375,0.12
+mask = 1
+scalestart = 1,1
+scaledelta = -0.0006125, 
+Window = -50000,60,50000,160
+windowdelta = 0.174375,0.14
+sin.x = 2,320
+
+[BG 0,tree 2 Left side front]
+type = normal
+spriteno = 10,1
+start = -377,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+scaledelta = 0.00125, 
+Window = -50000,60,50000,160
+windowdelta = 0.174375,0.14
+sin.x = 2,220
+
+[BG 0,tree 2 middler]
+type = normal
+spriteno = 10,0
+start = -700,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+Window = -50000,60,50000,160
+windowdelta = 0.174375,0.14
+sin.x = 2,220
+;__________________________________________________
+
+[BG 0,tree 2 right side back]
+type = normal
+spriteno = 10,4
+start = -337,641
+delta = 0.174375,0.12
+mask = 1
+scalestart = 1,1
+scaledelta = 0.00125, 
+Window = -50000,160,50000,260
+windowdelta = 0.174375,0.14
+sin.x = 1.5,320
+
+[BG 0,tree 2 right side front]
+type = normal
+spriteno = 10,2
+start = -336,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+scaledelta = -0.00125, 
+Window = -50000,160,50000,260
+windowdelta = 0.174375,0.14
+sin.x = 1.5,220
+
+[BG 0,tree 2 Left side back]
+type = normal
+spriteno = 10,3
+start = -372,641
+delta = 0.174375,0.12
+mask = 1
+scalestart = 1,1
+scaledelta = -0.0006125, 
+Window = -50000,160,50000,260
+windowdelta = 0.174375,0.14
+sin.x = 1.5,320
+
+[BG 0,tree 2 Left side front]
+type = normal
+spriteno = 10,1
+start = -377,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+scaledelta = 0.00125, 
+Window = -50000,160,50000,260
+windowdelta = 0.174375,0.14
+sin.x = 1.5,220
+
+[BG 0,tree 2 middler]
+type = normal
+spriteno = 10,0
+start = -700,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+Window = -50000,160,50000,260
+windowdelta = 0.174375,0.14
+sin.x = 1.5,220
+;________________________________________________________________
+
+
+[BG 0,tree 2 right side back]
+type = normal
+spriteno = 10,4
+start = -337,641
+delta = 0.174375,0.12
+mask = 1
+scalestart = 1,1
+scaledelta = 0.00125, 
+Window = -50000,260,50000,360
+windowdelta = 0.174375,0.14
+sin.x = 1,320
+
+[BG 0,tree 2 right side front]
+type = normal
+spriteno = 10,2
+start = -336,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+scaledelta = -0.00125, 
+Window = -50000,260,50000,360
+windowdelta = 0.174375,0.14
+sin.x = 1,220
+
+[BG 0,tree 2 Left side back]
+type = normal
+spriteno = 10,3
+start = -372,641
+delta = 0.174375,0.12
+mask = 1
+scalestart = 1,1
+scaledelta = -0.0006125, 
+Window = -50000,260,50000,360
+windowdelta = 0.174375,0.14
+sin.x = 1,320
+
+[BG 0,tree 2 Left side front]
+type = normal
+spriteno = 10,1
+start = -377,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+scaledelta = 0.00125, 
+Window = -50000,260,50000,360
+windowdelta = 0.174375,0.14
+sin.x = 1,220
+
+[BG 0,tree 2 middler]
+type = normal
+spriteno = 10,0
+start = -700,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+Window = -50000,260,50000,360
+windowdelta = 0.174375,0.14
+sin.x = 1,220
+;________________________________________________________________
+
+
+[BG 0,tree 2 right side back]
+type = normal
+spriteno = 10,4
+start = -337,641
+delta = 0.174375,0.12
+mask = 1
+scalestart = 1,1
+scaledelta = 0.00125, 
+Window = -50000,360,50000,460
+windowdelta = 0.174375,0.14
+sin.x = 0.5,320
+
+[BG 0,tree 2 right side front]
+type = normal
+spriteno = 10,2
+start = -336,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+scaledelta = -0.00125, 
+Window = -50000,360,50000,460
+windowdelta = 0.174375,0.14
+sin.x = 0.5,220
+
+[BG 0,tree 2 Left side back]
+type = normal
+spriteno = 10,3
+start = -372,641
+delta = 0.174375,0.12
+mask = 1
+scalestart = 1,1
+scaledelta = -0.0006125, 
+Window = -50000,360,50000,460
+windowdelta = 0.174375,0.14
+sin.x = 0.5,320
+
+[BG 0,tree 2 Left side front]
+type = normal
+spriteno = 10,1
+start = -377,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+scaledelta = 0.00125, 
+Window = -50000,360,50000,460
+windowdelta = 0.174375,0.14
+sin.x = 0.5,220
+
+[BG 0,tree 2 middler]
+type = normal
+spriteno = 10,0
+start = -700,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+Window = -50000,360,50000,460
+windowdelta = 0.174375,0.14
+sin.x = 0.5,220
+;________________________________________________________________
+
+
+
+[BG 0,tree 2 right side back]
+type = normal
+spriteno = 10,4
+start = -337,641
+delta = 0.174375,0.12
+mask = 1
+scalestart = 1,1
+scaledelta = 0.00125, 
+Window = -50000,460,50000,506
+windowdelta = 0.174375,0.14
+
+[BG 0,tree 2 right side front]
+type = normal
+spriteno = 10,2
+start = -336,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+scaledelta = -0.00125, 
+Window = -50000,460,50000,506
+windowdelta = 0.174375,0.14
+
+[BG 0,tree 2 Left side back]
+type = normal
+spriteno = 10,3
+start = -372,641
+delta = 0.174375,0.12
+mask = 1
+scalestart = 1,1
+scaledelta = -0.0006125, 
+Window = -50000,460,50000,506
+windowdelta = 0.174375,0.14
+
+[BG 0,tree 2 Left side front]
+type = normal
+spriteno = 10,1
+start = -377,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+scaledelta = 0.00125, 
+Window = -50000,460,50000,506
+windowdelta = 0.174375,0.14
+
+[BG 0,tree 2 middler]
+type = normal
+spriteno = 10,0
+start = -700,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+Window = -50000,460,50000,506
+windowdelta = 0.174375,0.14
+
+
+[BG 0,tree middler]
+type = normal
+spriteno = 10,0
+start = 0,641
+delta = 0.174375,0.12
+mask = 1
+scalestart = 1,1
+Window = -50000,-5000,50000,160
+windowdelta = 0.174375,0.12
+
+
+
+
+;____________________________
+
+
+
+TREE MIDDLE BACK RIGHT TREE MIDDLE BACK RIGHT TREE MIDDLE BACK RI
+;________________________________________________________________
+
+[BG 0,tree right side back]
+type = normal
+spriteno = 10,4
+start = 363,641
+delta = 0.174375,0.12
+mask = 1
+scalestart = 1,1
+scaledelta = 0.00125, 
+Window = -50000,-60,50000,60
+windowdelta = 0.174375,0.14
+sin.x = 2.5,300
+
+[BG 0,tree right side front]
+type = normal
+spriteno = 10,2
+start = 364,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+scaledelta = -0.00125, 
+Window = -50000,-60,50000,60
+windowdelta = 0.174375,0.14
+sin.x = 2.5,200
+
+[BG 0,tree Left side back]
+type = normal
+spriteno = 10,3
+start = 328,641
+delta = 0.174375,0.12
+mask = 1
+scalestart = 1,1
+scaledelta = -0.0006125, 
+Window = -50000,-60,50000,60
+windowdelta = 0.174375,0.14
+sin.x = 2.5,300
+
+[BG 0,tree Left side front]
+type = normal
+spriteno = 10,1
+start = 323,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+scaledelta = 0.00125, 
+Window = -50000,-60,50000,60
+windowdelta = 0.174375,0.14
+sin.x = 2.5,200
+
+[BG 0,tree middler]
+type = normal
+spriteno = 10,0
+start = 0,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+Window = -50000,-60,50000,60
+windowdelta = 0.174375,0.14
+sin.x = 2.5,200
+
+;_______________________________________
+
+[BG 0,tree right side back]
+type = normal
+spriteno = 10,4
+start = 363,641
+delta = 0.174375,0.12
+mask = 1
+scalestart = 1,1
+scaledelta = 0.00125, 
+Window = -50000,60,50000,160
+windowdelta = 0.174375,0.14
+sin.x = 2,300
+
+[BG 0,tree right side front]
+type = normal
+spriteno = 10,2
+start = 364,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+scaledelta = -0.00125, 
+Window = -50000,60,50000,160
+windowdelta = 0.174375,0.14
+sin.x = 2,200
+
+[BG 0,tree Left side back]
+type = normal
+spriteno = 10,3
+start = 328,641
+delta = 0.174375,0.12
+mask = 1
+scalestart = 1,1
+scaledelta = -0.0006125, 
+Window = -50000,60,50000,160
+windowdelta = 0.174375,0.14
+sin.x = 2,300
+
+[BG 0,tree Left side front]
+type = normal
+spriteno = 10,1
+start = 323,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+scaledelta = 0.00125, 
+Window = -50000,60,50000,160
+windowdelta = 0.174375,0.14
+sin.x = 2,200
+
+[BG 0,tree middler]
+type = normal
+spriteno = 10,0
+start = 0,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+Window = -50000,60,50000,160
+windowdelta = 0.174375,0.14
+sin.x = 2,200
+
+;______________________________________________
+
+
+[BG 0,tree right side back]
+type = normal
+spriteno = 10,4
+start = 363,641
+delta = 0.174375,0.12
+mask = 1
+scalestart = 1,1
+scaledelta = 0.00125, 
+Window = -50000,160,50000,260
+windowdelta = 0.174375,0.14
+sin.x = 1.5,300
+
+[BG 0,tree right side front]
+type = normal
+spriteno = 10,2
+start = 364,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+scaledelta = -0.00125, 
+Window = -50000,160,50000,260
+windowdelta = 0.174375,0.14
+sin.x = 1.5,200
+
+[BG 0,tree Left side back]
+type = normal
+spriteno = 10,3
+start = 328,641
+delta = 0.174375,0.12
+mask = 1
+scalestart = 1,1
+scaledelta = -0.0006125, 
+Window = -50000,160,50000,260
+windowdelta = 0.174375,0.14
+sin.x = 1.5,300
+
+[BG 0,tree Left side front]
+type = normal
+spriteno = 10,1
+start = 323,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+scaledelta = 0.00125, 
+Window = -50000,160,50000,260
+windowdelta = 0.174375,0.14
+sin.x = 1.5,200
+
+[BG 0,tree middler]
+type = normal
+spriteno = 10,0
+start = 0,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+Window = -50000,160,50000,260
+windowdelta = 0.174375,0.14
+sin.x = 1.5,200
+
+;______________________________________________
+
+
+
+[BG 0,tree right side back]
+type = normal
+spriteno = 10,4
+start = 363,641
+delta = 0.174375,0.12
+mask = 1
+scalestart = 1,1
+scaledelta = 0.00125, 
+Window = -50000,260,50000,360
+windowdelta = 0.174375,0.14
+sin.x = 1,300
+
+[BG 0,tree right side front]
+type = normal
+spriteno = 10,2
+start = 364,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+scaledelta = -0.00125, 
+Window = -50000,260,50000,360
+windowdelta = 0.174375,0.14
+sin.x = 1,200
+
+[BG 0,tree Left side back]
+type = normal
+spriteno = 10,3
+start = 328,641
+delta = 0.174375,0.12
+mask = 1
+scalestart = 1,1
+scaledelta = -0.0006125, 
+Window = -50000,260,50000,360
+windowdelta = 0.174375,0.14
+sin.x = 1,300
+
+[BG 0,tree Left side front]
+type = normal
+spriteno = 10,1
+start = 323,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+scaledelta = 0.00125, 
+Window = -50000,260,50000,360
+windowdelta = 0.174375,0.14
+sin.x = 1,200
+
+[BG 0,tree middler]
+type = normal
+spriteno = 10,0
+start = 0,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+Window = -50000,260,50000,360
+windowdelta = 0.174375,0.14
+sin.x = 1,200
+
+;__________________________________________________________
+
+
+
+[BG 0,tree right side back]
+type = normal
+spriteno = 10,4
+start = 363,641
+delta = 0.174375,0.12
+mask = 1
+scalestart = 1,1
+scaledelta = 0.00125, 
+Window = -50000,360,50000,460
+windowdelta = 0.174375,0.14
+sin.x = 0.5,300
+
+[BG 0,tree right side front]
+type = normal
+spriteno = 10,2
+start = 364,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+scaledelta = -0.00125, 
+Window = -50000,360,50000,460
+windowdelta = 0.174375,0.14
+sin.x = 0.5,200
+
+[BG 0,tree Left side back]
+type = normal
+spriteno = 10,3
+start = 328,641
+delta = 0.174375,0.12
+mask = 1
+scalestart = 1,1
+scaledelta = -0.0006125, 
+Window = -50000,360,50000,460
+windowdelta = 0.174375,0.14
+sin.x = 0.5,300
+
+[BG 0,tree Left side front]
+type = normal
+spriteno = 10,1
+start = 323,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+scaledelta = 0.00125, 
+Window = -50000,360,50000,460
+windowdelta = 0.174375,0.14
+sin.x = 0.5,200
+
+[BG 0,tree middler]
+type = normal
+spriteno = 10,0
+start = 0,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+Window = -50000,360,50000,460
+windowdelta = 0.174375,0.14
+sin.x = 0.5,200
+;____________________________________________________________________________
+
+
+;__________________________________________________________
+
+
+
+[BG 0,tree right side back]
+type = normal
+spriteno = 10,4
+start = 363,641
+delta = 0.174375,0.12
+mask = 1
+scalestart = 1,1
+scaledelta = 0.00125, 
+Window = -50000,460,50000,506
+windowdelta = 0.174375,0.14
+
+[BG 0,tree right side front]
+type = normal
+spriteno = 10,2
+start = 364,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+scaledelta = -0.00125, 
+Window = -50000,460,50000,506
+windowdelta = 0.174375,0.14
+
+[BG 0,tree Left side back]
+type = normal
+spriteno = 10,3
+start = 328,641
+delta = 0.174375,0.12
+mask = 1
+scalestart = 1,1
+scaledelta = -0.0006125, 
+Window = -50000,460,50000,506
+windowdelta = 0.174375,0.14
+
+[BG 0,tree Left side front]
+type = normal
+spriteno = 10,1
+start = 323,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+scaledelta = 0.00125, 
+Window = -50000,460,50000,506
+windowdelta = 0.174375,0.14
+
+[BG 0,tree middler]
+type = normal
+spriteno = 10,0
+start = 0,641
+delta = 0.174375,0.14
+mask = 1
+scalestart = 1,1
+Window = -50000,460,50000,506
+windowdelta = 0.174375,0.14
+
+[BG 0,Falling leaves left]
+type = normal
+spriteno = 12,0
+start = 0,641
+delta = 0.174375,0.12
+mask = 1
+tile = 1,1
+Velocity = 0, 0.5
+scalestart = 0.5,0.5
+Window = -50000,200,550,500
+Windowdelta = 0.174375,0.12
+sin.x = 12, 222
+sin.y = 8, 222
+
+;[BG 0,Falling leaves right]
+;type = normal
+;spriteno = 12,0
+;start = 0,641
+;delta = 0.174375,0.12
+;mask = 1
+;tile = 1,1
+;Velocity = 0, 0.5
+;scalestart = 0.5,0.5
+;Window = 620,500,50000,200
+;Windowdelta = 0.174375,0.12
+;sin.x = 15, 213
+;sin.y = 10, 213
+
+;____________________________________________________________________________
+;BUSH 4 BUSH 4 BUSH 4 BUSH 4 BUSH 4 BUSH 4 BUSH 4 BUS
+;____________________________________________________
+;RIGHT RIGHT RIGHT RIGHT RIGHT RIGHT RIGHT RIGHT RIGH
+
+[BG 0,Bush 4 top]
+type = normal
+spriteno = 11,3
+start = 0,641
+delta = 0.20,0.16
+mask = 1
+scalestart = 1,1
+tile = 1
+tilespacing = 50
+Window = 709,-42069,50000,470
+sin.x = 1, 180
+windowdelta = 0.20,0.17
+
+[BG 0,Bush 4 middle]
+type = normal
+spriteno = 11,3
+start = 0,641
+delta = 0.20,0.16
+mask = 1
+scalestart = 1,1
+tile = 1
+tilespacing = 50
+Window = 709,470,50000,490
+sin.x = 0.5, 180
+windowdelta = 0.20,0.17
+
+
+[BG 0,Bush 4 bottom]
+type = normal
+spriteno = 11,3
+start = 0,641
+delta = 0.20,0.16
+mask = 1
+scalestart = 1,1
+tile = 1
+tilespacing = 50
+Window = 709,490,50000,510
+windowdelta = 0.20,0.17
+
+;____________________________________________________
+;LEFT LEFT LEFT LEFT LEFT LEFT LEFT LEFT LEFT LEFT LE
+
+[BG 0,Bush 4 top]
+type = normal
+spriteno = 11,3
+start = 0,641
+delta = 0.20,0.16
+mask = 1
+scalestart = 1,1
+tile = 1
+tilespacing = 50
+Window = -50000,-42069,537,470
+sin.x = 1, 180
+windowdelta = 0.20,0.17
+
+[BG 0,Bush 4 middle]
+type = normal
+spriteno = 11,3
+start = 0,641
+delta = 0.20,0.16
+mask = 1
+scalestart = 1,1
+tile = 1
+tilespacing = 50
+Window = -50000,470,537,490
+sin.x = 0.5, 180
+windowdelta = 0.20,0.17
+
+
+[BG 0,Bush 4 bottom]
+type = normal
+spriteno = 11,3
+start = 0,641
+delta = 0.20,0.16
+mask = 1
+scalestart = 1,1
+tile = 1
+tilespacing = 50
+Window = -50000,490,537,510
+windowdelta = 0.20,0.17
+
+[BG 0,grass 8 right]
+type = normal
+spriteno = 14,0
+start = -235,500
+delta = 0.23,0.18
+mask = 1
+scalestart = 0.3,0.6
+tile = 1
+window = 696,-5000,5000,5000
+windowdelta = 0.23,0.18
+
+[BG 0,grass 8 left] 
+type = normal
+spriteno = 14,0
+start = -235,500
+delta = 0.23,0.18
+mask = 1
+scalestart = 0.3,0.6
+tile = 1
+window = -5000,-5000,556,5000
+windowdelta = 0.23,0.18
+
+
+
+;________________________________________
+;BUSH 3 BUSH 3 BUSH 3 BUSH 3 BUSH 3 BU
+;_____________________________________
+;RIGHT RIGHT RIGHT RIGHT RIGHT RIGHT R
+
+[BG 0,Bush 3 top]
+type = normal
+spriteno = 11,2
+start = 0,694
+delta = 0.25,0.21
+mask = 1
+scalestart = 1.25,1.25
+tile = 1
+tilespacing = 50 ;100
+window = 714, -5000, 5400, 482
+windowdelta = 0.25,0.21
+sin.x = 2, 226
+
+[BG 0,Bush 3 middle]
+type = normal
+spriteno = 11,2
+start = 0,694
+delta = 0.25,0.21
+mask = 1
+scalestart = 1.25,1.25
+tile = 1
+tilespacing = 50 ;100
+window = 714, 482, 5400, 505
+windowdelta = 0.25,0.21
+sin.x = 1, 226
+
+
+[BG 0,Bush 3 bottom]
+type = normal
+spriteno = 11,2
+start = 0,694
+delta = 0.25,0.21
+mask = 1
+scalestart = 1.25,1.25
+tile = 1
+tilespacing = 50 ;100
+window = 714, 505, 5400, 1000
+windowdelta = 0.25,0.21
+
+;_____________________________________
+;LEFT LEFT LEFT LEFT LEFT LEFT LEFT LE
+
+[BG 0,Bush 3 top]
+type = normal
+spriteno = 11,2
+start = 0,694
+delta = 0.25,0.21
+mask = 1
+scalestart = 1.25,1.25
+tile = 1
+tilespacing = 50 ;100
+window = -5000, -5000, 540, 483
+windowdelta = 0.25,0.21
+sin.x = 2, 226
+
+[BG 0,Bush 3 middle]
+type = normal
+spriteno = 11,2
+start = 0,694
+delta = 0.25,0.21
+mask = 1
+scalestart = 1.25,1.25
+tile = 1
+tilespacing = 50 ;100
+window = -5000, 482, 540, 505
+windowdelta = 0.25,0.21
+sin.x = 1, 226
+
+[BG 0,Bush 3 bottom]
+type = normal
+spriteno = 11,2
+start = 0,694
+delta = 0.25,0.21
+mask = 1
+scalestart = 1.25,1.25
+tile = 1
+tilespacing = 50 ;100
+window = -5000, 505, 540, 1000
+windowdelta = 0.25,0.21
+
+[BG 0,grass 7 right top]
+type = normal
+spriteno = 14,0
+start = -100,510
+delta = 0.3,0.25
+mask = 1
+scalestart = 0.4,0.8
+tile = 1
+window = 725,-5000,5000,520
+windowdelta = 0.3,0.25
+sin.x = 1, 100
+
+
+[BG 0,grass 7 right bottom]
+type = normal
+spriteno = 14,0
+start = -100,510
+delta = 0.3,0.25
+mask = 1
+scalestart = 0.4,0.8
+tile = 1
+window = 725,520,5000,5000
+windowdelta = 0.3,0.25
+
+[BG 0,grass 7 left top]
+type = normal
+spriteno = 14,0
+start = -100,510
+delta = 0.3,0.25
+mask = 1
+scalestart = 0.4,0.8
+tile = 1
+window = -5000,-5000,560,520
+windowdelta = 0.3,0.25
+sin.x = 1, 100
+
+
+[BG 0,grass 7 left bottom]
+type = normal
+spriteno = 14,0
+start = -100,510
+delta = 0.3,0.25
+mask = 1
+scalestart = 0.4,0.8
+tile = 1
+window = -5000,520,560,5000
+windowdelta = 0.3,0.25
+
+
+
+
+TREE MIDDLE FRONT RIGHT TREE MIDDLE FRONT RIGHT TREE MIDDLE 
+;_________________________________________________________;
+
+[BG 0,tree right side back test]
+type = normal
+spriteno = 10,4
+start = 372,700
+delta = 0.31,0.25
+mask = 1
+scalestart = 1.25,1.25
+scaledelta = 0.00125, 
+Window = -50000,-3000,50000,130
+windowdelta = 0.31,0.25
+Sin.x = 2.5, 221
+
+[BG 0,tree right side front test]
+type = normal
+spriteno = 10,2
+start = 372,700
+delta = 0.31,0.25
+mask = 1
+scalestart = 1.25,1.25
+scaledelta = -0.00125, 
+Window = -50000,-3000,50000,130
+windowdelta = 0.31,0.25
+Sin.x = 2.5, 231
+
+[BG 0,tree Left side back test]
+type = normal
+spriteno = 10,3
+start = 328,700
+delta = 0.31,0.25
+mask = 1
+scalestart = 1.25,1.25
+scaledelta = -0.0006125, 
+Window = -50000,-3000,50000,130
+windowdelta = 0.31,0.25
+Sin.x = 2.5, 221
+
+[BG 0,tree Left side front test]
+type = normal
+spriteno = 10,1
+start = 323,700
+delta = 0.31,0.25
+mask = 1
+scalestart = 1.25,1.25
+scaledelta = 0.00125, 
+Window = -50000,-3000,50000,130
+windowdelta = 0.31,0.25
+Sin.x = 2.5, 231
+
+[BG 0,tree middler test]
+type = normal
+spriteno = 10,0
+start = -81,700
+delta = 0.31,0.25
+mask = 1
+scalestart = 1.25,1.25
+Window = -50000,-3000,50000,130
+windowdelta = 0.31,0.25
+Sin.x = 2.5, 231
+
+;_________________________________________________________;
+
+;_________________________________________________________;
+
+[BG 0,tree right side back test]
+type = normal
+spriteno = 10,4
+start = 372,700
+delta = 0.31,0.25
+mask = 1
+scalestart = 1.25,1.25
+scaledelta = 0.00125, 
+Window = -50000,130,50000,230
+windowdelta = 0.31,0.25
+Sin.x = 2, 221
+
+[BG 0,tree right side front test]
+type = normal
+spriteno = 10,2
+start = 372,700
+delta = 0.31,0.25
+mask = 1
+scalestart = 1.25,1.25
+scaledelta = -0.00125, 
+Window = -50000,130,50000,230
+windowdelta = 0.31,0.25
+Sin.x = 2, 231
+
+[BG 0,tree Left side back test]
+type = normal
+spriteno = 10,3
+start = 328,700
+delta = 0.31,0.25
+mask = 1
+scalestart = 1.25,1.25
+scaledelta = -0.0006125, 
+Window = -50000,130,50000,230
+windowdelta = 0.31,0.25
+Sin.x = 2, 221
+
+[BG 0,tree Left side front test]
+type = normal
+spriteno = 10,1
+start = 323,700
+delta = 0.31,0.25
+mask = 1
+scalestart = 1.25,1.25
+scaledelta = 0.00125, 
+Window = -50000,130,50000,230
+windowdelta = 0.31,0.25
+Sin.x = 2, 231
+
+[BG 0,tree middler test]
+type = normal
+spriteno = 10,0
+start = -81,700
+delta = 0.31,0.25
+mask = 1
+scalestart = 1.25,1.25
+Window = -50000,130,50000,230
+windowdelta = 0.31,0.25
+Sin.x = 2, 231
+
+;_________________________________________________________;
+
+;_________________________________________________________;
+
+[BG 0,tree right side back test]
+type = normal
+spriteno = 10,4
+start = 372,700
+delta = 0.31,0.25
+mask = 1
+scalestart = 1.25,1.25
+scaledelta = 0.00125, 
+Window = -50000,230,50000,330
+windowdelta = 0.31,0.25
+Sin.x = 1.5, 221
+
+[BG 0,tree right side front test]
+type = normal
+spriteno = 10,2
+start = 372,700
+delta = 0.31,0.25
+mask = 1
+scalestart = 1.25,1.25
+scaledelta = -0.00125, 
+Window = -50000,230,50000,330
+windowdelta = 0.31,0.25
+Sin.x = 1.5, 231
+
+[BG 0,tree Left side back test]
+type = normal
+spriteno = 10,3
+start = 328,700
+delta = 0.31,0.25
+mask = 1
+scalestart = 1.25,1.25
+scaledelta = -0.0006125, 
+Window = -50000,230,50000,330
+windowdelta = 0.31,0.25
+Sin.x = 1.5, 221
+
+[BG 0,tree Left side front test]
+type = normal
+spriteno = 10,1
+start = 323,700
+delta = 0.31,0.25
+mask = 1
+scalestart = 1.25,1.25
+scaledelta = 0.00125, 
+Window = -50000,230,50000,330
+windowdelta = 0.31,0.25
+Sin.x = 1.5, 231
+
+[BG 0,tree middler test]
+type = normal
+spriteno = 10,0
+start = -81,700
+delta = 0.31,0.25
+mask = 1
+scalestart = 1.25,1.25
+Window = -50000,230,50000,330
+windowdelta = 0.31,0.25
+Sin.x = 1.5, 231
+
+;_________________________________________________________;
+
+
+;_________________________________________________________;
+
+[BG 0,tree right side back test]
+type = normal
+spriteno = 10,4
+start = 372,700
+delta = 0.31,0.25
+mask = 1
+scalestart = 1.25,1.25
+scaledelta = 0.00125, 
+Window = -50000,330,50000,430
+windowdelta = 0.31,0.25
+Sin.x = 1, 221
+
+[BG 0,tree right side front test]
+type = normal
+spriteno = 10,2
+start = 372,700
+delta = 0.31,0.25
+mask = 1
+scalestart = 1.25,1.25
+scaledelta = -0.00125, 
+Window = -50000,330,50000,430
+windowdelta = 0.31,0.25
+Sin.x = 1, 231
+
+[BG 0,tree Left side back test]
+type = normal
+spriteno = 10,3
+start = 328,700
+delta = 0.31,0.25
+mask = 1
+scalestart = 1.25,1.25
+scaledelta = -0.0006125, 
+Window = -50000,330,50000,430
+windowdelta = 0.31,0.25
+Sin.x = 1, 221
+
+[BG 0,tree Left side front test]
+type = normal
+spriteno = 10,1
+start = 323,700
+delta = 0.31,0.25
+mask = 1
+scalestart = 1.25,1.25
+scaledelta = 0.00125, 
+Window = -50000,330,50000,430
+windowdelta = 0.31,0.25
+Sin.x = 1, 231
+
+[BG 0,tree middler test]
+type = normal
+spriteno = 10,0
+start = -81,700
+delta = 0.31,0.25
+mask = 1
+scalestart = 1.25,1.25
+Window = -50000,330,50000,430
+windowdelta = 0.31,0.25
+Sin.x = 1, 231
+
+;_________________________________________________________;
+
+[BG 0,tree right side back test]
+type = normal
+spriteno = 10,4
+start = 372,700
+delta = 0.31,0.25
+mask = 1
+scalestart = 1.25,1.25
+scaledelta = 0.00125, 
+Window = -50000,430,50000,530
+windowdelta = 0.31,0.25
+
+[BG 0,tree right side front test]
+type = normal
+spriteno = 10,2
+start = 372,700
+delta = 0.31,0.25
+mask = 1
+scalestart = 1.25,1.25
+scaledelta = -0.00125, 
+Window = -50000,430,50000,530
+windowdelta = 0.31,0.25
+
+[BG 0,tree Left side back test]
+type = normal
+spriteno = 10,3
+start = 328,700
+delta = 0.31,0.25
+mask = 1
+scalestart = 1.25,1.25
+scaledelta = -0.0006125, 
+Window = -50000,430,50000,530
+windowdelta = 0.31,0.25
+
+[BG 0,tree Left side front test]
+type = normal
+spriteno = 10,1
+start = 323,700
+delta = 0.31,0.25
+mask = 1
+scalestart = 1.25,1.25
+scaledelta = 0.00125, 
+Window = -50000,430,50000,530
+windowdelta = 0.31,0.25
+
+[BG 0,tree middler test]
+type = normal
+spriteno = 10,0
+start = -81,700
+delta = 0.31,0.25
+mask = 1
+scalestart = 1.25,1.25
+Window = -50000,430,50000,530
+windowdelta = 0.31,0.25
+
+
+
+
+
+MISC TREE MISC TREE MISC TREE MISC TREE MISC TREE MISC TREE
+;_________________________________________________________;
+
+[BG 0,tree right side back test]
+type = normal
+spriteno = 10,4
+start = 1072,700
+delta = 0.31,0.25
+mask = 1
+scalestart = 1.25,1.25
+scaledelta = 0.00125, 
+;Window = -50000,460,50000,506
+;windowdelta = 0.174375,0.14
+
+[BG 0,tree right side front test]
+type = normal
+spriteno = 10,2
+start = 1072,700
+delta = 0.31,0.25
+mask = 1
+scalestart = 1.25,1.25
+scaledelta = -0.00125, 
+;Window = -50000,460,50000,506
+;windowdelta = 0.174375,0.14
+
+[BG 0,tree Left side back test]
+type = normal
+spriteno = 10,3
+start = 1028,700
+delta = 0.31,0.25
+mask = 1
+scalestart = 1.25,1.25
+scaledelta = -0.0006125, 
+;Window = -50000,460,50000,506
+;windowdelta = 0.174375,0.14
+
+[BG 0,tree Left side front test]
+type = normal
+spriteno = 10,1
+start = 1023,700
+delta = 0.31,0.25
+mask = 1
+scalestart = 1.25,1.25
+scaledelta = 0.00125, 
+;Window = -50000,460,50000,506
+;windowdelta = 0.174375,0.14
+
+[BG 0,tree middler test]
+type = normal
+spriteno = 10,0
+start = 619,700 ;rey mysterio
+delta = 0.31,0.25
+mask = 1
+scalestart = 1.25,1.25
+;Window = -50000,460,50000,506
+;windowdelta = 0.174375,0.14
+
+
+
+
+
+
+
+
+
+TREE MIDDLE FRONT LEFT TREE MIDDLE FRONT LEFT TREE MID
+;_____________________________________________________
+
+[BG 0,tree right side back test]
+type = normal
+spriteno = 10,4
+start = -628,700
+delta = 0.31,0.25
+mask = 1
+scalestart = 1.25,1.25
+scaledelta = 0.00125, 
+Window = -50000,-300,50000,130
+windowdelta = 0.31,0.25
+sin.x = 2.5, 233
+
+[BG 0,tree right side front test]
+type = normal
+spriteno = 10,2
+start = -628,700
+delta = 0.31,0.25
+mask = 1
+scalestart = 1.25,1.25
+scaledelta = -0.00125, 
+Window = -50000,-300,50000,130
+windowdelta = 0.31,0.25
+sin.x = 2.5, 243
+
+[BG 0,tree Left side back test]
+type = normal
+spriteno = 10,3
+start = -673,700
+delta = 0.31,0.25
+mask = 1
+scalestart = 1.25,1.25
+scaledelta = -0.0006125, 
+Window = -50000,-300,50000,130
+windowdelta = 0.31,0.25
+sin.x = 2.5, 233
+
+[BG 0,tree Left side front test]
+type = normal
+spriteno = 10,1
+start = -677,700
+delta = 0.31,0.25
+mask = 1
+scalestart = 1.25,1.25
+scaledelta = 0.00125, 
+Window = -50000,-300,50000,130
+windowdelta = 0.31,0.25
+sin.x = 2.5, 243
+
+[BG 0,tree middler test]
+type = normal
+spriteno = 10,0
+start = -1081,700
+delta = 0.31,0.25
+mask = 1
+scalestart = 1.25,1.25
+Window = -50000,-300,50000,130
+windowdelta = 0.31,0.25
+sin.x = 2.5, 243
+;_________________________________________________________________
+;_____________________________________________________
+
+[BG 0,tree right side back test]
+type = normal
+spriteno = 10,4
+start = -628,700
+delta = 0.31,0.25
+mask = 1
+scalestart = 1.25,1.25
+scaledelta = 0.00125, 
+Window = -50000,130,50000,230
+windowdelta = 0.31,0.25
+sin.x = 2, 233
+
+[BG 0,tree right side front test]
+type = normal
+spriteno = 10,2
+start = -628,700
+delta = 0.31,0.25
+mask = 1
+scalestart = 1.25,1.25
+scaledelta = -0.00125, 
+Window = -50000,130,50000,230
+windowdelta = 0.31,0.25
+sin.x = 2, 243
+
+[BG 0,tree Left side back test]
+type = normal
+spriteno = 10,3
+start = -673,700
+delta = 0.31,0.25
+mask = 1
+scalestart = 1.25,1.25
+scaledelta = -0.0006125, 
+Window = -50000,130,50000,230
+windowdelta = 0.31,0.25
+sin.x = 2, 233
+
+[BG 0,tree Left side front test]
+type = normal
+spriteno = 10,1
+start = -677,700
+delta = 0.31,0.25
+mask = 1
+scalestart = 1.25,1.25
+scaledelta = 0.00125, 
+Window = -50000,130,50000,230
+windowdelta = 0.31,0.25
+sin.x = 2, 243
+
+[BG 0,tree middler test]
+type = normal
+spriteno = 10,0
+start = -1081,700
+delta = 0.31,0.25
+mask = 1
+scalestart = 1.25,1.25
+Window = -50000,130,50000,230
+windowdelta = 0.31,0.25
+sin.x = 2, 243
+;_________________________________________________________________
+
+;_____________________________________________________
+
+[BG 0,tree right side back test]
+type = normal
+spriteno = 10,4
+start = -628,700
+delta = 0.31,0.25
+mask = 1
+scalestart = 1.25,1.25
+scaledelta = 0.00125, 
+Window = -50000,230,50000,330
+windowdelta = 0.31,0.25
+sin.x = 1.5, 233
+
+[BG 0,tree right side front test]
+type = normal
+spriteno = 10,2
+start = -628,700
+delta = 0.31,0.25
+mask = 1
+scalestart = 1.25,1.25
+scaledelta = -0.00125, 
+Window = -50000,230,50000,330
+windowdelta = 0.31,0.25
+sin.x = 1.5, 243
+
+[BG 0,tree Left side back test]
+type = normal
+spriteno = 10,3
+start = -673,700
+delta = 0.31,0.25
+mask = 1
+scalestart = 1.25,1.25
+scaledelta = -0.0006125, 
+Window = -50000,230,50000,330
+windowdelta = 0.31,0.25
+sin.x = 1.5, 233
+
+[BG 0,tree Left side front test]
+type = normal
+spriteno = 10,1
+start = -677,700
+delta = 0.31,0.25
+mask = 1
+scalestart = 1.25,1.25
+scaledelta = 0.00125, 
+Window = -50000,230,50000,330
+windowdelta = 0.31,0.25
+sin.x = 1.5, 243
+
+[BG 0,tree middler test]
+type = normal
+spriteno = 10,0
+start = -1081,700
+delta = 0.31,0.25
+mask = 1
+scalestart = 1.25,1.25
+Window = -50000,230,50000,330
+windowdelta = 0.31,0.25
+sin.x = 1.5, 243
+;_________________________________________________________________
+
+
+;_____________________________________________________
+
+[BG 0,tree right side back test]
+type = normal
+spriteno = 10,4
+start = -628,700
+delta = 0.31,0.25
+mask = 1
+scalestart = 1.25,1.25
+scaledelta = 0.00125, 
+Window = -50000,330,50000,430
+windowdelta = 0.31,0.25
+sin.x = 1, 233
+
+[BG 0,tree right side front test]
+type = normal
+spriteno = 10,2
+start = -628,700
+delta = 0.31,0.25
+mask = 1
+scalestart = 1.25,1.25
+scaledelta = -0.00125, 
+Window = -50000,330,50000,430
+windowdelta = 0.31,0.25
+sin.x = 1, 243
+
+[BG 0,tree Left side back test]
+type = normal
+spriteno = 10,3
+start = -673,700
+delta = 0.31,0.25
+mask = 1
+scalestart = 1.25,1.25
+scaledelta = -0.0006125, 
+Window = -50000,330,50000,430
+windowdelta = 0.31,0.25
+sin.x = 1, 233
+
+[BG 0,tree Left side front test]
+type = normal
+spriteno = 10,1
+start = -677,700
+delta = 0.31,0.25
+mask = 1
+scalestart = 1.25,1.25
+scaledelta = 0.00125, 
+Window = -50000,330,50000,430
+windowdelta = 0.31,0.25
+sin.x = 1, 243
+
+[BG 0,tree middler test]
+type = normal
+spriteno = 10,0
+start = -1081,700
+delta = 0.31,0.25
+mask = 1
+scalestart = 1.25,1.25
+Window = -50000,330,50000,430
+windowdelta = 0.31,0.25
+sin.x = 1, 243
+;_________________________________________________________________
+
+;_____________________________________________________
+
+[BG 0,tree right side back test]
+type = normal
+spriteno = 10,4
+start = -628,700
+delta = 0.31,0.25
+mask = 1
+scalestart = 1.25,1.25
+scaledelta = 0.00125, 
+Window = -50000,430,50000,530
+windowdelta = 0.31,0.25
+
+[BG 0,tree right side front test]
+type = normal
+spriteno = 10,2
+start = -628,700
+delta = 0.31,0.25
+mask = 1
+scalestart = 1.25,1.25
+scaledelta = -0.00125, 
+Window = -50000,430,50000,530
+windowdelta = 0.31,0.25
+
+[BG 0,tree Left side back test]
+type = normal
+spriteno = 10,3
+start = -673,700
+delta = 0.31,0.25
+mask = 1
+scalestart = 1.25,1.25
+scaledelta = -0.0006125, 
+Window = -50000,430,50000,530
+windowdelta = 0.31,0.25
+
+[BG 0,tree Left side front test]
+type = normal
+spriteno = 10,1
+start = -677,700
+delta = 0.31,0.25
+mask = 1
+scalestart = 1.25,1.25
+scaledelta = 0.00125, 
+Window = -50000,430,50000,530
+windowdelta = 0.31,0.25
+
+[BG 0,tree middler test]
+type = normal
+spriteno = 10,0
+start = -1081,700
+delta = 0.31,0.25
+mask = 1
+scalestart = 1.25,1.25
+Window = -50000,430,50000,530
+windowdelta = 0.31,0.25
+;_________________________________________________________________
+
+
+[BG 0,Falling leaves right 75]
+type = normal
+spriteno = 12,0
+start = 0,641
+delta = 0.31,0.25
+mask = 1
+tile = 1,1
+Velocity = 0, 0.5
+scalestart = 0.75,0.75
+Window = 730,200,50000,535
+Windowdelta = 0.31,0.25
+sin.x = 7, 213
+sin.y = 3.5, 213
+
+
+
+[BG 0,grass floor 2]
+type = parallax
+spriteno = 0,1
+start = 0,641
+delta = 0.465,0.82
+mask = 1
+width = 2928, 5856
+;xscale = 1,2.5
+scaledelta = 0, -0.006
+scalestart = 1,1
+tile = 1
+
+[BG 0,grass 6 right top]
+type = normal
+spriteno = 14,0
+start = -235,520
+delta = 0.37,0.3
+mask = 1
+scalestart = 0.5,1
+tile = 1
+window = 750,-5000,5000,530
+windowdelta = 0.37,0.3
+sin.x = 1, 145
+
+[BG 0,grass 6 right bottom]
+type = normal
+spriteno = 14,0
+start = -235,520
+delta = 0.37,0.3
+mask = 1
+scalestart = 0.5,1
+tile = 1
+window = 750,530,5000,5000
+windowdelta = 0.37,0.3
+
+[BG 0,grass 6 left top]
+type = normal
+spriteno = 14,1
+start = -235,520
+delta = 0.37,0.3
+mask = 1
+scalestart = 0.5,1
+tile = 1
+window = -5000,-5000,512,530
+windowdelta = 0.37,0.3
+sin.x = 1, 145
+
+[BG 0,grass 6 left bottom]
+type = normal
+spriteno = 14,1
+start = -235,520
+delta = 0.37,0.3
+mask = 1
+scalestart = 0.5,1
+tile = 1
+window = -5000,530,512,5000
+windowdelta = 0.37,0.3
+
+BUSH 2 BUSH 2 BUSH 2 BUSH 2 BUSH 2 BUSH 2
+;________________________________________
+;LEFT LEFT LEFT LEFT LEFT LEFT LEFT LEFT 
+
+[BG 0,Bush 2 top]
+type = normal
+spriteno = 11,1
+start = 35,740
+delta = 0.4,0.33
+mask = 1
+scalestart = 1.35,1.35
+tile = 1
+tilespacing = 50 ;150
+window = -50000, -1000, 500, 500
+Windowdelta = 0.4,0.33
+sin.x = 2,213
+
+[BG 0,Bush 2 middle]
+type = normal
+spriteno = 11,1
+start = 35,740
+delta = 0.4,0.33
+mask = 1
+scalestart = 1.35,1.35
+tile = 1
+tilespacing = 50 ;150
+window = -50000, 500, 500, 530
+Windowdelta = 0.4,0.33
+sin.x = 1, 213
+
+[BG 0,Bush 2 bottom]
+type = normal
+spriteno = 11,1
+start = 35,740
+delta = 0.4,0.33
+mask = 1
+scalestart = 1.35,1.35
+tile = 1
+tilespacing = 50 ;150
+window = -50000, 530, 500, 1000
+Windowdelta = 0.4,0.33
+
+;________________________________________
+;RIGHT RIGHT RIGHT RIGHT RIGHT RIGHT RIGH
+[BG 0,Bush 2 top]
+type = normal
+spriteno = 11,1
+start = 35,740
+delta = 0.4,0.33
+mask = 1
+scalestart = 1.35,1.35
+tile = 1
+tilespacing = 50 ;150
+window = 756, -10000, 50000, 500
+Windowdelta = 0.4,0.33
+sin.x = 2, 213
+
+[BG 0,Bush 2 middle]
+type = normal
+spriteno = 11,1
+start = 35,740
+delta = 0.4,0.33
+mask = 1
+scalestart = 1.35,1.35
+tile = 1
+tilespacing = 50 ;150
+window = 756, 500, 50000, 530
+Windowdelta = 0.4,0.33
+sin.x = 1, 213
+
+[BG 0,Bush 2 bottom]
+type = normal
+spriteno = 11,1
+start = 35,740
+delta = 0.4,0.33
+mask = 1
+scalestart = 1.35,1.35
+tile = 1
+tilespacing = 50 ;150
+window = 756, 530, 50000, 1000
+Windowdelta = 0.4,0.33
+
+
+[BG 0,grass 5 right top]
+type = normal
+spriteno = 14,0
+start = -235,540
+delta = 0.49,0.42
+mask = 1
+scalestart = 0.6,1.2
+tile = 1
+window = 740,-5000,5000,555
+windowdelta = 0.49,0.42
+sin.x = 1, 150
+
+[BG 0,grass 5 right bottom]
+type = normal
+spriteno = 14,0
+start = -235,540
+delta = 0.49,0.42
+mask = 1
+scalestart = 0.6,1.2
+tile = 1
+window = 740,555,5000,5000
+windowdelta = 0.49,0.42
+
+[BG 0,grass 5 left top]
+type = normal
+spriteno = 14,0
+start = -235,540
+delta = 0.49,0.42
+mask = 1
+scalestart = 0.6,1.2
+tile = 1
+window = -5000,-5000,514,555
+windowdelta = 0.49,0.42
+sin.x = 1, 150
+
+[BG 0,grass 5 left bottom]
+type = normal
+spriteno = 14,0
+start = -235,540
+delta = 0.49,0.42
+mask = 1
+scalestart = 0.6,1.2
+tile = 1
+window = -5000,555,514,5000
+windowdelta = 0.49,0.42
+
+
+
+;BUSH 1 BUSH 1 BUSH 1 BUSH 1 BUSH 1 BUS
+;_______________________________________
+;_______________________________________
+LEFT LEFT LEFT LEFT LEFT LEFT LEFT LEFT 
+
+[BG 0,Bush 1 top]
+type = normal
+spriteno = 11,3
+start = 90,770
+delta = 0.55,0.47
+mask = 1
+scalestart = 1.5,1.5
+tile = 1
+tilespacing = 85
+window = -50000, -10000, 508, 520
+windowdelta = 0.56,0.46
+sin.x = 2, 200
+
+[BG 0,Bush 1 middle]
+type = normal
+spriteno = 11,3
+start = 90,770
+delta = 0.55,0.47
+mask = 1
+scalestart = 1.5,1.5
+tile = 1
+tilespacing = 85
+window = -500, 520, 508, 555
+windowdelta = 0.56,0.46
+sin.x = 1, 200
+
+
+[BG 0,Bush 1 bottom]
+type = normal
+spriteno = 11,3
+start = 90,770
+delta = 0.55,0.47
+mask = 1
+scalestart = 1.5,1.5
+tile = 1
+tilespacing = 85
+;window = -500, 1000, 508, 555
+window = -500, 555, 508, 1000
+windowdelta = 0.56,0.46
+
+
+;______________________________________
+;RIGHT RIGHT RIGHT RIGHT RIGHT RIGHT RI
+
+[BG 0,Bush 1 top]
+type = normal
+spriteno = 11,3
+start = 90,770
+delta = 0.55,0.47
+mask = 1
+scalestart = 1.5,1.5
+tile = 1
+tilespacing = 85
+window = 850, -10000, 5000, 520
+windowdelta = 0.56,0.46
+sin.x = 2,200
+
+[BG 0,Bush 1 middle]
+type = normal
+spriteno = 11,3
+start = 90,770
+delta = 0.55,0.47
+mask = 1
+scalestart = 1.5,1.5
+tile = 1
+tilespacing = 85
+window = 850, 520, 5000, 555
+windowdelta = 0.56,0.46
+sin.x = 1, 200
+
+
+[BG 0,Bush 1 bottom]
+type = normal
+spriteno = 11,3
+start = 90,770
+delta = 0.55,0.47
+mask = 1
+scalestart = 1.5,1.5
+tile = 1
+tilespacing = 85
+window = 850, 555, 5000, 1000
+windowdelta = 0.56,0.46
+
+[BG 0,grass 4 right 2 top]
+type = normal
+spriteno = 14,0
+start = 0,560
+delta = 0.61,0.52
+mask = 1
+scalestart = 0.7,1.4
+tile = 1
+window = 1102,-5000,5000,575
+windowdelta = 0.61,0.52
+sin.x = 1, 140
+
+[BG 0,grass 4 right 2 bottom]
+type = normal
+spriteno = 14,0
+start = 0,560
+delta = 0.61,0.52
+mask = 1
+scalestart = 0.7,1.4
+tile = 1
+window = 1102,575,5000,5000
+windowdelta = 0.61,0.52
+
+[BG 0,grass 4 right 1 top]
+type = normal
+spriteno = 14,0
+start = 0,560
+delta = 0.61,0.52
+mask = 1
+scalestart = 0.7,1.4
+tile = 1
+window = 813,-5000,960,575
+windowdelta = 0.61,0.52
+sin.x = 1, 140
+
+[BG 0,grass 4 right 1 bottom]
+type = normal
+spriteno = 14,0
+start = 0,560
+delta = 0.61,0.52
+mask = 1
+scalestart = 0.7,1.4
+tile = 1
+window = 813,575,960,5000
+windowdelta = 0.61,0.52
+
+[BG 0,grass 4 left top]
+type = normal
+spriteno = 14,0
+start = -235,560
+delta = 0.61,0.52
+mask = 1
+scalestart = 0.7,1.4
+tile = 1
+window = -5000,-5000,463,575
+windowdelta = 0.61,0.52
+sin.x = 1, 140
+
+[BG 0,grass 4 left bottom]
+type = normal
+spriteno = 14,0
+start = -235,560
+delta = 0.61,0.52
+mask = 1
+scalestart = 0.7,1.4
+tile = 1
+window = -5000,575,463,5000
+windowdelta = 0.61,0.52
+
+
+
+
+TREE FRONT RIGHT TREE FRONT RIGHT TREE FRONT RIGHT TREE FRO
+;_________________________________________________________;
+
+[BG 0,tree right side back test]
+type = normal
+spriteno = 10,4
+start = 672,800
+delta = 0.65,0.56
+mask = 1
+scalestart = 1.5,1.5
+scaledelta = 0.00125, 
+Window = -50000,-9000,50000,90
+windowdelta = 0.65,0.56
+sin.x = 3, 210
+
+[BG 0,tree right side front test]
+type = normal
+spriteno = 10,2
+start = 682,800
+delta = 0.65,0.56
+mask = 1
+scalestart = 1.5,1.5
+scaledelta = -0.00125, 
+Window = -50000,-9000,50000,90
+windowdelta = 0.65,0.56
+sin.x = 3, 220
+
+[BG 0,tree Left side back test]
+type = normal
+spriteno = 10,3
+start = 628,800
+delta = 0.65,0.56
+mask = 1
+scalestart = 1.5,1.5
+scaledelta = -0.0006125, 
+Window = -50000,-9000,50000,90
+windowdelta = 0.65,0.56
+sin.x = 3, 210
+
+[BG 0,tree Left side front test]
+type = normal
+spriteno = 10,1
+start = 623,800
+delta = 0.65,0.56
+mask = 1
+scalestart = 1.5,1.5
+scaledelta = 0.00125, 
+Window = -50000,-9000,50000,90
+windowdelta = 0.65,0.56
+sin.x = 3, 220
+
+[BG 0,tree middler test]
+type = normal
+spriteno = 10,0
+start = 138.5,800
+delta = 0.65,0.56
+mask = 1
+scalestart = 1.5,1.5
+Window = -50000,-9000,50000,90
+windowdelta = 0.65,0.56
+sin.x = 3, 220
+
+;_________________________________________________________;
+
+;_________________________________________________________;
+
+[BG 0,tree right side back test]
+type = normal
+spriteno = 10,4
+start = 672,800
+delta = 0.65,0.56
+mask = 1
+scalestart = 1.5,1.5
+scaledelta = 0.00125, 
+Window = -50000,90,50000,190
+windowdelta = 0.65,0.56
+sin.x = 2.5, 210
+
+[BG 0,tree right side front test]
+type = normal
+spriteno = 10,2
+start = 682,800
+delta = 0.65,0.56
+mask = 1
+scalestart = 1.5,1.5
+scaledelta = -0.00125, 
+Window = -50000,90,50000,190
+windowdelta = 0.65,0.56
+sin.x = 2.5, 220
+
+[BG 0,tree Left side back test]
+type = normal
+spriteno = 10,3
+start = 628,800
+delta = 0.65,0.56
+mask = 1
+scalestart = 1.5,1.5
+scaledelta = -0.0006125, 
+Window = -50000,90,50000,190
+windowdelta = 0.65,0.56
+sin.x = 2.5, 210
+
+[BG 0,tree Left side front test]
+type = normal
+spriteno = 10,1
+start = 623,800
+delta = 0.65,0.56
+mask = 1
+scalestart = 1.5,1.5
+scaledelta = 0.00125, 
+Window = -50000,90,50000,190
+windowdelta = 0.65,0.56
+sin.x = 2.5, 220
+
+[BG 0,tree middler test]
+type = normal
+spriteno = 10,0
+start = 138.5,800
+delta = 0.65,0.56
+mask = 1
+scalestart = 1.5,1.5
+Window = -50000,90,50000,190
+windowdelta = 0.65,0.56
+sin.x = 2.5, 220
+
+;_________________________________________________________;
+
+;_________________________________________________________;
+
+[BG 0,tree right side back test]
+type = normal
+spriteno = 10,4
+start = 672,800
+delta = 0.65,0.56
+mask = 1
+scalestart = 1.5,1.5
+scaledelta = 0.00125, 
+Window = -50000,190,50000,290
+windowdelta = 0.65,0.56
+sin.x = 2, 210
+
+[BG 0,tree right side front test]
+type = normal
+spriteno = 10,2
+start = 682,800
+delta = 0.65,0.56
+mask = 1
+scalestart = 1.5,1.5
+scaledelta = -0.00125, 
+Window = -50000,190,50000,290
+windowdelta = 0.65,0.56
+sin.x = 2, 220
+
+[BG 0,tree Left side back test]
+type = normal
+spriteno = 10,3
+start = 628,800
+delta = 0.65,0.56
+mask = 1
+scalestart = 1.5,1.5
+scaledelta = -0.0006125, 
+Window = -50000,190,50000,290
+windowdelta = 0.65,0.56
+sin.x = 2, 210
+
+[BG 0,tree Left side front test]
+type = normal
+spriteno = 10,1
+start = 623,800
+delta = 0.65,0.56
+mask = 1
+scalestart = 1.5,1.5
+scaledelta = 0.00125, 
+Window = -50000,190,50000,290
+windowdelta = 0.65,0.56
+sin.x = 2, 220
+
+[BG 0,tree middler test]
+type = normal
+spriteno = 10,0
+start = 138.5,800
+delta = 0.65,0.56
+mask = 1
+scalestart = 1.5,1.5
+Window = -50000,190,50000,290
+windowdelta = 0.65,0.56
+sin.x = 2, 220
+
+;_________________________________________________________;
+
+;_________________________________________________________;
+
+[BG 0,tree right side back test]
+type = normal
+spriteno = 10,4
+start = 672,800
+delta = 0.65,0.56
+mask = 1
+scalestart = 1.5,1.5
+scaledelta = 0.00125, 
+Window = -50000,290,50000,390
+windowdelta = 0.65,0.56
+sin.x = 1.5, 210
+
+[BG 0,tree right side front test]
+type = normal
+spriteno = 10,2
+start = 682,800
+delta = 0.65,0.56
+mask = 1
+scalestart = 1.5,1.5
+scaledelta = -0.00125, 
+Window = -50000,290,50000,390
+windowdelta = 0.65,0.56
+sin.x = 1.5, 220
+
+
+[BG 0,tree Left side back test]
+type = normal
+spriteno = 10,3
+start = 628,800
+delta = 0.65,0.56
+mask = 1
+scalestart = 1.5,1.5
+scaledelta = -0.0006125, 
+Window = -50000,290,50000,390
+windowdelta = 0.65,0.56
+sin.x = 1.5, 210
+
+
+[BG 0,tree Left side front test]
+type = normal
+spriteno = 10,1
+start = 623,800
+delta = 0.65,0.56
+mask = 1
+scalestart = 1.5,1.5
+scaledelta = 0.00125, 
+Window = -50000,290,50000,390
+windowdelta = 0.65,0.56
+sin.x = 1.5, 220
+
+[BG 0,tree middler test]
+type = normal
+spriteno = 10,0
+start = 138.5,800
+delta = 0.65,0.56
+mask = 1
+scalestart = 1.5,1.5
+Window = -50000,290,50000,390
+windowdelta = 0.65,0.56
+sin.x = 1.5, 220
+
+;_________________________________________________________;
+
+[BG 0,tree right side back test]
+type = normal
+spriteno = 10,4
+start = 672,800
+delta = 0.65,0.56
+mask = 1
+scalestart = 1.5,1.5
+scaledelta = 0.00125, 
+Window = -50000,390,50000,490
+windowdelta = 0.65,0.56
+sin.x = 1, 210
+
+[BG 0,tree right side front test]
+type = normal
+spriteno = 10,2
+start = 682,800
+delta = 0.65,0.56
+mask = 1
+scalestart = 1.5,1.5
+scaledelta = -0.00125, 
+Window = -50000,390,50000,490
+windowdelta = 0.65,0.56
+sin.x = 1, 220
+
+[BG 0,tree Left side back test]
+type = normal
+spriteno = 10,3
+start = 628,800
+delta = 0.65,0.56
+mask = 1
+scalestart = 1.5,1.5
+scaledelta = -0.0006125, 
+Window = -50000,390,50000,490
+windowdelta = 0.65,0.56
+sin.x = 1, 210
+
+[BG 0,tree Left side front test]
+type = normal
+spriteno = 10,1
+start = 623,800
+delta = 0.65,0.56
+mask = 1
+scalestart = 1.5,1.5
+scaledelta = 0.00125, 
+Window = -50000,390,50000,490
+windowdelta = 0.65,0.56
+sin.x = 1, 220
+
+[BG 0,tree middler test]
+type = normal
+spriteno = 10,0
+start = 138.5,800
+delta = 0.65,0.56
+mask = 1
+scalestart = 1.5,1.5
+Window = -50000,390,50000,490
+windowdelta = 0.65,0.56
+sin.x = 1, 220
+;_________________________________________________________;
+
+[BG 0,tree right side back test]
+type = normal
+spriteno = 10,4
+start = 672,800
+delta = 0.65,0.56
+mask = 1
+scalestart = 1.5,1.5
+scaledelta = 0.00125, 
+Window = -50000,490,50000,590
+windowdelta = 0.65,0.56
+
+[BG 0,tree right side front test]
+type = normal
+spriteno = 10,2
+start = 682,800
+delta = 0.65,0.56
+mask = 1
+scalestart = 1.5,1.5
+scaledelta = -0.00125, 
+Window = -50000,490,50000,590
+windowdelta = 0.65,0.56
+
+
+[BG 0,tree Left side back test]
+type = normal
+spriteno = 10,3
+start = 628,800
+delta = 0.65,0.56
+mask = 1
+scalestart = 1.5,1.5
+scaledelta = -0.0006125, 
+Window = -50000,490,50000,590
+windowdelta = 0.65,0.56
+
+
+[BG 0,tree Left side front test]
+type = normal
+spriteno = 10,1
+start = 623,800
+delta = 0.65,0.56
+mask = 1
+scalestart = 1.5,1.5
+scaledelta = 0.00125, 
+Window = -50000,490,50000,590
+windowdelta = 0.65,0.56
+
+[BG 0,tree middler test]
+type = normal
+spriteno = 10,0
+start = 138.5,800
+delta = 0.65,0.56
+mask = 1
+scalestart = 1.5,1.5
+Window = -50000,490,50000,590
+windowdelta = 0.65,0.56
+
+
+
+
+
+
+
+
+
+
+
+
+TREE FRONT LEFT   TREE FRONT LEFT   TREE FRONT LEFT  TREE F
+;_________________________________________________________;
+
+
+[BG 0,tree right side back test]
+type = normal
+spriteno = 10,4
+start = -672,800
+delta = 0.65,0.56
+mask = 1
+scalestart = 1.5,1.5
+scaledelta = 0.00125, 
+Window = -50000,-9000,50000,90
+windowdelta = 0.65,0.56
+sin.x = 3, 190
+
+[BG 0,tree right side front test]
+type = normal
+spriteno = 10,2
+start = -682,800
+delta = 0.65,0.56
+mask = 1
+scalestart = 1.5,1.5
+scaledelta = -0.00125, 
+Window = -50000,-9000,50000,90
+windowdelta = 0.65,0.56
+sin.x = 3, 200
+
+[BG 0,tree Left side back test]
+type = normal
+spriteno = 10,3
+start = -741,800
+delta = 0.65,0.56
+mask = 1
+scalestart = 1.5,1.5
+scaledelta = -0.0006125, 
+Window = -50000,-9000,50000,90
+windowdelta = 0.65,0.56
+sin.x = 3, 190
+
+[BG 0,tree Left side front test]
+type = normal
+spriteno = 10,1
+start = -741,800
+delta = 0.65,0.56
+mask = 1
+scalestart = 1.5,1.5
+scaledelta = 0.00125, 
+Window = -50000,-9000,50000,90
+windowdelta = 0.65,0.56
+sin.x = 3, 200
+
+[BG 0,tree middler test]
+type = normal
+spriteno = 10,0
+start = -1225.5,800
+delta = 0.65,0.56
+mask = 1
+scalestart = 1.5,1.5
+Window = -50000,-9000,50000,90
+windowdelta = 0.65,0.56
+sin.x = 3, 200
+
+;__________________________________________________________________________
+
+;_________________________________________________________;
+
+
+[BG 0,tree right side back test]
+type = normal
+spriteno = 10,4
+start = -672,800
+delta = 0.65,0.56
+mask = 1
+scalestart = 1.5,1.5
+scaledelta = 0.00125, 
+Window = -50000,90,50000,190
+windowdelta = 0.65,0.56
+sin.x = 2.5, 190
+
+
+[BG 0,tree right side front test]
+type = normal
+spriteno = 10,2
+start = -682,800
+delta = 0.65,0.56
+mask = 1
+scalestart = 1.5,1.5
+scaledelta = -0.00125, 
+Window = -50000,90,50000,190
+windowdelta = 0.65,0.56
+sin.x = 2.5, 200
+
+
+[BG 0,tree Left side back test]
+type = normal
+spriteno = 10,3
+start = -741,800
+delta = 0.65,0.56
+mask = 1
+scalestart = 1.5,1.5
+scaledelta = -0.0006125, 
+Window = -50000,90,50000,190
+windowdelta = 0.65,0.56
+sin.x = 2.5, 190
+
+
+[BG 0,tree Left side front test]
+type = normal
+spriteno = 10,1
+start = -741,800
+delta = 0.65,0.56
+mask = 1
+scalestart = 1.5,1.5
+scaledelta = 0.00125, 
+Window = -50000,90,50000,190
+windowdelta = 0.65,0.56
+sin.x = 2.5, 200
+
+
+[BG 0,tree middler test]
+type = normal
+spriteno = 10,0
+start = -1225.5,800
+delta = 0.65,0.56
+mask = 1
+scalestart = 1.5,1.5
+Window = -50000,90,50000,190
+windowdelta = 0.65,0.56
+sin.x = 2.5, 200
+
+;__________________________________________________________________________
+;_________________________________________________________;
+
+
+[BG 0,tree right side back test]
+type = normal
+spriteno = 10,4
+start = -672,800
+delta = 0.65,0.56
+mask = 1
+scalestart = 1.5,1.5
+scaledelta = 0.00125, 
+Window = -50000,190,50000,290
+windowdelta = 0.65,0.56
+sin.x = 2, 190
+
+
+[BG 0,tree right side front test]
+type = normal
+spriteno = 10,2
+start = -682,800
+delta = 0.65,0.56
+mask = 1
+scalestart = 1.5,1.5
+scaledelta = -0.00125, 
+Window = -50000,190,50000,290
+windowdelta = 0.65,0.56
+sin.x = 2, 200
+
+
+[BG 0,tree Left side back test]
+type = normal
+spriteno = 10,3
+start = -741,800
+delta = 0.65,0.56
+mask = 1
+scalestart = 1.5,1.5
+scaledelta = -0.0006125, 
+Window = -50000,190,50000,290
+windowdelta = 0.65,0.56
+sin.x = 2, 190
+
+
+[BG 0,tree Left side front test]
+type = normal
+spriteno = 10,1
+start = -741,800
+delta = 0.65,0.56
+mask = 1
+scalestart = 1.5,1.5
+scaledelta = 0.00125, 
+Window = -50000,190,50000,290
+windowdelta = 0.65,0.56
+sin.x = 2, 200
+
+[BG 0,tree middler test]
+type = normal
+spriteno = 10,0
+start = -1225.5,800
+delta = 0.65,0.56
+mask = 1
+scalestart = 1.5,1.5
+Window = -50000,190,50000,290
+windowdelta = 0.65,0.56
+sin.x = 2, 200
+
+;__________________________________________________________________________
+
+;_________________________________________________________;
+
+[BG 0,tree right side back test]
+type = normal
+spriteno = 10,4
+start = -672,800
+delta = 0.65,0.56
+mask = 1
+scalestart = 1.5,1.5
+scaledelta = 0.00125, 
+Window = -50000,290,50000,390
+windowdelta = 0.65,0.56
+sin.x = 1.5, 190
+
+
+[BG 0,tree right side front test]
+type = normal
+spriteno = 10,2
+start = -682,800
+delta = 0.65,0.56
+mask = 1
+scalestart = 1.5,1.5
+scaledelta = -0.00125, 
+Window = -50000,290,50000,390
+windowdelta = 0.65,0.56
+sin.x = 1.5, 200
+
+[BG 0,tree Left side back test]
+type = normal
+spriteno = 10,3
+start = -741,800
+delta = 0.65,0.56
+mask = 1
+scalestart = 1.5,1.5
+scaledelta = -0.0006125, 
+Window = -50000,290,50000,390
+windowdelta = 0.65,0.56
+sin.x = 1.5, 190
+
+[BG 0,tree Left side front test]
+type = normal
+spriteno = 10,1
+start = -741,800
+delta = 0.65,0.56
+mask = 1
+scalestart = 1.5,1.5
+scaledelta = 0.00125, 
+Window = -50000,290,50000,390
+windowdelta = 0.65,0.56
+sin.x = 1.5, 200
+
+[BG 0,tree middler test]
+type = normal
+spriteno = 10,0
+start = -1225.5,800
+delta = 0.65,0.56
+mask = 1
+scalestart = 1.5,1.5
+Window = -50000,290,50000,390
+windowdelta = 0.65,0.56
+sin.x = 1.5, 200
+
+;__________________________________________________________________________
+
+;_________________________________________________________;
+
+[BG 0,tree right side back test]
+type = normal
+spriteno = 10,4
+start = -672,800
+delta = 0.65,0.56
+mask = 1
+scalestart = 1.5,1.5
+scaledelta = 0.00125, 
+Window = -50000,390,50000,490
+windowdelta = 0.65,0.56
+sin.x = 1, 190
+
+
+[BG 0,tree right side front test]
+type = normal
+spriteno = 10,2
+start = -682,800
+delta = 0.65,0.56
+mask = 1
+scalestart = 1.5,1.5
+scaledelta = -0.00125, 
+Window = -50000,390,50000,490
+windowdelta = 0.65,0.56
+sin.x = 1, 200
+
+[BG 0,tree Left side back test]
+type = normal
+spriteno = 10,3
+start = -741,800
+delta = 0.65,0.56
+mask = 1
+scalestart = 1.5,1.5
+scaledelta = -0.0006125, 
+Window = -50000,390,50000,490
+windowdelta = 0.65,0.56
+sin.x = 1, 190
+
+[BG 0,tree Left side front test]
+type = normal
+spriteno = 10,1
+start = -741,800
+delta = 0.65,0.56
+mask = 1
+scalestart = 1.5,1.5
+scaledelta = 0.00125, 
+Window = -50000,390,50000,490
+windowdelta = 0.65,0.56
+sin.x = 1, 200
+
+[BG 0,tree middler test]
+type = normal
+spriteno = 10,0
+start = -1225.5,800
+delta = 0.65,0.56
+mask = 1
+scalestart = 1.5,1.5
+Window = -50000,390,50000,490
+windowdelta = 0.65,0.56
+sin.x = 1, 200
+
+;___________________________________________________________________________
+
+;________________________________________________________;
+
+
+[BG 0,tree right side back test]
+type = normal
+spriteno = 10,4
+start = -672,800
+delta = 0.65,0.56
+mask = 1
+scalestart = 1.5,1.5
+scaledelta = 0.00125, 
+Window = -50000,490,50000,590
+windowdelta = 0.65,0.56
+
+
+[BG 0,tree right side front test]
+type = normal
+spriteno = 10,2
+start = -682,800
+delta = 0.65,0.56
+mask = 1
+scalestart = 1.5,1.5
+scaledelta = -0.00125, 
+Window = -50000,490,50000,590
+windowdelta = 0.65,0.56
+
+[BG 0,tree Left side back test]
+type = normal
+spriteno = 10,3
+start = -741,800
+delta = 0.65,0.56
+mask = 1
+scalestart = 1.5,1.5
+scaledelta = -0.0006125, 
+Window = -50000,490,50000,590
+windowdelta = 0.65,0.56
+
+
+[BG 0,tree Left side front test]
+type = normal
+spriteno = 10,1
+start = -741,800
+delta = 0.65,0.56
+mask = 1
+scalestart = 1.5,1.5
+scaledelta = 0.00125, 
+Window = -50000,490,50000,590
+windowdelta = 0.65,0.56
+
+
+[BG 0,tree middler test]
+type = normal
+spriteno = 10,0
+start = -1225.5,800
+delta = 0.65,0.56
+mask = 1
+scalestart = 1.5,1.5
+Window = -50000,490,50000,590
+windowdelta = 0.65,0.56
+
+[BG 0,grass 3 right top]
+type = normal
+spriteno = 14,0
+start = -20,580
+delta = 0.73,0.65
+mask = 1
+scalestart = 0.8,1.6
+tile = 1
+window = 850,-5000,950,600
+windowdelta = 0.73,0.65
+sin.x = 1, 140
+
+[BG 0,grass 3 right bottom]
+type = normal
+spriteno = 14,0
+start = -20,580
+delta = 0.73,0.65
+mask = 1
+scalestart = 0.8,1.6
+tile = 1
+window = 850,600,950,5000
+windowdelta = 0.73,0.65
+
+[BG 0,grass 3 left top]
+type = normal
+spriteno = 14,1
+start = -50,580
+delta = 0.73,0.65
+mask = 1
+scalestart = 0.8,1.6
+tile = 1
+window = -5000,-5000,390,600
+windowdelta = 0.73,0.65
+sin.x = 1, 140
+
+[BG 0,grass 3 left bottom]
+type = normal
+spriteno = 14,1
+start = -50,580
+delta = 0.73,0.65
+mask = 1
+scalestart = 0.8,1.6
+tile = 1
+window = -5000,600,390,5000
+windowdelta = 0.73,0.65
+
+[BG 0,grass 2 right top]
+type = normal
+spriteno = 14,0
+start = 120,600
+delta = 0.83,0.78
+mask = 1
+scalestart = 0.9,1.8
+tile = 1
+window = 932,-5000,1230,629
+windowdelta = 0.83,0.78
+sin.x = 1, 160
+
+[BG 0,grass 2 right bottom]
+type = normal
+spriteno = 14,0
+start = 120,600
+delta = 0.83,0.78
+mask = 1
+scalestart = 0.9,1.8
+tile = 1
+window = 932,629,1230,5000
+windowdelta = 0.83,0.78
+
+
+[BG 0,grass 2 left top]
+type = normal
+spriteno = 14,0
+start = 120,600
+delta = 0.83,0.78
+mask = 1
+scalestart = 0.9,1.8
+tile = 1
+window = -5000,-5000,390,629
+windowdelta = 0.83,0.78
+sin.x = 1, 160
+
+[BG 0,grass 2 left bottom]
+type = normal
+spriteno = 14,0
+start = 120,600
+delta = 0.83,0.78
+mask = 1
+scalestart = 0.9,1.8
+tile = 1
+window = -5000,629,390,5000
+windowdelta = 0.83,0.78
+
+
+;___________________________________________________________________________
+
+[BG 0,grass floor 1]
+type = parallax
+spriteno = 0,0
+start = 0,641
+delta = 0.93,0.80
+mask = 1
+width = 5856, 11712
+;xscale = 1,2.5
+scaledelta = 0, -0.006
+scalestart = 1,1
+tile = 1
+
+
+[BG 0,grass 1 right top]
+type = normal
+spriteno = 14,0
+start = 0,624
+delta = 1.01,0.93
+mask = 1
+scalestart = 1,2
+tile = 1
+layerno=1
+window = 906,-5000,5000,649
+windowdelta = 1.01,0.93
+sin.x = 1, 150
+
+[BG 0,grass right bottom]
+type = normal
+spriteno = 14,0
+start = 0,624
+delta = 1.01,0.93
+mask = 1
+scalestart = 1,2
+tile = 1
+layerno=1
+window = 906,649,5000,5000
+windowdelta = 1.01,0.93
+
+[BG 0,grass 1 left top]
+type = normal
+spriteno = 14,0
+start = 0,624
+delta = 1.01,0.93
+mask = 1
+scalestart = 1,2
+tile = 1
+layerno=1
+window = -5000,-5000,385,649
+windowdelta = 1.01,0.93
+sin.x = 1, 150
+
+[BG 0,grass left bottom]
+type = normal
+spriteno = 14,0
+start = 0,624
+delta = 1.01,0.93
+mask = 1
+scalestart = 1,2
+tile = 1
+layerno=1
+window = -5000,649,385,5000
+windowdelta = 1.01,0.93
+
+
+
+[BG 0,grass 0 right 1 top]
+type = normal
+spriteno = 14,0
+start = 360,670
+delta = 1.35,1.1
+mask = 1
+scalestart = 1.4,2.8
+tile = 1
+layerno=1
+window = 900,-5000,1200,700
+windowdelta = 1.35,1.1
+sin.x = 1, 134
+
+[BG 0,grass 0 right 1 bottom]
+type = normal
+spriteno = 14,0
+start = 360,670
+delta = 1.35,1.1
+mask = 1
+scalestart = 1.4,2.8
+tile = 1
+layerno=1
+window = 900,700,1200,5000
+windowdelta = 1.35,1.1
+
+[BG 0,grass 0 left top]
+type = normal
+spriteno = 14,0
+start = 0,670
+delta = 1.35,1.1
+mask = 1
+scalestart = 1.4,2.8
+tile = 1
+layerno=1
+window = -5000,-5000,300,700
+windowdelta = 1.35,1.1
+sin.x = 1, 134
+
+[BG 0,grass 0 left bottom]
+type = normal
+spriteno = 14,0
+start = 0,670
+delta = 1.35,1.1
+mask = 1
+scalestart = 1.4,2.8
+tile = 1
+layerno=1
+window = -5000,700,300,5000
+windowdelta = 1.35,1.1
+
+
+
+
+
+

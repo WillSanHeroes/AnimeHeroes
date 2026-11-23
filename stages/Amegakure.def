@@ -1,0 +1,695 @@
+;------------------------------------------------------------------------------------------
+[Info]
+name= "Amegakure"
+author= ALXVE & Mugen Gamer
+;attachedchar = UWE\water.chr
+;------------------------------------------------------------------------------------------
+[Camera]
+startx 		= 0
+starty 		= 0
+boundleft 	= -1800
+boundright 	= 1800
+boundhigh 	= -250
+boundlow 	= 5
+overdrawhigh 	= 120
+overdrawlow 	= 120
+verticalfollow 	= 1
+tension		= 180;400
+tensionhigh	= 500;300	;Y Pos camera start to go up (from up to player pos)
+tensionlow	= 50;280	;Y Pos Camera start to zoom out (from up to player pos)
+startzoom	= 1
+zoomin		= 1.5
+zoomout		= 0.9
+
+[PlayerInfo]
+;--- Player 1 ---
+p1startx	= -280          ;Starting x coordinates
+p1starty	= 0            ;Starting y coordinates
+p1facing	= 1            ;Direction player faces: 1=right, -1=left
+
+;--- Player 2 ---
+p2startx	= 280
+p2starty	= 0
+p2facing	= -1
+
+;--- Player 3 ---
+p3startx	= -460          ;Starting x coordinates
+p3starty	= 0            ;Starting y coordinates
+p3facing	= 1            ;Direction player faces: 1=right, -1=left
+
+;--- Player 4 ---
+p4startx	= 460
+p4starty	= 0
+p4facing	= -1
+
+leftbound 	= -8000
+rightbound 	= 8000
+
+[Bound]
+screenleft 	= 60
+screenright 	= 60
+
+[StageInfo]
+zoffset 	= 660;615.0
+autoturn 	= 1
+resetBG 	= 0
+localcoord 	= 1280, 720
+xscale 		= 1
+yscale 		= 1
+
+[Scaling]
+topz     	= 0
+botz     	= 50
+topscale 	= 1
+botscale 	= 1.2
+
+[Shadow]
+intensity = 0
+color = 0,0,0
+yscale = 0.5
+fade.range = -600,-300
+
+[Reflection]
+intensity 	= 45
+;------------------------------------------------------------------------------------------
+[Music]
+bgmusic=sound/Amegakure.mp3
+bgmvolume = 255
+;------------------------------------------------------------------------------------------
+[BGDef]
+spr =Amegakure.sff
+debugbg=0
+;------------------------------------------------------------------------------------------
+[BG cielo]
+type = normal
+spriteno =13,0
+start = 0, 500
+delta=1,1
+mask=1
+trans = None
+velocity = .5, 0
+tile = 1, 0
+Tilespacing = 0,0
+scalestart= 2,2
+[BG cielo]
+type = normal
+spriteno =13,1
+start = 0, 500
+delta=1,1
+mask=1
+trans = add
+velocity = .5, 0
+tile = 1, 0
+Tilespacing = 0,0
+scalestart= 2,2
+[BG cielo]
+type = normal
+spriteno =13,2
+start = 0, 500
+delta=1,1
+mask=1
+trans = add
+velocity = .5, 0
+tile = 1, 0
+Tilespacing = 0,0
+scalestart= 2,2
+
+[BG 0, Clouds]
+Type = Normal
+SpriteNO = 5, 0
+Mask = 1
+Start = -50, 50
+delta=0.7944,1
+Tile = 1, 0
+Tilespacing = 0,0
+Velocity = .175, 0
+Sin.X = -10, 800, 0
+Trans = AddAlpha
+Alpha = 123, 256
+
+[BG 0, edificio fondos]
+Type = Normal
+SpriteNO = 14, 0
+Mask = 1
+Start = 0, 600
+delta=0.7944,1.05
+Tile = 1, 0
+Tilespacing = 0,0
+scalestart= 2.5,2.5
+
+[BG 0, edificio fondos grandes]
+Type = Normal
+SpriteNO = 15, 0
+Mask = 1
+Start = -25, 200
+delta=0.6944,1.1
+Tile = 1, 0
+Tilespacing = 0,0
+
+[BG 0, edificio fondos David11]
+Type = Normal
+SpriteNO = 1, 0
+Mask = 1
+Start = -1200, 800
+delta=0.5944,1.15
+Tile = 0, 0
+Tilespacing = 1000,0
+scalestart= 0.45,0.45
+[BG 0, edificio fondos David11]
+Type = Normal
+SpriteNO = 1, 1
+Mask = 1
+Start = 50, 750
+delta=0.5944,1.15
+Tile = 0, 0
+Tilespacing = 1000,0
+scalestart= 0.45,0.45
+[BG 0, edificio fondos David11]
+Type = Normal
+SpriteNO = 1, 2
+Mask = 1
+Start = 1400, 650
+delta=0.5944,1.15
+Tile = 0, 0
+Tilespacing = 1000,0
+scalestart= 0.45,0.45
+[BG 0, edificio fondos David11]
+Type = Normal
+SpriteNO = 1, 3
+Mask = 1
+Start = -500, 600
+delta=0.5944,1.15
+Tile = 0, 0
+Tilespacing = 1000,0
+scalestart= 0.45,0.45
+[BG 0, edificio fondos David11]
+Type = Normal
+SpriteNO = 1, 3
+Mask = 1
+Start = 700, 600
+delta=0.5944,1.15
+Tile = 0, 0
+Tilespacing = 1000,0
+scalestart= 0.45,0.45
+
+[BG torres]
+type = normal
+spriteno =12,12
+start = -650, 800
+delta=0.4944,1.2
+mask=1
+trans = None
+scalestart= 0.75,0.75
+[BG torres]
+type = normal
+spriteno =12,13
+start = -650, 800
+delta=0.4944,1.2
+mask=1
+trans = add
+scalestart= 0.75,0.75
+[BG torres]
+type = normal
+spriteno =12,14
+start = -650, 800
+delta=0.4944,1.2
+mask=1
+trans = add
+scalestart= 0.75,0.75
+
+[BG torres]
+type = normal
+spriteno =12,9
+start = 1600, 850
+delta=0.4944,1.2
+mask=1
+trans = None
+scalestart= 0.75,0.75
+[BG torres]
+type = normal
+spriteno =12,10
+start = 1600, 850
+delta=0.4944,1.2
+mask=1
+trans = add
+scalestart= 0.75,0.75
+[BG torres]
+type = normal
+spriteno =12,11
+start = 1600, 850
+delta=0.4944,1.2
+mask=1
+trans = add
+scalestart= 0.75,0.75
+
+[BG torres]
+type = normal
+spriteno =12,3
+start = 850, 850
+delta=0.4944,1.2
+mask=1
+trans = None
+scalestart= 0.75,0.75
+[BG torres]
+type = normal
+spriteno =12,4
+start = 850, 850
+delta=0.4944,1.2
+mask=1
+trans = add
+scalestart= 0.75,0.75
+[BG torres]
+type = normal
+spriteno =12,5
+start = 850, 850
+delta=0.4944,1.2
+mask=1
+trans = add
+scalestart= 0.75,0.75
+
+[BG torres]
+type = normal
+spriteno =12,0
+start = 100, 750
+delta=0.4544,1.2
+mask=1
+trans = None
+scalestart= 0.75,0.75
+[BG torres]
+type = normal
+spriteno =12,1
+start = 100, 750
+delta=0.4544,1.2
+mask=1
+trans = add
+scalestart= 0.75,0.75
+[BG torres]
+type = normal
+spriteno =12,2
+start = 100, 750
+delta=0.4544,1.2
+mask=1
+trans = add
+scalestart= 0.75,0.75
+
+[BG estatua]
+type = normal
+spriteno =10,0
+start = -1400, 300
+delta=0.4944,1.2
+mask=1
+trans = None
+scalestart= 0.5,0.5
+[BG estatua]
+type = normal
+spriteno =10,1
+start = -1400, 300
+delta=0.4944,1.2
+mask=1
+trans = add
+scalestart= 0.5,0.5
+[BG estatua]
+type = normal
+spriteno =10,2
+start = -1400, 300
+delta=0.4944,1.2
+mask=1
+trans = add
+scalestart= 0.5,0.5
+
+[BG torres]
+type = normal
+spriteno =12,6
+start = -1900, 650
+delta=0.4944,1.2
+mask=1
+trans = None
+scalestart= 0.75,0.75
+[BG torres]
+type = normal
+spriteno =12,7
+start = -1900, 650
+delta=0.4944,1.2
+mask=1
+trans = add
+scalestart= 0.75,0.75
+[BG torres]
+type = normal
+spriteno =12,8
+start = -1900, 650
+delta=0.4944,1.2
+mask=1
+trans = add
+scalestart= 0.75,0.75
+
+[BG 0, Rain]
+Type = Normal
+SpriteNO = 6, 1
+Mask = 1
+Start = 50, 70
+Delta = 1, 1
+Tile = 1, 1
+Velocity = .075, 2.5;.075, 5
+Sin.X = -10, 800, 0
+Sin.Y = 2, 100, 0
+Trans = AddAlpha
+Alpha = 128, 256
+LayerNO = 0
+scalestart= 0.5,0.5
+[BG 0, Rain]
+Type = Normal
+SpriteNO = 6, 1
+Mask = 1
+Start = 0, 0
+Delta = 1,1
+Tile = 1, 1
+Velocity = .075, 5.25;.075, 10.5
+Sin.X = -10, 1200, 0
+Sin.Y = 5, 200, 0
+Trans = AddAlpha
+Alpha = 256, 256
+LayerNO = 1
+scalestart= 0.5,0.5
+
+;[BG piso]
+;type = normal
+;spriteno =11,0
+;start = 0, 900
+;delta=1,1.5
+;mask=1
+;trans = None
+;scalestart= 2,2
+;[BG piso]
+;type = normal
+;spriteno =11,1
+;start = 0, 900
+;delta=1,1.5
+;mask=1
+;trans = add
+;scalestart= 2,2
+;[BG piso]
+;type = normal
+;spriteno =11,2
+;start = 0, 900
+;delta=1,1.5
+;mask=1
+;trans = add
+;scalestart= 2,2
+
+[BG piso]
+type = parallax
+spriteno = 1,12
+start = 0, 655
+delta = 0.3944, 1.5
+mask=1
+trans = None
+width = 512,2048
+tile = 1, 0
+scalestart = 1,.25
+
+[BG Barandal]
+type = normal
+spriteno = 1,5
+start = 0,100
+delta = 0.3944, 1.5
+mask = 1
+tile = 1, 0
+scalestart = .5,.5
+
+[BG AG2]
+type =anim
+actionno=2
+start = 0,0
+delta = 0.3944, 1.5
+tile = 1,0
+tilespacing = 930, 0
+[BG AG2]
+type =anim
+actionno=2
+start = 0,100
+delta = 0.3944, 1.5
+tile = 1,0
+tilespacing = 930, 0
+[BG AG2]
+type =anim
+actionno=2
+start = 0,200
+delta = 0.3944, 1.5
+tile = 1,0
+tilespacing = 930, 0
+[BG AG2]
+type =anim
+actionno=2
+start = 0,300
+delta = 0.3944, 1.5
+tile = 1,0
+tilespacing = 930, 0
+
+[BG Pain's Hideout, Flicker 1]
+type                      = anim
+actionno                  = 28
+start                     = -1050,-250
+delta                     = 0.4944,1.2
+mask                      = 0
+scalestart = .6,.6
+[BG Light Effect 1, LEFTSIDE]
+type                      = normal
+spriteno                  = 1,7
+start                     = -1090,-205
+delta                     = 0.4944,1.2
+mask                      = 0
+trans                     = add
+scalestart = .5,.5
+[BG Buildings Front, Flash Effect, Part 2.2]
+type                      = anim
+actionno                  = 13
+start                     = -1050,-250
+delta                     = 0.4944,1.2
+mask                      = 1
+scalestart = .6,.6
+[BG Buildings Front, Flash Effect, Part 2.3]
+type                      = anim
+actionno                  = 14
+start                     = -1050,-250
+delta                     = 0.4944,1.2
+mask                      = 1
+scalestart = .6,.6
+[BG Amegakure Statue, Lamp Flicker]
+type                      = anim
+actionno                  = 15
+start                     = -1090,-205
+delta                     = 0.4944,1.2
+mask                      = 0
+scalestart = .5,.5
+[Begin Action 2]
+4,0,0,0,3,,AS200D256    
+4,1,0,0,3,,AS200D256    
+4,2,0,0,3,,AS200D256    
+4,3,0,0,3,,AS200D256    
+4,4,0,0,3,,AS200D256    
+4,5,0,0,3,,AS200D256    
+4,6,0,0,3,,AS200D256    
+4,7,0,0,3,,AS200D256    
+4,8,0,0,3,,AS200D256    
+4,9,0,0,3,,AS200D256    
+4,10,0,0,3,,AS200D256   
+4,11,0,0,3,,AS200D256   
+4,12,0,0,3,,AS200D256   
+4,13,0,0,3,,AS200D256   
+4,14,0,0,3,,AS200D256   
+4,15,0,0,3,,AS200D256   
+4,16,0,0,3,,AS200D256   
+4,17,0,0,3,,AS200D256   
+4,18,0,0,3,,AS200D256   
+4,19,0,0,3,,AS200D256   
+4,20,0,0,3,,AS200D256   
+4,21,0,0,3,,AS200D256   
+4,22,0,0,3,,AS200D256   
+4,23,0,0,3,,AS200D256   
+4,24,0,0,3,,AS200D256   
+4,25,0,0,3,,AS200D256   
+4,26,0,0,3,,AS200D256   
+4,27,0,0,3,,AS200D256   
+4,28,0,0,3,,AS200D256   
+4,29,0,0,3,,AS200D256   
+4,30,0,0,3,,AS200D256   
+4,31,0,0,3,,AS200D256   
+4,32,0,0,3,,AS200D256   
+4,33,0,0,3,,AS200D256   
+4,34,0,0,3,,AS200D256   
+4,35,0,0,3,,AS200D256   
+4,36,0,0,3,,AS200D256   
+4,37,0,0,3,,AS200D256   
+4,38,0,0,3,,AS200D256   
+4,39,0,0,3,,AS200D256   
+4,40,0,0,3,,AS200D256   
+4,39,0,0,3,,AS200D256   
+4,38,0,0,3,,AS200D256   
+4,37,0,0,3,,AS200D256   
+4,36,0,0,3,,AS200D256   
+4,35,0,0,3,,AS200D256   
+4,34,0,0,3,,AS200D256   
+4,33,0,0,3,,AS200D256   
+4,32,0,0,3,,AS200D256   
+4,31,0,0,3,,AS200D256   
+4,30,0,0,3,,AS200D256   
+4,29,0,0,3,,AS200D256   
+4,28,0,0,3,,AS200D256   
+4,27,0,0,3,,AS200D256   
+4,26,0,0,3,,AS200D256   
+4,25,0,0,3,,AS200D256   
+4,24,0,0,3,,AS200D256   
+4,23,0,0,3,,AS200D256   
+4,22,0,0,3,,AS200D256   
+4,21,0,0,3,,AS200D256   
+4,20,0,0,3,,AS200D256   
+4,19,0,0,3,,AS200D256   
+4,18,0,0,3,,AS200D256   
+4,17,0,0,3,,AS200D256   
+4,16,0,0,3,,AS200D256   
+4,15,0,0,3,,AS200D256   
+4,14,0,0,3,,AS200D256   
+4,13,0,0,3,,AS200D256   
+4,12,0,0,3,,AS200D256   
+4,11,0,0,3,,AS200D256   
+4,10,0,0,3,,AS200D256   
+4,9,0,0,3,,AS200D256    
+4,8,0,0,3,,AS200D256    
+4,7,0,0,3,,AS200D256    
+4,6,0,0,3,,AS200D256    
+4,5,0,0,3,,AS200D256    
+4,4,0,0,3,,AS200D256    
+4,3,0,0,3,,AS200D256    
+4,2,0,0,3,,AS200D256    
+4,1,0,0,3,,AS200D256 
+
+[Begin Action 13]; Building Flash (Statue Eye Cross), Part 2.4
+-1,-1,0,0,50,,
+1,10,0,0,3,,AS10D256
+1,10,0,0,3,,AS20D256
+1,10,0,0,3,,AS30D256
+1,10,0,0,3,,AS40D256
+1,10,0,0,3,,AS50D256
+1,10,0,0,3,,AS60D256
+1,10,0,0,3,,AS70D256
+1,10,0,0,3,,AS80D256
+1,10,0,0,3,,AS90D256
+1,10,0,0,5,,AS100D256
+1,10,0,0,3,,AS110D256
+1,10,0,0,3,,AS120D256
+1,10,0,0,3,,AS130D256
+1,10,0,0,3,,AS140D256
+1,10,0,0,3,,AS150D256
+1,10,0,0,3,,AS160D256
+1,10,0,0,3,,AS170D256
+1,10,0,0,3,,AS180D256
+1,10,0,0,3,,AS190D256
+1,10,0,0,10,,AS256D256
+1,10,0,0,3,,AS190D256
+1,10,0,0,3,,AS180D256
+1,10,0,0,3,,AS170D256
+1,10,0,0,3,,AS160D256
+1,10,0,0,3,,AS150D256
+1,10,0,0,3,,AS140D256
+1,10,0,0,3,,AS130D256
+1,10,0,0,3,,AS120D256
+1,10,0,0,3,,AS110D256
+1,10,0,0,3,,AS100D256
+1,10,0,0,3,,AS90D256
+1,10,0,0,3,,AS80D256
+1,10,0,0,3,,AS70D256
+1,10,0,0,3,,AS60D256
+1,10,0,0,3,,AS50D256
+1,10,0,0,3,,AS40D256
+1,10,0,0,3,,AS30D256
+1,10,0,0,3,,AS20D256
+1,10,0,0,3,,AS10D256
+-1,-1,0,0,50,,
+
+[Begin Action 14]; Building Flash (Statue Eye), Part 2.5
+-1,-1,0,0,50,,
+1,11,0,0,3,,AS10D256
+1,11,0,0,3,,AS20D256
+1,11,0,0,3,,AS30D256
+1,11,0,0,3,,AS40D256
+1,11,0,0,3,,AS50D256
+1,11,0,0,3,,AS60D256
+1,11,0,0,3,,AS70D256
+1,11,0,0,3,,AS80D256
+1,11,0,0,3,,AS90D256
+1,11,0,0,5,,AS100D256
+1,11,0,0,3,,AS110D256
+1,11,0,0,3,,AS120D256
+1,11,0,0,3,,AS130D256
+1,11,0,0,3,,AS140D256
+1,11,0,0,3,,AS150D256
+1,11,0,0,3,,AS160D256
+1,11,0,0,3,,AS170D256
+1,11,0,0,3,,AS180D256
+1,11,0,0,3,,AS190D256
+1,11,0,0,10,,AS256D256
+1,11,0,0,3,,AS190D256
+1,11,0,0,3,,AS180D256
+1,11,0,0,3,,AS170D256
+1,11,0,0,3,,AS160D256
+1,11,0,0,3,,AS150D256
+1,11,0,0,3,,AS140D256
+1,11,0,0,3,,AS130D256
+1,11,0,0,3,,AS120D256
+1,11,0,0,3,,AS110D256
+1,11,0,0,3,,AS100D256
+1,11,0,0,3,,AS90D256
+1,11,0,0,3,,AS80D256
+1,11,0,0,3,,AS70D256
+1,11,0,0,3,,AS60D256
+1,11,0,0,3,,AS50D256
+1,11,0,0,3,,AS40D256
+1,11,0,0,3,,AS30D256
+1,11,0,0,3,,AS20D256
+1,11,0,0,3,,AS10D256
+-1,-1,0,0,50,,
+
+[Begin Action 15]    ; Left Side, Statue, Lamp Flicker
+1,8,0,0,3,,AS10D256
+1,8,0,0,3,,AS20D256
+1,8,0,0,3,,AS30D256
+1,8,0,0,3,,AS40D256
+1,8,0,0,3,,AS50D256
+1,8,0,0,3,,AS60D256
+1,8,0,0,3,,AS70D256
+1,8,0,0,3,,AS80D256
+1,8,0,0,3,,AS90D256
+1,8,0,0,5,,AS100D256
+1,8,0,0,3,,AS110D256
+1,8,0,0,3,,AS120D256
+1,8,0,0,3,,AS130D256
+1,8,0,0,3,,AS140D256
+1,8,0,0,3,,AS150D256
+1,8,0,0,3,,AS160D256
+1,8,0,0,3,,AS170D256
+1,8,0,0,3,,AS180D256
+1,8,0,0,3,,AS190D256
+1,8,0,0,10,,AS256D256
+1,8,0,0,3,,AS190D256
+1,8,0,0,3,,AS180D256
+1,8,0,0,3,,AS170D256
+1,8,0,0,3,,AS160D256
+1,8,0,0,3,,AS150D256
+1,8,0,0,3,,AS140D256
+1,8,0,0,3,,AS130D256
+1,8,0,0,3,,AS120D256
+1,8,0,0,3,,AS110D256
+1,8,0,0,3,,AS100D256
+1,8,0,0,3,,AS90D256
+1,8,0,0,3,,AS80D256
+1,8,0,0,3,,AS70D256
+1,8,0,0,3,,AS60D256
+1,8,0,0,3,,AS50D256
+1,8,0,0,3,,AS40D256
+1,8,0,0,3,,AS30D256
+1,8,0,0,3,,AS20D256
+1,8,0,0,3,,AS10D256
+
+[Begin Action 28]    ; Part
+1,9,0,0,2,,AS256D256
+1,9,0,0,4,,AS225D256

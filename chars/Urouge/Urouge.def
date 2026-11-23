@@ -1,0 +1,28 @@
+[Info]
+name="Urouge"
+displayname="Urouge"
+versiondate=
+mugenversion=1.0
+author="mysh_2002,edit by Kennedy Mugen"
+pal.defaults=1
+
+[Files]
+sprite=Sprite.sff
+sound=Sound.snd
+anim=Anim.air
+cmd=Command.cmd
+cns=Urouge.cns
+st=Urouge.cns
+stcommon=common1.cns
+st1=IA.cns
+st2=Especiales.cns
+st3=Super.cns
+st4=DevilFruit.cns
+st5=Configs.cns
+st6=Data\glows\Glow(white).zss
+movelist = movelist.dat ;Ikemen feature
+
+;Paletas
+pal1=1.act
+pal2=2.act
+pal3=3.act

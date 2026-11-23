@@ -1,0 +1,24 @@
+
+;--| Šî–{î•ñ |---------------------------------------------------------------
+
+[Info]
+Name         = "God Gundam"
+DisplayName  = "Domon"
+VersionDate  = 09,15,2010
+MugenVersion = 04,14,2002
+Author       = "gen"
+Pal.Defaults = 1
+
+[Files]
+Cmd     = GodGundam.cmd
+Cns     = GodGundam.cns
+Sprite  = GodGundam.sff
+Anim    = GodGundam.air
+Sound   = GodGundam.snd
+StCommon = common.cns
+St      = GodGundam.cns
+St1      = AI.cns
+st2 = Configs.cns
+st3 = Data\glows\Glow(gold).zss
+movelist = movelist.dat     ;Ikemen feature
+movelist.2 = data\movelist_general.dat

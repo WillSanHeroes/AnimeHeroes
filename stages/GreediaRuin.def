@@ -1,0 +1,353 @@
+;--------------------------------------------------------
+[Info]
+name = "Ruins of Greedia"
+author = "xcheatdeath" ;Credit to lamissfairy for the stage sprite rips
+;attachedchar = UWE\water.chr
+;--------------------------------------------------------
+[Camera]
+startx = 0
+starty = 0
+boundleft = -315
+boundright = 315
+boundhigh = -210
+boundlow=0
+verticalfollow = 0.2
+floortension = 140
+tension = 100
+overdrawhigh = 0
+overdrawlow = 0
+zoomin = 1.3
+zoomout = .8
+
+;--------------------------------------------------------
+[PlayerInfo]
+;--- Player 1 ---
+ ;Player 1 starting coordinates.
+ ;p1startx is typically -70 and p2startx is 70.
+ ;p1starty and p1startz should be 0.
+p1startx = -70          ;Starting x coordinates
+p1starty = 0            ;Starting y coordinates
+p1startz = 0            ;Starting z coordinates
+p1facing = 1            ;Direction player faces: 1=right, -1=left
+
+;--- Player 2 ---
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+;--- Common ---
+ ;Don't change these values.
+leftbound  = -1000 ;Left bound (x-movement)
+rightbound =  1000 ;Right bound
+topbound  =  0     ;Top bound (z-movement)
+botbound  =  0     ;Bottom bound
+
+;--------------------------------------------------------
+[Scaling]
+topz     = 0       ;Top z-coordinate for scaling
+botz     = 50      ;Bottom z-coordinate for scaling
+topscale = 1       ;Scale to use at top
+botscale = 1.2     ;Scale to use at bottom
+
+;--------------------------------------------------------
+[Bound]
+screenleft = 25   ;Dist from left of screen that player can move to
+screenright = 25   ;Right edge
+
+;--------------------------------------------------------
+[StageInfo]
+zoffset = 216
+autoturn = 1
+resetBG = 0
+
+;--------------------------------------------------------
+[Shadow]
+intensity = 0
+
+;--------------------------------------------------------
+[Reflection]
+intensity = 128
+
+;--------------------------------------------------------
+[Music]
+bgmusic = sound/GreediaRuin.mp3
+bgmvolume = 255
+
+
+[BGdef]
+spr = stages/GreediaRuin.sff
+debugbg = 0
+
+;Order Actions ---------------------------------------------
+
+
+[BG Sky]
+type = anim
+actionno = 0
+delta = .5,1
+
+
+[BG WaterfallsMountains]
+type = anim
+actionno = 2
+delta = .65,1
+
+[BG Deer]
+type = anim
+actionno = 10
+delta = .662,1
+
+
+[BG Orb]
+type = anim
+actionno = 5
+delta=1.12,1
+
+[BG Orb 1]
+type = anim
+actionno = 6
+delta=1.12,1
+
+[BG Orb 2]
+type = anim
+actionno = 3
+delta=1.12,1
+
+[BG Orb 3]
+type = anim
+actionno = 4
+delta=1.12,1
+
+[BG Pillars]
+type = normal
+spriteno = 4,0
+delta=1.12,1
+mask = 1
+
+[BG Fog]
+type = normal
+spriteno = 7,2
+delta = 1,1
+trans = add
+mask = 1
+tile = 1,0
+velocity = .3,0
+
+[BG Fog 2]
+type = normal
+spriteno = 7,1
+delta = 1,1
+trans = add
+mask = 1
+tile = 1,0
+velocity = .6,0
+
+[BG Fog 3]
+type = normal
+spriteno = 7,3
+delta = 1,1
+trans = add
+mask = 1
+tile = 1,0
+velocity = .9,0
+
+
+[BG Pillar Bases]
+type=normal
+spriteno=11,4
+start=0,-45
+delta=1.12,1
+mask=1
+
+[BG water]
+type = anim
+actionno = 8
+start=0,-45
+tile=1,0
+tilespacing=1024,0
+delta = 1.095,1
+
+[BG FrontRubbish]
+type = normal
+spriteno = 4,1
+delta = 1.1,1
+mask = 1
+layerno = 1 
+
+[BG FrontRubbish2]
+type = normal
+spriteno = 4,2
+delta = 1.1,1
+mask = 1
+layerno = 1 
+
+[BG SeaHorseStatue]
+type = normal
+spriteno = 3,0
+delta = 1.11,1
+start=-125,0
+mask = 1
+
+; SeaHorse Green Bronze Statue Broke
+[BG BrokenStatue]
+type = normal
+spriteno = 3,1
+delta = 1.13,1
+start=100,0
+mask = 1
+
+;----------------------------------------------
+
+[Begin Action 10]
+12,1, 0,0, 10
+12,2, 0,0, 10
+12,3, 0,0, 15
+12,4, 0,0, 15
+12,3, 0,0, 15
+12,4, 0,0, 15
+12,3, 0,0, 15
+12,4, 0,0, 15
+12,3, 0,0, 15
+12,4, 0,0, 15
+12,3, 0,0, 15
+12,4, 0,0, 15
+12,2, 0,0, 12
+12,1, 0,0, 150
+
+[Begin Action 8]
+11,1, 0,0, 5
+11,2, 0,0, 5
+11,3, 0,0, 5
+
+[Begin Action 0]
+0,0, 0,-22, 4
+0,1, 0,-22, 4
+0,2, 0,-22, 4
+0,4, 0,-22, 4
+0,5, 0,-22, 4
+0,6, 0,-22, 4
+0,7, 0,-22, 4
+0,8, 0,-22, 4
+0,9, 0,-22, 4
+0,10, 0,-22, 4
+0,11, 0,-22, 4
+0,12, 0,-22, 4
+0,13, 0,-22, 4
+0,14, 0,-22, 4
+0,15, 0,-22, 4
+0,16, 0,-22, 4
+0,17, 0,-22, 4
+0,18, 0,-22, 4
+0,19, 0,-22, 4
+0,20, 0,-22, 4
+0,21, 0,-22, 4
+0,22, 0,-22, 4
+0,23, 0,-22, 4
+0,24, 0,-22, 4
+0,25, 0,-22, 4
+0,26, 0,-22, 4
+0,27, 0,-22, 4
+0,28, 0,-22, 4
+0,29, 0,-22, 4
+0,30, 0,-22, 4
+0,31, 0,-22, 4
+0,32, 0,-22, 4
+0,33, 0,-22, 4
+0,34, 0,-22, 4
+0,35, 0,-22, 4
+0,36, 0,-22, 4
+0,37, 0,-22, 4
+0,38, 0,-22, 4
+0,39, 0,-22, 4
+0,40, 0,-22, 4
+0,41, 0,-22, 4
+0,42, 0,-22, 4
+0,43, 0,-22, 4
+0,44, 0,-22, 4
+0,45, 0,-22, 4
+0,46, 0,-22, 4
+0,47, 0,-22, 4
+0,48, 0,-22, 4
+0,49, 0,-22, 4
+0,50, 0,-22, 4
+0,51, 0,-22, 4
+0,52, 0,-22, 4
+0,53, 0,-22, 4
+0,54, 0,-22, 4
+0,55, 0,-22, 4
+0,56, 0,-22, 4
+0,57, 0,-22, 4
+0,58, 0,-22, 4
+0,59, 0,-22, 4
+0,60, 0,-22, 4
+0,61, 0,-22, 4
+0,62, 0,-22, 4
+0,63, 0,-22, 4
+0,64, 0,-22, 4
+0,65, 0,-22, 4
+0,66, 0,-22, 4
+0,67, 0,-22, 4
+0,68, 0,-22, 4
+0,69, 0,-22, 4
+0,70, 0,-22, 4
+0,71, 0,-22, 4
+0,72, 0,-22, 4
+0,73, 0,-22, 4
+0,74, 0,-22, 4
+0,75, 0,-22, 4
+0,76, 0,-22, 4
+0,77, 0,-22, 4
+0,78, 0,-22, 4
+0,79, 0,-22, 4
+0,80, 0,-22, 4
+0,81, 0,-22, 4
+0,82, 0,-22, 4
+0,83, 0,-22, 4
+0,84, 0,-22, 4
+0,85, 0,-22, 4
+0,86, 0,-22, 4
+0,87, 0,-22, 4
+0,88, 0,-22, 4
+0,89, 0,-22, 4
+0,90, 0,-22, 4
+0,91, 0,-22, 4
+0,92, 0,-22, 4
+0,93, 0,-22, 4
+0,94, 0,-22, 4
+0,95, 0,-22, 4
+0,96, 0,-22, 4
+0,97, 0,-22, 4
+0,98, 0,-22, 4
+
+[Begin Action 3]
+6,1, 0,0, 3, , A
+6,2, 0,0, 3, , A
+6,3, 0,0, 3, , A
+6,4, 0,0, 3, , A
+
+[Begin Action 4]
+8,1, 0,0, 3, , A
+8,2, 0,0, 3, , A
+8,3, 0,0, 3, , A
+8,4, 0,0, 3, , A
+
+
+[Begin Action 5]
+9,3, 0,0, 3, , A
+9,4, 0,0, 3, , A
+9,5, 0,0, 3, , A
+9,6, 0,0, 3, , A
+
+[Begin Action 6]
+10,3, 0,0, 3, , A
+10,4, 0,0, 3, , A
+10,5, 0,0, 3, , A
+10,6, 0,0, 3, , A
+
+[Begin Action 2]
+2,0, 0,0, 5
+2,1, 0,0, 5
+2,2, 0,0, 5
+2,3, 0,0, 5
+

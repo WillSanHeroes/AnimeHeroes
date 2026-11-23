@@ -1,0 +1,12 @@
+[Info]
+name = "HeavyTraffic"
+author = "NONAME01150"
+ikemenversion = 1.0
+localcoord = 320,240
+
+[Files]
+sprite = HeavyTraffic.sff
+anim = HeavyTraffic.air
+sound = HeavyTraffic.snd
+st = HeavyTraffic.zss
+st2 = func.zss

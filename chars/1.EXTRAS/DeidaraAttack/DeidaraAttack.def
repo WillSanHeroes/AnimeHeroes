@@ -1,0 +1,32 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Edo Tensei Deidara Attack"
+displayname = "Deidara Attack"
+versiondate = 01,27,2009
+mugenversion = 06,14,2003
+author = "Phantom.of.the.Server (edit by ViniciusLawliet)"
+pal.defaults = 1,2,3,4
+
+[Files]
+sprite = Sprite.sff
+anim = Anim.air
+sound = Sound.snd
+cmd = Command.cmd
+cns = Constants.cns
+stcommon = common1.cns
+st = States.st
+st1 = CONFIG.txt
+pal1 = Palettes\Default.act
+pal2 = Palettes\Blue.act
+pal3 = Palettes\Green.act
+pal4 = Palettes\Orange.act
+pal5 = Palettes\Purple.act
+pal6 = Palettes\Black.act
+
+[Arcade]
+;intro.storyboard = 
+;ending.storyboard = 

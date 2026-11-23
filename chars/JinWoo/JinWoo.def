@@ -1,0 +1,18 @@
+[info]
+name = "Sung JinWoo"
+displayname = "JinWoo"
+mugenversion = 1.1
+author = "RyoumenS" ;Edit Willsan
+
+[files]
+anim = anim.air
+cmd = cmd.cmd
+cns = cns.cns
+sound = snd.snd
+sprite = spr.sff
+stcommon = base.cns
+st = cns.cns
+st2 = -2.cns
+st3 = MornachDomain.cns
+st4 = configs.cns
+st5 = Glows.zss

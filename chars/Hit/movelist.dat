@@ -1,0 +1,26 @@
+<#f80ae0>-AWAKE STATE-</>
+Agility UP
+_!Increased movement speed and special range
+
+<#00FF7F>-SPECIALS-</>
+Icy Glare <#f5f00c>(Break Def)</> <#1E90FF>[1 LVL]</>		^S+^A
+_!<#f80ae0>Awake:</> Time Freeze
+Time-Skip Combo <#1E90FF>[1.5 LVL]</>		^S+^B
+_!_AIR ON
+Time Prison <#f5f00c>(Counter)</> <#1E90FF>[1.5 LVL]</>		^S+^C
+_!_AIR ON
+Time-Skip: Jump Spike <#1E90FF>[2 LVL]</>		^S+^Y
+_!_AIR ON
+
+<#DC143C>-ULTIMATE-</> <#f80ae0>ONLY AWAKE</>
+Time-Skip: Molotov <#1E90FF>[3 LVL]</>		_TAP^Z
+
+<#8045ff>-UNIQUES-</>
+Super Dash <#1E90FF>[0.2 LVL]</>		_D+^S
+_!_AIR ON
+Time Skip <#f5f00c>(Counter)</> <#1E90FF>[1/2 LVL]</>		_TAP^C
+Tide of Time		_D^A
+_!Then press ^A or ^B or ^C
+Tide of Time EX <#1E90FF>[1/2 LVL]</>		_D^B
+_!Then press ^A or ^B or ^C
+Deadly Intent		_D^C

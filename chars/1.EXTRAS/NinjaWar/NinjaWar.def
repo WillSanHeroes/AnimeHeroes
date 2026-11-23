@@ -1,0 +1,27 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name ="Ninja War"
+displayname ="Ninja War"
+versiondate =10,15,2010
+mugenversion =06,14,2003
+author ="RistaR87"
+pal.defaults =1,2
+
+[Files]
+sprite =Sprite.sff
+anim =Anim.air
+sound =Sound.snd
+cmd =Command.cmd
+cns =Constants.cns
+stcommon =common1.cns
+st =States.st
+pal1=Palettes\Default.act
+st1=CONFIG.txt
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

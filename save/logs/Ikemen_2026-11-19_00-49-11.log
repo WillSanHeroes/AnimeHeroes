@@ -1,0 +1,29 @@
+Version: modern-input
+Build Time: 2026.11.17
+Platform: windows (amd64)
+OpenGL 3.3
+RAM in Use: 3 MB / OS Reserved: 15 MB
+Active Goroutines: 2
+Timestamp: 2026-11-19 00:49:11
+
+Application error
+
+Error: Icon file can not be found.
+Panic: open external/icons/AnimeHeroes_256.png: O sistema não pode encontrar o arquivo especificado.
+
+Go stack traceback:
+goroutine 1 [running, locked to thread]:
+runtime/debug.Stack()
+	runtime/debug/stack.go:26 +0x5e
+main.handlePanic({0x7ff78a913fa8, 0x37459c3fe010})
+	github.com/ikemen-engine/Ikemen-GO/src/main.go:402 +0x3a5
+main.realMain.func1()
+	github.com/ikemen-engine/Ikemen-GO/src/main.go:66 +0x1d
+panic({0x7ff78a913fa8?, 0x37459c3fe010?})
+	runtime/panic.go:859 +0x125
+main.(*System).init(0x7ff78a2ad900, 0x500, 0x2d0)
+	github.com/ikemen-engine/Ikemen-GO/src/system.go:538 +0x117e
+main.realMain()
+	github.com/ikemen-engine/Ikemen-GO/src/main.go:223 +0x4c5
+main.main()
+	github.com/ikemen-engine/Ikemen-GO/src/main.go:59 +0xf

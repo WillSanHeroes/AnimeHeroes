@@ -1,0 +1,31 @@
+<#00FF7F>-SPECIALS-</>
+Scald <#1E90FF>[1 LVL]</>		^S+^A
+Skull Bash <#1E90FF>[1 LVL]</>		^S+^B
+_!Shell Smash: Aqua Jet
+_!_AIR ON
+Hydro Pump <#1E90FF>[1.5 LVL]</>		^S+^C
+Ice Beam <#1E90FF>[1 LVL]</>		^S+_D_+^A
+Whirlpool <#1E90FF>[1.5 LVL]</>		^S+_D_+^B
+Water Spout <#1E90FF>[1.5 LVL]</>		^S+_D_+^C
+
+<#FFFF00>-SUPER-</>
+Surf <#1E90FF>[2 LVL]</>		^S+^Y
+
+<#DC143C>-ULTIMATE-</> <#f80ae0>(ONLY AWAKE)</>
+Mega Hydro Cannon <#1E90FF>[3 LVL]</>		_TAP^Z
+
+<#8045ff>-UNIQUES-</>
+Rapid Spin		_D_+^A
+Bubble		_D_+^B
+Water Pulse		_D_+^C
+_!Can hold
+Shell Smash <#1E90FF>[1 LVL]</>		_D_+^Z
+_!15 seconds, then it can be used again
+Aqua Ring <#1E90FF>[1 LVL]</>		_D_+^S
+_!Shell Smash: Dark Pulse
+Withdraw <#1E90FF>[0.5 LVL]</>		_HOLD^Y
+_!Hold to keep the shell
+_!_AIR ON
+Body Slam <#1E90FF>[0.5 LVL]</>		^A+^B
+Dive <#1E90FF>[0.5 LVL]</>		^A+^C
+Flash Cannon <#1E90FF>[0.5 LVL]</>		^B+^C

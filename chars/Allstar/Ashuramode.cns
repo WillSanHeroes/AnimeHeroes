@@ -1,0 +1,389 @@
+;===============================================================================
+; Gudodama:
+;-------------------------------------------------------------------------------
+[Statedef 1]
+type    = A
+movetype= I
+physics = N
+anim = 2
+sprpriority = -1
+
+[State 0, FX]
+type = Explod
+trigger1 = numexplod(3) = 0
+anim = 3
+ID = 3
+pos = 0*Helper(999999),Fvar(16),0*Helper(999999),Fvar(16)
+postype = p1
+Bindtime = -1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+Removetime = -1
+Trans = Add
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = numhelper(2450) = 1
+trigger2 = root,stateno = [39000,4000]
+flag = Invisible
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+
+[State 0, BindToRoot] ; Normal
+type = BindToRoot
+trigger1 = 1
+pos = -4*Helper(999999),Fvar(16),-40*Helper(999999),Fvar(16)
+
+[State 0, BindToRoot] ; Crouch // Run
+type = BindToRoot
+trigger1 = root,stateno = [10,12]
+trigger2 = root,stateno = [60,70]
+pos = -4*Helper(999999),Fvar(16),-30*Helper(999999),Fvar(16)
+
+[State 0, BindToRoot] ; Win
+type = BindToRoot
+trigger1 = root,stateno = 181
+pos = -2*Helper(999999),Fvar(16),-40*Helper(999999),Fvar(16)
+
+[State 0, BindToRoot] ; 2210
+type = BindToRoot
+trigger1 = root,stateno = 210
+pos = -10*Helper(999999),Fvar(16),-40*Helper(999999),Fvar(16)
+
+[State 0, BindToRoot] ; 2300
+type = BindToRoot
+trigger1 = root,stateno = 300
+pos = 2*Helper(999999),Fvar(16),-35*Helper(999999),Fvar(16)
+
+[State 0, BindToRoot] ; 2310
+type = BindToRoot
+trigger1 = root,stateno = 310
+pos = -12*Helper(999999),Fvar(16),-40*Helper(999999),Fvar(16)
+
+[State 0, BindToRoot] ; 2610
+type = BindToRoot
+trigger1 = root,stateno = 610
+pos = -4*Helper(999999),Fvar(16),-32*Helper(999999),Fvar(16)
+
+
+[State 0, VarSet] ; Alante
+type = VarSet
+trigger1 = root,stateno = 200 && root,time >= 5
+trigger2 = root,stateno = 300 && root,time >= 5
+trigger2 = root,stateno = 600 && root,time >= 3
+v = 1
+value = 1
+
+[State 0, VarSet] ; Atras
+type = VarSet
+trigger1 = root,stateno != 22
+trigger1 = root,stateno != 300
+trigger1 = root,stateno != 610
+v = 1
+value = 0
+
+[State 0, SprPriority]
+type = SprPriority
+trigger1 = var(1) = 1
+value = 4
+
+[State 0, SprPriority]
+type = SprPriority
+trigger1 = var(1) = 0
+value = -1
+
+[State 0, ModifyExplod]
+type = ModifyExplod
+trigger1 = var(1) = 1
+Id = 3
+sprpriority = 3
+Trans = add
+scale = 1*Helper(999999),Fvar(16),1*Helper(999999),Fvar(16)
+
+[State 0, ModifyExplod]
+type = ModifyExplod
+trigger1 = var(1) = 0
+Id = 3
+sprpriority = -1
+Trans = add
+scale = 1*Helper(999999),Fvar(16),1*Helper(999999),Fvar(16)
+
+[State 0, ModifyExplod]
+type = ModifyExplod
+trigger1 = var(1) = 1
+Id = 4
+sprpriority = 3
+Trans = Sub
+scale = 1*Helper(999999),Fvar(16),1*Helper(999999),Fvar(16)
+
+[State 0, ModifyExplod]
+type = ModifyExplod
+trigger1 = var(1) = 0
+Id = 4
+sprpriority = -1
+Trans = Sub
+scale = 1*Helper(999999),Fvar(16),1*Helper(999999),Fvar(16)
+
+[State 0, ModifyExplod]
+type = ModifyExplod
+trigger1 = root,stateno = 170 && root,time >= 5
+ID = 3
+scale = 0,0
+
+[State 0, ModifyExplod]
+type = ModifyExplod
+trigger1 = root,stateno = 170 && root,time >= 5
+ID = 4
+scale = 0,0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = root,var(4) != 1
+trigger2 = numhelper(2450) = 1
+id = 3
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = root,var(4) != 1
+trigger2 = numhelper(2450) = 1
+id = 4
+
+[State 200, End]
+type = Destroyself
+trigger1 = root,var(4) != 1
+trigger2 = numhelper(30350) = 1
+trigger4 = numhelper(2450) = 1
+;===============================================================================
+; C:
+;-------------------------------------------------------------------------------
+[Statedef 2400]
+type    = S
+movetype= A
+physics = S
+juggle  = 2
+ctrl = 0
+anim = 2400
+sprpriority = 2
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = pos y < 0
+statetype = A       ;S,A,C,L
+movetype = A        ;I,A,H
+physics = A         ;A,C,S,N
+
+
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S5,25
+volume = 50
+
+[State 0, Bola]
+type = Helper
+trigger1 = time = 0
+helpertype = normal
+name = "Bola"
+ID = 2450
+stateno = 2450
+pos = 0*Helper(999999),Fvar(16),-50*Helper(999999),Fvar(16)
+postype = p1
+ownpal = 1
+Supermovetime = 25
+Supermove = 25
+
+
+
+[State 200, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = ifelse(pos y < 0,50,0)
+ctrl = 1
+
+;-------------------------------------------------------------------------------
+; Bola Start
+[Statedef 2450]
+type    = A
+movetype= A
+physics = N
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 2450
+sprpriority = 3
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = time = 0
+x = 5
+y = 1.5
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = time = 6
+x = 0
+y = 0
+
+
+[State 0, FX]
+type = Explod
+trigger1 = time = 0
+anim = 2451
+ID = 2451
+pos = 0,0
+postype = p1
+bindtime = -1
+removetime = -1
+supermovetime = 25
+Supermove = 25
+scale = 1.2*Helper(999999),Fvar(16),1.2*Helper(999999),Fvar(16)
+sprpriority = -1
+ownpal = 1
+ignorehitpause = 1
+trans = add
+
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = time = 7
+time = 20
+
+[State 200, End]
+type = ChangeState
+trigger1 = time = 7
+value = 2451
+;-------------------------------------------------------------------------------
+; Bola Rodando
+[Statedef 2451]
+type    = A
+movetype= H
+physics = N
+juggle  = 1
+velset = 0,0
+ctrl = 0
+sprpriority = 3
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = time = 0
+x = 10
+y = 0
+
+
+[State 200, 1]
+type = HitDef
+triggerall = !movecontact
+trigger1 = 1
+attr = A, SP
+animtype  = Medium
+damage    = 10,5
+Hitflag = MAFDE
+guardflag = MA
+pausetime = 10,10
+sparkno = -1
+guard.sparkno = s7000
+sparkxy = -8,-5
+hitsound   = S1,11
+guardsound = S4,1
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 15
+ground.velocity = -5
+air.velocity = -5
+Fall = 1
+Envshake.time = 10
+Getpower = 0,0
+
+[State 0, MoveHitReset]
+type = MoveHitReset
+trigger1 = timemod = 15,0;movehit = 1
+
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = root,var(4) = 0
+id = 2450
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = root,var(4) = 0
+id = 2451
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = root,var(4) = 0
+
+
+[State 200, End]
+type = ChangeState
+trigger1 = time = 200
+trigger2 = roundstate != 2
+trigger3 = movecontact
+trigger4 = frontedgebodydist < 2
+value = 2455
+;-------------------------------------------------------------------------------
+; Bola Fin
+[Statedef 2455]
+type    = A
+movetype= I
+physics = N
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 2
+sprpriority = -1
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = 1
+x = rootdist x / 20
+y = rootdist y / 20
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = time = 0
+id = 2450
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = time = 0
+id = 2451
+
+
+[State 0, FX]
+type = Explod
+trigger1 = time = 0
+anim = 3
+ID = 3
+pos = 0,0
+postype = p1
+bindtime = -1
+removetime = -1
+supermovetime = 25
+Supermove = 25
+scale = 1*Helper(999999),Fvar(16),1*Helper(999999),Fvar(16)
+sprpriority = -1
+ownpal = 1
+ignorehitpause = 0
+trans = add
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = rootdist x = [-20,20]
+trigger1 = rootdist y = [-20,20]
+;trigger2 = time = 0
+id = 2
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = rootdist x = [-20,20]
+trigger1 = rootdist y = [-20,20]
+;trigger2 = time = 0
+id = 3
+
+[State 200, End]
+type = Destroyself
+trigger1 = rootdist x = [-20,20]
+trigger1 = rootdist y = [-20,20]

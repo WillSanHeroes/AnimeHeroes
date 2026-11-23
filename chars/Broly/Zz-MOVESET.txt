@@ -1,0 +1,118 @@
+
+Broly (DBZ) V3 All Forms by Mystery107 (Original character by Knightmare)
+
+A - Light Punch
+
+B - Hard Punch
+
+C - Ki Blast
+
+/D,c - Explosive Wave (Basic) (Can be used in air too) (Exclusive to RSSJ1/SSJ1/LSSJ1)
+
+Y - Super Dash
+
+S - Power Charge
+
+PALETTE MODES:
+
+1P - Restrained Base
+
+2P - Base
+
+3P - RSSJ1
+
+4P - SSJ1
+
+5P - LSSJ1
+
+Restrained Base or Base:
+
+SPECIALS:
+
+D,DF,F,a - Explosive Wave (Can be used in air too)
+
+D,DB,B,a - Gigantic Charge
+
+D,DF,F,b - Bloody Smash
+
+D.DB,B,b - Eraser Bomb (Can be used in air too)
+
+D,DF,F,c - Full Power Energy Wave  (Can be used in air too)
+
+D,DB,B,c - Omega Energy Wave Volley  (Can be used in air too)
+
+/D,y - Powered Shield (Can be used in air too) (Exclusive to Restrained Base)
+
+/D,y - Powered Shell (Can be used in air too) (Exclusive to Base)
+
+SUPERS:
+
+x - Eraser Cannon (Can be used in air too)
+
+TRANSFORM:
+
+Z - RSSJ1 (Exclusive to Restrained Base)
+
+Z - SSJ1 (Exclusive to Base)
+
+Restrained SSJ1 or SSJ1:
+
+SPECIALS:
+
+D,DF,F,a - Gigantic Knuckle
+
+D,DB,B,a - Eraser Shot Volley  (Can be used in air too)
+
+D,DF,F,b - Gigantic Stomp
+
+D,DB,B,b - Trap Shooter  (Can be used in air too)
+
+D,DF,F,c - Eraser Cannon (Can be used in air too)
+
+D,DB,B,c - Blaster Field  (Can be used in air too)
+
+/D,y - Powered Shield (Can be used in air too) (Exclusive to Restrained SSJ1)
+
+/D,y - Powered Shell (Can be used in air too) (Exclusive to SSJ1)
+
+SUPERS:
+
+x - Super Explosive Wave (Can be used in air too)
+
+TRANSFORM:
+
+Z - SSJ1 (Exclusive to Restrained SSJ1)
+
+/D,z - LSSJ1 (Exclusive to Restrained SSJ1)
+
+Z - LSSJ1 (Exclusive to SSJ1)
+
+/D,s - Return to Restrained Base (Exclusive to Restrained SSJ1)
+
+/D,s - Return to Base (Exclusive to SSJ1)
+
+LSSJ1:
+
+SPECIALS:
+
+D,DF,F,a - Gigantic Claw (Can be used in air too)
+
+D,DB,B,a - Eraser Blow (Can be used in air too)
+
+D,DF,F,b - Gigantic Hammer (Can be used in air too)
+
+D,DB,B,b - Planet Geyser (Can be used in air too)
+
+D,DF,F,c - Eraser Cannon (Can be used in air too)
+
+D,DB,B,c - Blaster Meteor (Can be used in air too)
+
+/D,y - Powered Shell (Can be used in air too)
+
+SUPERS:
+
+x - Gigantic Meteor (Can be used in air too)
+
+TRANSFORM:
+
+/D,s - Return to Base

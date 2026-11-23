@@ -1,0 +1,34 @@
+; Definition file for Kung Fu Man
+; Contains all the filenames needed for the character
+
+; Player information
+[Info]
+name="Impel Down"
+displayname="Impel Down"
+versiondate=04,14,2002
+mugenversion=1.0
+author="Team One Piece OS"
+pal.defaults=1
+
+; Files for the player
+[Files]
+cmd=ImpelDownRumble.cmd
+sprite=ImpelDownRumble.sff
+anim=ImpelDownRumble.air
+sound=ImpelDownRumble.snd
+stcommon =common1.cns
+st=ImpelDownRumble_constants.cns
+cns=ImpelDownRumble_constants.cns
+pal1=ImpelDownRumble_01.act
+st1=ImpelDownRumble_Minotaurus.cns
+st2=ImpelDownRumble_Minorhino.cns
+st3=ImpelDownRumble_Minokoala.cns
+st4=ImpelDownRumble_Minozebra.cns
+st5=ImpelDownRumble_Sadie.cns
+st6=ImpelDownRumble_Hannyabal.cns
+
+
+
+[Arcade]
+intro.storyboard=
+ending.storyboard=

@@ -1,0 +1,38 @@
+[Info]
+name ="Allstar"
+displayname ="Allstar"
+versiondate =12/12/2017
+mugenversion =1.0
+author ="VINICIUSONICO" ;Super edit by Willsan
+pal.defaults =1
+
+[Files]
+sprite =Allstar.sff
+anim =Allstar.air
+sound =Allstar.snd
+cmd =Allstar.cmd
+cns =Allstar.cns
+stcommon =common1.cns
+pal1=1.act
+pal2=2.act
+pal3=3.act
+pal4=4.act
+pal5=5.act
+pal6=6.act
+pal7=7.act
+pal8=8.act
+pal9=9.act
+st =Allstar.cns
+st1=IA.cns
+st2=Especiales.cns
+st3=Supers.cns
+st4=KageBunshin.cns
+st5=Ashuramode.cns
+st6=Ui.cns
+st7=Susanoo.cns
+st8=Kyubi.cns
+
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

@@ -1,0 +1,869 @@
+[Info]
+name = "FINAL"
+author = "Juu-bei7"
+
+[Camera]
+startx         = 0
+starty         = 0
+boundleft      = -95
+boundright     = 95
+boundhigh      = -14
+boundlow       = 58
+verticalfollow = 0.2
+floortension   = 60
+tension        = 80
+zoomout        = .85
+zoomin         = 1.5
+
+[PlayerInfo]
+;--- Player 1 ---
+
+p1startx    = -70          ; 開始ｘ座標
+p1starty    = 0            ; 開始ｙ座標
+p1startz    = 0            ; 開始ｚ座標
+p1facing    = 1            ; プレイヤーの向き： １：右向き  －１：左向き
+
+;--- Player 2 ---
+p2startx    = 70
+p2starty    = 0
+p2startz    = 0
+p2facing    = -1
+
+;--- Common ---
+
+leftbound   = -1000  ;Left bound (x-movement);ステージ左側の行動限界範囲
+rightbound  =  1000  ;Right bound            ;ステージ右側の行動限界範囲
+topbound    =  0     ;Top bound (z-movement)
+botbound    =  0     ;Bottom bound
+
+[Scaling]
+topz        = 0
+botz        = 50
+topscale    = 1
+botscale    = 1.2
+
+[Bound]
+screenleft  = 15 
+screenright = 15
+
+[StageInfo]
+zoffset     = 215
+zoffsetlink = 1
+autoturn    = 1
+resetBG     = 0
+hires = 1
+
+[Shadow]
+intensity = 100
+color       = 0,60,60
+yscale      = .3
+reflect     = 0
+
+[Music]
+bgmusic     = sound/Final.mp3
+bgvolume    = 255
+
+[BGdef]
+spr         = stages/Final.sff
+debugbg     = 0
+
+[BG 00, Background]
+type        = anim
+ActionNo    = 0
+layerNo     = 0
+start       = 0,0
+delta       = 0.1,0
+zoomdelta   = 0,0
+mask        = 0
+ID = 0
+
+[Begin Action 0]
+0,0,0,0,-1
+
+[BG 01, Blast LV1]
+type        = Anim
+actionno = 40
+layerNo     = 0
+start       = -156,130
+delta       = 0.1,0.1
+ID = 40
+
+[BGCtrlDef]
+looptime = 240
+ctrlID = 40
+
+[BGCtrl]
+type = enable
+value = 0
+time = 0
+ctrlID = 40
+
+[BGCtrl]
+type = enable
+value = 1
+time = 46
+ctrlID = 40
+
+[BGCtrl]
+type = enable
+value = 0
+time = 61
+ctrlID = 40
+
+[BG 02, Blast LV1]
+type        = Anim
+actionno = 40
+layerNo     = 0
+start       = -53,224
+delta       = 0.1,0.1
+ID = 41
+
+[BGCtrlDef]
+looptime = 240
+ctrlID = 41
+
+[BGCtrl]
+type = enable
+value = 0
+time = 0
+ctrlID = 41
+
+[BGCtrl]
+type = enable
+value = 1
+time = 208
+ctrlID = 41
+
+[BGCtrl]
+type = enable
+value = 0
+time = 223
+ctrlID = 41
+
+[BG 03, Blast LV1]
+type        = Anim
+actionno = 40
+layerNo     = 0
+start       = -152,204
+delta       = 0.1,0.1
+ID = 42
+
+[BGCtrlDef]
+looptime = 240
+ctrlID = 42
+
+[BGCtrl]
+type = enable
+value = 0
+time = 0
+ctrlID = 42
+
+[BGCtrl]
+type = enable
+value = 1
+time = 189
+ctrlID = 42
+
+[BGCtrl]
+type = enable
+value = 0
+time = 204
+ctrlID = 42
+
+[BG 04, Blast LV1]
+type        = Anim
+actionno = 40
+layerNo     = 0
+start       = 147,175
+delta       = 0.1,0.1
+ID = 43
+
+[BGCtrlDef]
+looptime = 240
+ctrlID = 43
+
+[BGCtrl]
+type = enable
+value = 0
+time = 0
+ctrlID = 43
+
+[BGCtrl]
+type = enable
+value = 1
+time = 161
+ctrlID = 43
+
+[BGCtrl]
+type = enable
+value = 0
+time = 176
+ctrlID = 43
+
+[BG 05, Blast LV1]
+type        = Anim
+actionno = 40
+layerNo     = 0
+start       = 45,274
+delta       = 0.1,0.1
+ID = 44
+
+[BGCtrlDef]
+looptime = 240
+ctrlID = 44
+
+[BGCtrl]
+type = enable
+value = 0
+time = 0
+ctrlID = 44
+
+[BGCtrl]
+type = enable
+value = 1
+time = 131
+ctrlID = 44
+
+[BGCtrl]
+type = enable
+value = 0
+time = 146
+ctrlID = 44
+
+[BG 06, Blast LV1]
+type        = Anim
+actionno = 40
+layerNo     = 0
+start       = 53,116
+delta       = 0.1,0.1
+ID = 45
+
+[BGCtrlDef]
+looptime = 240
+ctrlID = 45
+
+[BGCtrl]
+type = enable
+value = 0
+time = 0
+ctrlID = 45
+
+[BGCtrl]
+type = enable
+value = 1
+time = 124
+ctrlID = 45
+
+[BGCtrl]
+type = enable
+value = 0
+time = 139
+ctrlID = 45
+
+[BG 07, Blast LV1]
+type        = Anim
+actionno = 40
+layerNo     = 0
+start       = -252,135
+delta       = 0.1,0.1
+ID = 46
+
+[BGCtrlDef]
+looptime = 240
+ctrlID = 46
+
+[BGCtrl]
+type = enable
+value = 0
+time = 0
+ctrlID = 46
+
+[BGCtrl]
+type = enable
+value = 1
+time = 28
+ctrlID = 46
+
+[BGCtrl]
+type = enable
+value = 0
+time = 43
+ctrlID = 46
+
+[Begin Action 40]
+20,0,0,0,3,,AS64D256
+20,1,0,0,3,,AS128D256
+20,2,0,0,3,,AS256D256
+20,1,0,0,3,,AS128D256
+20,0,0,0,3,,AS64D256
+
+
+[BG 08, Blast LV2]
+type        = Anim
+actionno = 30
+layerNo     = 0
+start       = -259,273
+delta       = 0.1,0.1
+ID = 30
+
+[BGCtrlDef]
+looptime = 240
+ctrlID = 30
+
+[BGCtrl]
+type = enable
+value = 0
+time = 0
+ctrlID = 30
+
+[BGCtrl]
+type = enable
+value = 1
+time = 81
+ctrlID = 30
+
+[BGCtrl]
+type = enable
+value = 0
+time = 102
+ctrlID = 30
+
+[BG 09, Blast LV2]
+type        = Anim
+actionno = 30
+layerNo     = 0
+start       = -351,224
+delta       = 0.1,0.1
+ID = 31
+
+[BGCtrlDef]
+looptime = 240
+ctrlID = 31
+
+[BGCtrl]
+type = enable
+value = 0
+time = 0
+ctrlID = 31
+
+[BGCtrl]
+type = enable
+value = 1
+time = 9
+ctrlID = 31
+
+[BGCtrl]
+type = enable
+value = 0
+time = 30
+ctrlID = 31
+
+[Begin Action 30]
+20,0,0,0,3,,AS64D256
+20,1,0,0,3,,AS128D256
+20,2,0,0,3,,AS256D256
+20,3,0,0,3,,AS256D256
+20,4,0,0,3,,AS256D256
+20,3,0,0,3,,AS128D256
+20,2,0,0,3,,AS64D256
+
+[BG 10, Blast LV3]
+type        = Anim
+actionno = 20
+layerNo     = 0
+start       = -46,224
+delta       = 0.1,0.1
+ID = 20
+
+[BGCtrlDef]
+looptime = 240
+ctrlID = 20
+
+[BGCtrl]
+type = enable
+value = 0
+time = 0
+ctrlID = 20
+
+[BGCtrl]
+type = enable
+value = 1
+time = 38
+ctrlID = 20
+
+[BGCtrl]
+type = enable
+value = 0
+time = 62
+ctrlID = 20
+
+[BG 11, Blast LV3]
+type        = Anim
+actionno = 20
+layerNo     = 0
+start       = 257,286
+delta       = 0.1,0.1
+ID = 21
+
+[BGCtrlDef]
+looptime = 240
+ctrlID = 21
+
+[BGCtrl]
+type = enable
+value = 0
+time = 0
+ctrlID = 21
+
+[BGCtrl]
+type = enable
+value = 1
+time = 64
+ctrlID = 21
+
+[BGCtrl]
+type = enable
+value = 0
+time = 88
+ctrlID = 21
+
+[BG 12, Blast LV3]
+type        = Anim
+actionno = 20
+layerNo     = 0
+start       = -148,252
+delta       = 0,0
+ID = 22
+
+[BGCtrlDef]
+looptime = 240
+ctrlID = 22
+
+[BGCtrl]
+type = enable
+value = 0
+time = 0
+ctrlID = 22
+
+[BGCtrl]
+type = enable
+value = 1
+time = 159
+ctrlID = 22
+
+[BGCtrl]
+type = enable
+value = 0
+time = 183
+ctrlID = 22
+
+[Begin Action 20]
+20,0,0,0,3,,AS64D256
+20,1,0,0,3,,AS128D256
+20,2,0,0,3,,AS256D256
+20,3,0,0,3,,AS256D256
+20,4,0,0,3,,AS256D256
+20,5,0,0,3,,AS256D256
+20,4,0,0,3,,AS128D256
+20,3,0,0,3,,AS64D256
+
+[BG 13, Rocks]
+type        = Normal
+spriteNo    = 4,0
+layerNo     = 0
+start       = 0,0
+delta       = 0.7,0.7
+mask        = 1
+tile        = 1,1
+velocity    = 0,-1.2
+
+[BG 14, Lightning]
+type        = Anim
+actionno = 10
+layerNo     = 0
+start       = -453,0
+delta       = 0.6,0
+zoomdelta   = 0,0
+ID = 10
+
+[BGCtrlDef]
+looptime = 450
+ctrlID = 10
+
+[BGCtrl]
+type = enable
+value = 0
+time = 0
+ctrlID = 10
+
+[BGCtrl]
+type = enable
+value = 1
+time = 211
+ctrlID = 10
+
+[BGCtrl]
+type = enable
+value = 0
+time = 223
+ctrlID = 10
+
+[Begin Action 10]
+10,0,0,0,3,,AS256D256
+10,0,0,0,3,,AS192D256
+10,0,0,0,3,,AS128D256
+10,0,0,0,3,,AS64D256
+
+[BG 15, Lightning]
+type        = Anim
+actionno = 11
+layerNo     = 0
+start       = -255,0
+delta       = 0.6,0
+zoomdelta   = 0,0
+ID = 11
+
+[BGCtrlDef]
+looptime = 450
+ctrlID = 11
+
+[BGCtrl]
+type = enable
+value = 0
+time = 0
+ctrlID = 11
+
+[BGCtrl]
+type = enable
+value = 1
+time = 141
+ctrlID = 11
+
+[BGCtrl]
+type = enable
+value = 0
+time = 153
+ctrlID = 11
+
+[Begin Action 11]
+11,0,0,0,3,,AS256D256
+11,0,0,0,3,,AS192D256
+11,0,0,0,3,,AS128D256
+11,0,0,0,3,,AS64D256
+
+[BG 16, Lightning]
+type        = Anim
+actionno = 12
+layerNo     = 0
+start       = -144,0
+delta       = 0.6,0
+zoomdelta   = 0,0
+ID = 12
+
+[BGCtrlDef]
+looptime = 240
+ctrlID = 12
+
+[BGCtrl]
+type = enable
+value = 0
+time = 0
+ctrlID = 12
+
+[BGCtrl]
+type = enable
+value = 1
+time = 344
+ctrlID = 12
+
+[BGCtrl]
+type = enable
+value = 0
+time = 356
+ctrlID = 12
+
+[Begin Action 12]
+12,0,0,0,3,,AS256D256
+12,0,0,0,3,,AS192D256
+12,0,0,0,3,,AS128D256
+12,0,0,0,3,,AS64D256
+
+[BG 17, Lightning]
+type        = Anim
+actionno = 13
+layerNo     = 0
+start       = 129,0
+delta       = 0.6,0
+zoomdelta   = 0,0
+ID = 13
+
+[BGCtrlDef]
+looptime = 240
+ctrlID = 13
+
+[BGCtrl]
+type = enable
+value = 0
+time = 0
+ctrlID = 13
+
+[BGCtrl]
+type = enable
+value = 1
+time = 67
+ctrlID = 13
+
+[BGCtrl]
+type = enable
+value = 0
+time = 79
+ctrlID = 13
+
+[Begin Action 13]
+13,0,0,0,3,,AS256D256
+13,0,0,0,3,,AS192D256
+13,0,0,0,3,,AS128D256
+13,0,0,0,3,,AS64D256
+
+[BG 18, Rocks]
+type        = Normal
+spriteNo    = 3,0
+layerNo     = 0
+start       = 0,0
+delta       = 1,1
+mask        = 1
+tile        = 1,1
+velocity    = 0,-2.4
+
+[BG 19, Filter]
+type        = Normal
+spriteNo    = 100,0
+layerNo     = 1
+start       = 0,0
+delta       = 0,0
+zoomdelta   = 0,0
+tile        = 1,0
+trans       = addalpha
+alpha = 52,192
+
+
+
+[BG 21, Ground]
+type        = Anim
+actionno = 1
+layerNo     = 0
+start       = 0,0
+delta       = 2,1.4
+ID = 1
+
+[BgCtrlDef]
+looptime    = 1600
+CtrlID      = 0,1,5
+
+[BgCtrl]
+type        = sinY
+time        = 0
+value       = 4,4
+
+[BgCtrl]
+type        = sinY
+time        = 200
+value       = 2,4
+
+[BgCtrl]
+type        = sinY
+time        = 280
+value       = 0,0
+
+
+
+[Begin Action 1]
+1,0, 0,0, 6
+
+[BG 21, Filter]
+type        = Anim
+actionno = 5
+layerNo     = 0
+start       = 0,0
+delta       = 2,1.4
+ID = 5
+
+[Begin Action 5]
+1,1,0,0,-1,,AS128D256
+
+[BG 22, Dust]
+type        = Normal
+spriteNo    = 2,0
+layerNo     = 1
+start       = 0,0
+delta       = 1,1
+mask        = 1
+tile        = 1,0
+trans       = addalpha
+alpha       = 64,180
+velocity    = -50,0
+
+[BG 24, Lightning]
+type        = Anim
+actionno = 15
+layerNo     = 1
+start       = -433,112
+delta       = 0,0
+zoomdelta   = 0,0
+ID = 15
+
+[BGCtrlDef]
+looptime = 480
+ctrlID = 15
+
+[BGCtrl]
+type = enable
+value = 0
+time = 0
+ctrlID = 15
+
+[BGCtrl]
+type = enable
+value = 1
+time = 46
+ctrlID = 15
+
+[BGCtrl]
+type = enable
+value = 0
+time = 79
+ctrlID = 15
+
+[Begin Action 15]
+15,1,0,0,3,,AS224D256
+-1,0,0,0,3
+15,1,0,0,3,,AS224D256
+-1,0,0,0,3
+15,1,0,0,3,,AS224D256
+-1,0,0,0,3
+15,1,0,0,3,,AS224D256
+-1,0,0,0,3
+15,1,0,0,3,,AS224D256
+-1,0,0,0,3
+15,1,0,0,3,,AS224D256
+
+
+[BG 23, Lightning]
+type        = Anim
+actionno = 16
+layerNo     = 1
+start       = -322,-172
+delta       = 0,0
+zoomdelta   = 0,0
+ID = 16
+
+[BGCtrlDef]
+looptime = 800
+ctrlID = 16
+
+[BGCtrl]
+type = enable
+value = 0
+time = 0
+ctrlID = 16
+
+[BGCtrl]
+type = enable
+value = 1
+time = 207
+ctrlID = 16
+
+[BGCtrl]
+type = enable
+value = 0
+time = 228
+ctrlID = 16
+
+[Begin Action 16]
+16,1,0,0,3,,AS224D256
+-1,0,0,0,3
+16,1,0,0,3,,AS224D256
+-1,0,0,0,3
+16,1,0,0,3,,AS224D256
+-1,0,0,0,3
+16,1,0,0,3,,AS224D256
+
+[BG 24, Lightning]
+type        = Anim
+actionno = 17
+layerNo     = 1
+start       = -427,172
+delta       = 0,0
+zoomdelta   = 0,0
+ID = 17
+
+[BGCtrlDef]
+looptime = 800
+ctrlID = 17
+
+[BGCtrl]
+type = enable
+value = 0
+time = 0
+ctrlID = 17
+
+[BGCtrl]
+type = enable
+value = 1
+time = 723
+ctrlID = 17
+
+[BGCtrl]
+type = enable
+value = 0
+time = 744
+ctrlID = 17
+
+[Begin Action 17]
+17,1,0,0,3,,AS224D256
+-1,0,0,0,3
+17,1,0,0,3,,AS224D256
+-1,0,0,0,3
+17,1,0,0,3,,AS224D256
+-1,0,0,0,3
+17,1,0,0,3,,AS224D256
+
+[BG 24, Lightning]
+type        = Anim
+actionno = 18
+layerNo     = 1
+start       = -427,-172
+delta       = 0,0
+zoomdelta   = 0,0
+ID = 18
+
+[BGCtrlDef]
+looptime = 800
+ctrlID = 18
+
+[BGCtrl]
+type = enable
+value = 0
+time = 0
+ctrlID = 18
+
+[BGCtrl]
+type = enable
+value = 1
+time = 602
+ctrlID = 18
+
+[BGCtrl]
+type = enable
+value = 0
+time = 623
+ctrlID = 18
+
+[Begin Action 18]
+18,1,0,0,3,,AS224D256
+-1,0,0,0,3
+18,1,0,0,3,,AS224D256
+-1,0,0,0,3
+18,1,0,0,3,,AS224D256
+-1,0,0,0,3
+18,1,0,0,3,,AS224D256

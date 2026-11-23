@@ -1,0 +1,169 @@
+Ichigo Kurosaki - Moveset
+
+FORMS:
+(note: hold the combination of buttons listed when
+selecting the character to start the match in that form)
+
+a - Base form
+
+z - Bankai
+
+y -  HOS Shikai
+
+y - HOS Shikai - Transform HOS Bankai
+
+z - Bankai - Transform HOS Bankai
+
+Base Form - Moveset:
+
+A + B
+
+A
+
+Down + A
+
+B
+
+Down + B
+
+C
+
+Down + C Hold
+
+A Aire
+
+Down A Aire
+
+B Aire
+
+C Aire
+
+Down + C Aire Hold
+
+S - Power Charge
+
+SPECIALS:
+
+D,DF,F,a - Getsuga Tenshou Base
+
+D,DB,B,a - Counter
+
+D,DF,F,b - Double Getsuga
+
+D,DB,B,b - Ichigo Cutting Combo
+
+D,DF,F,c - Getsuga Jujisho
+
+D,DB,B,c - Reiatsu Explosion
+
+ULTIMATE:
+
+D,DF,F,D,DF,F,a+b or x - Getsuga Tenshou Final(And Air)
+
+Bankai - Moveset:
+
+A
+
+Down + A
+
+B
+
+Down + B
+
+C
+
+A Aire
+
+B Aire
+
+C Aire
+
+S - Power Charge
+
+SPECIALS:
+
+D,DF,F,a - La Espada Cut Combo
+
+D,DB,B,a - Counterattacking Quincy
+
+D,DF,F,b - Devastating Slash
+
+D,DB,B,b - Raid
+
+D,DF,F,c - Maximum Reatsu release
+
+D,DB,B,c - Getsuga Tenshou Air(And Air)
+
+ULTIMATE: 
+
+D,DF,F,D,DF,F,a+b or x - Final Cut Bankai
+
+HOS Shikai - Moveset:
+
+A
+
+Down + A
+
+B
+
+C
+
+A Aire
+
+B Aire
+
+C Aire
+
+S - Power Charge
+
+SPECIALS:
+
+D,DF,F,a - Double Getsuga
+
+D,DB,B,a - Assistant Orihime
+
+D,DF,F,b - Getsuga Combination
+
+D,DB,B,b - Hollow Perfect Getsuga Tenshou
+
+D,DF,F,c - Gran Rey Cero
+
+D,DB,B,c - Getsuga Gran Rey Cero
+
+ULTIMATE: 
+
+D,DF,F,D,DF,F,a+b or x - Getsuga Blood Chains
+
+HOS Bankai - Moveset:
+
+A
+
+B
+
+C
+
+A Aire
+
+B Aire
+
+C Aire
+
+S - Power Charge
+
+SPECIALS:
+
+D,DF,F,a - Reatsu Advance
+
+D,DB,B,a -  Reatsu Explosion 
+
+D,DF,F,b -  Spiritual Pressure
+
+D,DB,B,b - Orihime's protection
+
+D,DF,F,c - Gran Rey Cero
+
+D,DB,B,c - Manifestation of the fused Zangetsu
+
+ULTIMATE: 
+
+D,DF,F,D,DF,F,a+b or x - Final Getsuga Gran Rey Cero

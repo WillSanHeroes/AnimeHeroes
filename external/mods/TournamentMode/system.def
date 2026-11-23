@@ -1,0 +1,49 @@
+; ============================================================================
+; TournamentMode - system.def (OPTIONAL)
+; ----------------------------------------------------------------------------
+; This file is read by the module itself (external/mods/TournamentMode/system.def)
+; and adjusts the "TOURNAMENT MODE" entry in the main menu. Edit it with any
+; text editor: there is no need to touch TournamentMode.lua.
+;
+; 1) THE ITEM LABEL (what shows in the menu)
+; ----------------------------------------------------------------------------
+menu.itemname.tournamentmode = "Tournament"
+;
+; 2) WHERE THE ITEM APPEARS
+; ----------------------------------------------------------------------------
+; MAIN                -> last item of the main menu (before EXIT/OPTIONS).
+;                        (default behaviour)
+; FIRST               -> very first item of the main menu.
+; BEFORE:<item>       -> right BEFORE <item> in the main menu.
+;                        (e.g. BEFORE:menuarcade / BEFORE:options)
+; AFTER:<item>        -> right AFTER <item> in the main menu.
+;                        (e.g. AFTER:menuarcade)
+; IN:<submenu>        -> INSIDE the submenu <submenu>, above its BACK entry.
+; IN:<submenu> FIRST  -> inside the submenu, as its FIRST item.
+; IN:<submenu> BEFORE:<child> -> inside the submenu, before that child item.
+; IN:<submenu> AFTER:<child>  -> inside the submenu, after that child item.
+;
+; IMPORTANT: <submenu> is the submenu GROUP name in your screenpack's
+; system.def, NOT the mode name. In the Ikemen1 motif the Arcade submenu is
+; the group "menuarcade" (menu.itemname.menuarcade = ARCADE); "arcade" is
+; just an ITEM inside it (Single Mode), so IN:arcade does NOT work while
+; IN:menuarcade does. Same for <child>: use the inner name (arcade,
+; teamarcade, teamcoop...), the module maps it to the submenu automatically.
+;
+; Parent items with their own handler (arcade, training, options) are normal
+; items, not submenus: only groups without a handler (menuarcade, menuversus,
+; menumission, ...) accept children. For those modes use BEFORE/AFTER instead.
+;
+; To list the internal item names of your screenpack, use the game console:
+;     for i,k in ipairs(motif.title_info.menu.itemname_order) do print(i,k) end
+;
+; Examples (Ikemen1 motif):
+;   menu.itemname.tournamentmode.position = "IN:menuarcade"
+;       ARCADE > SINGLE MODE / TEAM ARCADE / TEAM CO-OP / TOURNAMENT MODE / BACK
+;   menu.itemname.tournamentmode.position = "IN:menuarcade FIRST"
+;       ARCADE > TOURNAMENT MODE / SINGLE MODE / TEAM ARCADE / TEAM CO-OP / BACK
+;   menu.itemname.tournamentmode.position = "IN:menuarcade AFTER:teamarcade"
+;       ARCADE > SINGLE MODE / TEAM ARCADE / TOURNAMENT MODE / TEAM CO-OP / BACK
+; ----------------------------------------------------------------------------
+menu.itemname.tournamentmode.position = "MAIN"
+; ============================================================================

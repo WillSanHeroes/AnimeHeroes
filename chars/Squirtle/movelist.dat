@@ -1,0 +1,21 @@
+<#f80ae0>-AWAKE STATE-</>
+Energy UP
+_!Gain more energy and charge faster
+
+<#faa912>-TRANSFORM-</> <#f80ae0>(ONLY AWAKE)</>
+Blastoise		_TAP^X
+
+<#00FF7F>-SPECIALS-</>
+Rapid Spin <#1E90FF>[1 LVL]</>		^S+^A
+Rapid Spin + Water Gun <#1E90FF>[1.5 LVL]</>		^S+^B
+Hydro Pump <#1E90FF>[1.5 LVL]</>		^S+^C
+Surf <#1E90FF>[2 LVL]</>		^S+^Y
+
+<#DC143C>-ULTIMATE-</> <#f80ae0>(ONLY AWAKE)</>
+Whirlpool <#1E90FF>[3 LVL]</>		_TAP^Z
+
+<#8045ff>-UNIQUES-</>
+Catch <#faa912>(Break Def)</> <#1E90FF>[0.5 LVL]</>		^S+^A
+Uppercut		^S+^B
+Bubble <#1E90FF>[0.25 LVL]</>		^S+^C
+_!Can hold

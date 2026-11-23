@@ -1,0 +1,30 @@
+[Info]
+name = "IchigoTYBW"
+displayname = "Ichigo"
+versiondate = 10/01/2026
+mugenversion = 1.1
+author = "Kimisei"
+pal.defaults = 1
+
+[Files]
+sprite = IchigoTYBW.sff
+sound = IchigoTYBW.snd
+anim = IchigoTYBW.air
+cmd = IchigoTYBW.cmd
+cns = IchigoTYBW.cns
+stcommon = common1.dll
+st = IchigoTYBW.cns
+st1 = AI.dat
+st2 = Skills.cns
+st3 = Ultimate.cns
+st4 = Bankai.cns
+st5 = HOSShikai.cns
+st6 = HOSBankai.cns
+st7 = Misc.cns
+st8 = Configs.cns
+st9 = Glows.zss
+pal1 = 1.act
+
+;Movelist
+movelist = movelist.dat
+movelist.2 = data\movelist_general.dat

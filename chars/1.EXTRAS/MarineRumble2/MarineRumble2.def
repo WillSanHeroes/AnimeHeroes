@@ -1,0 +1,35 @@
+; Definition file for Kung Fu Man
+; Contains all the filenames needed for the character
+
+; Player information
+[Info]
+name="Marine Rumble 2"
+displayname="Momonga Troops"
+versiondate=04,14,2002
+mugenversion=1.0
+author=""
+pal.defaults=1
+
+; Files for the player
+[Files]
+cmd=MarineRumble2.cmd
+sprite=MarineRumble2.sff
+anim=MarineRumble2.air
+sound=MarineRumble2.snd
+stcommon =common1.cns
+st=constants.cns
+cns=constants.cns
+pal1=01.act
+st1=Swordman.cns
+st2=Rifleman.cns
+st3=Bazookaman.cns
+st4=Shieldman.cns
+st5=FatMaceMan.cns
+st6=BruteAxeMan.cns
+st7=MuscleMan.cns
+st8=SpearMan.cns
+st9=Momonga.cns
+
+[Arcade]
+intro.storyboard=
+ending.storyboard=

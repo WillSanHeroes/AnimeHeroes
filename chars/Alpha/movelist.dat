@@ -1,0 +1,17 @@
+<#f80ae0>-AWAKE STATE-</>
+Energy UP
+_!Gain more energy and charge faster
+
+<#00FF7F>-SPECIALS-</>
+Fast Attack <#1E90FF>[1 LVL]</>		^S+^A
+_!_AIR: Red vertical
+Energy Swords <#faa912>(Break Def)</> <#1E90FF>[1.5 LVL]</>		^S+^B
+_!_AIR: Spinning sword
+Consecutive Slashs <#1E90FF>[1.5 LVL]</>		^S+^C
+Magic Download <#1E90FF>[2 LVL]</>		^S+^Y
+
+<#DC143C>-ULTIMATE-</> <#f80ae0>ONLY AWAKE</>
+Magic Download Max <#1E90FF>[3 LVL]</>		_TAP^Z
+
+<#8045ff>-UNIQUE-</>
+Reactive Slash <#faa912>(Counter)</> <#1E90FF>[1/2 LVL]</>		_D_+^S

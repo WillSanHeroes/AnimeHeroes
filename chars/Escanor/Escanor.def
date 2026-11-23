@@ -1,0 +1,31 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Escanor"
+displayname = "Escanor"
+versiondate = 26/03/2019
+mugenversion = 1.0
+author = "Salah" ;Edit by Willsan
+pal.defaults = 1,2
+
+[Files]
+sprite = Escanor.sff
+anim = Escanor.air
+sound = Escanor.snd
+cmd = Escanor.cmd
+cns = Escanor.cns
+stcommon = common1.cns
+st = Escanor.cns
+st1 = IA.cns
+st2 = Especiales.cns
+st3 = Supers.cns
+st4 = TheOne.cns
+st5 = Configs.cns
+st6 = data\glows\Glow(orange).zss
+movelist = movelist.dat
+movelist.2 = data\movelist_general.dat
+movelist1 = movelistTHEONE.dat
+movelist1.2 = data\movelist_general.dat

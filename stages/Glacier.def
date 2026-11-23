@@ -1,0 +1,630 @@
+
+[Info]
+name ="Glacier"
+displayname="Glacier"
+author = "Tahattus" ;convert Mugen Gamer
+versiondate=20/11/2017
+mugenversion=04,14,2001
+
+;----------------------------------------------------------------------------------------
+[Camera]
+ ;Camera starting position: Usually 0 for both
+startx = 0
+starty = 0
+
+ ;Left and right bound of camera
+ ;You may want to fiddle a bit with these values to make sure the
+ ;background doesn't move too far or too little
+ ;***
+boundleft = -2500
+boundright = 2500
+
+ ;High and low bound of camera
+ ;High is a negative number. Make is more negative if you want to
+ ;camera to be able to move higher.
+ ;Low should usually be 0.
+ ;If omitted, defaults to -25 and 0 respectively
+ ;***
+boundhigh = -250
+boundlow = 0
+
+ ;This is how much the camera will move vertically towards the
+ ;highest player. Valid values are from 0 to 1. A value of 0 will mean
+ ;the camera does not move up at all. A value of 1 will makes the camera
+ ;follow the highest player.
+ ;Typically .2 for normal-sized backgrounds. You may need to pull this
+ ;value up for taller backgrounds.
+;verticalfollow = .85
+ 
+ ;Minimum vertical distance the highest player has to be from the floor,
+ ;before the camera starts to move up to follow him. For extremely
+ ;tall stages, a floor tension of about 20-30 coupled with a
+ ;vertical-follow of .8 allows the camera to follow the action.
+;floortension = 200
+
+ ;Horizontal distance player is from edge before camera starts to move
+ ;left or right. Typically 50 or 60.
+;tension = 200
+
+;overdrawhigh = 120
+;overdrawlow = 120
+;cuthigh = 0
+;cutlow = 0
+
+floortension = 100
+tension = 50
+overdrawhigh = 0
+overdrawlow = 0
+cuthigh = 0
+cutlow = 0
+zoomin = 1.3
+zoomout = .75
+verticalfollow = 1
+
+[PlayerInfo]
+p1startx =-70
+p1starty =0
+p1startz =0
+p1facing =1
+
+p2startx =70
+p2starty =0
+p2startz =0
+p2facing =-1
+
+leftbound =-3000
+rightbound =3000
+topbound =000
+botbound =0
+
+
+[Scaling]
+topz =0
+botz =50
+topscale =1
+botscale =1.2
+
+
+[Bound]
+screenleft  = 20
+screenright = 20
+
+
+[StageInfo]
+ ;"Ground" level where players stand at, measured in pixels from the
+ ;top of the screen.
+ ;Adjust this value to move the ground level up/down in the screen.
+ ;***
+zoffset = 220
+zoffsetlink = 1
+
+ ;Leave this at 1. It makes the players face each other
+autoturn = 1
+
+ ;Set the following to 1 to have the background reset itself between
+ ;rounds.
+resetBG = 0
+
+ ;Width and height of the local coordinate space of the stage.
+;localcoord = 1280, 720
+
+ ;Horizontal and vertical scaling factor for drawing.
+;xscale = 1
+;yscale = 1
+hires = 1
+
+;--------------------------------------------------------
+[Shadow]
+ ;This is the shadow darkening intensity. Valid values range from
+ ;0 (lightest) to 256 (darkest). Defaults to 128 if omitted.
+intensity = 20
+
+ ;This is the shadow color given in r,g,b. Valid values for each
+ ;range from 0 (lightest) to 255 (darkest).
+ ;Defaults to 0,0,0 if omitted.
+ ;intensity and color's effects add up to give the final shadow
+ ;result.
+color = 110,170,238
+
+ ;This is the scale factor of the shadow. Use a big scale factor
+ ;to make the shadow longer. You can use a NEGATIVE scale factor
+ ;to make the shadow fall INTO the screen.
+ ;Defaults to 0.4 if omitted.
+yscale = .2
+
+ ;This parameter lets you set the range over which the shadow is
+ ;visible. The first value is the high level, and the second is
+ ;the middle level. Both represent y-coordinates of the player.
+ ;A shadow is invisible if the player is above the high level,
+ ;and fully visible if below the middle level. The shadow is
+ ;faded in between the two levels. This gives an effect of the
+ ;shadow fading away as the player gets farther away from the
+ ;ground. If omitted, defaults to no level effects (shadow is
+ ;always fully visible).
+fade.range = -40,-20
+
+;--------------------------------------------------------
+[Reflection]
+ ;Intensity of reflection (from 0 to 256). Set to 0 to have no
+ ;reflection. Defaults to 0.
+intensity = 0
+
+[Music]
+bgmusic  = sound/Glacier.mp3
+bgvolume = 255
+;----------------------------------------------------------------------
+[BGdef]
+spr = Glacier.sff
+
+debugbg = 0
+
+; --------------------------- SKY -----------------------------------
+
+[BG ground]
+type  = normal
+spriteno = 0, 0
+start = 0, 520
+delta = 0.5,1.3
+mask = 1
+tile = 1,0
+scalestart = 1,1
+
+[BG sky]
+type = normal
+spriteno =0,7
+start = 0,340
+delta = 0,1.3
+scalestart = 1,1
+ZoomDelta = 1
+mask =1
+tile = 1, 0
+
+
+; --------------------------- MOUNTAINS -----------------------------------
+
+[BG further back]
+type = normal
+spriteno =0,4
+start = -200,340
+delta = 0.1,1.3
+scalestart = 0.45,0.45
+ZoomDelta = 1
+mask =1
+
+[BG further back]
+type = normal
+spriteno =0,4
+start = 100,340
+delta = 0.1,1.3
+scalestart = 0.5,0.5
+ZoomDelta = 1
+mask =1
+
+[BG back tile]
+type = normal
+spriteno =0,15
+start = 0,340
+delta = 0.13,1.3
+scalestart = 0.5,0.5
+ZoomDelta = 1
+mask =1
+tile = 1,0
+
+[BG back mountain]
+type = normal
+spriteno =0,16
+start = 200,340
+delta = 0.15,1.3
+scalestart = 0.4,0.4
+ZoomDelta = 1
+mask =1
+
+
+
+[BG mist]
+type = normal
+spriteno =0,9
+start = 0,316
+delta = 0.16,2
+scalestart = 0.2,0.2
+ZoomDelta = 1
+mask =1
+velocity = 0.1,0
+trans = addalpha
+alpha = 150,255
+tile = 1,0
+ID = 2
+
+[BG snow]
+type = normal
+spriteno =0,12
+start = 0,316
+delta = 0.16,1.6
+scalestart = 0.25,0.25
+ZoomDelta = 1
+mask =1
+trans = add
+tile = 1,1
+velocity = 0.5,1
+sin.x = 5,120
+ID = 2
+
+[BG right back ice mountain]
+type = normal
+spriteno =0,17
+start = 800,340
+delta = 0.17,1.3
+scalestart = 0.5,0.5
+ZoomDelta = 1
+mask =1
+
+
+[BG left ice block]
+type = normal
+spriteno =0,2
+start = -500,340
+delta = 0.2,1.3
+scalestart = -0.25,0.25
+ZoomDelta = 1
+mask =1
+
+
+[BG right ice block back]
+type = normal
+spriteno =0,2
+start = 100,340
+delta = 0.22,1.3
+scalestart = -0.15,0.15
+ZoomDelta = 1
+mask =1
+
+[BG right ice block glow back]
+type = normal
+spriteno =0,3
+start = 100,340
+delta = 0.22,1.3
+scalestart = -0.3,0.3
+ZoomDelta = 1
+mask =1
+trans = add
+
+[BG right ice block]
+type = normal
+spriteno =0,2
+start = 400,350
+delta = 0.25,1.3
+scalestart = -0.3,0.3
+ZoomDelta = 1
+mask =1
+
+
+[BG snow]
+type = normal
+spriteno =0,12
+start = 300,516
+delta = 0.35,1.6
+scalestart = 0.27,0.27
+ZoomDelta = 1
+mask =1
+trans = add
+tile = 1,1
+velocity = 0.7,1.2
+sin.x = 5,120
+ID = 2
+
+[BG mist]
+type = normal
+spriteno =0,9
+start = 0,316
+delta = 0.26,2
+scalestart = 0.45,0.45
+ZoomDelta = 1
+mask =1
+velocity = 0.2,0
+trans = add
+tile = 1,0
+ID = 2
+
+[BG snow]
+type = normal
+spriteno =0,12
+start = 0,316
+delta = 0.6,2
+scalestart = 0.5,0.5
+ZoomDelta = 1
+mask =1
+trans = add
+tile = 1,1
+velocity = 1,2
+sin.x = 5,120
+ID = 2
+
+
+[BG mist]
+type = normal
+spriteno =0,9
+start = 0,520
+delta = 2.1,2
+scalestart = .6,.6
+ZoomDelta = 1
+mask =1
+velocity = 0.3,0
+trans = add
+tile = 1,0
+layerno = 1
+ID = 2
+
+[BG snow]
+type = normal
+spriteno =0,13
+start = 0,316
+delta = 2,1
+scalestart = 0.5,0.5
+ZoomDelta = 1
+mask =1
+tile = 1,1
+velocity = 1.5,3
+sin.x = 10,120
+layerno = 1
+ID = 2
+trans=add
+
+[BG snow]
+type = anim
+actionno = 3
+start = 250,250
+delta = 2,1
+scalestart = 0.4,0.4
+ZoomDelta = 1
+mask =1
+tile = 1,1
+tilespacing = 960,540
+velocity = 1.5,3
+sin.x = 10,120
+layerno = 1
+ID = 3
+trans=add
+
+; --------------------------- GROUND -----------------------------------
+
+[BG ground]
+type  = parallax
+spriteno = 0, 0
+start = 0, 520
+delta = 0.5,2
+mask = 1
+width = 1000,5520
+yscalestart = 100
+yscaledelta =0
+tile = 1,0
+scalestart = 1,1
+
+[BG broly's ship shadow]
+type = anim
+actionno = 8
+start = 5,320
+delta = 0.4,2
+scalestart = 0.25,0.25
+ZoomDelta = 1
+mask =1
+;layerno = 1
+trans=add
+
+[BG broly's ship]
+type = anim
+actionno = 5
+start = 0,-430
+delta = 0.4,2
+scalestart = -0.25,0.25
+ZoomDelta = 1
+mask =1
+velocity = 0,0.2
+ID = 5
+
+
+[BG snow]
+type = normal
+spriteno =0,12
+start = 300,616
+delta = 0.6,2
+scalestart = 0.5,0.5
+ZoomDelta = 1
+mask =1
+trans = add
+tile = 1,1
+velocity = 1.5,2.5
+sin.x = 5,120
+ID = 2
+
+[BG snow]
+type = normal
+spriteno =0,12
+start = 600,616
+delta = 0.7,2
+scalestart = 0.5,0.5
+ZoomDelta = 1
+mask =1
+trans = add
+tile = 1,1
+velocity = 1.6,2.7
+sin.x = 5,120
+ID = 2
+
+
+[BG snow over feet]
+type  = parallax
+spriteno = 0, 8
+start = 0, 520
+delta = 0.5,2
+mask = 1
+width = 1000,5520
+yscalestart = 100
+yscaledelta =0
+tile = 1,0
+scalestart = 1,1
+layerno = 1
+
+[BG lens flare]
+type  = normal
+spriteno = 2, 0
+start = -400, 00
+delta = 0.1,1.3
+mask = 1
+scalestart = 2,2
+trans = add
+layerno = 1
+
+;-----------------SNOWSTORM ------------------------------
+
+;nothing
+[Begin Action 999]
+0,	13	, 0,0, -1,, AS000D256
+
+;snow
+[Begin Action 3]
+0,	13	, 0,0, 10,, AS015D256
+0,	13	, 0,0, 10,, AS030D256
+0,	13	, 0,0, 10,, AS045D256
+0,	13	, 0,0, 10,, AS090D256
+0,	13	, 0,0, 10,, AS120D256
+0,	13	, 0,0, 10,, AS150D256
+0,	13	, 0,0, 10,, AS200D256
+0,	13	, 0,0, -1,, AS250D256
+
+[Begin Action 4]
+0,	13	, 0,0, 10,, AS250D256
+0,	13	, 0,0, 10,, AS200D256
+0,	13	, 0,0, 10,, AS150D256
+0,	13	, 0,0, 10,, AS120D256
+0,	13	, 0,0, 10,, AS090D256
+0,	13	, 0,0, 10,, AS045D256
+0,	13	, 0,0, 10,, AS030D256
+0,	13	, 0,0, 10,, AS015D256
+0,	13	, 0,0, -1,, AS000D256
+
+[BGCtrlDef Storm]
+CtrlID = 2,3
+loopTime = 5200
+
+[BGCtrl]
+type = VelAdd
+time = 600
+x = 0.5
+
+[BGCtrl]
+type = VelAdd
+time = 1200
+x = 0.5
+
+[BGCtrl]
+type = VelAdd
+time = 2000
+x = 1
+
+[BGCtrl]
+type = VelAdd
+time = 2600
+x = 2
+
+[BGCtrl]
+type = VelAdd
+time = 3200
+x = -2
+
+[BGCtrl]
+type = VelAdd
+time = 3600
+x = -0.5
+
+[BGCtrl]
+type = VelAdd
+time = 3900
+x = -0.5
+
+[BGCtrl]
+type = VelAdd
+time = 4200
+x = -1
+
+
+[BGCtrlDef Intense storm]
+CtrlID = 3
+loopTime = 5200
+
+[BGCtrl]
+type = anim
+time = 0
+value = 999
+
+[BGCtrl]
+type = anim
+time = 2000
+value = 3
+
+[BGCtrl]
+type = anim
+time = 3600
+value = 4
+
+;------------------SHIP LANDING ---------------------
+
+[Begin Action 5] ;going down
+1,	0	, 0,0, -1,, 
+
+[Begin Action 6] ;landing
+1,	1	, 0,0, 5,, 
+1,	2	, 0,0, 5,, 
+1,	3	, 0,0, 5,, 
+1,	4	, 0,0, 5,, 
+1,	5	, 0,0, 5,, 
+1,	6	, 0,0, 5,, 
+1,	7	, 0,0, -1,, 
+
+[Begin Action 8] ;ship shadow
+1,	9	, 0,0, 3200,, AS000D256,1,1
+1,	9	, 0,0, 50,,,0.1,0.1
+1,	9	, 0,0, 50,,,0.2,0.2
+1,	9	, 0,0, 50,,,0.3,0.3
+1,	9	, 0,0, 50,,,0.4,0.4
+1,	9	, 0,0, 50,,,0.5,0.5
+1,	9	, 0,0, 50,,,0.6,0.6
+1,	9	, 0,0, 50,,,0.7,0.7
+1,	9	, 0,0, 50,,,0.8,0.8
+1,	9	, 0,0, 50,,,0.9,0.9 
+1,	9	, 0,0, -1,,,1,1
+
+
+
+;shake screen
+[BGCtrlDef Shake Screen]
+CtrlID = 0,1,2,4,8,9,10,13
+loopTime = -1
+
+[BGCtrl]
+type = SinY
+time = 3700
+value = 0.6,10
+
+[BGCtrl]
+type = SinY
+time = 3760
+value = 0,0
+
+[BGCtrlDef Storm]
+CtrlID = 5
+loopTime = -1
+
+[BGCtrl]
+type = anim
+time = 3500
+value = 6
+
+[BGCtrl]
+type = VelAdd
+time = 3600
+y = -0.1
+
+[BGCtrl]
+type = VelAdd
+time = 3700
+y = -0.1
