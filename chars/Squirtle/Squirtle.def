@@ -1,0 +1,35 @@
+[Info]
+name="Squirtle"
+displayname="Squirtle"
+versiondate=11/08/2020
+mugenversion=1.0
+author="This Boy"
+pal.defaults=1,2
+
+[Files]
+sprite=Squirtle.sff
+sound=Squirtle.snd
+anim=Squirtle.air
+cmd=Squirtle.cmd
+cns=Squirtle.cns
+stcommon=common1.cns
+st=Squirtle.cns
+st2=Configs.cns
+st3=Data\glows\Glow(bluelight).zss
+st4=blastoise\form.cns
+fx=blastoise\BlastoiseFX.def
+
+;Paletas
+pal1=1.act
+pal2=2.act
+pal3=3.act
+pal4=4.act
+pal5=5.act
+pal6=6.act
+
+;Movelist
+movelist = movelist.dat
+movelist.2 = data\movelist_general.dat
+movelist1 = movelistBlastoise.dat
+movelist1.2 = data\movelist_general.dat
+

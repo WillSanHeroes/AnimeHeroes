@@ -1,0 +1,2299 @@
+;______________________________________________________________________________________
+;INFORMACION
+;______________________________________________________________________________________
+[Info]
+name ="Pokemon Stadium"
+author= "Darek"
+;AttachedChar = ArenasSystem\RO.chr
+;Web = MugenImperioLatino.com
+;______________________________________________________________________________________
+;PARAMETROS
+;______________________________________________________________________________________
+[Camera]
+startx =0
+starty =0
+boundleft  =-0
+boundright = 0
+boundhigh  = -50
+boundlow   = 0
+tension =50
+floortension= 90
+verticalfollow=.7
+zoomin = 1.3
+zoomout = .8
+
+;--------------------------------------------------------
+[CONSTANTS]
+;++RING OUT SYSTEM SECTION+++ 
+;para el amigo Gacel, lo prometido es deuda. 
+;Gracias por todo el esfuerzo que has puesto al motor.
+
+RingOut_Enable = 0;       Change to 0 to disable Ring Outs   
+Left_Limit_RingOut = -310;You can also use debug to help yourself 
+Right_Limit_RingOut = 310;to data required from P1
+
+Show_Help_Arrows = 0;     Change to 1 to see bound limits
+
+Only_SelfState_Players = 0; Change to 1 to disable RO if you are in CustomState
+Only_Knocked_Players = 1; Change to 1 to disable RO unless Hitfall
+Only_NoCtrl_Players = 1;  Change to 1 to disable RO unless Player has no CTRL
+Only_Fast_Players = 2;    Change to > 0 to disable RO unless player has at least that speed
+Only_High_Players = -35;    Change to < 0 to disable RO unless player is at least above that height
+
+RingOut_Announcer = 0;    0 and 1 are SC, 2 is VF, 3 is Fatal Fury
+RingOut_FX = 1;           0 is SC font, 1 is golden, 2 is Fatal Fury
+RingOut_Falling = 1;	  Change to 0 to disable "player falling" effect
+RingOut_Priority = 1;	  Change to 1 to make the "player falling" effect go on everything
+
+Cheer_System_Enable = 1;0 is Disabled, ID 1 for the BGCtrl to be shown during the frantic moment
+
+Bury_Edge_Limit = 180; Character is at least 180 pixels away from either Stage Edge
+Bury_Animation = 1;0 is Disabled, 1 is enabled
+
+RingOut_ResetWalls = 1;   Change to 0 to NOT have invisible walls recover between rounds
+
+RingOut_LeftWall_Health = 120; Self Explanatory - set to zero to have no left wall, each wall hit removes 35
+RingOut_LeftWall_Only_SelfState_Players = 0; Change to 1 to disable damage to wall if you are in CustomState
+RingOut_LeftWall_Only_Knocked_Players = 1; Change to 1 to disable damage to wall unless Hitfall
+RingOut_LeftWall_Only_Hit_Players = 1;     Change to 1 to disable damage to wall unless MoveType = H
+RingOut_LeftWall_Only_NoCtrl_Players = 1;  Change to 1 to disable damage to wall unless Player has no CTRL
+RingOut_LeftWall_Only_Fast_Players = 3;    Change to > 0 to disable damage to wall unless player has at least that speed
+RingOut_LeftWall_Only_High_Players = -35;    Change to < 0 to disable damage to wall unless player is at least above that height
+
+RingOut_RightWall_Health = 120; Self Explanatory - set to zero to have no right wall, each wall hit removes 35
+RingOut_RightWall_Only_SelfState_Players = 0; Change to 1 to disable damage to wall if you are in CustomState
+RingOut_RightWall_Only_Knocked_Players = 1; Change to 1 to disable damage to wall unless Hitfall
+RingOut_RightWall_Only_Hit_Players = 1;     Change to 1 to disable damage to wall unless MoveType = H
+RingOut_RightWall_Only_NoCtrl_Players = 1;  Change to 1 to disable damage to wall unless Player has no CTRL
+RingOut_RightWall_Only_Fast_Players = 3;    Change to > 0 to disable damage to wall unless player has at least that speed
+RingOut_RightWall_Only_High_Players = -35;    Change to < 0 to disable damage to wall unless player is at least above that height
+
+;--------------------------------------------------------
+[PlayerInfo]
+p1startx =-70
+p1starty =0
+p1startz =0
+p1facing =1
+p2startx =70
+p2starty =0
+p2startz =0
+p2facing =-1
+leftbound =-1000
+rightbound =1000
+topbound =0
+botbound =0
+
+[Scaling]
+topz =0
+botz =50
+topscale =1
+botscale =1.2
+
+[Bound]
+screenleft  =15
+screenright =15
+
+[StageInfo]
+zoffset  = -175;190
+autoturn = 1
+resetBG  = 0
+Hires=1
+zoffsetlink= 10
+
+[Shadow]
+intensity = 200
+yscale =.05
+fade.range = -300,-50
+
+[Reflection]
+intensity =0
+
+[Music]
+bgmusic  =sound/PokemonStadium.mp3
+bgvolume = 255
+;----------------------------------------------------------------------
+[BGdef]
+spr = PokemonStadium.sff
+debugbg = 0
+;______________________________________________________________________________________
+;CODIGOS
+;______________________________________________________________________________________
+[BG SSBB_PS]
+type =normal
+spriteno =2,0
+start = -200,-600
+delta = 0.2,0.5
+mask 1
+[BG SSBB_PS]
+type =normal
+spriteno =2,1
+start = -200,-600
+delta = 0.2,0.5
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =2,2
+start = -200,-600
+delta = 0.2,0.5
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =2,3
+start = -200,-600
+delta = 0.2,0.5
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =8,1
+start = -200,30
+delta = 0.3,0.6
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =8,5
+start = -200,30
+delta = 0.3,0.6
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =8,6
+start = -200,30
+delta = 0.3,0.6
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =8,7
+start = -200,30
+delta = 0.3,0.6
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =8,1
+start = -300,30
+delta = 0.4,0.7
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =8,5
+start = -300,30
+delta = 0.4,0.7
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =8,6
+start = -300,30
+delta = 0.4,0.7
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =8,7
+start = -300,30
+delta = 0.4,0.7
+mask =1
+[BG SSBB_PS]
+type= anim
+actionno=19
+start = -280,-300
+delta = 0.5,1
+[BG SSBB_PS]
+type= anim
+actionno=20
+start = -480,-300
+delta = 0.5,1
+[BG SSBB_PS]
+type= anim
+actionno=20
+start = 0,-300
+delta = 0.5,1
+[BG SSBB_PS]
+type= anim
+actionno=19
+start = 200,-300
+delta = 0.5,1
+[BG SSBB_PS]
+type =normal
+spriteno =8,0
+start = -260,30
+delta = 0.5,1
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =8,2
+start = -260,30
+delta = 0.5,1
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =8,3
+start = -260,30
+delta = 0.5,1
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =8,4
+start = -260,30
+delta = 0.5,1
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =9,0
+start = -680,-180
+delta = 1.3,1.5
+mask =1
+trans=addalpha
+alpha=130,256
+[BG SSBB_PS]
+type =normal
+spriteno =9,1
+start = -680,-180
+delta = 1.3,1.5
+mask =1
+trans=addalpha
+alpha=130,256
+[BG SSBB_PS]
+type =normal
+spriteno =1,0
+start = -680,-180
+delta = 1.3,1.5
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =1,1
+start = -680,-180
+delta = 1.3,1.5
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =1,2
+start = -680,-180
+delta = 1.3,1.5
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =1,3
+start = -680,-180
+delta = 1.3,1.5
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =1,4
+start = -680,-180
+delta = 1.3,1.5
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =1,5
+start = -680,-180
+delta = 1.3,1.5
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =1,6
+start = -680,-180
+delta = 1.3,1.5
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =1,7
+start = -680,-180
+delta = 1.3,1.5
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =1,8
+start = -680,-180
+delta = 1.3,1.5
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =1,9
+start = -680,-180
+delta = 1.3,1.5
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =1,10
+start = -680,-180
+delta = 1.3,1.5
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =1,11
+start = -680,-180
+delta = 1.3,1.5
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =1,12
+start = -680,-180
+delta = 1.3,1.5
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =1,13
+start = -680,-180
+delta = 1.3,1.5
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =1,15
+start = -680,-180
+delta = 1.3,1.5
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =1,16
+start = -680,-180
+delta = 1.3,1.5
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =1,17
+start = -680,-180
+delta = 1.3,1.5
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =1,18
+start = -680,-180
+delta = 1.3,1.5
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =1,19
+start = -680,-180
+delta = 1.3,1.5
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =1,20
+start = -680,-180
+delta = 1.3,1.5
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =1,21
+start = -680,-180
+delta = 1.3,1.5
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =1,22
+start = -680,-180
+delta = 1.3,1.5
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =1,23
+start = -680,-180
+delta = 1.3,1.5
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =1,24
+start = -680,-180
+delta = 1.3,1.5
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =1,25
+start = -680,-180
+delta = 1.3,1.5
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =1,26
+start = -680,-180
+delta = 1.3,1.5
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =1,27
+start = -680,-180
+delta = 1.3,1.5
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =1,28
+start = -680,-180
+delta = 1.3,1.5
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =1,29
+start = -680,-180
+delta = 1.3,1.5
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =1,30
+start = -680,-180
+delta = 1.3,1.5
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =1,31
+start = -680,-180
+delta = 1.3,1.5
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =1,32
+start = -680,-180
+delta = 1.3,1.5
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =1,33
+start = -680,-180
+delta = 1.3,1.5
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =1,34
+start = -680,-180
+delta = 1.3,1.5
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =1,14
+start = -680,-180
+delta = 1.3,1.5
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =1,36
+start = -680,-180
+delta = 1.3,1.5
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =1,37
+start = -680,-180
+delta = 1.3,1.5
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =1,38
+start = -680,-180
+delta = 1.3,1.5
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =1,39
+start = -680,-180
+delta = 1.3,1.5
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =1,40
+start = -680,-180
+delta = 1.3,1.5
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =1,41
+start = -680,-180
+delta = 1.3,1.5
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =1,42
+start = -680,-180
+delta = 1.3,1.5
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =1,43
+start = -680,-180
+delta = 1.3,1.5
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =1,44
+start = -680,-180
+delta = 1.3,1.5
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =1,45
+start = -680,-180
+delta = 1.3,1.5
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =1,46
+start = -680,-180
+delta = 1.3,1.5
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =1,47
+start = -680,-180
+delta = 1.3,1.5
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =1,48
+start = -680,-180
+delta = 1.3,1.5
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =1,49
+start = -680,-180
+delta = 1.3,1.5
+mask =1
+[BG SSBB_PS]
+type =normal
+spriteno =12,0
+start = -680,-180
+delta = 1.3,1.5
+mask =1
+trans=addalpha
+alpha=100,70
+[BG SSBB_PS]
+type =anim
+actionno=12
+start = 208,122
+delta = 1.3,1.5
+[BG SSBB_PS]
+type =anim
+actionno=13
+start = -680,-180
+delta = 1.3,1.5
+[BG SSBB_PS]
+type =normal
+spriteno=14,0
+start = -680,-180
+delta = 1.3,1.5
+trans=addalpha
+alpha=100,50
+[BG SSBB_PS]
+type =anim
+actionno=14
+start = 140,214
+delta = 1.3,1.5
+[BG SSBB_PS]
+type =anim
+actionno=15
+start = 140,180
+delta = 1.3,1.5
+[BG SSBB_PS]
+type =anim
+actionno=16
+start = 140,150
+delta = 1.3,1.5
+[BG SSBB_PS]
+type =anim
+actionno=14
+start = 438,214
+delta = 1.3,1.5
+[BG SSBB_PS]
+type =anim
+actionno=15
+start = 438,150
+delta = 1.3,1.5
+
+[BG SSBB_PS]
+type =anim
+actionno=16
+start = 438,180
+delta = 1.3,1.5
+[BG SSBB_PS]
+type =normal
+spriteno =17,0
+start = -680,-180
+delta = 1.3,1.5
+mask =1
+[BG SSBB_PS]
+type =anim
+actionno=9
+start = -200,-110
+delta = 1.3,1.5
+[BG SSBB_PS]
+type =anim
+actionno=10
+start = 200,-110
+delta = 1.3,1.5
+[BG SSBB_PS]
+type =anim
+actionno=1
+start = -905,-155
+delta = 1.3,1.5
+[BG SSBB_PS]
+type =anim
+actionno=2
+start = -905,-157
+delta = 1.3,1.5
+[BG SSBB_PS]
+type =anim
+actionno=3
+start = 905,-155
+delta = 1.3,1.5
+[BG SSBB_PS]
+type =anim
+actionno=4
+start = 905,-157
+delta = 1.3,1.5
+[BG SSBB_PS]
+type =anim
+actionno=5
+start = -270,-120
+delta = 1.3,1.5
+[BG SSBB_PS]
+type =anim
+actionno=21
+start = -820,-60
+delta = 1.3,1.5
+[BG SSBB_PS]
+type =anim
+actionno=22
+start = 820,-60
+delta = 1.3,1.5
+[BG SSBB_PS]
+type =normal
+spriteno=0,0
+start = -840,460;310
+delta = 2,2
+mask =1
+ID=1
+[BG SSBB_PS]
+type =normal
+spriteno=0,1
+start = -840,460;310
+delta = 2,2
+mask =1
+ID=1
+[BG SSBB_PS]
+type =normal
+spriteno=0,2
+start = -840,460;310
+delta = 2,2
+mask =1
+ID=1
+[BG SSBB_PS]
+type =normal
+spriteno=0,3
+start = -840,460;310
+delta = 2,2
+mask =1
+ID=1
+[BG SSBB_PS]
+type =normal
+spriteno=0,4
+start = -840,460;310
+delta = 2,2
+mask =1
+ID=1
+[BG SSBB_PS]
+type =normal
+spriteno=0,5
+start = -840,460;310
+delta = 2,2
+mask =1
+ID=1
+[BG SSBB_PS]
+type =normal
+spriteno=0,6
+start = -840,460;310
+delta = 2,2
+mask =1
+ID=1
+[BG SSBB_PS]
+type =normal
+spriteno=0,7
+start = -840,460;310
+delta = 2,2
+mask =1
+ID=1
+[BG SSBB_PS]
+type =normal
+spriteno=0,8
+start = -840,460;310
+delta = 2,2
+mask =1
+ID=1
+[BG SSBB_PS]
+type =normal
+spriteno=0,9
+start = -840,460;310
+delta = 2,2
+mask =1
+ID=1
+[BG SSBB_PS]
+type =normal
+spriteno=0,10
+start = -840,460;310
+delta = 2,2
+mask =1
+ID=1
+[BG SSBB_PS]
+type =normal
+spriteno=0,11
+start = -840,460;310
+delta = 2,2
+mask =1
+ID=1
+[BG SSBB_PS]
+type =normal
+spriteno=0,12
+start = -840,460;310
+delta = 2,2
+mask =1
+ID=1
+[BG SSBB_PS]
+type =normal
+spriteno=0,13
+start = -840,460;310
+delta = 2,2
+mask =1
+ID=1
+[BG SSBB_PS]
+type =normal
+spriteno=0,14
+start = -840,460;310
+delta = 2,2
+mask =1
+ID=1
+[BG SSBB_PS]
+type =normal
+spriteno=0,15
+start = -840,460;310
+delta = 2,2
+mask =1
+ID=1
+[BG SSBB_PS]
+type =normal
+spriteno=0,16
+start = -840,460;310
+delta = 2,2
+mask =1
+ID=1
+[BG SSBB_PS]
+type =normal
+spriteno=0,17
+start = -840,460;310
+delta = 2,2
+mask =1
+ID=1
+[BG SSBB_PS]
+type =normal
+spriteno=0,18
+start = -840,460;310
+delta = 2,2
+mask =1
+ID=1
+[BG SSBB_PS]
+type =normal
+spriteno=0,19
+start = -840,460;310
+delta = 2,2
+mask =1
+ID=1
+[BG SSBB_PS]
+type =normal
+spriteno=0,20
+start = -840,460;310
+delta = 2,2
+mask =1
+ID=1
+[BG SSBB_PS]
+type =normal
+spriteno=0,21
+start = -840,460;310
+delta = 2,2
+mask =1
+ID=1
+[BG SSBB_PS]
+type =normal
+spriteno=0,22
+start = -840,460;310
+delta = 2,2
+mask =1
+ID=1
+[BG SSBB_PS]
+type =normal
+spriteno=0,23
+start = -840,460;310
+delta = 2,2
+mask =1
+ID=1
+[BG SSBB_PS]
+type =normal
+spriteno=0,24
+start = -840,460;310
+delta = 2,2
+mask =1
+ID=1
+[BG SSBB_PS]
+type =normal
+spriteno=0,25
+start = -840,460;310
+delta = 2,2
+mask =1
+ID=1
+[BG SSBB_PS]
+type =normal
+spriteno=0,26
+start = -840,460;310
+delta = 2,2
+mask =1
+ID=1
+[BG SSBB_PS]
+type =normal
+spriteno=0,27
+start = -840,460;310
+delta = 2,2
+mask =1
+ID=1
+[BG SSBB_PS]
+type =normal
+spriteno=0,28
+start = -840,460;310
+delta = 2,2
+mask =1
+ID=1
+[BG SSBB_PS]
+type =normal
+spriteno=0,29
+start = -840,460;310
+delta = 2,2
+mask =1
+ID=1
+[BG SSBB_PS]
+type =normal
+spriteno=0,30
+start = -840,460;310
+delta = 2,2
+mask =1
+ID=1
+[BG SSBB_PS]
+type =normal
+spriteno=0,31
+start = -840,460;310
+delta = 2,2
+mask =1
+ID=1
+[BG SSBB_PS]
+type =normal
+spriteno=0,32
+start = -840,460;310
+delta = 2,2
+mask =1
+ID=1
+[BG SSBB_PS]
+type =normal
+spriteno=0,33
+start = -840,460;310
+delta = 2,2
+mask =1
+ID=1
+[BG SSBB_PS]
+type =normal
+spriteno=0,34
+start = -840,460;310
+delta = 2,2
+mask =1
+ID=1
+[BG SSBB_PS]
+type =normal
+spriteno=0,35
+start = -840,460;310
+delta = 2,2
+mask =1
+ID=1
+[BG SSBB_PS]
+type =anim
+actionno=6
+start = -840,460;-840,310
+delta = 2,2
+ID=1
+[BG SSBB_PS]
+type =anim
+actionno=7
+start = -840,460;-840,310
+delta = 2,2
+ID=1
+[BG SSBB_PS]
+type =anim
+actionno=8
+start = 855,460;855,310
+delta = 2,2
+ID=1
+[BG SSBB_PS]
+type =anim
+actionno=11
+start = -840,250;-840,100
+delta = 2,2
+ID=1
+[BGCtrlDef SSBB_PS]
+ctrlID = 1
+[BGCtrl]
+type = Velset
+time = 0
+x=0
+y=-0.5
+[BGCtrl]
+type = Velset
+time = 300
+x=0
+y=0
+[BG SSBB_PS]
+type =normal
+spriteno =10,0
+start = 330,360
+delta = 2,2
+mask =1
+sin.y=3,100,0
+ID=3
+[BG SSBB_PS]
+type =normal
+spriteno =10,2
+start = 330,360
+delta = 2,2
+mask =1
+sin.y=3,100,0
+ID=3
+[BG SSBB_PS]
+type =normal
+spriteno =10,3
+start = 330,360
+delta = 2,2
+mask =1
+sin.y=3,100,0
+ID=3
+[BG SSBB_PS]
+type =normal
+spriteno =10,4
+start = 330,360
+delta = 2,2
+mask =1
+sin.y=3,100,0
+ID=3
+[BG SSBB_PS]
+type= anim
+actionno=23
+start = 330,360
+delta = 2,2
+sin.y=3,100,0
+ID=3
+[BG SSBB_PS]
+type =normal
+spriteno =10,1
+start = 10,360
+delta = 2,2
+mask =1
+sin.y=3,100,0
+ID=3
+[BG SSBB_PS]
+type =normal
+spriteno =10,5
+start = 10,360
+delta = 2,2
+mask =1
+sin.y=3,100,0
+ID=3
+[BG SSBB_PS]
+type =normal
+spriteno =10,6
+start = 10,360
+delta = 2,2
+mask =1
+sin.y=3,100,0
+ID=3
+[BG SSBB_PS]
+type =normal
+spriteno =10,7
+start = 10,360
+delta = 2,2
+mask =1
+sin.y=3,100,0
+ID=3
+[BG SSBB_PS]
+type= anim
+actionno=24
+start = 10,360
+delta = 2,2
+sin.y=3,100,0
+ID=3
+[BG]
+type = dummy
+id = 10
+start = 0,0
+delta = 2,2
+positionlink = 1
+[BGCtrlDef SSBB_PS]
+ctrlID = 3,10
+[BGCtrl]
+type = Enable
+time = 0
+value= 1
+[BGCtrl]
+type = Enable
+time = 251
+value= 0
+[BG SSBB_PS]
+type= anim
+actionno=18
+start = 0,360
+delta = 2,2
+sin.y=3,100,0
+ID=2
+[BG SSBB_PS]
+type= anim
+actionno=17
+start = 330,360
+delta = 2,2
+sin.y=3,100,0
+ID=2
+[BGCtrlDef SSBB_PS]
+ctrlID = 2
+[BGCtrl]
+type = Enable
+time = 0
+value= 0
+[BGCtrl]
+type = Enable
+time = 250
+value= 1
+;______________________________________________________________________________________
+;ANIMACIONES
+;______________________________________________________________________________________
+[Begin Action 19]
+15,0,0,0,5,,AS150D256    
+15,1,0,0,5,,AS150D256    
+15,2,0,0,5,,AS150D256    
+15,3,0,0,5,,AS150D256    
+15,4,0,0,5,,AS150D256    
+15,5,0,0,5,,AS150D256    
+15,6,0,0,5,,AS150D256    
+15,7,0,0,5,,AS150D256    
+15,8,0,0,5,,AS150D256    
+15,9,0,0,5,,AS150D256    
+15,10,0,0,5,,AS150D256   
+15,11,0,0,5,,AS150D256   
+15,12,0,0,5,,AS150D256   
+15,13,0,0,5,,AS150D256   
+15,14,0,0,5,,AS150D256   
+15,15,0,0,5,,AS150D256   
+15,16,0,0,5,,AS150D256   
+15,17,0,0,5,,AS150D256   
+15,18,0,0,5,,AS150D256   
+15,19,0,0,5,,AS150D256   
+15,20,0,0,5,,AS150D256   
+15,21,0,0,5,,AS150D256   
+15,22,0,0,5,,AS150D256   
+15,23,0,0,5,,AS150D256   
+15,24,0,0,5,,AS150D256   
+15,25,0,0,5,,AS150D256   
+15,26,0,0,5,,AS150D256   
+15,27,0,0,5,,AS150D256   
+15,28,0,0,5,,AS150D256   
+15,29,0,0,5,,AS150D256   
+15,30,0,0,5,,AS150D256   
+15,31,0,0,5,,AS150D256   
+15,32,0,0,5,,AS150D256   
+15,33,0,0,5,,AS150D256   
+15,34,0,0,5,,AS150D256   
+15,35,0,0,5,,AS150D256   
+15,36,0,0,5,,AS150D256   
+15,37,0,0,5,,AS150D256   
+15,38,0,0,5,,AS150D256   
+15,39,0,0,5,,AS150D256   
+15,40,0,0,5,,AS150D256   
+15,41,0,0,5,,AS150D256   
+15,42,0,0,5,,AS150D256   
+15,43,0,0,5,,AS150D256   
+15,44,0,0,5,,AS150D256   
+15,45,0,0,5,,AS150D256   
+15,46,0,0,5,,AS150D256   
+15,47,0,0,5,,AS150D256   
+15,48,0,0,5,,AS150D256   
+15,49,0,0,5,,AS150D256   
+15,50,0,0,5,,AS150D256   
+15,51,0,0,5,,AS150D256   
+15,52,0,0,5,,AS150D256   
+15,53,0,0,5,,AS150D256   
+15,54,0,0,5,,AS150D256   
+15,55,0,0,5,,AS150D256   
+15,56,0,0,5,,AS150D256   
+15,57,0,0,5,,AS150D256   
+15,58,0,0,5,,AS150D256   
+15,59,0,0,5,,AS150D256   
+15,58,0,0,5,,AS150D256   
+15,57,0,0,5,,AS150D256   
+15,56,0,0,5,,AS150D256   
+15,55,0,0,5,,AS150D256   
+15,54,0,0,5,,AS150D256   
+15,53,0,0,5,,AS150D256   
+15,52,0,0,5,,AS150D256   
+15,51,0,0,5,,AS150D256   
+15,50,0,0,5,,AS150D256   
+15,49,0,0,5,,AS150D256   
+15,48,0,0,5,,AS150D256   
+15,47,0,0,5,,AS150D256   
+15,46,0,0,5,,AS150D256   
+15,45,0,0,5,,AS150D256   
+15,44,0,0,5,,AS150D256   
+15,43,0,0,5,,AS150D256   
+15,42,0,0,5,,AS150D256   
+15,41,0,0,5,,AS150D256   
+15,40,0,0,5,,AS150D256   
+15,39,0,0,5,,AS150D256   
+15,38,0,0,5,,AS150D256   
+15,37,0,0,5,,AS150D256   
+15,36,0,0,5,,AS150D256   
+15,35,0,0,5,,AS150D256   
+15,34,0,0,5,,AS150D256   
+15,33,0,0,5,,AS150D256   
+15,32,0,0,5,,AS150D256   
+15,31,0,0,5,,AS150D256   
+15,30,0,0,5,,AS150D256   
+15,29,0,0,5,,AS150D256   
+15,28,0,0,5,,AS150D256   
+15,27,0,0,5,,AS150D256   
+15,26,0,0,5,,AS150D256   
+15,25,0,0,5,,AS150D256   
+15,24,0,0,5,,AS150D256   
+15,23,0,0,5,,AS150D256   
+15,22,0,0,5,,AS150D256   
+15,21,0,0,5,,AS150D256   
+15,20,0,0,5,,AS150D256   
+15,19,0,0,5,,AS150D256   
+15,18,0,0,5,,AS150D256   
+15,17,0,0,5,,AS150D256   
+15,16,0,0,5,,AS150D256   
+15,15,0,0,5,,AS150D256   
+15,14,0,0,5,,AS150D256   
+15,13,0,0,5,,AS150D256   
+15,12,0,0,5,,AS150D256   
+15,11,0,0,5,,AS150D256   
+15,10,0,0,5,,AS150D256   
+15,9,0,0,5,,AS150D256    
+15,8,0,0,5,,AS150D256    
+15,7,0,0,5,,AS150D256    
+15,6,0,0,5,,AS150D256    
+15,5,0,0,5,,AS150D256    
+15,4,0,0,5,,AS150D256    
+15,3,0,0,5,,AS150D256    
+15,2,0,0,5,,AS150D256    
+15,1,0,0,5,,AS150D256    
+[Begin Action 20]   
+15,59,0,0,5,,AS150D256   
+15,58,0,0,5,,AS150D256   
+15,57,0,0,5,,AS150D256   
+15,56,0,0,5,,AS150D256   
+15,55,0,0,5,,AS150D256   
+15,54,0,0,5,,AS150D256   
+15,53,0,0,5,,AS150D256   
+15,52,0,0,5,,AS150D256   
+15,51,0,0,5,,AS150D256   
+15,50,0,0,5,,AS150D256   
+15,49,0,0,5,,AS150D256   
+15,48,0,0,5,,AS150D256   
+15,47,0,0,5,,AS150D256   
+15,46,0,0,5,,AS150D256   
+15,45,0,0,5,,AS150D256   
+15,44,0,0,5,,AS150D256   
+15,43,0,0,5,,AS150D256   
+15,42,0,0,5,,AS150D256   
+15,41,0,0,5,,AS150D256   
+15,40,0,0,5,,AS150D256   
+15,39,0,0,5,,AS150D256   
+15,38,0,0,5,,AS150D256   
+15,37,0,0,5,,AS150D256   
+15,36,0,0,5,,AS150D256   
+15,35,0,0,5,,AS150D256   
+15,34,0,0,5,,AS150D256   
+15,33,0,0,5,,AS150D256   
+15,32,0,0,5,,AS150D256   
+15,31,0,0,5,,AS150D256   
+15,30,0,0,5,,AS150D256   
+15,29,0,0,5,,AS150D256   
+15,28,0,0,5,,AS150D256   
+15,27,0,0,5,,AS150D256   
+15,26,0,0,5,,AS150D256   
+15,25,0,0,5,,AS150D256   
+15,24,0,0,5,,AS150D256   
+15,23,0,0,5,,AS150D256   
+15,22,0,0,5,,AS150D256   
+15,21,0,0,5,,AS150D256   
+15,20,0,0,5,,AS150D256   
+15,19,0,0,5,,AS150D256   
+15,18,0,0,5,,AS150D256   
+15,17,0,0,5,,AS150D256   
+15,16,0,0,5,,AS150D256   
+15,15,0,0,5,,AS150D256   
+15,14,0,0,5,,AS150D256   
+15,13,0,0,5,,AS150D256   
+15,12,0,0,5,,AS150D256   
+15,11,0,0,5,,AS150D256   
+15,10,0,0,5,,AS150D256   
+15,9,0,0,5,,AS150D256    
+15,8,0,0,5,,AS150D256    
+15,7,0,0,5,,AS150D256    
+15,6,0,0,5,,AS150D256    
+15,5,0,0,5,,AS150D256    
+15,4,0,0,5,,AS150D256    
+15,3,0,0,5,,AS150D256    
+15,2,0,0,5,,AS150D256    
+15,1,0,0,5,,AS150D256    
+15,0,0,0,5,,AS150D256  
+15,1,0,0,5,,AS150D256    
+15,2,0,0,5,,AS150D256    
+15,3,0,0,5,,AS150D256    
+15,4,0,0,5,,AS150D256    
+15,5,0,0,5,,AS150D256    
+15,6,0,0,5,,AS150D256    
+15,7,0,0,5,,AS150D256    
+15,8,0,0,5,,AS150D256    
+15,9,0,0,5,,AS150D256    
+15,10,0,0,5,,AS150D256   
+15,11,0,0,5,,AS150D256   
+15,12,0,0,5,,AS150D256   
+15,13,0,0,5,,AS150D256   
+15,14,0,0,5,,AS150D256   
+15,15,0,0,5,,AS150D256   
+15,16,0,0,5,,AS150D256   
+15,17,0,0,5,,AS150D256   
+15,18,0,0,5,,AS150D256   
+15,19,0,0,5,,AS150D256   
+15,20,0,0,5,,AS150D256   
+15,21,0,0,5,,AS150D256   
+15,22,0,0,5,,AS150D256   
+15,23,0,0,5,,AS150D256   
+15,24,0,0,5,,AS150D256   
+15,25,0,0,5,,AS150D256   
+15,26,0,0,5,,AS150D256   
+15,27,0,0,5,,AS150D256   
+15,28,0,0,5,,AS150D256   
+15,29,0,0,5,,AS150D256   
+15,30,0,0,5,,AS150D256   
+15,31,0,0,5,,AS150D256   
+15,32,0,0,5,,AS150D256   
+15,33,0,0,5,,AS150D256   
+15,34,0,0,5,,AS150D256   
+15,35,0,0,5,,AS150D256   
+15,36,0,0,5,,AS150D256   
+15,37,0,0,5,,AS150D256   
+15,38,0,0,5,,AS150D256   
+15,39,0,0,5,,AS150D256   
+15,40,0,0,5,,AS150D256   
+15,41,0,0,5,,AS150D256   
+15,42,0,0,5,,AS150D256   
+15,43,0,0,5,,AS150D256   
+15,44,0,0,5,,AS150D256   
+15,45,0,0,5,,AS150D256   
+15,46,0,0,5,,AS150D256   
+15,47,0,0,5,,AS150D256   
+15,48,0,0,5,,AS150D256   
+15,49,0,0,5,,AS150D256   
+15,50,0,0,5,,AS150D256   
+15,51,0,0,5,,AS150D256   
+15,52,0,0,5,,AS150D256   
+15,53,0,0,5,,AS150D256   
+15,54,0,0,5,,AS150D256   
+15,55,0,0,5,,AS150D256   
+15,56,0,0,5,,AS150D256   
+15,57,0,0,5,,AS150D256   
+15,58,0,0,5,,AS150D256 
+[Begin Action 21]
+16,0,0,0,5,,A    
+16,1,0,0,5,,A    
+16,2,0,0,5,,A    
+16,3,0,0,5,,A    
+16,4,0,0,5,,A    
+16,5,0,0,5,,A    
+16,6,0,0,5,,A    
+16,7,0,0,5,,A    
+16,8,0,0,5,,A    
+16,9,0,0,5,,A    
+16,10,0,0,5,,A   
+16,11,0,0,5,,A   
+16,12,0,0,5,,A   
+16,13,0,0,5,,A   
+16,14,0,0,5,,A   
+16,15,0,0,5,,A   
+16,16,0,0,5,,A   
+16,17,0,0,5,,A   
+16,18,0,0,5,,A   
+16,19,0,0,5,,A   
+16,20,0,0,5,,A   
+16,21,0,0,5,,A   
+16,22,0,0,5,,A   
+16,23,0,0,5,,A   
+16,24,0,0,5,,A   
+16,25,0,0,5,,A   
+16,26,0,0,5,,A   
+16,27,0,0,5,,A   
+16,28,0,0,5,,A   
+16,29,0,0,5,,A   
+16,30,0,0,5,,A   
+16,31,0,0,5,,A   
+16,32,0,0,5,,A   
+16,33,0,0,5,,A   
+16,34,0,0,5,,A   
+16,35,0,0,5,,A   
+16,36,0,0,5,,A   
+16,37,0,0,5,,A   
+16,38,0,0,5,,A   
+16,39,0,0,5,,A   
+16,40,0,0,5,,A   
+16,41,0,0,5,,A   
+16,42,0,0,5,,A   
+16,43,0,0,5,,A   
+16,44,0,0,5,,A   
+16,45,0,0,5,,A   
+16,46,0,0,5,,A   
+16,47,0,0,5,,A   
+16,48,0,0,5,,A   
+16,49,0,0,5,,A   
+16,50,0,0,5,,A   
+16,51,0,0,5,,A   
+16,52,0,0,5,,A   
+16,53,0,0,5,,A   
+16,54,0,0,5,,A   
+16,55,0,0,5,,A   
+16,56,0,0,5,,A   
+16,57,0,0,5,,A   
+16,58,0,0,5,,A   
+16,59,0,0,5,,A   
+16,60,0,0,5,,A   
+16,61,0,0,5,,A   
+16,62,0,0,5,,A   
+16,63,0,0,5,,A   
+16,64,0,0,5,,A   
+16,65,0,0,5,,A   
+16,66,0,0,5,,A   
+16,67,0,0,5,,A   
+16,68,0,0,5,,A   
+16,69,0,0,5,,A   
+16,70,0,0,5,,A   
+16,71,0,0,5,,A   
+16,72,0,0,5,,A   
+16,73,0,0,5,,A   
+16,74,0,0,5,,A   
+16,75,0,0,5,,A   
+16,76,0,0,5,,A   
+16,77,0,0,5,,A   
+16,78,0,0,5,,A   
+16,79,0,0,5,,A   
+16,80,0,0,5,,A   
+16,81,0,0,5,,A   
+16,82,0,0,5,,A   
+16,83,0,0,5,,A   
+[Begin Action 22]
+16,0,0,0,5,H,A    
+16,1,0,0,5,H,A    
+16,2,0,0,5,H,A    
+16,3,0,0,5,H,A    
+16,4,0,0,5,H,A    
+16,5,0,0,5,H,A    
+16,6,0,0,5,H,A    
+16,7,0,0,5,H,A    
+16,8,0,0,5,H,A    
+16,9,0,0,5,H,A    
+16,10,0,0,5,H,A   
+16,11,0,0,5,H,A   
+16,12,0,0,5,H,A   
+16,13,0,0,5,H,A   
+16,14,0,0,5,H,A   
+16,15,0,0,5,H,A   
+16,16,0,0,5,H,A   
+16,17,0,0,5,H,A   
+16,18,0,0,5,H,A   
+16,19,0,0,5,H,A   
+16,20,0,0,5,H,A   
+16,21,0,0,5,H,A   
+16,22,0,0,5,H,A   
+16,23,0,0,5,H,A   
+16,24,0,0,5,H,A   
+16,25,0,0,5,H,A   
+16,26,0,0,5,H,A   
+16,27,0,0,5,H,A   
+16,28,0,0,5,H,A   
+16,29,0,0,5,H,A   
+16,30,0,0,5,H,A   
+16,31,0,0,5,H,A   
+16,32,0,0,5,H,A   
+16,33,0,0,5,H,A   
+16,34,0,0,5,H,A   
+16,35,0,0,5,H,A   
+16,36,0,0,5,H,A   
+16,37,0,0,5,H,A   
+16,38,0,0,5,H,A   
+16,39,0,0,5,H,A   
+16,40,0,0,5,H,A   
+16,41,0,0,5,H,A   
+16,42,0,0,5,H,A   
+16,43,0,0,5,H,A   
+16,44,0,0,5,H,A   
+16,45,0,0,5,H,A   
+16,46,0,0,5,H,A   
+16,47,0,0,5,H,A   
+16,48,0,0,5,H,A   
+16,49,0,0,5,H,A   
+16,50,0,0,5,H,A   
+16,51,0,0,5,H,A   
+16,52,0,0,5,H,A   
+16,53,0,0,5,H,A   
+16,54,0,0,5,H,A   
+16,55,0,0,5,H,A   
+16,56,0,0,5,H,A   
+16,57,0,0,5,H,A   
+16,58,0,0,5,H,A   
+16,59,0,0,5,H,A   
+16,60,0,0,5,H,A   
+16,61,0,0,5,H,A   
+16,62,0,0,5,H,A   
+16,63,0,0,5,H,A   
+16,64,0,0,5,H,A   
+16,65,0,0,5,H,A   
+16,66,0,0,5,H,A   
+16,67,0,0,5,H,A   
+16,68,0,0,5,H,A   
+16,69,0,0,5,H,A   
+16,70,0,0,5,H,A   
+16,71,0,0,5,H,A   
+16,72,0,0,5,H,A   
+16,73,0,0,5,H,A   
+16,74,0,0,5,H,A   
+16,75,0,0,5,H,A   
+16,76,0,0,5,H,A   
+16,77,0,0,5,H,A   
+16,78,0,0,5,H,A   
+16,79,0,0,5,H,A   
+16,80,0,0,5,H,A   
+16,81,0,0,5,H,A   
+16,82,0,0,5,H,A   
+16,83,0,0,5,H,A   
+[Begin Action 23]
+18,0,0,0,5,,AS50D256    
+18,0,0,0,5,,AS100D256  
+18,0,0,0,5,,AS150D256
+18,0,0,0,5,,AS250D256
+18,0,0,0,5,,AS150D256
+18,0,0,0,5,,AS100D256
+[Begin Action 24]
+18,1,0,0,5,,AS50D256    
+18,1,0,0,5,,AS100D256  
+18,1,0,0,5,,AS150D256
+18,1,0,0,5,,AS250D256
+18,1,0,0,5,,AS150D256
+18,1,0,0,5,,AS100D256
+[Begin Action 12]
+11,0,0,0,10,,A     
+11,1,0,0,10,,A     
+11,2,0,0,10,,A     
+11,3,0,0,10,,A     
+11,4,0,0,10,,A     
+11,5,0,0,10,,A     
+11,6,0,0,10,,A     
+11,7,0,0,10,,A     
+11,8,0,0,10,,A     
+11,9,0,0,10,,A     
+11,10,0,0,10,,A    
+11,11,0,0,10,,A    
+11,12,0,0,10,,A    
+11,13,0,0,10,,A    
+11,14,0,0,10,,A    
+11,15,0,0,10,,A    
+11,16,0,0,10,,A    
+11,17,0,0,10,,A    
+11,18,0,0,10,,A    
+11,19,0,0,10,,A    
+11,20,0,0,10,,A    
+11,21,0,0,10,,A    
+11,22,0,0,10,,A    
+11,23,0,0,10,,A    
+11,24,0,0,10,,A    
+11,25,0,0,10,,A    
+11,26,0,0,10,,A    
+11,27,0,0,10,,A    
+11,28,0,0,10,,A    
+11,29,0,0,10,,A    
+11,30,0,0,10,,A    
+11,31,0,0,10,,A    
+11,32,0,0,10,,A    
+11,33,0,0,10,,A    
+11,34,0,0,10,,A    
+11,35,0,0,10,,A    
+11,36,0,0,10,,A    
+11,37,0,0,10,,A    
+11,38,0,0,10,,A    
+11,39,0,0,10,,A    
+11,40,0,0,10,,A    
+11,41,0,0,10,,A    
+11,42,0,0,10,,A    
+11,43,0,0,10,,A    
+11,44,0,0,10,,A    
+11,45,0,0,10,,A    
+11,46,0,0,10,,A    
+11,47,0,0,10,,A    
+11,48,0,0,10,,A    
+11,49,0,0,10,,A    
+11,50,0,0,10,,A    
+11,51,0,0,10,,A    
+11,52,0,0,10,,A    
+11,53,0,0,10,,A    
+11,54,0,0,10,,A    
+11,55,0,0,10,,A    
+11,56,0,0,10,,A    
+11,57,0,0,10,,A    
+11,58,0,0,10,,A    
+11,59,0,0,10,,A    
+11,60,0,0,10,,A    
+11,61,0,0,10,,A    
+11,62,0,0,10,,A    
+11,63,0,0,10,,A    
+11,64,0,0,10,,A    
+11,65,0,0,10,,A    
+11,66,0,0,10,,A    
+11,67,0,0,10,,A    
+11,68,0,0,10,,A    
+11,69,0,0,10,,A    
+11,70,0,0,10,,A    
+11,71,0,0,10,,A    
+11,72,0,0,10,,A    
+11,73,0,0,10,,A    
+11,74,0,0,10,,A    
+11,75,0,0,10,,A    
+11,76,0,0,10,,A    
+11,77,0,0,10,,A    
+11,78,0,0,10,,A    
+11,79,0,0,10,,A    
+11,80,0,0,10,,A    
+11,81,0,0,10,,A    
+11,82,0,0,10,,A    
+11,83,0,0,10,,A    
+11,84,0,0,10,,A    
+11,85,0,0,10,,A    
+11,86,0,0,10,,A    
+11,87,0,0,10,,A    
+11,88,0,0,10,,A    
+11,89,0,0,10,,A    
+11,90,0,0,10,,A    
+11,91,0,0,10,,A    
+11,92,0,0,10,,A    
+11,93,0,0,10,,A    
+11,94,0,0,10,,A    
+11,95,0,0,10,,A    
+11,96,0,0,10,,A    
+11,97,0,0,10,,A    
+11,98,0,0,10,,A    
+11,99,0,0,10,,A    
+11,100,0,0,10,,A   
+11,101,0,0,10,,A   
+11,102,0,0,10,,A   
+11,103,0,0,10,,A   
+11,104,0,0,10,,A   
+11,105,0,0,10,,A   
+11,106,0,0,10,,A   
+11,107,0,0,10,,A   
+11,108,0,0,10,,A   
+11,109,0,0,10,,A   
+11,110,0,0,10,,A   
+11,111,0,0,10,,A   
+11,112,0,0,10,,A   
+11,113,0,0,10,,A   
+11,114,0,0,10,,A   
+11,115,0,0,10,,A   
+11,116,0,0,10,,A   
+11,117,0,0,10,,A   
+11,118,0,0,10,,A   
+11,119,0,0,10,,A   
+11,120,0,0,10,,A   
+11,121,0,0,10,,A   
+11,122,0,0,10,,A   
+11,123,0,0,10,,A   
+11,124,0,0,10,,A   
+11,125,0,0,10,,A   
+11,126,0,0,10,,A   
+11,127,0,0,10,,A   
+11,128,0,0,10,,A   
+11,129,0,0,10,,A   
+11,130,0,0,10,,A   
+11,131,0,0,10,,A   
+11,132,0,0,10,,A   
+11,133,0,0,10,,A   
+11,134,0,0,10,,A   
+11,135,0,0,10,,A   
+11,136,0,0,10,,A   
+11,137,0,0,10,,A   
+11,138,0,0,10,,A   
+11,139,0,0,10,,A   
+11,140,0,0,10,,A   
+11,141,0,0,10,,A   
+11,142,0,0,10,,A   
+11,143,0,0,10,,A   
+11,144,0,0,10,,A   
+11,145,0,0,10,,A   
+11,146,0,0,10,,A   
+11,147,0,0,10,,A   
+11,148,0,0,10,,A   
+11,149,0,0,10,,A   
+11,150,0,0,10,,A   
+11,151,0,0,10,,A   
+11,152,0,0,10,,A   
+11,153,0,0,10,,A   
+11,154,0,0,10,,A   
+11,155,0,0,10,,A   
+11,156,0,0,10,,A   
+11,157,0,0,10,,A   
+11,158,0,0,10,,A   
+11,159,0,0,10,,A   
+11,160,0,0,10,,A   
+11,161,0,0,10,,A   
+11,162,0,0,10,,A   
+11,163,0,0,10,,A   
+11,164,0,0,10,,A   
+11,165,0,0,10,,A   
+11,166,0,0,10,,A   
+11,167,0,0,10,,A   
+11,168,0,0,10,,A   
+11,169,0,0,10,,A   
+11,170,0,0,10,,A   
+11,171,0,0,10,,A   
+11,172,0,0,10,,A   
+11,173,0,0,10,,A   
+11,174,0,0,10,,A   
+11,175,0,0,10,,A   
+11,176,0,0,10,,A   
+11,177,0,0,10,,A   
+11,178,0,0,10,,A   
+11,179,0,0,10,,A   
+11,180,0,0,10,,A   
+11,181,0,0,10,,A   
+11,182,0,0,10,,A   
+11,183,0,0,10,,A   
+11,184,0,0,10,,A   
+11,185,0,0,10,,A   
+11,186,0,0,10,,A   
+11,187,0,0,10,,A   
+11,188,0,0,10,,A   
+11,189,0,0,10,,A   
+11,190,0,0,10,,A   
+11,191,0,0,10,,A   
+11,192,0,0,10,,A   
+11,193,0,0,10,,A   
+11,194,0,0,10,,A   
+11,195,0,0,10,,A   
+11,196,0,0,10,,A   
+11,197,0,0,10,,A   
+11,198,0,0,10,,A   
+11,199,0,0,10,,A   
+11,200,0,0,10,,A   
+11,201,0,0,10,,A   
+11,202,0,0,10,,A   
+11,203,0,0,10,,A   
+11,204,0,0,10,,A   
+11,205,0,0,10,,A   
+11,206,0,0,10,,A   
+11,207,0,0,10,,A   
+11,208,0,0,10,,A   
+11,209,0,0,10,,A   
+11,210,0,0,10,,A   
+11,211,0,0,10,,A   
+11,212,0,0,10,,A   
+11,213,0,0,10,,A   
+11,214,0,0,10,,A   
+11,215,0,0,10,,A   
+11,216,0,0,10,,A   
+11,217,0,0,10,,A   
+11,218,0,0,10,,A   
+11,219,0,0,10,,A   
+11,220,0,0,10,,A   
+11,221,0,0,10,,A   
+11,222,0,0,10,,A   
+11,223,0,0,10,,A   
+11,224,0,0,10,,A   
+11,225,0,0,10,,A   
+11,226,0,0,10,,A   
+11,227,0,0,10,,A   
+11,228,0,0,10,,A   
+11,229,0,0,10,,A   
+11,230,0,0,10,,A   
+11,231,0,0,10,,A   
+11,232,0,0,10,,A   
+11,233,0,0,10,,A   
+11,234,0,0,10,,A  
+[Begin Action 14]
+13,0,0,0,60,,A     
+13,1,0,0,60,,A     
+13,2,0,0,60,,A     
+13,3,0,0,60,,A     
+13,4,0,0,60,,A     
+13,5,0,0,60,,A     
+13,6,0,0,60,,A     
+13,7,0,0,60,,A     
+13,8,0,0,60,,A     
+13,9,0,0,60,,A     
+13,10,0,0,60,,A    
+13,11,0,0,60,,A    
+13,12,0,0,60,,A    
+13,13,0,0,60,,A    
+13,14,0,0,60,,A    
+13,15,0,0,60,,A    
+13,16,0,0,60,,A    
+13,17,0,0,60,,A    
+13,18,0,0,60,,A    
+13,19,0,0,60,,A    
+13,20,0,0,60,,A    
+13,21,0,0,60,,A    
+13,22,0,0,60,,A    
+13,23,0,0,60,,A    
+13,24,0,0,60,,A    
+13,25,0,0,60,,A    
+13,26,0,0,60,,A    
+13,27,0,0,60,,A    
+13,28,0,0,60,,A    
+13,29,0,0,60,,A    
+13,30,0,0,60,,A    
+13,31,0,0,60,,A    
+13,32,0,0,60,,A    
+13,33,0,0,60,,A    
+13,34,0,0,60,,A    
+13,35,0,0,60,,A    
+13,36,0,0,60,,A    
+13,37,0,0,60,,A    
+13,38,0,0,60,,A    
+13,39,0,0,60,,A    
+13,40,0,0,60,,A    
+13,41,0,0,60,,A    
+13,42,0,0,60,,A    
+13,43,0,0,60,,A    
+13,44,0,0,60,,A    
+13,45,0,0,60,,A    
+13,46,0,0,60,,A    
+13,47,0,0,60,,A    
+13,48,0,0,60,,A    
+13,49,0,0,60,,A    
+13,50,0,0,60,,A    
+13,51,0,0,60,,A    
+13,52,0,0,60,,A    
+13,53,0,0,60,,A    
+13,54,0,0,60,,A    
+13,55,0,0,60,,A    
+13,56,0,0,60,,A    
+13,57,0,0,60,,A    
+13,58,0,0,60,,A    
+13,59,0,0,60,,A    
+13,60,0,0,60,,A    
+13,61,0,0,60,,A    
+13,62,0,0,60,,A    
+13,63,0,0,60,,A    
+13,64,0,0,60,,A    
+13,65,0,0,60,,A    
+13,66,0,0,60,,A    
+13,67,0,0,60,,A    
+13,68,0,0,60,,A    
+13,69,0,0,60,,A    
+13,70,0,0,60,,A    
+13,71,0,0,60,,A    
+13,72,0,0,60,,A    
+13,73,0,0,60,,A    
+13,74,0,0,60,,A    
+13,75,0,0,60,,A    
+13,76,0,0,60,,A    
+13,77,0,0,60,,A    
+13,78,0,0,60,,A    
+13,79,0,0,60,,A    
+13,80,0,0,60,,A    
+13,81,0,0,60,,A    
+13,82,0,0,60,,A    
+13,83,0,0,60,,A    
+13,84,0,0,60,,A    
+13,85,0,0,60,,A    
+13,86,0,0,60,,A    
+13,87,0,0,60,,A    
+13,88,0,0,60,,A    
+13,89,0,0,60,,A    
+13,90,0,0,60,,A    
+13,91,0,0,60,,A    
+13,92,0,0,60,,A    
+13,93,0,0,60,,A    
+13,94,0,0,60,,A    
+13,95,0,0,60,,A    
+13,96,0,0,60,,A    
+13,97,0,0,60,,A    
+13,98,0,0,60,,A    
+13,99,0,0,60,,A    
+13,100,0,0,60,,A   
+13,101,0,0,60,,A   
+13,102,0,0,60,,A   
+13,103,0,0,60,,A   
+13,104,0,0,60,,A   
+13,105,0,0,60,,A   
+13,106,0,0,60,,A   
+13,107,0,0,60,,A   
+13,108,0,0,60,,A   
+13,109,0,0,60,,A   
+13,110,0,0,60,,A   
+13,111,0,0,60,,A   
+13,112,0,0,60,,A   
+13,113,0,0,60,,A   
+13,114,0,0,60,,A   
+13,115,0,0,60,,A   
+13,116,0,0,60,,A   
+13,117,0,0,60,,A   
+13,118,0,0,60,,A   
+13,119,0,0,60,,A   
+13,120,0,0,60,,A   
+13,121,0,0,60,,A   
+13,122,0,0,60,,A   
+13,123,0,0,60,,A   
+13,124,0,0,60,,A   
+13,125,0,0,60,,A   
+13,126,0,0,60,,A   
+13,127,0,0,60,,A   
+13,128,0,0,60,,A   
+13,129,0,0,60,,A   
+13,130,0,0,60,,A   
+13,131,0,0,60,,A   
+13,132,0,0,60,,A   
+13,133,0,0,60,,A   
+13,134,0,0,60,,A   
+13,135,0,0,60,,A   
+13,136,0,0,60,,A   
+13,137,0,0,60,,A   
+13,138,0,0,60,,A   
+13,139,0,0,60,,A   
+13,140,0,0,60,,A   
+13,141,0,0,60,,A   
+13,142,0,0,60,,A   
+13,143,0,0,60,,A   
+13,144,0,0,60,,A   
+13,145,0,0,60,,A   
+13,146,0,0,60,,A   
+13,147,0,0,60,,A   
+13,148,0,0,60,,A   
+13,149,0,0,60,,A   
+13,150,0,0,60,,A   
+13,151,0,0,60,,A   
+13,152,0,0,60,,A   
+13,153,0,0,60,,A   
+13,154,0,0,60,,A   
+13,155,0,0,60,,A   
+13,156,0,0,60,,A   
+13,157,0,0,60,,A   
+13,158,0,0,60,,A   
+13,159,0,0,60,,A   
+13,160,0,0,60,,A   
+13,161,0,0,60,,A   
+13,162,0,0,60,,A   
+[Begin Action 15]
+13,96,0,0,80,,A    
+13,97,0,0,80,,A    
+13,98,0,0,80,,A    
+13,99,0,0,80,,A    
+13,100,0,0,80,,A   
+13,101,0,0,80,,A   
+13,102,0,0,80,,A   
+13,103,0,0,80,,A   
+13,104,0,0,80,,A   
+13,105,0,0,80,,A   
+13,106,0,0,80,,A   
+13,107,0,0,80,,A   
+13,108,0,0,80,,A   
+13,109,0,0,80,,A   
+13,110,0,0,80,,A   
+13,111,0,0,80,,A   
+13,112,0,0,80,,A   
+13,113,0,0,80,,A   
+13,114,0,0,80,,A   
+13,115,0,0,80,,A   
+13,116,0,0,80,,A   
+13,117,0,0,80,,A   
+13,118,0,0,80,,A   
+13,119,0,0,80,,A   
+13,120,0,0,80,,A   
+13,121,0,0,80,,A   
+13,122,0,0,80,,A   
+13,123,0,0,80,,A   
+13,124,0,0,80,,A   
+13,125,0,0,80,,A   
+13,126,0,0,80,,A   
+13,127,0,0,80,,A   
+13,128,0,0,80,,A   
+13,129,0,0,80,,A   
+13,130,0,0,80,,A   
+13,131,0,0,80,,A   
+13,132,0,0,80,,A   
+13,133,0,0,80,,A   
+13,134,0,0,80,,A   
+13,135,0,0,80,,A   
+13,136,0,0,80,,A   
+13,137,0,0,80,,A   
+13,138,0,0,80,,A   
+13,139,0,0,80,,A   
+13,140,0,0,80,,A   
+13,141,0,0,80,,A   
+13,142,0,0,80,,A   
+13,143,0,0,80,,A   
+13,144,0,0,80,,A   
+13,145,0,0,80,,A   
+13,146,0,0,80,,A   
+13,147,0,0,80,,A   
+13,148,0,0,80,,A   
+13,149,0,0,80,,A   
+13,150,0,0,80,,A   
+13,151,0,0,80,,A   
+13,152,0,0,80,,A   
+13,153,0,0,80,,A   
+13,154,0,0,80,,A   
+13,155,0,0,80,,A   
+13,156,0,0,80,,A   
+13,157,0,0,80,,A   
+13,158,0,0,80,,A   
+13,159,0,0,80,,A   
+13,160,0,0,80,,A   
+13,161,0,0,80,,A   
+13,162,0,0,80,,A   
+13,0,0,0,80,,A     
+13,1,0,0,80,,A     
+13,2,0,0,80,,A     
+13,3,0,0,80,,A     
+13,4,0,0,80,,A     
+13,5,0,0,80,,A     
+13,6,0,0,80,,A     
+13,7,0,0,80,,A     
+13,8,0,0,80,,A     
+13,9,0,0,80,,A     
+13,10,0,0,80,,A    
+13,11,0,0,80,,A    
+13,12,0,0,80,,A    
+13,13,0,0,80,,A    
+13,14,0,0,80,,A    
+13,15,0,0,80,,A    
+13,16,0,0,80,,A    
+13,17,0,0,80,,A    
+13,18,0,0,80,,A    
+13,19,0,0,80,,A    
+13,20,0,0,80,,A    
+13,21,0,0,80,,A    
+13,22,0,0,80,,A    
+13,23,0,0,80,,A    
+13,24,0,0,80,,A    
+13,25,0,0,80,,A    
+13,26,0,0,80,,A    
+13,27,0,0,80,,A    
+13,28,0,0,80,,A    
+13,29,0,0,80,,A    
+13,30,0,0,80,,A    
+13,31,0,0,80,,A    
+13,32,0,0,80,,A    
+13,33,0,0,80,,A    
+13,34,0,0,80,,A    
+13,35,0,0,80,,A    
+13,36,0,0,80,,A    
+13,37,0,0,80,,A    
+13,38,0,0,80,,A    
+13,39,0,0,80,,A    
+13,40,0,0,80,,A    
+13,41,0,0,80,,A    
+13,42,0,0,80,,A    
+13,43,0,0,80,,A    
+13,44,0,0,80,,A    
+13,45,0,0,80,,A    
+13,46,0,0,80,,A    
+13,47,0,0,80,,A    
+13,48,0,0,80,,A    
+13,49,0,0,80,,A    
+13,50,0,0,80,,A    
+13,51,0,0,80,,A    
+13,52,0,0,80,,A    
+13,53,0,0,80,,A    
+13,54,0,0,80,,A    
+13,55,0,0,80,,A    
+13,56,0,0,80,,A    
+13,57,0,0,80,,A    
+13,58,0,0,80,,A    
+13,59,0,0,80,,A    
+13,60,0,0,80,,A    
+13,61,0,0,80,,A    
+13,62,0,0,80,,A    
+13,63,0,0,80,,A    
+13,64,0,0,80,,A    
+13,65,0,0,80,,A    
+13,66,0,0,80,,A    
+13,67,0,0,80,,A    
+13,68,0,0,80,,A    
+13,69,0,0,80,,A    
+13,70,0,0,80,,A    
+13,71,0,0,80,,A    
+13,72,0,0,80,,A    
+13,73,0,0,80,,A    
+13,74,0,0,80,,A    
+13,75,0,0,80,,A    
+13,76,0,0,80,,A    
+13,77,0,0,80,,A    
+13,78,0,0,80,,A    
+13,79,0,0,80,,A    
+13,80,0,0,80,,A    
+13,81,0,0,80,,A    
+13,82,0,0,80,,A    
+13,83,0,0,80,,A    
+13,84,0,0,80,,A    
+13,85,0,0,80,,A    
+13,86,0,0,80,,A    
+13,87,0,0,80,,A    
+13,88,0,0,80,,A    
+13,89,0,0,80,,A    
+13,90,0,0,80,,A    
+13,91,0,0,80,,A    
+13,92,0,0,80,,A    
+13,93,0,0,80,,A    
+13,94,0,0,80,,A    
+13,95,0,0,80,,A 
+[Begin Action 16]
+13,134,0,0,130,,A   
+13,135,0,0,130,,A   
+13,136,0,0,130,,A   
+13,137,0,0,130,,A   
+13,138,0,0,130,,A   
+13,139,0,0,130,,A   
+13,140,0,0,130,,A   
+13,141,0,0,130,,A   
+13,142,0,0,130,,A   
+13,143,0,0,130,,A   
+13,144,0,0,130,,A   
+13,145,0,0,130,,A   
+13,146,0,0,130,,A   
+13,147,0,0,130,,A   
+13,148,0,0,130,,A   
+13,149,0,0,130,,A   
+13,150,0,0,130,,A   
+13,151,0,0,130,,A   
+13,152,0,0,130,,A   
+13,153,0,0,130,,A   
+13,154,0,0,130,,A   
+13,155,0,0,130,,A   
+13,156,0,0,130,,A   
+13,157,0,0,130,,A   
+13,158,0,0,130,,A   
+13,159,0,0,130,,A   
+13,160,0,0,130,,A   
+13,161,0,0,130,,A   
+13,162,0,0,130,,A 
+13,0,0,0,130,,A     
+13,1,0,0,130,,A     
+13,2,0,0,130,,A     
+13,3,0,0,130,,A     
+13,4,0,0,130,,A     
+13,5,0,0,130,,A     
+13,6,0,0,130,,A     
+13,7,0,0,130,,A     
+13,8,0,0,130,,A     
+13,9,0,0,130,,A     
+13,10,0,0,130,,A    
+13,11,0,0,130,,A    
+13,12,0,0,130,,A    
+13,13,0,0,130,,A    
+13,14,0,0,130,,A    
+13,15,0,0,130,,A    
+13,16,0,0,130,,A    
+13,17,0,0,130,,A    
+13,18,0,0,130,,A    
+13,19,0,0,130,,A    
+13,20,0,0,130,,A    
+13,21,0,0,130,,A    
+13,22,0,0,130,,A    
+13,23,0,0,130,,A    
+13,24,0,0,130,,A    
+13,25,0,0,130,,A    
+13,26,0,0,130,,A    
+13,27,0,0,130,,A    
+13,28,0,0,130,,A    
+13,29,0,0,130,,A    
+13,30,0,0,130,,A    
+13,31,0,0,130,,A    
+13,32,0,0,130,,A    
+13,33,0,0,130,,A    
+13,34,0,0,130,,A    
+13,35,0,0,130,,A    
+13,36,0,0,130,,A    
+13,37,0,0,130,,A    
+13,38,0,0,130,,A    
+13,39,0,0,130,,A    
+13,40,0,0,130,,A    
+13,41,0,0,130,,A    
+13,42,0,0,130,,A    
+13,43,0,0,130,,A    
+13,44,0,0,130,,A    
+13,45,0,0,130,,A    
+13,46,0,0,130,,A    
+13,47,0,0,130,,A    
+13,48,0,0,130,,A    
+13,49,0,0,130,,A    
+13,50,0,0,130,,A    
+13,51,0,0,130,,A    
+13,52,0,0,130,,A    
+13,53,0,0,130,,A    
+13,54,0,0,130,,A    
+13,55,0,0,130,,A    
+13,56,0,0,130,,A    
+13,57,0,0,130,,A    
+13,58,0,0,130,,A    
+13,59,0,0,130,,A    
+13,60,0,0,130,,A    
+13,61,0,0,130,,A    
+13,62,0,0,130,,A    
+13,63,0,0,130,,A    
+13,64,0,0,130,,A    
+13,65,0,0,130,,A    
+13,66,0,0,130,,A    
+13,67,0,0,130,,A    
+13,68,0,0,130,,A    
+13,69,0,0,130,,A    
+13,70,0,0,130,,A    
+13,71,0,0,130,,A    
+13,72,0,0,130,,A    
+13,73,0,0,130,,A    
+13,74,0,0,130,,A    
+13,75,0,0,130,,A    
+13,76,0,0,130,,A    
+13,77,0,0,130,,A    
+13,78,0,0,130,,A    
+13,79,0,0,130,,A    
+13,80,0,0,130,,A    
+13,81,0,0,130,,A    
+13,82,0,0,130,,A    
+13,83,0,0,130,,A    
+13,84,0,0,130,,A    
+13,85,0,0,130,,A    
+13,86,0,0,130,,A    
+13,87,0,0,130,,A    
+13,88,0,0,130,,A    
+13,89,0,0,130,,A    
+13,90,0,0,130,,A    
+13,91,0,0,130,,A    
+13,92,0,0,130,,A    
+13,93,0,0,130,,A    
+13,94,0,0,130,,A    
+13,95,0,0,130,,A    
+13,96,0,0,130,,A    
+13,97,0,0,130,,A    
+13,98,0,0,130,,A    
+13,99,0,0,130,,A    
+13,100,0,0,130,,A   
+13,101,0,0,130,,A   
+13,102,0,0,130,,A   
+13,103,0,0,130,,A   
+13,104,0,0,130,,A   
+13,105,0,0,130,,A   
+13,106,0,0,130,,A   
+13,107,0,0,130,,A   
+13,108,0,0,130,,A   
+13,109,0,0,130,,A   
+13,110,0,0,130,,A   
+13,111,0,0,130,,A   
+13,112,0,0,130,,A   
+13,113,0,0,130,,A   
+13,114,0,0,130,,A   
+13,115,0,0,130,,A   
+13,116,0,0,130,,A   
+13,117,0,0,130,,A   
+13,118,0,0,130,,A   
+13,119,0,0,130,,A   
+13,120,0,0,130,,A   
+13,121,0,0,130,,A   
+13,122,0,0,130,,A   
+13,123,0,0,130,,A   
+13,124,0,0,130,,A   
+13,125,0,0,130,,A   
+13,126,0,0,130,,A   
+13,127,0,0,130,,A   
+13,128,0,0,130,,A   
+13,129,0,0,130,,A   
+13,130,0,0,130,,A   
+13,131,0,0,130,,A   
+13,132,0,0,130,,A   
+13,133,0,0,130,,A    
+[Begin Action 18]
+10,1,0,0,5,,AS256D256
+10,1,0,0,5,,AS220D256
+10,1,0,0,5,,AS200D256
+10,1,0,0,5,,AS180D256
+10,1,0,0,5,,AS160D256
+10,1,0,0,5,,AS140D256
+10,1,0,0,5,,AS120D256
+10,1,0,0,5,,AS100D256
+10,1,0,0,5,,AS80D256
+10,1,0,0,5,,AS60D256
+10,1,0,0,5,,AS40D256
+10,1,0,0,5,,AS20D256
+-1,0,0,0,-1
+[Begin Action 17]
+10,0,0,0,5,,AS256D256
+10,0,0,0,5,,AS220D256
+10,0,0,0,5,,AS200D256
+10,0,0,0,5,,AS180D256
+10,0,0,0,5,,AS160D256
+10,0,0,0,5,,AS140D256
+10,0,0,0,5,,AS120D256
+10,0,0,0,5,,AS100D256
+10,0,0,0,5,,AS80D256
+10,0,0,0,5,,AS60D256
+10,0,0,0,5,,AS40D256
+10,0,0,0,5,,AS20D256
+-1,0,0,0,-1
+[Begin Action 6]
+4,0,0,0,5,,AS50D256
+4,0,0,0,5,,AS80D256
+4,0,0,0,5,,AS120D256
+4,0,0,0,5,,AS160D256
+4,0,0,0,5,,AS210D256
+4,0,0,0,5,,AS250D256
+4,0,0,0,5,,AS210D256
+4,0,0,0,5,,AS160D256
+4,0,0,0,5,,AS120D256
+4,0,0,0,5,,AS80D256
+[Begin Action 7]
+5,0,0,0,5,,AS50D256
+5,0,0,0,5,,AS80D256
+5,0,0,0,5,,AS120D256
+5,0,0,0,5,,AS160D256
+5,0,0,0,5,,AS210D256
+5,0,0,0,5,,AS160D256
+5,0,0,0,5,,AS120D256
+5,0,0,0,5,,AS80D256
+[Begin Action 8]
+5,0,0,0,5,H,AS50D256
+5,0,0,0,5,H,AS80D256
+5,0,0,0,5,H,AS120D256
+5,0,0,0,5,H,AS160D256
+5,0,0,0,5,H,AS210D256
+5,0,0,0,5,H,AS160D256
+5,0,0,0,5,H,AS120D256
+5,0,0,0,5,H,AS80D256
+[Begin Action 9]
+6,0,0,0,2,H,AS210D256
+6,0,0,0,2,H,AS160D256
+[Begin Action 10]
+6,0,0,0,2,,AS210D256
+6,0,0,0,2,,AS160D256
+[Begin Action 1]
+3,0,0,0,2,,AS150D256
+3,0,0,0,2,,AS200D256
+[Begin Action 2]
+3,1,0,0,2,,AS150D256
+3,1,0,0,2,,AS200D256
+[Begin Action 3]
+3,0,0,0,2,H,AS150D256
+3,0,0,0,2,H,AS200D256
+[Begin Action 4]
+3,1,0,0,2,H,AS150D256
+3,1,0,0,2,H,AS200D256
+[Begin Action 5]
+3,2,0,0,2,,AS100D256
+3,2,0,0,2,,AS50D256
+[Begin Action 13]
+12,1,0,0,2,,AS50D256   
+12,1,0,0,2,,AS100D256
+[Begin Action 11]
+7,0,0,0,2,,AS210D256
+7,0,0,0,2,,AS160D256
+;______________________________________________________________________________________
+;FIN DEL ARCHIVO DEF
+;______________________________________________________________________________________

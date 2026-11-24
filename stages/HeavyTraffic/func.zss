@@ -1,0 +1,9 @@
+[Function Hitdef()]
+
+hitdef{attr: S, NA;
+hitflag: MAFD;
+guardflag: MA;
+animtype: light;
+damage: 40, 16;
+pausetime: 0,0;
+hitonce: 1;}

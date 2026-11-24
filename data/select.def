@@ -1,0 +1,433 @@
+
+[Characters]
+;randomselect
+Karin, stages/FaceSurgingWaves.def, order=3
+;=======================DRAGON-BALL========================
+;Goku, stages/WorldTournament.def, order=3
+;slot = {
+;       Vegeta, stages/ArenaOfTheGods.def, order=3, previous=w, next=d
+;       VegetaScouter, stages/Wasteland.def, order=3, previous=w, next=d, ;hidden=3, unlock=stats.shopstock ~= nil and stats.shopstock["Variants"] ~= nil and stats.shopstock["Variants"]["vegetascouter"] == false
+;}
+;slot = {
+;       Vegetto, stages/RockDune.def, order=5, previous=w, next=d
+;       Gogeta, stages/JanembasHell.def, order=5, previous=w, next=d, ;hidden=3, unlock=stats.shopstock ~= nil and stats.shopstock["Variants"] ~= nil and stats.shopstock["Variants"]["gogeta"] == false
+;}
+;slot = {
+TrunksDBS, stages/WestCityAttack.def, order=3, includestage=0, previous=w, next=d
+;slot = {
+;       Gohan, stages/RockDune.def, previous=w, next=d
+;       GohanTeen, stages/CellGames.def, previous=w, next=d, ;hidden=3, unlock=stats.shopstock ~= nil and stats.shopstock["Variants"] ~= nil and stats.shopstock["Variants"]["gohanteen"] == false
+;}
+;Tenshinhan, stages/WorldTournament.def
+;slot = {
+;       Piccolo, stages/RockDune.def, previous=w, next=d
+;       PiccoloDaimaoh, stages/WorldTournament.def, order=20, previous=w, next=d, ;hidden=3, unlock=stats.shopstock ~= nil and stats.shopstock["Variants"] ~= nil and stats.shopstock["Variants"]["piccolodaimaoh"] == false
+;}   
+;Bardock, stages/Wasteland.def, order=3, ;hidden=3, unlock=stats.shopstock ~= nil and stats.shopstock["Characters"] ~= nil and stats.shopstock["Characters"]["bardock"] == false
+Broly, stages/RockDune.def, order=3, boss=1, ordersurvival>5, time=-1, ;hidden=2, unlock=stats.shopstock ~= nil and stats.shopstock["Elites"] ~= nil and stats.shopstock["Elites"]["broly"] == false and gamemode() ~= "bossrush"
+;Tapion, stages/Wasteland.def, order=3 
+;slot = {
+;       Kale, stages/ChikaraTournament.def, order=3, previous=w, next=d
+;       Kefla, stages/ChikaraTournament.def, order=5, previous=w, next=d, ;hidden=3, unlock=stats.shopstock ~= nil and stats.shopstock["Variants"] ~= nil and stats.shopstock["Variants"]["kefla"] == false
+;}   
+;slot = {
+;       Frieza, stages/Spaceship.def, order=3, previous=w, next=d
+;       Cooler, stages/Spaceship.def, order=3, previous=w, next=d, ;hidden=3, unlock=stats.shopstock ~= nil and stats.shopstock["Variants"] ~= nil and stats.shopstock["Variants"]["cooler"] == false
+;}
+;Cell, stages/CellGames.def, order=3
+;KidBuu, stages/CellGames.def
+;Janemba, stages/Ja6nembasHell.def, order=3, ;hidden=3, unlock=stats.shopstock ~= nil and stats.shopstock["Characters"] ~= nil and stats.shopstock["Characters"]["janemba"] == false
+;Android21, stages/WestCity.def, order=3, ;hidden=3, unlock=stats.shopstock ~= nil and stats.shopstock["Characters"] ~= nil and stats.shopstock["Characters"]["android21"] == false
+Hit, stages/ArenaOfTheGods.def, order=3
+;GokuBlack, stages/WestCity.def, previous=w, next=d, ;hidden=3, unlock=stats.shopstock ~= nil and stats.shopstock["Characters"] ~= nil and stats.shopstock["Characters"]["gokublack"] == false
+;Jiren, stages/ChikaraTournament.def, order=3
+;Toppo, stages/ChikaraTournament.def, order=3
+;Cumber, stages/RockDune.def, order=3, ;hidden=3, unlock=stats.shopstock ~= nil and stats.shopstock["Characters"] ~= nil and stats.shopstock["Characters"]["cumber"] == false
+;=======================NARUTO=========================
+;slot = {
+;       Naruto, stages/ValleyOfTheEnd.def, order=3, previous=w, next=d
+;       NarutoHokage, stages/Konoha.def, order=3, previous=w, next=d, ;hidden=3, unlock=stats.shopstock ~= nil and stats.shopstock["Variants"] ~= nil and stats.shopstock["Variants"]["narutohokage"] == false
+;}
+;Sasuke, stages/ValleyOfTheEnd.def, order=3
+;Sakura, stages/KonohaOutskirts.def
+RockLee, stages/KonohaOutskirts.def, order=3
+;Neji, stages/KonohaOutskirts.def, order=3
+;Kiba, stages/Konoha.def, order=1, ordersurvival>10
+;Shino, stages/Konoha.def
+;Choji, stages/Konoha.def, order=0
+;Sai, stages/Konoha2.def
+;Kakashi, stages/KonohaOutskirts.def, order=3
+;Jiraiya, stages/Konoha2.def
+;Orochimaru, stages/NarutoBridge.def, ;hidden=3, unlock=stats.shopstock ~= nil and stats.shopstock["Characters"] ~= nil and stats.shopstock["Characters"]["orochimaru"] == false
+;Suigetsu, stages/NarutoBridge.def, order=3
+;Yagura, stages/NarutoBridge.def
+;KillerBee, stages/NarutoBridge.def, order=3
+Minato, stages/Konoha2.def, order=3
+;Gaara, stages/Desert.def, order=3
+;Itachi, stages/EderForest.def, order=3
+;Kisame, stages/NarutoBridge.def
+;Deidara, stages/Desert.def
+;Hidan, stages/EderForest.def
+Pain, stages/Amegakure.def, order=5, ;hidden=3, unlock=stats.shopstock ~= nil and stats.shopstock["Characters"] ~= nil and stats.shopstock["Characters"]["pain"] == false
+;slot = {
+;       Obito, stages/RockDune.def, order=3, previous=w, next=d
+;       ObitoYoung, stages/GrandFisherForest.def, order=3, previous=w, next=d, ;hidden=3, unlock=stats.shopstock ~= nil and stats.shopstock["Variants"] ~= nil and stats.shopstock["Variants"]["obitoyoung"] == false
+;}
+;Madara, stages/InnerWorld.def, order=5, previous=w, next=d, ;hidden=2, unlock=stats.shopstock ~= nil and stats.shopstock["Characters"] ~= nil and stats.shopstock["Characters"]["madara"] == false
+;====================ONE-PIECE============================
+;Luffy, stages/ColiseoCorrida.def, order=3
+;slot = {
+;       Luffy, stages/ColiseoCorrida.def, order=3, previous=w, next=d
+;       LuffyStart, stages/MarineFord.def, previous=w, next=d, ;hidden=3, unlock=stats.shopstock ~= nil and stats.shopstock["Variants"] ~= nil and stats.shopstock["Variants"]["luffystart"] == false
+;}
+;Zoro, stages/PirateShip.def, order=3
+;Sanji, stages/PirateShip.def
+;Nami, stages/PirateShip.def
+;Ace, stages/MarineFord.def, order=3
+;Crocodile, stages/Desert.def, order=3
+;Enel, stages/Wasteland.def, order=3
+;Kizaru, stages/MarineShip.def, ;hidden=3, unlock=stats.shopstock ~= nil and stats.shopstock["Characters"] ~= nil and stats.shopstock["Characters"]["kizaru"] == false
+;Marco, stages/MarineFord.def
+;Lucci, stages/JusticeTower.def, order=1
+;Garp, stages/MarineShip.def, ;hidden=3, unlock=stats.shopstock ~= nil and stats.shopstock["Characters"] ~= nil and stats.shopstock["Characters"]["garp"] == false
+;TrafalgarLaw, stages/PirateShip.def
+;EustassKid, stages/PirateShip.def
+;Hawkins, stages/PirateShip.def
+;Apoo, stages/PirateShip.def
+Urouge, stages/ColiseoCorrida.def, order=3
+;Magellan, stages/ImpelDown.def, order=3, includestage=0
+;Moria, stages/ThrillerBarkCementery.def, includestage=0
+;Kuma, stages/EderForest.def.def
+;Doflamingo, stages/ColiseoCorrida.def, order=3
+;Katakuri, stages/Wasteland.def, order=3, ;hidden=3, unlock=stats.shopstock ~= nil and stats.shopstock["Characters"] ~= nil and stats.shopstock["Characters"]["katakuri"] == false
+;Cracker, stages/IslaTenrou.def, order=3
+;Kurohige, stages/Wasteland.def, order=5, ;hidden=3, unlock=stats.shopstock ~= nil and stats.shopstock["Characters"] ~= nil and stats.shopstock["Characters"]["kurohige"] == false
+;Kaido, stages/InnerWorld.def, order=5, includestage=0, boss=1, time=-1, previous=w, next=d, ;hidden=2, unlock=stats.shopstock ~= nil and stats.shopstock["Elites"] ~= nil and stats.shopstock["Elites"]["kaido"] == false and gamemode() ~= "bossrush"
+;Shirohige, stages/InnerWorld.def, order=15, includestage=0, boss=1, time=-1, previous=w, next=d, ;hidden=2, unlock=stats.shopstock ~= nil and stats.shopstock["Elites"] ~= nil and stats.shopstock["Elites"]["shirohige"] == false and gamemode() ~= "bossrush"
+;GolDRoger, stages/InnerWorld.def, order=5, boss=1, single=1, ordersurvival>10, previous=w, next=d, ;hidden=2, unlock=stats.shopstock ~= nil and stats.shopstock["Elites"] ~= nil and stats.shopstock["Elites"]["goldroger"] == false and gamemode() ~= "bossrush"
+;====================FAIRY-TAIL===============================
+Natsu, stages/IslaTenrou.def
+;Gray, stages/Glacier.def, order=1
+;Lucy, stages/IslaTenrou.def
+;Erza, stages/IslaTenrou.def
+;Laxus, stages/RockDune.def, order=5
+;Gajeel, stages/IslaTenrou.def
+;Wendy, stages/IslaTenrou.def
+;Sting, stages/IslaTenrou.def, order=3
+;Rogue, stages/IslaTenrou.def, order=3
+;Gildarts, stages/Wasteland.def, order=3, ;hidden=3, unlock=stats.shopstock ~= nil and stats.shopstock["Characters"] ~= nil and stats.shopstock["Characters"]["gildarts"] == false
+;Jellal, stages/IslaTenrou.def, order=3
+;=====================BLEACH===============================
+IchigoTYBW, stages/SoulSociety.def, order=3, previous=w, next=d, ;hidden=3, unlock=stats.shopstock ~= nil and stats.shopstock["Variants"] ~= nil and stats.shopstock["Variants"]["ichigotybw"] == false
+;slot = {
+;	   Ichigo, stages/TrainingBankai.def, order=3, previous=w, next=d
+;	   IchigoFullbring, stages/Rooftop(day).def, previous=w, next=d, ;hidden=3, unlock=stats.shopstock ~= nil and stats.shopstock["Variants"] ~= nil and stats.shopstock["Variants"]["ichigofullbring"] == false
+;	   Ichigo2, stages/SoulSociety.def, order=3, previous=w, next=d, ;hidden=3, unlock=stats.shopstock ~= nil and stats.shopstock["Variants"] ~= nil and stats.shopstock["Variants"]["ichigo2"] == false
+;       IchigoTYBW, stages/SoulSociety.def, order=3, previous=w, next=d, ;hidden=3, unlock=stats.shopstock ~= nil and stats.shopstock["Variants"] ~= nil and stats.shopstock["Variants"]["ichigotybw"] == false
+;}
+;Ogichi, stages/InnerWorld.def, ;hidden=3, unlock=stats.shopstock ~= nil and stats.shopstock["Characters"] ~= nil and stats.shopstock["Characters"]["ogichi"] == false
+;Renji, stages/SoulSociety.def
+;Matsumoto, stages/SoulSociety.def
+;Ikkaku, stages/SoulSociety.def
+;Soifon, stages/SoulSociety.def
+;Hitsugaya, stages/SoulSociety.def, order=5
+Byakuya, stages/SoulSociety.def, order=5
+;Zaraki, stages/SoulSociety.def, order=5, previous=w, next=d, ;hidden=3, unlock=stats.shopstock ~= nil and stats.shopstock["Variants"] ~= nil and stats.shopstock["Variants"]["zaraki"] == false
+;Komamura, stages/SoulSociety.def
+;Yamamoto, stages/SoulSociety.def, order=5, single=1, ;hidden=3, unlock=stats.shopstock ~= nil and stats.shopstock["Characters"] ~= nil and stats.shopstock["Characters"]["yamamoto"] == false
+;slot = {
+;	   ShinjiTYBW, stages/SoulSociety.def, order=3, previous=w, next=d
+;	   Shinji, stages/GrandFisherForest.def, order=3, previous=w, next=d
+;}
+;Grimmjow, stages/SoulSociety.def, order=3, previous=w, next=d
+;Ulquiorra, stages/StarryNight.def, order=3, previous=w, next=d
+;slot = {
+;	   Aizen,  stages/Rooftop(night).def,, order=5, boss=1, single=1, previous=w, next=d, ;hidden=2, unlock=stats.shopstock ~= nil and stats.shopstock["Elites"] ~= nil and stats.shopstock["Elites"]["aizen"] == false and gamemode() ~= "bossrush"
+;	   AizenBOTW,  stages/Rooftop(night).def,, order=5, boss=1, single=1, previous=w, next=d, ;hidden=2, unlock=stats.shopstock ~= nil and stats.shopstock["Elites"] ~= nil and stats.shopstock["Elites"]["aizen"] == false and gamemode() ~= "bossrush"
+;}
+;=================JOJO-BIZARRE==========================
+;Caesar, stages/RockDune.def, order=5
+;slot = {
+;       Jotaro, stages/MuramasaWheat.def, order=3, previous=w, next=d
+;       Jotaro2, stages/MuramasaWheat.def, order=3, previous=w, next=d, ;hidden=3, unlock=stats.shopstock ~= nil and stats.shopstock["Variants"] ~= nil and stats.shopstock["Variants"]["jotaro2"] == false
+;}
+;Avdol, order=3
+;Polnareff, stages/Train.def
+;Kakyoin, stages/MuramasaWheat.def 
+;Josuke, stages/Train.def
+;Giorno, stages/MuramasaWheat.def, order=3
+;Johnny, stages/RockDune.def, order=3
+;slot = {
+;       Dio, order=3, previous=w, next=d
+;	   Diego, stages/Wasteland.def, order=5, single=1, previous=w, next=d, ;hidden=3, unlock=stats.shopstock ~= nil and stats.shopstock["Variants"] ~= nil and stats.shopstock["Variants"]["diego"] == false
+;}
+;Kira, stages/Rooftop(day).def, order=3
+;Diavolo, stages/RockDune.def, order=5, ;hidden=3, unlock=stats.shopstock ~= nil and stats.shopstock["Characters"] ~= nil and stats.shopstock["Characters"]["diavolo"] == false
+;Pucci, stages/GraveYard.def, order=3
+;Valentine, stages/Wasteland.def, order=3
+;=================SAINT-SEIYA==========================
+;Seiya, stages/TourDeJamir.def, order=3
+;Shiryu, stages/TourDeJamir.def, order=1
+;Hyoga, stages/Glacier.def, order=1
+;Ikki, stages/TourDeJamir.def, order=3
+;Jabu, stages/TourDeJamir.def
+;Aiolia, stages/TourDeJamir.def, order=3
+;Shaka, stages/TourDeJamir.def, order=3
+;Camus, stages/Glacier.def, order=3
+;Mu, stages/TourDeJamir.def, order=3
+;Milo, stages/TourDeJamir.def, order=3
+;Saga, stages/StarryNight.def, order=3, ;hidden=3, unlock=stats.shopstock ~= nil and stats.shopstock["Characters"] ~= nil and stats.shopstock["Characters"]["saga"] == false
+;==================ONE-PUNCH-MAN==============================
+;Genos, stages/Rooftop(day).def
+;Suiryu, stages/Rooftop(day).def
+;Garou, stages/Rooftop(day).def
+;Boros, stages/Spaceship.def, order=3, ;hidden=3, unlock=stats.shopstock ~= nil and stats.shopstock["Characters"] ~= nil and stats.shopstock["Characters"]["boros"] == false
+;=================SAMURAI-X===========================
+;Kenshin, stages/MuramasaWheat.def
+;Sanosuke, stages/Castle.def, order=3
+;Shishio, stages/BurningOsaka.def, order=3
+;==============YUYU-HAKUSHOU==========================
+;Yusuke, stages/CellGames.def, order=3
+;Kuwabara, stages/CellGames.def
+;Hiei, stages/HolyNight.def
+;==============HUNTER-X-HUNTER========================
+;Gon, stages/IslaTenrou.def
+;Killua, stages/HolyNight.def, order=3
+;Knuckle, stages/EderForest.def, order=3
+;Netero, stages/HolyNight.def, ;hidden=3, unlock=stats.shopstock ~= nil and stats.shopstock["Characters"] ~= nil and stats.shopstock["Characters"]["netero"] == false
+Pitou, stages/HolyNight.def
+;============THE-SEVEN-DEADLY-SINS====================
+;Meliodas, stages/Wasteland.def
+;Ban, stages/GraveYard.def
+;King, stages/RockDune.def, order=5
+Escanor, stages/RockyField.def, order=3, ;hidden=3, unlock=stats.shopstock ~= nil and stats.shopstock["Characters"] ~= nil and stats.shopstock["Characters"]["escanor"] == false
+;Estarossa, stages/Wasteland.def, order=3
+;==============MY-HERO-ACADEMIA=======================
+Midoriya, stages/Rooftop(day).def, order=3
+;Bakugo, stages/Rooftop(day).def, order=3
+;Kirishima, stages/Rooftop(day).def, order=3
+;Todoroki, stages/BurningOsaka.def, order=3
+;AllMight, stages/Rooftop(day).def,, order=5, boss=1, ;hidden=2, unlock=stats.shopstock ~= nil and stats.shopstock["Elites"] ~= nil and stats.shopstock["Elites"]["allmight"] == false and gamemode() ~= "bossrush"
+;====================FATE=============================
+;slot = {
+;       Saber, stages/HolyNight.def, order=1, previous=w, next=d
+;       Mordred, stages/HolyNight.def, order=3, previous=w, next=d, ;hidden=3, unlock=stats.shopstock ~= nil and stats.shopstock["Variants"] ~= nil and stats.shopstock["Variants"]["mordred"] == false
+;}
+;Archer, stages/EderForest.def
+;Gilgamesh, stages/HolyNight.def, order=3
+;================BLACK-CLOVER=========================
+;Asta, stages/StarryNight.def, order=3
+;Yuno, stages/RockDune.def, order=5
+;Gauche, stages/HolyNight.def, order=1
+;Zora, stages/GrandFisherForest.def, order=3
+;Yami, stages/HolyNight.def, order=3, ;hidden=3, unlock=stats.shopstock ~= nil and stats.shopstock["Characters"] ~= nil and stats.shopstock["Characters"]["yami"] == false
+;William, stages/GrandFisherForest.def, ;hidden=3, unlock=stats.shopstock ~= nil and stats.shopstock["Characters"] ~= nil and stats.shopstock["Characters"]["william"] == false
+;================DEMON-SLAYER=========================
+;Tanjiro, stages/Castle.def, order=3
+;Inosuke, stages/Castle.def, order=3
+;Tomioka, stages/Castle.def
+;Shinobu, stages/HolyNight.def
+Rengoku, stages/RockDune.def
+;Kanroji, stages/Castle.def, order=3
+;Akaza, stages/GraveYard.def
+;Muzan, stages/Rooftop(night).def, ;hidden=3, unlock=stats.shopstock ~= nil and stats.shopstock["Characters"] ~= nil and stats.shopstock["Characters"]["muzan"] == false
+;==============JUJUTSU-KAISEN=========================
+;Itadori, stages/Rooftop(day).def, order=3
+;Megumi, stages/Rooftop(night).def
+;Hakari, stages/Rooftop(night).def, order=3, ;hidden=3, unlock=stats.shopstock ~= nil and stats.shopstock["Characters"] ~= nil and stats.shopstock["Characters"]["hakari"] == false
+;Jogo, stages/GrandFisherForest.def, order=3
+;================FULLMETAL============================
+;Edward, stages/Rooftop(day).def
+;Mustang, stages/Rooftop(day).def
+;==================OTHERS=============================
+;Inuyasha, stages/IslaTenrou.def, hidden=3, unlock=stats.modes ~= nil and stats.modes.arcade ~= nil and stats.modes.arcade.clear >= 1
+;Sesshomaru, stages/IslaTenrou.def, ;hidden=3, unlock=stats.shopstock ~= nil and stats.shopstock["Characters"] ~= nil and stats.shopstock["Characters"]["sesshomaru"] == false
+;Kazuma, stages/TatamiDeathmatch.def,order=1,;hidden=3, unlock = stats.currentArc > 1
+;Alibaba, stages/Desert.def,;hidden=3, unlock = stats.currentArc > 1
+;Sinbad, stages/Desert.def,;hidden=3, unlock = stats.currentArc > 1
+;AllenWalker, stages/Rooftop(night).def, order=3,;hidden=3, unlock = stats.currentArc > 1
+;Lenalee, stages/Rooftop(night).def,;hidden=3, unlock = stats.currentArc > 1
+;Toriko, stages/StarryNight.def, order=3,;hidden=3, unlock = stats.currentArc > 1
+JinWoo, stages/InnerWorld.def,, order=12, boss=1, single=1, ordersurvival>10, ;hidden=2, unlock=stats.shopstock ~= nil and stats.shopstock["Elites"] ~= nil and stats.shopstock["Elites"]["jin-woo"] == false and gamemode() ~= "bossrush"
+;Kazuki, stages/Rooftop(day).def, order=3,;hidden=3, unlock = stats.currentArc > 1
+;Naofumi,, order=3, ;hidden=3, unlock=stats.shopstock ~= nil and stats.shopstock["Characters"] ~= nil and stats.shopstock["Characters"]["naofumi"] == false
+;Eren, stages/TitanFighting.def, order=30,;hidden=3, unlock = stats.currentArc > 1
+;Kaneki, stages/StarryNight.def,;hidden=3, unlock = stats.currentArc > 1
+;Tsuna, stages/Rooftop(day).def,;hidden=3, unlock = stats.currentArc > 1
+;Shinra, stages/Rooftop(day).def,;hidden=3, unlock = stats.currentArc > 1
+;Baki, stages/TatamiDeathmatch.def,;hidden=3, unlock = stats.currentArc > 1
+;Adam, stages/ColiseoCorrida.def,;hidden=3, unlock = stats.currentArc > 1
+;Andy, stages/Rooftop(night).def,;hidden=3, unlock = stats.currentArc > 1
+;JinMori, stages/Rooftop(night).def,;hidden=3, unlock = stats.currentArc > 1
+;Kirito, stages/IslaTenrou.def,;hidden=3, unlock = stats.currentArc > 1
+;Subaru, stages/TatamiDeathmatch.def,;hidden=3, unlock = stats.currentArc > 1
+Alpha, stages/StarryNight.def, order=3,;hidden=3, unlock = stats.currentArc > 1
+;Medaka, stages/Rooftop(day).def,;hidden=3, unlock = stats.currentArc > 1
+;OgaTatsumi, stages/TatamiDeathmatch.def,;hidden=3, unlock = stats.currentArc > 1
+;Yoh, stages/MuramasaWheat.def, order=3,;hidden=3, unlock = stats.currentArc > 1
+;Gintoki, stages/MuramasaWheat.def,;hidden=3, unlock = stats.currentArc > 1
+;Touma, stages/Rooftop(day).def,;hidden=3, unlock = stats.currentArc > 1
+;Train, stages/Rooftop(day).def,;hidden=3, unlock = stats.currentArc > 1
+GodGundam, stages/Rooftop(night).def, order=5, ;hidden=3, unlock=stats.shopstock ~= nil and stats.shopstock["Characters"] ~= nil and stats.shopstock["Characters"]["godgundam"] == false
+;Kenshiro, stages/MuramasaWheat.def,;hidden=3, unlock = stats.currentArc > 1
+;Guts, stages/GrandFisherForest.def,;hidden=3, unlock = stats.currentArc > 1
+;Aang, stages/GreediaRuin.def,;hidden=3, unlock = stats.currentArc > 1
+;Yugi, stages/ShiningColosseum.def,;hidden=3, unlock = stats.currentArc > 1
+;Joey, stages/ShiningColosseum.def,;hidden=3, unlock = stats.currentArc > 1
+;Kaiba, stages/ShiningColosseum.def,;hidden=3, unlock = stats.pcurrentArc > 1
+;Pikachu, stages/PokemonStadium.def,;hidden=3, unlock = stats.currentArc > 1
+Squirtle, stages/LoreleiArena.def,;hidden=3, unlock = stats.currentArc > 1
+randomselect
+;Ivysaur, stages/PokemonStadium.def,;hidden=3, unlock = stats.currentArc > 1
+;Greninja, stages/PokemonStadium.def,;hidden=3, unlock = stats.currentArc > 1 
+;Haunter, stages/LoreleiArena.def,;hidden=3, unlock = stats.currentArc > 1
+;Snorlax, stages/PokemonStadium.def, ;hidden=3, unlock=stats.shopstock ~= nil and stats.shopstock["Characters"] ~= nil and stats.shopstock["Characters"]["snorlax"] == false
+;Agumon, stages/GrandFisherForest.def,;hidden=3, unlock = stats.currentArc > 1
+;Sonic, stages/Rooftop(day).def, order=3,;hidden=3, unlock = stats.currentArc > 1
+;Shadow, stages/Rooftop(night).def, order=3,;hidden=3, unlock = stats.currentArc > 1
+;Megaman
+;Julius, stages/InnerWorld.def,, order=5, order=5, boss=1, ;hidden=2, unlock=stats.shopstock ~= nil and stats.shopstock["Elites"] ~= nil and stats.shopstock["Elites"]["julius"] == false and gamemode() ~= "bossrush"
+;Gojo, stages/Rooftop(night).def,, order=12, boss=1, single=1, ordersurvival>10, ;hidden=2, unlock=stats.shopstock ~= nil and stats.shopstock["Elites"] ~= nil and stats.shopstock["Elites"]["gojo"] == false and gamemode() ~= "bossrush"
+;==================EXTRAS==========================
+;==================NINTENDO========================
+;slot = {
+;       Link, stages/EderForest.def, order=3, previous=w, next=d, ;hidden=2, unlock=stats.shopstock ~= nil and stats.shopstock["Extras"] ~= nil and stats.shopstock["Extras"]["link"] == false
+;	   Mario, stages/ShiningColosseum.def, previous=w, next=d, ;hidden=2, unlock=stats.shopstock ~= nil and stats.shopstock["Extras"] ~= nil and stats.shopstock["Extras"]["mario"] == false
+;}
+;====================RPG===========================
+;slot = {
+;	   Cloud, stages/EderForest.def, order=3, previous=w, next=d, ;hidden=2, unlock=stats.shopstock ~= nil and stats.shopstock["Extras"] ~= nil and stats.shopstock["Extras"]["cloud"] == false
+;	   Crono, stages/FaceSurgingWaves.def, order=3, previous=w, next=d, ;hidden=2, unlock=stats.shopstock ~= nil and stats.shopstock["Extras"] ~= nil and stats.shopstock["Extras"]["crono"] == false
+;	   HeroXI, stages/FaceSurgingWaves.def, order=3, previous=w, next=d, ;hidden=2, unlock=stats.shopstock ~= nil and stats.shopstock["Extras"] ~= nil and stats.shopstock["Extras"]["heroxi"] == false
+;	   Vergil, stages/FaceSurgingWaves.def, order=3, previous=w, next=d, ;hidden=2, unlock=stats.shopstock ~= nil and stats.shopstock["Extras"] ~= nil and stats.shopstock["Extras"]["vergil"] == false
+;	   2B, stages/Rooftop(night).def, previous=w, next=d, ;hidden=2, unlock=stats.shopstock ~= nil and stats.shopstock["Extras"] ~= nil and stats.shopstock["Extras"]["2b"] == false
+;}
+;===================FIGHT==========================
+;slot = {
+;       Ryu, stages/FaceSurgingWaves.def, order=3, previous=w, next=d, ;hidden=2, unlock=stats.shopstock ~= nil and stats.shopstock["Extras"] ~= nil and stats.shopstock["Extras"]["ryu"] == false
+;	   Chunli, stages/FaceSurgingWaves.def, order=3, previous=w, next=d, ;hidden=2, unlock=stats.shopstock ~= nil and stats.shopstock["Extras"] ~= nil and stats.shopstock["Extras"]["chunli"] == false
+;	   ShaoKahn, stages/FaceSurgingWaves.def, order=3, previous=w, next=d, ;hidden=2, unlock=stats.shopstock ~= nil and stats.shopstock["Extras"] ~= nil and stats.shopstock["Extras"]["shaokahn"] == false
+;	   DanielLaRusso, stages/TatamiDeathmatch.def, order=3, previous=w, next=d, ;hidden=2, unlock=stats.shopstock ~= nil and stats.shopstock["Extras"] ~= nil and stats.shopstock["Extras"]["daniellarusso"] == false
+;}
+;===================COMIC===========================
+;slot = {
+;       Sans, stages/RockDune.def, order=5, previous=w, next=d, ;hidden=2, unlock=stats.shopstock ~= nil and stats.shopstock["Extras"] ~= nil and stats.shopstock["Extras"]["sans"] == false
+;	   Impostor, stages/Spaceship.def, order=3, previous=w, next=d, ;hidden=2, unlock=stats.shopstock ~= nil and stats.shopstock["Extras"] ~= nil and stats.shopstock["Extras"]["impostor"] == false
+;       Spongebob, stages/BombermanStadium.def, previous=w, next=d, ;hidden=2, unlock=stats.shopstock ~= nil and stats.shopstock["Extras"] ~= nil and stats.shopstock["Extras"]["spongebob"] == false
+;}
+;================SUPER-HERO=========================
+;slot = {
+;       Superman, stages/Rooftop(day).def, order=3, previous=w, next=d, ;hidden=2, unlock=stats.shopstock ~= nil and stats.shopstock["Extras"] ~= nil and stats.shopstock["Extras"]["superman"] == false
+;	   TheFlash, stages/Rooftop(day).def, order=3, previous=w, next=d, ;hidden=2, unlock=stats.shopstock ~= nil and stats.shopstock["Extras"] ~= nil and stats.shopstock["Extras"]["theflash"] == false
+;	   CapAmerica, stages/Rooftop(day).def, order=3, previous=w, next=d, ;hidden=2, unlock=stats.shopstock ~= nil and stats.shopstock["Extras"] ~= nil and stats.shopstock["Extras"]["capamerica"] == false
+;	   Batman, stages/Rooftop(night).def, order=3, previous=w, next=d, ;hidden=2, unlock=stats.shopstock ~= nil and stats.shopstock["Extras"] ~= nil and stats.shopstock["Extras"]["batman"] == false
+;	   Wolverine, stages/Rooftop(night).def, order=3, previous=w, next=d
+;}
+;randomselect
+empty; LOCKED
+empty; LOCKED
+empty; LOCKED
+empty; LOCKED
+empty; LOCKED
+empty; LOCKED
+empty; LOCKED
+empty; LOCKED
+empty; LOCKED
+empty; LOCKED
+empty; LOCKED
+empty; LOCKED
+empty; LOCKED
+empty; LOCKED
+empty; LOCKED
+empty; LOCKED
+empty; LOCKED
+empty; LOCKED
+empty; LOCKED
+empty; LOCKED
+empty; LOCKED
+empty; LOCKED
+empty; LOCKED
+;===================S+============================
+Allstar, stages/Final.def, order=11, boss=1, exclude=1, single=1, ordersurvival>5, time=-1, ;unlock=stats.shopstock ~= nil and stats.shopstock["S+"] ~= nil and stats.shopstock["S+"]["allstar"] == false and gamemode() ~= "bossrush"
+;slot = {
+;	   Yhwach, stages/Final.def, order=12, boss=1, time=-1, single=1, ordersurvival>10, previous=w, next=d, hidden=1, ;unlock=stats.shopstock ~= nil and stats.shopstock["Elites"] ~= nil and stats.shopstock["Elites"]["yhwach"] == false and gamemode() ~= "bossrush"
+;	   Momoshiki, stages/InnerWorld.def, order=5, includestage=0, boss=1, ordersurvival>5, time=-1, previous=w, next=d, hidden=1, ;unlock=stats.shopstock ~= nil and stats.shopstock["Elites"] ~= nil and stats.shopstock["Elites"]["momoshiki"] == false and gamemode() ~= "bossrush"
+;	   Mahoraga, stages/ThrillerBarkCementery.def, includestage=0, order=9, boss=1, single=1, ordersurvival>10, time=-1, rounds=1, previous=w, next=d, hidden=1, ;unlock=stats.shopstock ~= nil and stats.shopstock["S+"] ~= nil and stats.shopstock["S+"]["mahoraga"] == false and gamemode() ~= "bossrush"
+;	   Gouketsu, stages/ThrillerBarkCementery.def, includestage=0, order=9, boss=1, single=1, ordersurvival>10, time=-1, rounds=1, previous=w, next=d, hidden=1, ;unlock=stats.shopstock ~= nil and stats.shopstock["S+"] ~= nil and stats.shopstock["S+"]["gouketsu"] == false and gamemode() ~= "bossrush"
+;       Ozaru, stages/ThrillerBarkCementery.def, includestage=0, order=9, boss=1, ordersurvival>5, time=-1, rounds=1, previous=w, next=d, hidden=1, ;unlock=stats.shopstock ~= nil and stats.shopstock["S+"] ~= nil and stats.shopstock["S+"]["ozaru"] == false and gamemode() ~= "bossrush"
+;	   MenosGrande, stages/ThrillerBarkCementery.def, includestage=0, order=9, boss=1, single=1, ordersurvival>10, rounds=1, previous=w, next=d, hidden=1, ;unlock=stats.shopstock ~= nil and stats.shopstock["S+"] ~= nil and stats.shopstock["S+"]["menosgrande"] == false and gamemode() ~= "bossrush"
+;	   GedoMazou, stages/ThrillerBarkCementery.def, includestage=0, order=9, boss=1, ordersurvival>10, single=1, time=-1, rounds=1,  previous=w, next=d, hidden=1, ;unlock=stats.shopstock ~= nil and stats.shopstock["S+"] ~= nil and stats.shopstock["S+"]["gedomazou"] == false and gamemode() ~= "bossrush"
+;	   Bloodbane, stages/ThrillerBarkCementery.def, includestage=0, order=9, boss=1, ordersurvival>10, time=-1, rounds=1,  previous=w, next=d, hidden=1, ;unlock=stats.shopstock ~= nil and stats.shopstock["S+"] ~= nil and stats.shopstock["S+"]["bloodbane"] == false and gamemode() ~= "bossrush"
+;}
+;slot = {
+;	   Yhwach, stages/Final.def, order=12, boss=1, time=-1, single=1, ordersurvival>10, previous=w, next=d, hidden=1, ;unlock=stats.shopstock ~= nil and stats.shopstock["Elites"] ~= nil and stats.shopstock["Elites"]["yhwach"] == false and gamemode() ~= "bossrush"
+;	   Momoshiki, stages/InnerWorld.def, order=5, includestage=0, boss=1, ordersurvival>5, time=-1, previous=w, next=d, hidden=1, ;unlock=stats.shopstock ~= nil and stats.shopstock["Elites"] ~= nil and stats.shopstock["Elites"]["momoshiki"] == false and gamemode() ~= "bossrush"
+;	   Mahoraga, stages/ThrillerBarkCementery.def, includestage=0, order=9, boss=1, single=1, ordersurvival>10, time=-1, rounds=1, previous=w, next=d, hidden=1, ;unlock=stats.shopstock ~= nil and stats.shopstock["S+"] ~= nil and stats.shopstock["S+"]["mahoraga"] == false and gamemode() ~= "bossrush"
+;	   Gouketsu, stages/ThrillerBarkCementery.def, includestage=0, order=9, boss=1, single=1, ordersurvival>10, time=-1, rounds=1, previous=w, next=d, hidden=1, ;unlock=stats.shopstock ~= nil and stats.shopstock["S+"] ~= nil and stats.shopstock["S+"]["gouketsu"] == false and gamemode() ~= "bossrush"
+;       Ozaru, stages/ThrillerBarkCementery.def, includestage=0, order=9, boss=1, ordersurvival>5, time=-1, rounds=1, previous=w, next=d, hidden=1, ;unlock=stats.shopstock ~= nil and stats.shopstock["S+"] ~= nil and stats.shopstock["S+"]["ozaru"] == false and gamemode() ~= "bossrush"
+;	   MenosGrande, stages/ThrillerBarkCementery.def, includestage=0, order=9, boss=1, single=1, ordersurvival>10, rounds=1, previous=w, next=d, hidden=1, ;unlock=stats.shopstock ~= nil and stats.shopstock["S+"] ~= nil and stats.shopstock["S+"]["menosgrande"] == false and gamemode() ~= "bossrush"
+;	   GedoMazou, stages/ThrillerBarkCementery.def, includestage=0, order=9, boss=1, ordersurvival>10, single=1, time=-1, rounds=1,  previous=w, next=d, hidden=1, ;unlock=stats.shopstock ~= nil and stats.shopstock["S+"] ~= nil and stats.shopstock["S+"]["gedomazou"] == false and gamemode() ~= "bossrush"
+;	   Bloodbane, stages/ThrillerBarkCementery.def, includestage=0, order=9, boss=1, ordersurvival>10, time=-1, rounds=1,  previous=w, next=d, hidden=1, ;unlock=stats.shopstock ~= nil and stats.shopstock["S+"] ~= nil and stats.shopstock["S+"]["bloodbane"] == false and gamemode() ~= "bossrush"
+;}
+empty; LOCKED
+empty; LOCKED
+empty; LOCKED
+empty; LOCKED
+empty; LOCKED
+empty; LOCKED
+empty; LOCKED
+empty; LOCKED
+empty; LOCKED
+empty; LOCKED
+empty; LOCKED
+empty; LOCKED
+empty; LOCKED
+empty; LOCKED
+empty; LOCKED
+1.EXTRAS/NinjaWar/NinjaWar.def, stages/StarryNight.def, music=sound\NinjaWar.ogg, order=10, bonus=1, exclude=1,ordersurvival=0, rounds=1, vsscreen=0, rankdisplay=0, time=-1
+1.EXTRAS/Hollows/Hollows.def, stages/HolyNight.def, order=10, bonus=1, exclude=1,ordersurvival=0, rounds=1, vsscreen=0, rankdisplay=0, time=-1
+1.EXTRAS/PirateRumble/PirateRumble.def, stages/PirateShip_bonus.def, order=4, bonus=1, exclude=1, includestage=0, ordersurvival=0, rounds=1, single=1, victoryscreen=0, rankdisplay=0, time=-1
+1.EXTRAS/ImpelDownRumble/ImpelDownRumble.def, stages/ImpelDown.def, order=4, includestage=0, bonus=1, exclude=1,ordersurvival=0, rounds=1, single=1, victoryscreen=0, rankdisplay=0, time=-1
+1.EXTRAS/MarineRumble1/MarineRumble1.def, stages/MarineShip.def, order=4, bonus=1, exclude=1, ordersurvival=0, rounds=1, single=1, victoryscreen=0, rankdisplay=0, time=-1
+1.EXTRAS/MarineRumble2/MarineRumble2.def, stages/JusticeTower.def, order=4, bonus=1, exclude=1, ordersurvival=0, rounds=1, single=1, victoryscreen=0, rankdisplay=0, time=-1
+1.EXTRAS/MarineRumble3/MarineRumble3.def, stages/MarineFord_bonus.def, order=4, bonus=1, exclude=1, includestage=0, ordersurvival=0, rounds=1, single=1, victoryscreen=0, rankdisplay=0, time=-1
+1.EXTRAS/Gyarados/Gyarados.def, stages/Baratie.def, order=20, bonus=1, includestage=0, exclude=10, ordersurvival=0, victoryscreen=0, vsscreen=0, rounds=1, time=-1, single=1, rankdisplay=0
+1.EXTRAS/Kraken/Kraken.def,stages/GrandFisherForest.def,order=20, bonus=1, exclude=1, ordersurvival=0, rounds=1, single=1, victoryscreen=0, rankdisplay=0
+1.EXTRAS/Kuriboh/Kuriboh.def, stages/TrainingBankai.def, order=20, bonus=1, exclude=1, ordersurvival=0, rounds=1, victoryscreen=0, rankdisplay=0, single=1, time=-1
+1.EXTRAS/DeidaraAttack/DeidaraAttack.def, stages/SkyChase.def, includestage=0, order=20, bonus=1, exclude=1, ordersurvival=0, rounds=1, victoryscreen=0, rankdisplay=0, single=1, rankdisplay=0, victoryscreen=0
+
+;-------------------------------------------------------------------------------
+[ExtraStages]
+stages/HeavyTraffic/HeavyTraffic.def
+
+;-------------------------------------------------------------------------------
+[Options]
+ ;Maximum number of matches to fight before game ends in Arcade single mode.
+arcade.maxmatches = 1,0,1,1,1,0,0,0,1,1,1
+
+ ;Like arcade.maxmatches, but applies to Arcade team modes.
+team.maxmatches = 1,0,1,1,1,0,0,0,1,1,1,1
+
+ ;Maximum number of matches to fight before game ends in Time Attack mode.
+ ;Uses ordertimeattack if defined, otherwise falls back to order.
+timeattack.maxmatches = 6,1,1,0,0,0,0,0,0,0
+
+ ;IKEMEN feature: Similar to arcade.maxmatches, but applies to Survival modes.
+ ;Uses ordersurvival if defined, otherwise falls back to order.
+ ;Use -1 value to choose which order number should have unlimited matches.
+ ;By omitting -1 survival mode will end after particular amount of matches set
+ ;below (in such case you can actually "complete" the mode).
+survival.maxmatches = -1,0,0,0,0,0,0,0,0,0
+
+;-------------------------------------------------------------------------------
+[StoryMode]
+name = arc0
+displayname = CH0: Catastrophe
+path = data/story/arc0.lua
+unlock = stats.currentArc <= 0 or stats.currentArc >= 2
+
+name = arc1
+displayname = CH1: Trainning
+path = data/story/arc1.lua
+unlock = stats.currentArc > 0
+

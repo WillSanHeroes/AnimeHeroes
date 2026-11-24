@@ -1,0 +1,34 @@
+
+;--------------------
+;[Player Information]
+;--------------------
+[Info]
+name ="Gyarados"
+displayname ="Gyarados"
+versiondate =
+mugenversion =
+author ="Seth Lee"
+pal.defaults =2
+;--------------------
+;[Common Files] 
+;--------------------
+[Files]
+cmd	 =command.cmd
+cns	 =constant.cns
+stcommon =common1.cns
+sprite	 =sprite.sff
+anim	 =animation.air
+sound	 =sound.snd
+;--------------------
+;[States] 
+;--------------------
+st	 =states.cns
+pal1=Gyarados.act
+pal2=shiny.act
+st1=helpers.cns
+st2=override.cns
+st3=override.cns
+
+[Arcade]
+intro.storyboard=
+ending.storyboard=

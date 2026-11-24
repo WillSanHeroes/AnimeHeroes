@@ -1,0 +1,25 @@
+[Info]
+name ="Rock Lee"
+displayname ="Rock Lee"
+versiondate =16/07/2019
+mugenversion =1.0
+author ="Cobra G6" ;Sprites by Aagus EDIT by Vovan99 & Willsan
+
+[Files]
+sprite=Lee.sff
+anim=Lee.air
+sound=Lee.snd
+cmd=Lee.cmd
+cns=Lee.cns
+stcommon=common1.cns
+st=Lee.cns
+st1=IA.cns
+st2=Especiales.cns
+st3=Supers.cns
+st4=HTM.cns
+st6=Configs.cns
+st7=data\glows\Glow(green).zss
+movelist = movelist.dat
+movelist.2 = data\movelist_general.dat
+movelist1 = movelistHTM.dat
+movelist1.2 = data\movelist_general.dat

@@ -1,0 +1,25 @@
+[Info]
+name="Alpha"
+displayname="Alpha"
+versiondate=25/01/2025
+mugenversion=1.0
+author="Xkleitoss"
+pal.defaults= 1
+
+[Files]
+sprite=Alpha.sff
+sound=Alpha.snd
+anim=Alpha.air
+cmd=Alpha.cmd
+cns=Alpha.cns
+st=Alpha.cns
+stcommon=common1.cns
+st1=IA.cns
+st2 =Configs.cns
+st3=Data\glows\Glow(bluelight).zss
+pal1=1.act
+pal2=2.act
+pal3=3.act
+pal4=4.act
+movelist = movelist.dat
+movelist.2 = data\movelist_general.dat

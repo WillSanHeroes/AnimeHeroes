@@ -1,0 +1,3606 @@
+;===============================================================================
+; INTELIGENCIA ARTIFICIAL:
+;===============================================================================
+[Statedef -2]
+
+;[State 0, AwakeBarFill]
+;type = VarSet
+;trigger1 = command = "z"
+;var(40) = 980
+;ignorehitpause = 1
+;[State 0, AwakeBarFill]
+;type = VarSet
+;trigger1 = command = "x"
+;var(40) = 50
+;ignorehitpause = 1
+
+[State -2, Secret]
+type = VarSet
+triggerall = GameMode != "arcade"
+triggerall = GameMode != "teamcoop"
+triggerall = GameMode != "survival"
+triggerall = GameMode != "survivalcoop"
+triggerall = GameMode != "events"
+triggerall = roundsexisted = 0
+triggerall = roundstate < 2
+trigger1 = command = "s"
+trigger1 = command = "holddown"
+var(9) = 1
+
+[State 0, PowerAdd Base]
+type = poweradd
+triggerall = power < powermax
+triggerall = RoundState = 2
+triggerall = stateno != [1000,3500]
+triggerall = alive = 1
+trigger1 = 1
+value = 1
+ignorehitpause = 1
+
+[State 0, Change Movelist]
+type = ChangeMovelist
+trigger1 = var(2) = 0 && var(1) = 0
+value = 0
+[State 0, Change Movelist]
+type = ChangeMovelist
+trigger1 = var(2) = 1
+value = 1
+
+[State 0, Change Character Name]
+type = ModifyPlayer
+trigger1 = var(2) = 0
+displayname = "Rock Lee"
+[State 0, Change Character Name]
+type = ModifyPlayer
+trigger1 = var(2) = 1
+displayname = "Rock Lee -Sixth Gate-"
+
+[state > aura awakening fx]
+type = helper
+triggerall = (stateno != [3000, 4999]) && var(41)=1
+trigger1 = !numhelper(30508)
+stateno = 30508
+id = 30508
+ownpal = 1
+postype = p1
+size.mid.pos = (const(size.mid.pos.x) + 0), 0
+size.head.pos = 0, (var(53))
+size.xscale = .15
+size.yscale = .2
+supermovetime = 999
+pausemovetime = 999
+
+[state 0, Low Life]
+type = palfx
+triggerall = roundstate = 2
+triggerall = alive
+triggerall = life <= 300
+trigger1 = time % (30 + (life / 50)) = 0
+time = 40
+add = 0, (-22 + floor(life / 15)), (-22 + floor(life / 15))
+sinadd = 0, (-22 + floor(life / 15)), (-22 + floor(life / 15)), (-22 + floor(life / 15))
+color = 200 + floor(life / 17.6)
+ignorehitpause = 1
+
+[State 0, Esconder Barra]
+type = RemoveExplod
+trigger1 = stateno = [3100,3110]
+id = 30900
+ignorehitpause = 1
+[State 0, Esconder Barra]
+type = RemoveExplod
+trigger1 = stateno = [3100,3110]
+id = 30902
+ignorehitpause = 1
+[State 0, Esconder Barra]
+type = RemoveExplod
+trigger1 = stateno = [3200,3202]
+id = 30900
+ignorehitpause = 1
+[State 0, Esconder Barra]
+type = RemoveExplod
+trigger1 = stateno = [3200,3202]
+id = 30902
+ignorehitpause = 1
+
+;Repulso da Barra Cheia
+[state 0]
+type = helper
+triggerall = alive
+triggerall = var(41) = 1
+trigger1 = var(40) >= 1000
+stateno = 99005
+id = 30105
+pos = 0, -25
+postype = p1
+ownpal = 1
+size.xscale = .1
+size.yscale = .1
+supermovetime = 999
+pausemovetime = 999
+persistent = 1
+ignorehitpause = 1
+
+;===============================================================================
+; Awake Bar:
+;-------------------------------------------------------------------------------
+[State 0, Incrementar Barra (condições)]
+type = VarAdd
+triggerall = alive
+triggerall = var(41) = 0
+triggerall = stateno != [3100,3202] ;Impede aumentar no ULT
+triggerall = stateno != 4900 ;Impede aumentar no ULT transformado
+trigger1 = StateNo = [150,152] ; IDs dos estados padrão de guarda
+trigger2 = movetype = H ; Estado de sofrer dano
+trigger3 = movehit || helper,movehit  ; Estados de causar dano
+var(40) = 1          ; Adiciona ponto por frame
+ignorehitpause = 1
+
+[State 0, Incrementar Barra (charge)]
+type = VarAdd
+triggerall = alive
+triggerall = var(41) = 0
+triggerall = timemod = 3,0
+trigger1 = StateNo = 500
+var(40) = 3
+ignorehitpause = 1
+
+[State 0, Limite Máximo da Barra]
+type = VarSet
+trigger1 = var(40) > 1000
+var(40) = 1000
+ignorehitpause = 1
+
+[State 0, Decrementar Barra]
+type = VarAdd
+triggerall = var(40) > 0
+triggerall = var(41) = 1
+triggerall = RoundState = 2
+triggerall = alive = 1
+trigger1 = (GameTime%2) = 0
+var(40) = -1
+ignorehitpause = 1
+
+[State 0, Variavel de barra cheia]
+type = VarSet
+trigger1 = var(40) >= 1000       ; Só ativa se a barra estiver cheia
+var(41) = 1
+ignorehitpause = 1
+
+[State 0, Variavel de barra vazia]
+type = VarSet
+trigger1 = var(40) <= 0       ; Só ativa se a barra estiver cheia
+trigger2 = roundstate != 2
+var(41) = 0
+ignorehitpause = 1
+
+[State 0, Impedir Barra Negativa]
+type = VarSet
+trigger1 = var(40) < 0
+var(40) = 0
+ignorehitpause = 1
+
+[State -2, Remover Fundo da Barra]
+type = RemoveExplod
+triggerall = roundstate != 2
+trigger1 = numexplod(30900)
+ID = 30900
+ignorehitpause = 1
+[State -2, Remover Fundo da Barra]
+type = RemoveExplod
+triggerall = roundstate != 2
+trigger1 = numexplod(30902)
+ID = 30902
+ignorehitpause = 1
+
+; ===================================================
+; HUD CUSTOMIZADO:(Transform Bar)
+; ===================================================
+
+; 1. LÓGICA DO CRONÔMETRO DE VISIBILIDADE (Apenas no Charge)
+[State -2, Ativar Timer de Visibilidade]
+type = VarSet
+trigger1 = stateno = 500  
+fvar(39) = 60                  
+ignorehitpause = 1
+
+[State -2, Reduzir Timer]
+type = VarSet
+trigger1 = fvar(39) > 0
+fvar(39) = fvar(39) - 1         
+ignorehitpause = 1
+
+; 2. CALCULAR ESCALA DO PREENCHIMENTO
+[State -2, Calcular Escala (Decimal)]
+type = VarSet
+trigger1 = 1
+fvar(37) = (var(40) / 1000.0) * 0.1 
+ignorehitpause = 1
+
+; 3. CRIAR A BARRA DE FUNDO 
+[State -2, Fundo da Barra]
+type = Explod
+triggerall = roundstate = 2
+triggerall = stateno != [3100,3202]
+trigger1 = !NumExplod(30900) 
+trigger1 = fvar(39) > 0 || var(40) >= 1000 || var(41) = 1
+anim = 30900
+id = 30900
+pos = 0,5
+postype = p1
+facing = 1
+bindtime = -1
+removetime = -1
+scale = .102, .12
+sprpriority = 8
+ownpal = 1
+ignorehitpause = 1
+
+; 4. CRIAR A BARRA DE PREENCHIMENTO
+[State -2, Preenchimento Dinamico]
+type = Explod 
+triggerall = roundstate = 2
+triggerall = stateno != [3100,3202]
+trigger1 = !NumExplod(30902) 
+trigger1 = fvar(39) > 0 || var(40) >= 1000 || var(41) = 1
+anim = 30902
+id = 30902
+pos = 0,5
+postype = p1
+facing = 1
+bindtime = -1
+removetime = -1
+scale = 0, .12
+sprpriority = 9           
+ownpal = 1
+ignorehitpause = 1
+
+; 5. CRIAR EFEITO CHOQUE
+[State -2, Choque]
+type = Explod
+triggerall = roundstate = 2
+triggerall = !NumExplod(30324)             ; Só cria se AINDA NÃO existir
+trigger1 = var(40) >= 1000                ; Quando a barra estiver cheia
+trigger2 = var(41) = 1                    ; Ou enquanto estiver ativada
+anim = 30324
+id = 30324
+pos = 0,5
+postype = p1
+facing = 1
+bindtime = -1
+removetime = -1
+scale = .2,.05                       ; Ajustado para enquadrar na barra
+sprpriority = 10                          ; Fica à frente da barra
+ownpal = 1
+removeongethit = 0
+ignorehitpause = 1
+supermovetime = 999
+pausemovetime = 999
+
+; 6. REMOVER O FUNDO QUANDO OCIOSO
+[State -2, Remover Fundo Ocioso]
+type = RemoveExplod
+trigger1 = fvar(39) <= 0       ; O timer de carregar acabou
+trigger1 = var(40) < 1000      ; Não está cheia
+trigger1 = var(41) = 0         ; E não está no estado transformado
+id = 30900
+ignorehitpause = 1
+
+; 7. REMOVER PREENCHIMENTO QUANDO OCIOSO
+[State -2, Remover Barra Ociosa]
+type = RemoveExplod
+trigger1 = fvar(39) <= 0       
+trigger1 = var(40) < 1000     
+trigger1 = var(41) = 0        
+id = 30902
+ignorehitpause = 1
+
+; 8. REMOVER EFEITO CHOQUE
+[State -2, Remover Barra Ociosa]
+type = RemoveExplod
+trigger1 = fvar(39) <= 0       
+trigger1 = var(40) < 1000     
+trigger1 = var(41) = 0        
+id = 30324
+ignorehitpause = 1
+
+; ===================================================
+; 9. ATUALIZADORES VISUAIS (ModifyExplod) - Apenas para ID 30902
+; ===================================================
+[State -2, Atualizar Tamanho]
+type = ModifyExplod
+triggerall = roundstate = 2
+triggerall = NumExplod(30902)
+trigger1 = var(40) < 1000
+trigger1 = var(41) = 0
+id = 30902
+scale = fvar(37),.12
+ignorehitpause = 1
+
+[State -2, Atualizar Cheia Solida]
+type = ModifyExplod
+triggerall = NumExplod(30902)
+triggerall = (GameTime % 16) < 8
+trigger1 = var(40) >= 1000
+trigger2 = var(41) = 1
+id = 30902
+scale = fvar(37),.12
+trans = none
+ignorehitpause = 1
+
+[State -2, Atualizar Cheia Brilhando]
+type = ModifyExplod
+triggerall = NumExplod(30902)
+triggerall = (GameTime % 16) >= 8
+trigger1 = var(40) >= 1000
+trigger2 = var(41) = 1
+id = 30902
+scale = fvar(37),.12
+trans = add
+ignorehitpause = 1
+
+[State -3, IA de Defensa]
+type = ChangeState
+value = 132
+triggerall = p2movetype = A || (enemy, NumProj >= 1)
+triggerall = P2bodydist X <= 40 || (enemy, NumProj >= 1)
+triggerall = statetype = A
+triggerall = random <= 600
+triggerall = ailevel > 0
+triggerall = ctrl
+triggerall = stateno != 132
+trigger1 = p2statetype = A
+trigger2 = (enemy, NumProj >= 1)
+
+[State -3, IA de Defensa]
+type = ChangeState
+value = 130
+triggerall = p2movetype = A || (enemy, NumProj >= 1)
+triggerall = P2bodydist X <= 40 || (enemy, NumProj >= 1)
+triggerall = random <= 400
+triggerall = statetype != A
+triggerall = ailevel > 0
+triggerall = ctrl
+triggerall = stateno != 120
+trigger1 = p2statetype = S
+trigger2 = (enemy, NumProj >= 1)
+
+
+[State -3, Correr Adelante]
+type = ChangeState
+triggerall = var(5) = 0
+Triggerall = var(2) = 0 && var(4) = 0
+triggerall = ailevel > 0 && roundstate = 2
+triggerall = ctrl
+triggerall = stateno != 60
+triggerall = stateno != 70
+trigger1 = P2bodydist X >= 100 && random = [100,400]
+value = 60
+
+[State -3, Correr Adelante HT]
+type = ChangeState
+triggerall = var(5) = 0
+triggerall = var(2) = 1
+triggerall = ailevel > 0 && roundstate = 2
+triggerall = ctrl
+triggerall = stateno != 60
+triggerall = stateno != 70
+Triggerall = p2movetype != A
+trigger1 = P2bodydist X >= 100 && random = [100,400]
+value = 2060
+
+[State -3, Correr Atras]
+type = ChangeState
+triggerall = var(5) = 0
+Triggerall = var(2) = 0 && var(4) = 0
+triggerall = ailevel > 0 && roundstate = 2
+triggerall = ctrl
+triggerall = stateno != 60
+triggerall = stateno != 70
+Triggerall = p2movetype = A
+trigger1 = P2bodydist X = [0,100]
+trigger1 =  random = [20,100]
+value = 70
+
+[State -3, Correr Atras HT]
+type = ChangeState
+triggerall = var(5) = 0
+triggerall = var(2) = 1
+triggerall = ailevel > 0 && roundstate = 2
+triggerall = ctrl
+triggerall = stateno != 2060
+triggerall = stateno != 2070
+Triggerall = p2movetype = A
+trigger1 = P2bodydist X = [0,100]
+trigger1 = random = [20,100]
+value = 2070
+
+[State -1, Awakening Activar]
+type = changestate
+triggerall = var(41) = 1
+trigger1 = statetype != A
+Triggerall = var(2) = 0
+triggerall = RoundState = 2 && ailevel > 0
+triggerall = StateType = S
+triggerall = Ctrl
+trigger1 = Random = [100,200]
+value = 2190
+
+
+[State -1, Dynamic Entry]
+type = changestate
+triggerall = var(41) = 1
+Triggerall = var(2) = 0
+Triggerall = power >= 2000
+triggerall = RoundState = 2 && ailevel > 0
+triggerall = StateType != A
+triggerall = P2BodyDist X = [60,150]
+trigger1 = Ctrl
+trigger1 = Random = [400,600]
+trigger2 = numhelper(700) > 0
+trigger2 = random < 100
+value = 3000
+
+[State -1, Konoha Daisempu]
+type = changestate
+Triggerall = var(2) = 0
+triggerall = var(41) = 1
+Triggerall = power >= powermax
+triggerall = RoundState = 2 && ailevel > 0
+triggerall = StateType != A
+triggerall = P2BodyDist X >= 100
+trigger1 = Ctrl
+trigger1 = Random = [500,700]
+trigger2 = numhelper(700) > 0
+trigger2 = random < 125
+value = 3200
+
+[State -1, Asa Kujaku]
+type = changestate
+Triggerall = var(2) = 1
+Triggerall = power >= 2000
+triggerall = RoundState = 2 && ailevel > 0
+triggerall = StateType != A
+triggerall = P2BodyDist X >= 100
+trigger1 = Ctrl
+trigger1 = Random = [500,700]
+trigger2 = numhelper(700) > 0
+trigger2 = random < 125
+value = 3300
+
+[State -1, Ura Renge]
+type = changestate
+Triggerall = var(2) = 1
+Triggerall = power >= powermax
+triggerall = RoundState = 2 && ailevel > 0
+triggerall = StateType != A
+triggerall = P2BodyDist X >= 100
+trigger1 = Ctrl
+trigger1 = Random = [600,800]
+trigger2 = numhelper(700) > 0
+trigger2 = random < 150
+value = 3100
+
+
+[State -1, Konoha Senpu]
+type = changestate
+Triggerall = power >= 1500
+triggerall = RoundState = 2 && ailevel > 0
+triggerall = StateType != A
+triggerall = P2BodyDist X = [50,120]
+trigger1 = Ctrl
+trigger1 = Random = [100,200]
+trigger2 = numhelper(700) > 0
+trigger2 = random < 50
+value = 1000
+
+[State -1, Konoha Shofu]
+type = changestate
+Triggerall = power >= 1500
+triggerall = RoundState = 2 && ailevel > 0
+triggerall = StateType != A
+triggerall = P2BodyDist X = [10,50]
+trigger1 = Ctrl
+trigger1 = Random = [100,200]
+trigger2 = numhelper(700) > 0
+trigger2 = random < 50
+trigger2 = enemy,pos y < -50
+value = 1100
+
+[State -1, Kunai Throw]
+type = ChangeState
+Triggerall = numhelper(1250) = 0
+Triggerall = power >= 300
+triggerall = RoundState = 2 && ailevel > 0
+triggerall = StateType != A
+triggerall = P2BodyDist X = [80,200]
+trigger1 = Ctrl
+trigger1 = P2BodyDist X >= 100
+trigger1 = Random = [100,200]
+trigger2 = numhelper(700) > 0
+trigger2 = random < 25
+value = 1200
+
+[State -1, Omote Renge]
+type = changestate
+Triggerall = power >= 2000
+triggerall = RoundState = 2 && ailevel > 0
+triggerall = StateType != A
+triggerall = P2BodyDist X = [50,100]
+trigger1 = Ctrl
+trigger1 = Random = [100,200]
+trigger2 = numhelper(700) > 0
+trigger2 = random < 50
+value = 1400
+
+[State -1, Taijutsu Counter]
+type = changestate
+Triggerall = power >= 1000
+triggerall = RoundState = 2 && ailevel > 0
+triggerall = StateType != A
+triggerall = P2BodyDist X = [0,50]
+trigger1 = Ctrl
+trigger1 = Random = [100,200]
+trigger2 = numhelper(700) > 0
+trigger2 = random < 25
+trigger3 = ctrl && p2bodydist x < 50 && p2movetype = A && random = [200,400]
+value = 1700
+
+[State -1, Combo 1 Start]
+type = changestate
+triggerall = RoundState = 2 && ailevel > 0
+triggerall = StateType != A
+triggerall = P2BodyDist X = [0,20]
+trigger1 = Ctrl
+trigger1 = Random = [600,800]
+value = 200
+
+[State -1, Combo 2 Start]
+type = changestate
+triggerall = RoundState = 2 && ailevel > 0
+triggerall = StateType != A
+triggerall = P2BodyDist X = [0,30]
+trigger1 = Ctrl
+trigger1 = Random = [600,800]
+value = 300
+
+[State -1, Combo 3 Start]
+type = changestate
+triggerall = RoundState = 2 && ailevel > 0
+triggerall = StateType != A
+triggerall = P2BodyDist X = [0,35]
+trigger1 = Ctrl
+trigger1 = Random = [600,800]
+value = 400
+
+[State -1, Power Charge]
+type = changestate
+Triggerall = var(41)=0 || var(41)=1 && power<powermax
+triggerall = RoundState = 2 && ailevel > 0
+triggerall = StateType != A
+triggerall = Ctrl
+triggerall = P2BodyDist X >= 100
+trigger1 = power < 1000 && Random = [600,800]
+trigger2 = power < 2000 && power > 1000 && Random = [300,500]
+trigger3 = power < 3000 && power > 2000 && Random = [100,200]
+value = 500
+
+[State -1, Combo Aire Start]
+type = changestate
+triggerall = RoundState = 2 && ailevel > 0
+triggerall = StateType = A
+triggerall = P2BodyDist X = [0,30]
+trigger1 = Ctrl
+trigger1 = Random = [600,800]
+value = 600
+
+
+
+[Statedef -3]
+
+[State 0, Helper de Conexiones]
+type = Helper
+Triggerall = numhelper(700) = 0
+trigger1 = stateno = 200 && movecontact
+trigger2 = stateno = 210 && movecontact
+trigger3 = stateno = 300 && movecontact
+trigger4 = stateno = 310 && movehit && time < 17
+trigger5 = stateno = 400 && movecontact
+trigger6 = stateno = 410 && movecontact
+trigger7 = stateno = 600 && movecontact
+trigger8 = stateno = 610 && movecontact
+trigger9= stateno = 620 && time > 25
+trigger10 = stateno = 1200 && time > 45
+trigger11 = stateno = 1301 && time > 10
+trigger12 = stateno = 1701 && movecontact
+helpertype = normal
+name = "Helper de Conexiones"
+ID = 700
+stateno = 700
+pos = 999999,999999
+postype = p1
+
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = stateno = 1400 && time = [50,59]
+value = 0
+scale = .9,.9
+ignorehitpause  = 1
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = stateno = 3102 && time = [4,13]
+value = 0
+scale = .9,.9
+ignorehitpause  = 1
+
+
+[State -3, Turn Hachimon Tonko]
+type = ChangeAnim
+trigger1 = var(2) = 1
+trigger1 = anim = 5
+value = 15005
+
+
+[State -3, VarSet - Kyumon Kai]
+type = VarSet
+trigger1 = numhelper(1350) = 1
+v = 4
+value = 1
+
+[State -3, VarSet - Kyumon Kai]
+type = VarSet
+trigger1 = numhelper(1351) = 1
+trigger2 = life = 0
+trigger3 = stateno = 181 && time = 2
+trigger4 = stateno = 170 && time = 2
+v = 4
+value = 0
+
+[State 0, AfterImage]
+type = AfterImage
+triggerall = var(4) = 1
+trigger1 = time = 1
+time = 1000
+length = 5
+palcolor = 256
+palinvertall = 0
+palbright = 30,30,30
+palcontrast = 120,120,220
+palpostbright = 0,0,0
+paladd = 2,2,6
+palmul = .65,.65,.75
+timegap = 1
+framegap = 1
+trans = add
+
+[State 0, AfterImage]
+type = AfterImage
+trigger1 = numhelper(1351) = 1
+trigger2 = time = 1 && stateno = [170,190]
+trigger3 = life = 0
+trigger4 = stateno = 2060 || stateno = 2070
+time = 1
+length = 1
+palcolor = 256
+palinvertall = 0
+palbright = 30,30,30
+palcontrast = 120,120,220
+palpostbright = 0,0,0
+paladd = 10,10,25
+palmul = .65,.65,.75
+timegap = 1
+framegap = 1
+trans = add
+
+[State -3, VarSet - Hachimon Tonko]
+type = VarSet
+trigger1 = numhelper(2195) = 1
+v = 2
+value = 1
+
+[State -3, VarSet - Hachimon Tonko]
+type = VarSet
+triggerall = var(9) = 0
+trigger1 = life = 0
+trigger2 = numhelper(2196)=1
+trigger3 = stateno = 181 && time = 2
+trigger4 = stateno = 170 && time = 2
+v = 2
+value = 0
+
+[State 0, Explosion]
+type = Explod
+triggerall = stateno = 170||stateno = 181
+triggerall = var(2) = 1
+trigger1 = time = 1
+anim = 9022
+ID = 9022
+pos = 0,0
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 999,999
+sprpriority = 9
+ontop = 1
+ownpal = 1
+removeongethit = 0
+ignorehitpause = 1
+supermove = 99999
+pausemove = 99999
+supermovetime = 99999
+pausemovetime = 99999
+
+[State 0, PlaySnd]
+type = PlaySnd
+triggerall = stateno = 170||stateno = 181
+triggerall = var(2) = 1
+trigger1 = time = 1
+value = S2,2
+volume = 999
+
+[State 0, EnvShake]
+type = EnvShake
+triggerall = stateno = 170||stateno = 181
+triggerall = var(2) = 1
+trigger1 = time = 1
+time = 10
+freq = 60
+ampl = -8
+phase = 90
+
+[State 0, Back to Normal]
+type = ChangeState
+triggerall = var(9) = 0
+triggerall = var(2) = 1
+triggerall = stateno = 0||stateno = 20||stateno = 500
+trigger1 = var(41) = 0
+value = 2191
+
+[State 0, Aura Gate]
+type = Helper
+trigger1 = var(2) = 1 && numhelper(1055) = 0 && alive
+helpertype = normal
+name = "Aura Gate"
+id = 1055
+stateno = 1055
+postype = p1
+facing = 1
+ownpal = 1
+supermovetime = 99999999
+pausemovetime = 99999999
+size.xscale = .25
+size.yscale = .25
+
+[State 0, PalFXWiz]
+type = PalFX
+triggerall = var(2) = 1
+trigger1 = gametime%40 = 0
+time = 200
+add = 5,23,4
+invertall = 0
+color = 256
+ignorehitpause = 1
+
+[State 0, AfterImage]
+type = AfterImage
+triggerall = var(2) = 1
+trigger1 = time = 1
+time = 1000
+length = 4
+palcolor = 256
+palinvertall = 0
+palbright = 6,23,9
+palcontrast = 120,120,220
+palpostbright = 0,0,0
+paladd = 2,2,6
+palmul = .65,.65,.75
+timegap = 1
+framegap = 1
+trans = add
+
+
+[State 0, PalFXWiz]
+type = PalFX
+trigger1 = time = 10 && stateno = 2191
+trigger2 = time = 1 && stateno = [170,190]
+trigger3 = life = 0
+time = 1
+add = 0,0,0
+mul = 256,256,256
+color = 256
+ignorehitpause = 1
+
+[State 0, AfterImage]
+type = AfterImage
+trigger1 = time = 10 && stateno = 2191
+trigger2 = time = 1 && stateno = [170,190]
+trigger3 = life = 0
+time = 1
+length = 1
+palcolor = 256
+palinvertall = 0
+palbright = 6,23,9
+palcontrast = 120,120,220
+palpostbright = 0,0,0
+paladd = 10,10,25
+palmul = .65,.65,.75
+timegap = 1
+framegap = 1
+trans = add
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = time = 10 && stateno = 2191
+trigger2 = time = 1 && stateno = [170,190]
+trigger3 = life = 0
+time = 1
+id = 433
+
+[State 0, Pause]
+type = Pause
+triggerall = var(2) = 1
+Triggerall = stateno != 410
+Triggerall = stateno != 415
+Triggerall = stateno != 1000
+Triggerall = stateno != 1100
+Triggerall = stateno != 3105
+trigger1 = movehit = 1
+time = 3
+movetime = 0
+
+[State 0, EnvShake]
+type = EnvShake
+Triggerall = stateno != 3201
+triggerall = var(2) = 1
+trigger1 = movehit = 1
+time = 5
+freq = 60
+ampl = -4
+phase = 90
+
+[State -3, VarSet, Golpeado]
+type = VarSet
+trigger1 = var(2) = 1
+v = 10
+value = 11000
+
+[State -3, VarSet,Golpeado]
+type = VarSet
+trigger1 = var(2) = 0
+v = 10
+value = 0
+
+[State -3, VarSet, Apariencia]
+type = VarSet
+trigger1 = var(2) = 1
+v = 11
+value = 15000
+
+[State -3, VarSet,Apariencia]
+type = VarSet
+trigger1 = var(2) = 0
+v = 11
+value = 0
+
+[State 0, AttackMulSet]
+type = AttackMulSet
+trigger1 = 1
+value = 1+fvar(2)
+
+[State 0, DefenceMulSet]
+type = DefenceMulSet
+trigger1 = 1
+value = 1-fvar(2)
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = var(2) = 0
+fv = 2
+value = 0
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = var(2) = 1
+fv = 2
+value = .2
+
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(2001) = 0
+Triggerall = var(2) = 1
+Triggerall = stateno = 0
+trigger1 = time = 1
+anim = 2001
+ID = 2001
+pos = 0,-1
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+
+[State 0, Kyubi]
+type = Explod
+Triggerall = var(2) = 1
+Triggerall = stateno = 0
+triggerall = numexplod(2001) = 0
+trigger1 = time >= 10
+anim = 2001
+ID = 2001
+pos = 0,-1
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 15000
+id = 2001
+
+
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(2007) = 0
+Triggerall = var(2) = 1
+Triggerall = stateno = 0
+trigger1 = ANIM = 15005
+anim = 2007
+ID = 2007
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 15005
+id = 2007
+
+
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(2008) = 0
+Triggerall = var(2) = 1
+Triggerall = stateno = 11
+trigger1 = ANIM = 15006
+anim = 2008
+ID = 2008
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 15006
+id = 2008
+
+
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(2013) = 0
+Triggerall = var(2) = 1
+Triggerall = stateno = 10
+trigger1 = ANIM = 15010
+anim = 2013
+ID = 2013
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 15010
+id = 2013
+
+
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(2014) = 0
+Triggerall = var(2) = 1
+Triggerall = stateno = 11
+trigger1 = ANIM = 15011
+anim = 2014
+ID = 2014
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 15011
+id = 2014
+
+
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(2015) = 0
+Triggerall = var(2) = 1
+Triggerall = stateno = 12
+trigger1 = ANIM = 15012
+anim = 2015
+ID = 2015
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 15012
+id = 2015
+
+
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(2022) = 0
+Triggerall = var(2) = 1
+Triggerall = stateno = 20 && anim = 15020
+trigger1 = time = 1
+anim = 2022
+ID = 2022
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+
+[State 0, Kyubi]
+type = Explod
+Triggerall = var(2) = 1
+Triggerall = stateno = 20
+triggerall = numexplod(2022) = 0
+trigger1 = time >= 10
+anim = 2022
+ID = 2022
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 15020
+id = 2022
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(2023) = 0
+Triggerall = var(2) = 1
+Triggerall = stateno = 20 && anim = 15021
+trigger1 = time = 1
+anim = 2023
+ID = 2023
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+
+[State 0, Kyubi]
+type = Explod
+Triggerall = var(2) = 1
+Triggerall = stateno = 20
+triggerall = numexplod(2023) = 0
+trigger1 = time >= 10
+anim = 2023
+ID = 2023
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 15021
+id = 2023
+
+
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(2050) = 0
+Triggerall = var(2) = 1
+Triggerall = stateno = 40
+trigger1 = ANIM = 15040
+anim = 2050
+ID = 2050
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 15040
+id = 2050
+
+
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(2051) = 0
+Triggerall = var(2) = 1
+Triggerall = stateno = 50
+trigger1 = ANIM = 15041
+anim = 2051
+ID = 2051
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 15041
+id = 2051
+
+
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(20051) = 0
+Triggerall = var(2) = 1
+Triggerall = stateno = 50
+trigger1 = ANIM = 15042
+anim = 20051
+ID = 20051
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 15042
+id = 20051
+
+
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(20052) = 0
+Triggerall = var(2) = 1
+Triggerall = stateno = 50
+trigger1 = ANIM = 15043
+anim = 20052
+ID = 20052
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 15043
+id = 20052
+
+
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(2052) = 0
+Triggerall = var(2) = 1
+trigger1 = ANIM = 15044
+anim = 2052
+ID = 2052
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 15044
+id = 2052
+
+
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(2053) = 0
+Triggerall = var(2) = 1
+trigger1 = ANIM = 15047
+anim = 2053
+ID = 2053
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 15047
+id = 2053
+
+
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(2054) = 0
+Triggerall = var(2) = 1
+trigger1 = ANIM = 15050
+anim = 2054
+ID = 2054
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 15050
+id = 2054
+
+
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(2102) = 0
+Triggerall = var(2) = 1
+trigger1 = ANIM = 15100
+anim = 2102
+ID = 2102
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 15100
+id = 2102
+
+
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(2103) = 0
+Triggerall = var(2) = 1
+trigger1 = ANIM = 15105
+anim = 2103
+ID = 2103
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 15105
+id = 2103
+
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(15503) = 0
+Triggerall = var(2) = 1
+Triggerall = stateno = 500
+trigger1 = time = 1
+anim = 15503
+ID = 15503
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 15500
+id = 15503
+
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(15504) = 0
+Triggerall = var(2) = 1
+Triggerall = stateno = 501
+trigger1 = time = 1
+anim = 15504
+ID = 15504
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 15501
+id = 15504
+
+
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(2123) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 15120
+trigger1 = time = 1
+anim = 2123
+ID = 2123
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 15120
+id = 2123
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(2124) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 15121
+trigger1 = time = 1
+anim = 2124
+ID = 2124
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 15121
+id = 2124
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(2125) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 15122
+trigger1 = time = 1
+anim = 2125
+ID = 2125
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 15122
+id = 2125
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(2133) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 15130
+trigger1 = time = 1
+anim = 2133
+ID = 2133
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 15130
+id = 2133
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(2134) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 15131
+trigger1 = time = 1
+anim = 2134
+ID = 2134
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 15131
+id = 2134
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(2135) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 15132
+trigger1 = time = 1
+anim = 2135
+ID = 2135
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 15132
+id = 2135
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(2143) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 15140
+trigger1 = time = 1
+anim = 2143
+ID = 2143
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 15140
+id = 2143
+
+;===============================================================================
+; Limitador Air Jump:
+;-------------------------------------------------------------------------------
+[State 0, VarSet]
+type = VarSet
+trigger1 = var(5) = 0 && (stateno = 65||stateno = 70||stateno = 2060||stateno = 2070)
+v = 5
+value = 1
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = var(5) = 1 && pos y >= 0
+v = 5
+value = 0
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(2144) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 15141
+trigger1 = time = 1
+anim = 2144
+ID = 2144
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 15141
+id = 2144
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(2145) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 15142
+trigger1 = time = 1
+anim = 2145
+ID = 2145
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 15142
+id = 2145
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(2153) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 15150
+trigger1 = time = 1
+anim = 2153
+ID = 2153
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 15150
+id = 2153
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(2154) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 15151
+trigger1 = time = 1
+anim = 2154
+ID = 2154
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 15151
+id = 2154
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(2155) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 15152
+trigger1 = time = 1
+anim = 2155
+ID = 2155
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 15152
+id = 2155
+
+
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(2200) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 15200
+trigger1 = time = 1
+anim = 2200
+ID = 2200
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 15200
+id = 2200
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(2651) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 15210
+trigger1 = time = 1
+anim = 2201
+ID = 2651
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 15210
+id = 2651
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(2201) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 15220
+trigger1 = time = 1
+anim = 15221
+ID = 2201
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 15220
+id = 2201
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(2210) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 15300
+trigger1 = time = 1
+anim = 15301
+ID = 2210
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 15300
+id = 2210
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(2211) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 15310
+trigger1 = time = 1
+anim = 15311
+ID = 2211
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 15310
+id = 2211
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(2212) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 15400
+trigger1 = time = 1
+anim = 15401
+ID = 2212
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 15400
+id = 2212
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(2213) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 15410
+trigger1 = time = 1
+anim = 15411
+ID = 2213
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 15410
+id = 2213
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(2214) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 15415
+trigger1 = time = 1
+anim = 15416
+ID = 2214
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 15415
+id = 2214
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(2215) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 15420
+trigger1 = time = 1
+anim = 15421
+ID = 2215
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 15420
+id = 2215
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(2217) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 15610
+trigger1 = time = 1
+anim = 15611
+ID = 2217
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 15610
+id = 2217
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(2216) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 15600
+trigger1 = time = 1
+anim = 15601
+ID = 2216
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 15600
+id = 2216
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(2218) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 15620
+trigger1 = time = 1
+anim = 15621
+ID = 2218
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 15620
+id = 2218
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(2219) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 17000
+trigger1 = animelem = 2
+anim = 17002
+ID = 2219
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 17000
+id = 2219
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(2220) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 17001
+trigger1 = time = 1
+anim = 17004
+ID = 2220
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 17001
+id = 2220
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(2221) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 17101
+trigger1 = time = 1
+anim = 17102
+ID = 2221
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 17101
+id = 2221
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(2222) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 17200
+trigger1 = time = 1
+anim = 17201
+ID = 2222
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+supermovetime = 999
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 17200
+id = 2222
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(2223) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 17500
+trigger1 = time = 1
+anim = 17501
+ID = 2223
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 17500
+id = 2223
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(2225) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 18000
+trigger1 = animelem = 2
+anim = 18002
+ID = 2225
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 18000
+id = 2225
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(2236) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 17401
+trigger1 = TIME = 1
+anim = 17416
+ID = 2236
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 17401
+id = 2236
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(2237) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 17402
+trigger1 = TIME = 1
+anim = 17417
+ID = 2237
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 17402
+id = 2237
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(2238) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 17403
+trigger1 = TIME = 1
+anim = 17418
+ID = 2238
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 17403
+id = 2238
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(2239) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 17404
+trigger1 = TIME = 1
+anim = 17419
+ID = 2239
+pos = 0,1
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 17404
+id = 2239
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(2252) = 0
+Triggerall = ANIM = 3104
+trigger1 = TIME = 1
+anim = 3125
+ID = 2252
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 3104
+id = 2252
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(2253) = 0
+Triggerall = ANIM = 3105
+trigger1 = TIME = 1
+anim = 3126
+ID = 2253
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -4
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 3105
+id = 2253
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(2254) = 0
+Triggerall = ANIM = 3106
+trigger1 = TIME = 1
+anim = 3127
+ID = 2254
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -4
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 3106
+id = 2254
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(2255) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 1700
+trigger1 = TIME = 1
+anim = 1703
+ID = 2255
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 1700
+id = 2255
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(2256) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 1701
+trigger1 = TIME = 1
+anim = 1704
+ID = 2256
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 1701
+id = 2256
+
+
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(5000) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 16000
+trigger1 = time = 1
+anim = 6000
+ID = 5000
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 16000
+id = 5000
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(5001) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 16001
+trigger1 = time = 1
+anim = 6001
+ID = 5001
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 16001
+id = 5001
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(5002) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 16002
+trigger1 = time = 1
+anim = 6002
+ID = 5002
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 16002
+id = 5002
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(5005) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 16005
+trigger1 = time = 1
+anim = 6005
+ID = 5005
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 16005
+id = 5005
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(5006) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 16006
+trigger1 = time = 1
+anim = 6006
+ID = 5006
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 16006
+id = 5006
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(5007) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 16007
+trigger1 = time = 1
+anim = 6007
+ID = 5007
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 16007
+id = 5007
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(5010) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 16010
+trigger1 = time = 1
+anim = 6010
+ID = 5010
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 16010
+id = 5010
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(5011) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 16011
+trigger1 = time = 1
+anim = 6011
+ID = 5011
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 16011
+id = 5011
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(5012) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 16012
+trigger1 = time = 1
+anim = 6012
+ID = 5012
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 16012
+id = 5012
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(5015) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 16015
+trigger1 = time = 1
+anim = 6015
+ID = 5015
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 16015
+id = 5015
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(5016) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 16016
+trigger1 = time = 1
+anim = 6016
+ID = 5016
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 16016
+id = 5016
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(5017) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 16017
+trigger1 = time = 1
+anim = 6017
+ID = 5017
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 16017
+id = 5017
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(5020) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 16020
+trigger1 = time = 1
+anim = 6020
+ID = 5020
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 16020
+id = 5020
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(5021) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 16021
+trigger1 = time = 1
+anim = 6021
+ID = 5021
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 16021
+id = 5021
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(5022) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 16022
+trigger1 = time = 1
+anim = 6022
+ID = 5022
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 16022
+id = 5022
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(5025) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 16025
+trigger1 = time = 1
+anim = 6025
+ID = 5025
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 16025
+id = 5025
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(5026) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 16026
+trigger1 = time = 1
+anim = 6026
+ID = 5026
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 16026
+id = 5026
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(5027) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 16027
+trigger1 = time = 1
+anim = 6027
+ID = 5027
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 16027
+id = 5027
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(5030) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 16030
+trigger1 = time = 1
+anim = 6030
+ID = 5030
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 16030
+id = 5030
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(5035) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 16035
+trigger1 = time = 1
+anim = 6035
+ID = 5035
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 16035
+id = 5035
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(5040) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 16040
+trigger1 = time = 1
+anim = 6040
+ID = 5040
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 16040
+id = 5040
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(5050) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 16050
+trigger1 = time = 1
+anim = 6050
+ID = 5050
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 16050
+id = 5050
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(5051) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 16051
+trigger1 = time = 1
+anim = 6051
+ID = 5051
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 16051
+id = 5051
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(5061) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 16061
+trigger1 = time = 1
+anim = 6061
+ID = 5061
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 16061
+id = 5061
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(5070) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 16070
+trigger1 = time = 1
+anim = 6070
+ID = 5070
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 16070
+id = 5070
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(5080) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 16080
+trigger1 = time = 1
+anim = 6080
+ID = 5080
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 16080
+id = 5080
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(5090) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 16090
+trigger1 = time = 1
+anim = 6090
+ID = 5090
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 16090
+id = 5090
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(5100) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 16100
+trigger1 = time = 1
+anim = 6100
+ID = 5100
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 16100
+id = 5100
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(5160) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 16160
+trigger1 = time = 1
+anim = 6160
+ID = 5160
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 16160
+id = 5160
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(5170) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 16170
+trigger1 = time = 1
+anim = 6170
+ID = 5170
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 16170
+id = 5170
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(5101) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 16101
+trigger1 = time = 1
+anim = 6101
+ID = 5101
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 16101
+id = 5101
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = STATENO != 5110
+id = 5110
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(5120) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 16120
+trigger1 = time = 1
+anim = 6120
+ID = 5120
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 16120
+id = 5120
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(5150) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 16150
+trigger1 = time = 1
+anim = 6150
+ID = 5150
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 16150
+id = 5150
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(5200) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 16200
+trigger1 = time = 1
+anim = 6200
+ID = 5200
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 16200
+id = 5200
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(5210) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 16210
+trigger1 = time = 1
+anim = 6210
+ID = 5210
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 16210
+id = 5210
+
+[State 0, Kyubi]
+type = Explod
+TRIGGERALL = NUMEXPLOD(5300) = 0
+Triggerall = var(2) = 1
+Triggerall = ANIM = 16300
+trigger1 = time = 1
+anim = 6300
+ID = 5300
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1,1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+shadow = 0,0,0
+IGNOREHITPAUSE = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 16300
+id = 5300
+
+
+
+[State 0, Helper]
+type = Helper
+triggerall = var(2) = 0
+triggerall = numhelper(1450) = 0
+trigger1 = p2stateno = 1406
+trigger1 = enemy,time < 5
+helpertype = normal
+name = "Suelo Roto"
+ID = 1450
+stateno = 1450
+pos = 0,0
+postype = p2
+facing = 1
+keyctrl = 0
+ownpal = 1
+
+[State 0, Helper]
+type = Helper
+triggerall = var(2) = 1
+triggerall = numhelper(1450) = 0
+trigger1 = p2stateno = 1406
+trigger1 = enemy,time < 5
+helpertype = normal
+name = "Suelo Roto"
+ID = 1450
+stateno = 1455
+pos = 0,0
+postype = p2
+facing = 1
+keyctrl = 0
+ownpal = 1
+
+
+
+[State 0, Helper]
+type = Helper
+triggerall = numhelper(3350) = 0
+trigger1 = p2stateno = 3306
+trigger1 = enemy,time = 1
+helpertype = normal
+name = "Suelo Roto"
+ID = 3350
+stateno = 3350
+pos = 0,0
+postype = p2
+facing = 1
+keyctrl = 0
+ownpal = 1
+
+
+
+[State 0, Helper]
+type = Helper
+triggerall = numhelper(450) = 0
+trigger1 = p2stateno = 426
+helpertype = normal
+name = "Pared Rota"
+ID = 450
+stateno = 450
+pos = 0,-30
+postype = p2
+facing = 1
+keyctrl = 0
+ownpal = 1
+
+
+
+[State 0, Chakra Bar]
+type = Helper
+trigger1 = numhelper(20000) = 0
+helpertype = normal
+name = "Chakra Bar"
+ID = 20000
+stateno = 20000
+pos = 0,0
+postype = p1
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermove = 999999
+pausemove = 999999
+supermovetime = 999999
+pausemovetime = 999999
+
+
+
+[State 0, Andando]
+type = PlaySnd
+triggerall = stateno = 20
+trigger1 = animelem = 3||animelem = 6
+value = S20,1
+
+[State 0, Saltando]
+type = PlaySnd
+triggerall = stateno = 40
+trigger1 = Time = 1
+value = S40,1
+volume = 55
+channel = -1
+
+[State 0, Super Jump]
+type = PlaySnd
+triggerall = stateno = 80
+trigger1 = Time = 1
+value = S60,1
+volume = 55
+channel = -1
+
+[State 0, Land]
+type = PlaySnd
+triggerall = stateno = 52
+trigger1 = time = 1
+value = S52,1
+volume = 50
+
+[State 0, Run]
+type = PlaySnd
+triggerall = stateno = 60||stateno = 70
+trigger1 = time = 1
+value = S40,2
+volume = 50
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+TRIGGERALL = stateno != 500 && stateno != 550
+trigger1 = time = 1
+id = 550
+
+[State 0, StopSnd]
+type = StopSnd
+TRIGGERALL = stateno != 500 && stateno != 550
+trigger1 = time = 1
+channel = 1
+
+[State 0, StopSnd]
+type = StopSnd
+TRIGGERALL = stateno != 500 && stateno != 550
+trigger1 = time = 1
+channel = 2
+
+[State 0, Golpeado]
+type = PlaySnd
+trigger1 = movetype=H && (stateno!=[0,155]) && !time && HitOver=0 && random%3=0
+value = 5000,ifelse(random < 500,1,ifelse(random < 500,2,3))
+
+[State 0, Solucion Stand Aire]
+type = ChangeState
+triggerall = enemy, name != "Hoshigaki Kisame"
+triggerall = p3name != "Hoshigaki Kisame"
+triggerall = p4name != "Hoshigaki Kisame"
+triggerall = stateno = 0||stateno = 20
+trigger1 = pos y < 0
+value = 50
+ctrl = 1
+
+
+

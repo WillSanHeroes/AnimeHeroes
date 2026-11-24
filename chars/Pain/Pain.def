@@ -1,0 +1,32 @@
+[Info]
+name ="Pain"
+displayname ="Pain"
+versiondate =01/05/2017
+mugenversion =1.0
+author ="Frak20" ;edit by Willsan
+pal.defaults =1
+
+[Files]
+sprite =Pain.sff
+anim =Pain.air
+sound =Pain.snd
+cmd =Pain.cmd
+cns =Pain.cns
+stcommon =common1.cns
+st =Pain.cns
+st1=IA.cns
+st2=Specials.cns
+st3=Super.cns
+st4=Chikushodo.cns
+st5=Ningendo.cns
+st6=Gakido.cns
+st7=Jigokudo.cns
+st8=Shurado.cns
+st9 =Configs.cns
+st10=Data\glows\Glow(red).zss
+pal1=1.act
+pal2=2.act
+
+;Movelist
+movelist = movelist.dat
+movelist.2 = data\movelist_general.dat

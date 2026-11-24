@@ -1,0 +1,238 @@
+;------------------------------------------------------------------------------------------
+[Info]
+name= "Spaceship Out"
+author= "Mugen Gamer"
+;AttachedChar = ArenasSystem\RO.chr
+;------------------------------------------------------------------------------------------
+[Camera]
+startx= 0
+starty= 0
+boundleft= 0
+boundright= -15
+boundhigh= -300
+boundlow= -25
+overdrawhigh 	= 120
+overdrawlow 	= 120
+cuthigh 		= 0
+cutlow 		= 0
+verticalfollow 	= 1.2
+tension		= 100
+floortension	= 100
+tensionhigh	= 200	
+tensionlow	= 50
+startzoom		= 5
+zoomin 		= 1
+zoomout		= .5
+;--------------------------------------------------------
+;[CONSTANTS]
+;++RING OUT SYSTEM SECTION+++ 
+;para el amigo Gacel, lo prometido es deuda. 
+;Gracias por todo el esfuerzo que has puesto al motor.
+
+;RingOut_Enable = 1;       Change to 0 to disable Ring Outs   
+;Left_Limit_RingOut = -435;You can also use debug to help yourself 
+;Right_Limit_RingOut = 435;to data required from P1
+
+;Show_Help_Arrows = 0;     Change to 1 to see bound limits
+
+;Only_SelfState_Players = 0; Change to 1 to disable RO if you are in CustomState
+;Only_Knocked_Players = 1; Change to 1 to disable RO unless Hitfall
+;Only_NoCtrl_Players = 1;  Change to 1 to disable RO unless Player has no CTRL
+;Only_Fast_Players = 1;    Change to > 0 to disable RO u;nless player has at least that speed
+;Only_High_Players = 0;    Change to < 0 to disable RO unless player is at least above that height
+
+;RingOut_Announcer = 1;    0 and 1 are SC, 2 is VF, 3 is Fatal Fury
+;RingOut_FX = 1;           0 is SC font, 1 is golden, 2 is Fatal Fury
+;RingOut_Falling = 1;	  Change to 0 to disable "player falling" effect
+;RingOut_Priority = 1;	  Change to 1 to make the "player falling" effect go on everything
+
+;Cheer_System_Enable = 0;0 is Disabled, ID 1 for the BGCtrl to be shown during the frantic moment
+
+;Bury_Edge_Limit = 180; Character is at least 180 pixels away from either Stage Edge
+;Bury_Animation = 1;0 is Disabled, 1 is enabled
+;------------------------------------------------------------------------------------------
+[PlayerInfo]
+;--- Player 1 ---
+p1startx = -690         ;Starting x coordinates
+p1starty = 0            ;Starting y coordinates
+p1startz = 0            ;Starting z coordinates
+p1facing = 1            ;Direction player faces: 1=right, -1=left
+
+;--- Player 2 ---
+p2startx = 690
+p2starty = 0
+p2startz = 0
+p2facing = -1
+;------------------------------------------------------------------------------------------
+;--- Common ---
+leftbound  = -1000 
+rightbound =  1000 
+topbound  =  0     
+botbound  =  0
+;------------------------------------------------------------------------------------------
+[Scaling]
+topz     = 0       
+botz     = 50      
+topscale = 1       
+botscale = 1.2
+;------------------------------------------------------------------------------------------
+[Bound]
+screenleft = 90 
+screenright = 90
+;------------------------------------------------------------------------------------------
+[StageInfo]
+zoffset = 150
+autoturn = 1
+resetBG = 1
+hires = 1
+;localcoord		= 1280,720
+;xscale			= 1
+;yscale			= 1
+
+;------------------------------------------------------------------------------------------
+[Shadow]
+intensity = 160
+color = 32,64,128
+yscale = .2
+fade.range = 0,0
+;------------------------------------------------------------------------------------------
+;[Reflection]
+intensity = 1
+;------------------------------------------------------------------------------------------
+[Music]
+bgmusic=sound/Spaceship.mp3
+bgmvolume= 255
+;------------------------------------------------------------------------------------------
+[BGDef]
+spr = SpaceshipOut.sff
+debugbg=0
+;------------------------------------------------------------------------------------------
+
+[BG Space]
+type  = normal
+spriteno = 0,0
+start = 0,0
+delta = 2, 2
+mask = 0
+tile = 1, 1
+velocity = -16.1, 0
+
+[BG Planet]
+type = normal
+spriteno = 6,0
+start = 0,0
+delta= 2,2
+tile = 1,0
+velocity = -16.1, 0
+mask = 1
+trans = add
+tilespacing = 12000
+
+
+[BG Meteoros 1]
+type = anim
+actionno = 100
+start = -280,-50
+delta = 2,2
+tile = 1, 1
+velocity = .7,.6
+mask = 1
+[Begin Action 100]
+7,0,0,0,4,,AS128D256
+7,1,0,0,4,,AS128D256
+7,2,0,0,4,,AS128D256
+7,1,0,0,4,,AS128D256
+
+[BG Meteoros 2]
+type = anim
+actionno = 110
+start = -200,60
+delta = 2,2
+tile = 1, 1
+velocity = .8,.7
+mask = 1
+
+[Begin Action 110]
+7,1,0,0,4,,AS128D256
+7,2,0,0,4,,AS128D256
+7,1,0,0,4,,AS128D256
+7,0,0,0,4,,AS128D256
+
+
+[BG meteor 1]
+type = normal
+spriteno = 4,0
+start = 0,0
+delta= 2,2
+tile = 1,0
+velocity = -16.1, 0
+mask = 1
+trans = add
+tilespacing = 15000
+
+[BG meteor 2]
+type = normal
+spriteno = 4,1
+start = 0,0
+delta= 2,2
+tile = 1,0
+velocity = -16.1, 0
+mask = 1
+trans = add
+tilespacing = 15500
+
+[BG tremble]
+type = anim
+actionno=  8
+start = 0,0
+delta = 2,2
+scalestart = .5,.5
+ZoomDelta = 1
+tile = 1,1
+mask = 1
+velocity = 8,-14
+tilespacing = 18530, 620
+ID = 6
+
+[Begin Action 8]
+5,2, 0,0, 3,,,1,1,	0
+5,2, 0,0, 3,,,1,1,	15
+5,2, 0,0, 3,,,1,1,	30
+5,2, 0,0, 3,,,1,1,	45
+5,2, 0,0, 3,,,1,1,	60
+5,2, 0,0, 3,,,1,1,	75
+5,2, 0,0, 3,,,1,1,	90
+5,2, 0,0, 3,,,1,1,	105
+5,2, 0,0, 3,,,1,1,	120
+5,2, 0,0, 3,,,1,1,	135
+5,2, 0,0, 3,,,1,1,	150
+5,2, 0,0, 3,,,1,1,	165
+5,2, 0,0, 3,,,1,1,	180
+5,2, 0,0, 3,,,1,1,	195
+5,2, 0,0, 3,,,1,1,	210
+5,2, 0,0, 3,,,1,1,	225
+5,2, 0,0, 3,,,1,1,	240
+5,2, 0,0, 3,,,1,1,	255
+5,2, 0,0, 3,,,1,1,	270
+5,2, 0,0, 3,,,1,1,	285
+5,2, 0,0, 3,,,1,1,	300
+5,2, 0,0, 3,,,1,1,	315
+5,2, 0,0, 3,,,1,1,	330
+5,2, 0,0, 3,,,1,1,	345
+
+
+[BG Spaceship]
+type = normal
+spriteno =1,0
+Delta=2,2
+mask=1
+
+[BG Fog]
+type = normal
+spriteno = 3,0
+start = 0,0
+delta= 2,2
+tile = 1,0
+velocity = -16.1, 0
+mask = 1
+trans = add

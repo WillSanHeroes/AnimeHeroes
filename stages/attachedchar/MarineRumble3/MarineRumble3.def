@@ -1,0 +1,34 @@
+; Definition file for Kung Fu Man
+; Contains all the filenames needed for the character
+
+; Player information
+[Info]
+name="Marine Rumble 3"
+displayname="Ronse Troops"
+versiondate=04,14,2002
+mugenversion=1.0
+author="Team One Piece OS"
+pal.defaults=1
+
+; Files for the player
+[Files]
+cmd=MarineRumble3.cmd
+sprite=MarineRumble3.sff
+anim=MarineRumble3.air
+sound=MarineRumble3.snd
+stcommon =common1.cns
+st=constants.cns
+cns=constants.cns
+pal1=MarineRumble3.act
+st1=Swordman.cns
+st2=Rifleman.cns
+st3=Shieldman.cns
+st4=CannonMan.cns
+st5=BruteMan.cns
+st6=Lietuenant.cns
+st7=Ronse.cns
+
+
+[Arcade]
+intro.storyboard=
+ending.storyboard=

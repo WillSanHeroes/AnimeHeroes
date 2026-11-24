@@ -1,0 +1,47 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Broly"
+displayname = "Broly"
+versiondate = 10/06/2026
+mugenversion = 1.0
+author = "Mystery107 (Original by Knightmare)"
+pal.defaults = 1,2
+
+[Files]
+sprite = Broly.sff
+anim = Broly.air
+sound = Broly.snd
+cmd = Broly.cmd
+cns = Broly.cns
+stcommon = common1.cns
+st = Broly.cns
+st1 = IA.cns
+st2 = Especiales.cns
+st3 = Supers.cns
+st4 = SS.cns
+st5 = LSS.cns
+st6 =Configs.cns
+st7=Glows.zss
+pal1 = 1.act
+pal2 = 2.act
+pal3 = 3.act
+pal4 = 4.act
+pal5 = 5.act
+pal6 = 6.act
+pal7 = 7.act
+pal8 = 8.act
+pal9 = 9.act
+pal10 = 10.act
+pal11 = 11.act
+movelist = movelist.dat
+movelist.2 = data\movelist_general.dat
+movelist11 = movelistRSS.dat
+movelist11.2 = data\movelist_general.dat
+movelist1 = movelistSS.dat
+movelist1.2 = data\movelist_general.dat
+movelist2 = movelistLSS.dat
+movelist2.2 = data\movelist_general.dat

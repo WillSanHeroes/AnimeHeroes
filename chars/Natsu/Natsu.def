@@ -1,0 +1,30 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name ="Natsu Dragneel"
+displayname ="Natsu"
+versiondate =20/06/2019
+mugenversion =1.0
+author ="Mikel8888" ;edit Willsan
+pal.defaults =1
+
+[Files]
+sprite =Natsu.sff
+anim =Natsu.air
+sound =Natsu.snd
+cmd =Natsu.cmd
+cns =Natsu.cns
+stcommon =common1.cns
+st =Natsu.cns
+pal1=1.act
+st1=IA.cns
+st2=Specials.cns
+st3=Supers.cns
+st4=RaienryuuMode.cns
+st5=Dragonforce.cns
+st6 = Configs.cns
+st7 = Glows.zss
+movelist = movelist.dat ;Ikemen feature

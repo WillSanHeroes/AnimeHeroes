@@ -1,0 +1,2085 @@
+[Info]        
+name = "Muramasa Wheat" 
+displayname = "Muramasa Wheat" ;Name to display
+versiondate = 09,30,2009    ; 8/1/2017 Version date of stage (MM,DD,YYYY or X.XX)
+mugenversion = 1.0          ;Version of M.U.G.E.N stage works on (X.XX)
+author = "Odb718"         ;Stage author name
+
+[Camera]
+startx         	= 0         
+starty         	= 0  
+boundleft 	= -1560
+boundright 	= 1900            
+boundhigh     	= 0   
+boundlow       	= 10         
+floortension 	= 120
+verticalfollow	= .25
+tension		= 100
+zoomout 	= 0.8   
+zoomin 		= 1.3
+
+[PlayerInfo]       
+p1startx       = -70        
+p1starty       = 0         
+p1startz       = 0           
+p1facing       = 1              
+p2startx       = 70         
+p2starty       = 0         
+p2startz       = 0           
+p2facing       = -1    
+leftbound  = -2400
+rightbound =  2400             
+topbound       = 0           
+botbound       = 0           
+
+[Scaling]
+topz           = 0           
+botz           = 50         
+topscale       = 1           
+botscale       = 1.2        
+
+[Bound]
+screenleft = 0
+screenright = 0    
+
+[StageInfo]
+zoffset        = 208;190;221         
+autoturn       = 1           
+resetBG        = 1           
+Hires          = 1
+xscale = 0.5 ; Horizontal scaling factor of offsets, velocities, sprites and animations.
+yscale = 0.52 ; Vertical scaling factor of offsets, velocities, sprites and animations. 
+
+[Shadow]
+color = 256,256,256                          
+yscale = 0.2         
+       
+[Music]
+bgmusic = sound/MuramasaWheat.mp3  ;Muramasa: The Demon Blade OST - Turbulent State  
+bgvolume = 255 
+ 
+;===========================BACKGROUND============================ 
+[BGdef]
+spr = stages/MuramasaWheat.sff
+debugbg = 1  
+
+[BG WhiteSky];
+type = normal
+spriteno = 0,100
+start = 0,275
+delta = 0,0
+mask = 1
+tile = 1,0
+tilespacing = 0, 0
+zoomdelta = 0, 0  
+[BG Sky1];
+type = parallax
+spriteno = 0,102;7,0
+start = 0,275;0,-10  
+mask = 1    
+velocity = -0.4, 0
+tile = 1, 0  
+delta = 0,0 
+width =  486,324
+yscalestart = 100
+yscaledelta = 0
+zoomdelta = 0, 0   
+[BG Sky1];
+type = parallax
+spriteno = 7,1 
+start = 0,275;0,-10  
+mask = 1    
+velocity = -0.4, 0
+tile = 1, 0  
+delta = 0,0 
+width =  486,324
+yscalestart = 100
+yscaledelta = 0  
+zoomdelta = 0, 0  
+
+[BG MOUNTAINS];
+type = normal
+spriteno = 5,0
+start = 0,266
+delta = 0,0
+mask = 1
+zoomdelta = 0.2, 0.2
+
+;------------------------
+[BG ForestBaseBack];
+type = normal
+spriteno = 8,1
+start = 0,276
+delta = 0.0014,0.0014
+mask = 1
+tile = 1,0
+tilespacing = 0, 0  
+[BG ForestTopBack];
+type = normal
+spriteno = 8,0
+start = 0,276
+delta = 0.0014,0.0014
+mask = 1
+tile = 1,0
+tilespacing = 0, 0  
+
+;------------------------
+[BG ForestBase];
+type = normal
+spriteno = 9,1
+start = 0,278
+delta = 0.04,0.04
+mask = 1
+tile = 1,0
+tilespacing = 0, 0  
+[BG ForestTop];
+type = normal
+spriteno = 9,0
+start = 0,278
+delta = 0.04,0.04
+mask = 1
+tile = 1,0
+tilespacing = 0, 0 
+
+;------------------------
+[BG Grain Hill Left top];
+type = normal
+spriteno = 77,4
+start = -800,416
+delta = 0.25,0.25
+mask = 1 
+layerno =0
+[BG Grain Hill Left bottom] 
+type = normal
+spriteno = 77,2
+start = -800,416 
+delta = 0.25,0.25
+mask = 1 
+layerno =0
+[BG Grain Hill Left top];
+type = normal
+spriteno = 77,3
+start = -800,416
+delta = 0.25,0.25
+mask = 1 
+layerno =0
+
+[BG Grain Hill bottom bottom] 
+type = normal
+spriteno = 77,111
+start = -800,416 
+delta = 0.24,0.24
+mask = 1 
+layerno =0
+;----------------------------------------
+[BG WheatClumps BackBack];
+type = anim ;normal
+actionno = 646 
+start = -1508,249
+delta = 1.05,1.05
+mask = 1 
+tile = 9,0
+tilespacing =  199,0; -3,0 
+[BG WheatClumps Back];
+type = anim ;normal
+actionno = 643
+;start = -3000,376
+start = -2050,245
+delta = 1.25,1.25
+mask = 1 
+tile = 4,0
+tilespacing =  442,0; -3,0 
+[BG WheatClumps Back];
+type = anim ;normal
+actionno = 644 
+;start = -2050,245
+start = -1829,245
+delta = 1.25,1.25
+mask = 1 
+tile = 3,0
+tilespacing =  442,0; -3,0  
+;tile = 7,0
+;tilespacing =  221,0; -3,0  
+[BG WheatClumps Backright1];
+type = anim ;normal
+actionno = 643
+;start = -3000,376
+start = -503,245
+delta = 1.25,1.25
+;delta = 1.45,1.45
+mask = 1 
+;tile = 7,0
+tile = 4,0
+tilespacing =  221,0; -3,0  
+[BG WheatClumps Backright end];
+type = anim ;normal
+actionno = 643
+;start = -3000,376
+start = 381,255
+delta = 1.25,1.25
+;delta = 1.45,1.45
+mask = 1 
+;tile = 7,0
+tile = 3,0
+tilespacing =  221,0; -3,0  
+;------------------------
+
+[BG DragonFly 3];
+type = anim ;normal
+actionno = 186 
+start = -990,350 
+delta = 1.69,1.69
+mask = 1  
+id = 185 
+[BG DragonFly 3];
+type = anim ;normal
+actionno = 188 
+start = -990,350 
+delta = 1.69,1.69
+mask = 1  
+id = 187 
+
+[BG GrainPath LeftEdge 1];
+type = anim ;normal
+actionno = 775 
+;start = -3000,376
+start = -3050,245;-2146
+delta = 1.55,1.55
+mask = 1 
+tile = 2,0
+;tile = 26,0
+tilespacing =  452,0; -3,0  
+[BG GrainPath Back];
+type = anim ;normal
+actionno = 775 
+;start = -3000,376
+start = -2146,215;
+delta = 1.55,1.55
+mask = 1 
+tile = 10,0
+;tile = 26,0
+tilespacing =  452,0; -3,0  
+[BG Grain Path Back];;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;??????????????????????????????????????
+type = anim ;normal
+actionno = 775 
+;start = -3000,376
+start = 1118,235
+delta = 1.55,1.55
+mask = 1 
+tile = 2,0
+;tile = 26,0
+tilespacing =  452,0; -3,0    
+[BG GrainPath LeftEdge 2];
+type = anim ;normal
+actionno = 777 
+;start = -3000,376
+start = -2824,237
+delta = 1.55,1.55
+mask = 1  
+[BG GrainPath LeftEdge 3];
+type = anim ;normal
+actionno = 776 
+start = -2937,239
+delta = 1.56,1.56
+mask = 1  
+[BG GrainPath LeftEdge 4];
+type = anim ;normal
+actionno = 774 
+start = -2711,242 
+delta = 1.57,1.57
+mask = 1   
+
+[BG Grain Path LeftBack];
+type = anim ;normal
+actionno = 777 
+;start = -3000,376
+start = -2372,217
+delta = 1.55,1.55
+mask = 1 
+tile = 10,0 ;;;;;;;;;;;;;;;;;;;;;;;;9
+;tile = 26,0 
+tilespacing =  452,0; -3,0  
+[BG Grain Path Back];
+type = anim ;normal
+actionno = 776 
+start = -2485,219
+delta = 1.56,1.56
+mask = 1 
+tile = 9,0
+tilespacing =  452,0; -3,0  
+[BG Grain Path Back];
+type = anim ;normal
+actionno = 774 
+start = -2259,222 
+delta = 1.57,1.57
+mask = 1 
+tile = 9,0
+tilespacing =  452,0; -3,0   
+
+
+ 
+[BG Grain Path RIGHTBack];
+type = anim ;normal
+actionno = 777 
+;start = -3000,376
+start = 1696,237
+delta = 1.55,1.55
+mask = 1 
+tile = 3,0  
+;tile = 26,0 
+tilespacing =  452,0; -3,0  
+[BG Grain Path RIGHTBack];
+type = anim ;normal
+actionno = 776 
+start = 1583,239
+delta = 1.56,1.56
+mask = 1 
+tile = 4,0
+tilespacing =  452,0; -3,0  
+[BG Grain Path RIGHTBack];
+type = anim ;normal
+actionno = 774 
+start = 1809,242 
+delta = 1.57,1.57
+mask = 1 
+tile = 2,0
+tilespacing =  452,0; -3,0  
+
+;------------------------
+
+   
+[BG DragonFly 1];
+type = anim ;normal
+actionno = 185
+start = 0,240 
+delta = 1.78,1.78
+mask = 1  
+id = 185 
+[BG DragonFly 1];
+type = anim ;normal
+actionno = 187 
+start = 0,240 
+delta = 1.78,1.78
+mask = 1  
+id = 187 
+   
+[BG DragonFly 2];
+type = anim ;normal
+actionno = 186 
+start = 1000,300 
+delta = 1.78,1.78
+mask = 1  
+id = 185 
+[BG DragonFly 2];
+type = anim ;normal
+actionno = 188 
+start = 1000,300 
+delta = 1.78,1.78
+mask = 1  
+id = 187 
+
+
+;=======
+
+[BG AGrain Path];
+type = anim ;normal
+actionno = 997  
+start = -3080,235
+delta = 1.8,1.8
+mask = 1 
+tile = 26,0
+tilespacing =  226,0; -3,0  
+[BG BGrain Path];
+type = anim ;normal
+actionno = 996 
+start = -2967,238
+delta = 1.8,1.8
+mask = 1 
+tile = 13,0
+tilespacing =  452,0; -3,0  
+[BG CGrain Path];
+type = anim ;normal
+actionno = 999 
+start = -2741,240 
+delta = 1.8,1.8
+mask = 1 
+tile = 13,0
+tilespacing =  452,0; -3,0  
+;======= 
+
+;===========================GROUND LEVEL============================ 
+[BG 1Tree Right Leaf1];
+type = anim ;normal
+actionno = 20
+layerno = 0
+;start = 2187+24,370-295  ;24,-295
+start = 2213,75  ;,-295
+delta = 1.87,1.87  
+mask = 1 
+[BG 1Tree Right Leaf2];
+type = anim ;normal
+actionno = 21
+layerno = 0
+;start = 2187-150,370-306  ;24,-295
+start = 2037,63  ;,-295
+delta = 1.87,1.87  
+mask = 1 
+[BG 1Tree Right Leaf3];
+type = anim ;normal
+actionno = 22
+layerno = 0
+;start = 2187-28,370-438  ;24,-295
+start = 2159,-68  ;,-295
+delta = 1.87,1.87  
+mask = 1 
+[BG 1Tree Right];
+type = normal
+spriteno = 19,223
+layerno = 0
+start = 2187,370 
+delta = 1.87,1.87  
+mask = 1 
+[BG LoneSprigs 1];;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+type = anim ;normal
+actionno = 36 
+start = 3017,160
+delta = 1.90,1.90
+delta = 2,2
+mask = 1 
+;tile = 13,0
+;tilespacing =  452,0; -3,0   
+[BG Rock Fly Back];
+type = anim ;normal
+actionno = 187 
+start = 3387,290
+delta = 1.90,1.90
+mask = 1      
+id= 718   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;718
+[BG Rock Fly Back];
+type = anim ;normal
+actionno = 185 
+start = 3387,290
+delta = 1.90,1.90
+mask = 1      
+id= 716   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;718
+[BG 1Boulder Right];
+type = normal
+spriteno = 205,0
+layerno = 0
+start = 3287,390
+delta = 1.90,1.90
+mask = 1 
+
+
+[BG 1Grain Path];
+type = anim ;normal
+actionno = 998
+;actionno = 999 
+;start = -2940,389
+start = -3020,261
+delta = 1.93,1.93
+mask = 1 
+tile = 25,0
+tilespacing =  226,0; -3,0     
+;trans = addalpha
+;alpha = 128,256
+[BG 2Grain Path];
+type = anim ;normal
+actionno = 777
+;actionno = 777
+;start = -2827,389
+start = -2907,259
+delta = 1.93,1.93
+mask = 1 
+tile = 13,0
+tilespacing =  452,0; -3,0     
+;trans = addalpha
+;alpha = 128,256
+[BG 3Grain Path];
+type = anim ;normal
+actionno = 776
+;actionno = 776
+;start = -2601,389
+start = -2681,256
+delta = 1.93,1.93
+mask = 1 
+tile = 12,0
+tilespacing =  452,0; -3,0      
+;trans = addalpha
+;alpha = 128,256 
+
+[BG End Boulder Right];
+type = normal
+spriteno = 207,0
+layerno = 0
+start = 3900,390
+delta = 1.95,1.95
+mask = 1 
+[BG Rock Fly Front];
+type = anim ;normal
+actionno = 187 
+start = 3387,290
+delta = 1.90,1.90
+mask = 1      
+id= 719   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;719
+[BG Rock Fly Front];
+type = anim ;normal
+actionno = 185 
+start = 3387,290
+delta = 1.90,1.90
+mask = 1      
+id= 715   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 715
+
+[BG Sprigs 1];;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+type = anim ;normal
+actionno = 38;37
+start = 2670,168
+delta = 1.90,1.90
+mask = 1 
+layerno=0
+;tile = 13,0
+;tilespacing =  452,0; -3,0    
+
+;------------------------
+[BG BackBackWeedPath];
+type = anim ;normal
+actionno = 889;80,0 
+start = -124,292 
+;start = 160,424 
+mask = 1  
+tilespacing =  377,0 
+layerno = 0
+start = 160,424
+delta = 1.95,1.95 
+tile = 1,0 
+ 
+
+
+[BG 1Tree Left Leaf1];
+type = anim ;normal
+actionno = 20
+layerno = 0 
+;start = -3093,380  ;78,-431
+start = -3015,-51  ;78,-431
+delta = 1.95,1.95  ;floor on hirez
+mask = 1 
+[BG 1Tree Left Leaf2];
+type = anim ;normal
+actionno = 21
+layerno = 0 
+;start = -3093-89,380-207; -89,-207
+start = -3182,172;
+delta = 1.95,1.95  ;floor on hirez
+mask = 1 
+[BG Tree Left];
+type = normal
+spriteno = 19,22
+layerno = 0
+start = -3093,380;
+delta = 1.95,1.95  ;floor on hirez
+mask = 1 
+[BG 1Tree Left Leaf3];
+type = anim ;normal
+actionno = 22
+layerno = 0 
+;start = -3093,380;210,-330
+start = -2884,50
+delta = 1.95,1.95  ;floor on hirez
+mask = 1 
+[BG Statue Left];
+type = normal
+spriteno = 200,4
+layerno = 0
+start = -2980,382
+delta = 1.99,1.99  ;floor on hirez
+mask = 1 
+   
+[BG BackWeedPath];
+type = anim ;normal
+actionno = 888;80,0 
+start = -284,283
+;start = 0,416
+mask = 1  
+tilespacing =  387,0 
+layerno = 0 
+delta = 2,2 ;floor on hirez
+tile = 1,0 
+;spriteno = 80,0
+;layerno = 0
+;start = 0,416
+;delta = 2,2 ;floor on hirez
+;mask = 1 
+;tile = 1,0
+;tilespacing = 10,0 
+
+;------------------------------------------------------loosewheat
+[BG loosewheat];
+type = anim ;normal
+actionno = 38;44 
+start = -2121,172
+delta = 2,2
+mask = 1 
+tile = 11,0
+tilespacing =  432,0; -3,0      
+[BG loosewheat];
+type = anim ;normal
+actionno = 35;44 
+start = -2191,175;216
+delta = 2,2
+mask = 1 
+tile = 12,0
+tilespacing =  452,0; -3,0 
+
+[BG FuzzBall 02];
+type = anim ;normal
+actionno = 249  
+ID = 249
+start = -2220,180
+delta = 1.9,1.9 
+mask = 1   
+layerno=0
+tile = 1,0
+tilespacing = 1180,0  
+
+[BG Sprigs 1];;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+type = anim ;normal
+actionno = 35
+start = 0,188
+delta = 2,2
+mask = 1 
+;tile = 13,0
+;tilespacing =  452,0; -3,0           
+
+[BG BG Lil rocks];
+type = normal
+spriteno = 55,2
+layerno = 0
+start = 2587,380
+delta = 2,2  
+mask = 1 
+tile = 3,0   ;;;;;;;;;;;;;;;4,0
+tilespacing = 687,0  
+;------------------------
+[BG DirtPath];
+type = normal
+spriteno = 100,1
+layerno = 0
+start = 0,416
+delta = 2,2  ;floor on hirez
+mask = 1 
+tile = 1,0
+tilespacing = 0,0   
+
+;============================FOREGROUND=============================
+
+[BG FrontWeedPath];
+type = anim ;normal
+actionno = 889;80,1 
+start = -124,378 
+;start = 0,416
+mask = 1  
+tilespacing = 754,0  
+delta = 2.01,2.01   
+tile = 1,0   
+layerno = 1 
+mask = 1   
+[BG FrontWeedPath];
+type = anim ;normal
+actionno = 888;80,1 
+start = 253,378 
+;start = 0,416
+mask = 1    
+delta = 2.01,2.01   
+tile = 1,0   
+layerno = 1 
+mask = 1  
+tilespacing = 754,0 
+;tilespacing = 377,0 
+
+
+;[BG 0 Rock];
+;type = normal
+;spriteno = 20,2
+;layerno = 1
+;start = 0,416  ;0,0 X&Y starting = 0,416
+;delta = 2,2
+;mask = 1 
+
+[BG FG Tall Rock];
+type = normal
+spriteno = 20,1
+layerno = 1
+start = -230,516
+delta = 2.05,2.05
+mask = 1  
+
+[BG FG Rock3 midright];
+type = normal
+spriteno = 55,10
+layerno = 1
+start = 1110,530
+delta = 2.10,2.10
+mask = 1 
+
+
+
+[BG FrontWeedPath];
+type = anim ;normal
+actionno = 892;80,1 
+start = 192,378
+;start = 0,416
+mask = 1    
+delta = 2.11,2.11   
+tile = 1,0   
+layerno = 1 
+mask = 1  
+tilespacing = 866,0 
+;tilespacing = 377,0 
+
+[BG FrontWeedPath];
+type = anim ;normal
+actionno = 893;80,1 
+start = -241,378
+;start = 0,416
+mask = 1    
+delta = 2.11,2.11   
+tile = 1,0   
+layerno = 1 
+mask = 1  
+tilespacing = 866,0 
+;tilespacing = 377,0  
+
+
+[BG Statue Front Left];
+type = normal
+spriteno = 200,7
+layerno = 1
+start = -3867,680
+delta = 2.21,2.21  
+mask = 1 
+
+[BG Statue Front Left];
+type = normal
+spriteno = 200,7
+layerno = 1
+start = -3487,710
+delta = 2.27,2.27  
+mask = 1 
+
+[BG FuzzBall 01];
+type = anim ;normal
+actionno = 250  
+ID = 250
+start = -2720,200
+delta = 2.5,2.5 
+mask = 1   
+layerno=1
+tile = 1,0
+tilespacing = 1180,0 
+ 
+[BG Sprigs 1];;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+type = anim ;normal
+actionno = 40;38
+start = -2772,298
+delta = 2.5,2.5 
+mask = 1 
+layerno=1
+tile = 7,0
+tilespacing =  952,0; -3,0   
+[BG Sprigs 1];;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+type = anim ;normal
+actionno = 41;35
+start = -3490,326
+delta = 2.5,2.5 
+mask = 1 
+layerno=1
+tile = 7,0
+tilespacing =  1252,0; -3,0    
+[BG Sprigs 1];;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+type = anim ;normal
+actionno = 39;37
+start = -2300,321
+delta = 2.5,2.5 
+mask = 1 
+layerno=1
+tile = 5,0
+tilespacing =  952,0; -3,0    
+
+[BG FuzzBall 01];
+type = anim ;normal
+actionno = 252  
+ID = 252
+start = -2620,200
+delta = 3.2,3.2 
+mask = 1   
+layerno=1
+tile = 1,0
+tilespacing = 1380,0  
+
+[BG SunShine];
+type = anim ;normal
+actionno = 30000  
+ID = 30000
+start = 20,0
+delta = 0.06,0 
+mask = 1   
+layerno=1
+zoomdelta = 0, 0
+
+[BG Darkness];
+type = anim ;normal
+actionno = 31000 
+start = -434,120
+delta = 0.06,-0.01
+mask = 1   
+layerno=1
+zoomdelta = 0, 0
+
+;============================DragonFly======================
+;[BGCtrlDef my_controller_name]
+;looptime = 707;GLOBAL_LOOPTIME
+;ctrlID =187; DEFAULTID_1, DEFAULTID_2, ...
+     
+[BGCtrl 187 187] ;Looking right
+type = anim 
+time = 0,0,707  
+ctrlID = 185
+value = 185  
+[BGCtrl 187 187] ;Looking right
+type = anim 
+time = 0,0,707  
+ctrlID = 187
+value = 187 
+[BGCtrl stop]
+type = velset  
+time = 0,13,707 
+ctrlID = 187,185
+x=0
+y=0
+[BGCtrl  46x59 UR]
+type = velset  
+time = 14,37,707 
+ctrlID = 187,185
+x=2
+y=-2.56521
+[BGCtrl 156x96 UR]
+type = velset 
+time = 38,75,707 
+ctrlID = 187,185
+x=4.297
+y=-2.594
+[BGCtrl stop 2]
+type = velset 
+time = 76,138,707 
+ctrlID = 187,185
+x=0
+y=0
+[BGCtrl 27x27 DR] ;;;;;;;;;;;;;;;;;;;loop 1
+type = velset  
+time = 139,166,2121 
+ctrlID = 187,185
+x=1
+y=1
+[BGCtrl 27x27 DR] ;;;;;;;;;;;;;;;;;;;loop 2
+type = velset  
+time = 846,873,2121 
+ctrlID = 187,185
+x=1.5
+y=0.44
+[BGCtrl 27x27 DR] ;;;;;;;;;;;;;;;;;;;loop 3
+type = velset  
+time = 1553,1580,2121 
+ctrlID = 187,185
+x=0.5
+y=1.5
+[BGCtrl stop 3]
+type = velset 
+time = 167,175,707 
+ctrlID = 187,185
+x=0
+y=0  
+
+[BGCtrl 187 188] ;Looking left
+type = anim
+time = 174,174,707  
+ctrlID = 187
+value = 188 
+[BGCtrl 187 188] ;Looking left
+type = anim
+time = 174,174,707  
+ctrlID = 185
+value = 186 
+
+[BGCtrl 260x73 UL]
+type = velset 
+time = 176,249,707 ;73tics
+ctrlID = 187,185
+x=-3.5616
+y=-1.02
+
+[BGCtrl 150x71 DL]
+type = velset ;CONTROLLER_TYPE
+time = 250,300,707;START_TIME, END_TIME, LOOPTIME
+ctrlID = 187,185
+x=-3
+y=1.42   
+[BGCtrl 187 187] ;Looking right
+type = anim 
+time = 300,300,707  
+ctrlID = 187,185
+value = 187 
+[BGCtrl 72x153 UR]
+type = velset ;CONTROLLER_TYPE
+time = 301,351,707;START_TIME, END_TIME, LOOPTIME
+ctrlID = 187,185
+x=1.42
+y=-3
+
+[BGCtrl stop 4]
+type = velset ;CONTROLLER_TYPE
+time = 352,435,707;START_TIME, END_TIME, LOOPTIME
+ctrlID = 187,185
+x=0
+y=0   
+    
+[BGCtrl 187 188] ;Looking left
+type = anim
+time = 432,432,707  
+ctrlID = 187
+value = 188 
+[BGCtrl 187 188] ;Looking left
+type = anim
+time = 432,432,707  
+ctrlID = 185
+value = 186 
+[BGCtrl 61x23 DL] ;;;;;;;;;;;;;;;;;;;loop 1
+type = velset ; 
+time = 436,459,2121; 23tics
+ctrlID = 187,185
+x=-3.813           ;65 not 61
+y=0.89   
+[BGCtrl 61x23 DL]  ;;;;;;;;;;;;;;;;;;;loop 2
+type = velset ; 
+time = 1143,1166,2121; 23tics
+ctrlID = 187,185
+x=-3.413           ;65 not 61
+y=0.91   
+[BGCtrl 61x23 DL]  ;;;;;;;;;;;;;;;;;;;loop 3
+type = velset ; 
+time = 1850,1873,2121; 23tics
+ctrlID = 187,185
+x=-3.013           ;65 not 61
+y=0.87   
+[BGCtrl 187 187] ;Looking right
+type = anim 
+time = 460,460,707 
+ctrlID = 185
+value = 185 
+[BGCtrl 187 187] ;Looking right
+type = anim 
+time = 460,460,707 
+ctrlID = 187
+value = 187 
+[BGCtrl 48x74 DR]
+type = velset ;CONTROLLER_TYPE
+time = 460,484,707;START_TIME, END_TIME, LOOPTIME
+ctrlID = 187,185
+x=2
+y=3.08333
+[BGCtrl stop 5]
+type = velset ;CONTROLLER_TYPE
+time = 485,499,707;START_TIME, END_TIME, LOOPTIME
+ctrlID = 187,185
+x=0
+y=0  
+
+
+[BGCtrl 120x50 DR]
+type = velset ;CONTROLLER_TYPE
+time = 500,540,707;START_TIME, END_TIME, LOOPTIME
+ctrlID = 187,185
+x=3
+y=1.25
+[BGCtrl 66x44 DR]
+type = velset ;CONTROLLER_TYPE
+time = 541,574,707;START_TIME, END_TIME, LOOPTIME
+ctrlID = 187,185
+x=2
+y=1.33
+[BGCtrl 66x44 UL] ;-------------------------------------randomizer
+type = velset  
+time = 575,591,2121  ;16tics
+ctrlID = 187,185
+x=-5
+y=-0.75
+[BGCtrl stop 6]
+type = velset ; 
+;time = 575,591,707; 
+time = 1282,1298,2121;575+707,591+707
+ctrlID = 187,185
+x=-6
+y=0.33
+[BGCtrl stop 6]
+type = velset ; 
+;time = 575,591,707; 
+time = 1989,2005,2121;575+707+707,591+707+707
+ctrlID = 187,185
+x=-5
+y=-0.11
+
+[BGCtrl 187 188] ;Looking left
+type = anim
+;time = 575 
+time = 575,575,2121  ;16tics
+ctrlID = 185
+value = 186 
+[BGCtrl 187 188] ;Looking left
+type = anim
+time = 1282,1282,2121 
+ctrlID = 185
+value = 186 
+[BGCtrl 187 188] ;Looking left
+type = anim
+time = 1989,1989,2121  
+ctrlID = 185
+value = 186 
+[BGCtrl 187 188] ;Looking left
+type = anim
+;time = 575 
+time = 575,575,2121  ;16tics
+ctrlID = 187
+value = 188 
+[BGCtrl 187 188] ;Looking left
+type = anim
+time = 1282,1282,2121 
+ctrlID = 187
+value = 188 
+[BGCtrl 187 188] ;Looking left
+type = anim
+time = 1989,1989,2121  
+ctrlID = 187
+value = 188 
+
+[BGCtrl 52x30 DL]
+type = velset ;CONTROLLER_TYPE
+time = 592,627,707;START_TIME, END_TIME, LOOPTIME
+ctrlID = 187,185
+x=-1.4857
+y=0.85714   
+[BGCtrl 187 187] ;Looking right
+type = anim 
+time = 627,627,707  
+ctrlID = 187
+value = 187 
+[BGCtrl 187 187] ;Looking right
+type = anim 
+time = 627,627,707  
+ctrlID = 185
+value = 185 
+[BGCtrl 94x66 DR]
+type = velset  
+time = 628,705,707; 
+ctrlID = 187,185
+x=1.2207
+y=0.85714
+[BGCtrl stop 6]
+type = velset ; 
+time = 706,707,707; 
+ctrlID = 187,185
+x=0
+y=0  
+
+
+;)))))))))))))))))))))))
+
+;[BGCtrl 718 188] ;Looking left
+;type = anim
+;time = 45 
+;ctrlID = 718,719
+;value = 188 
+      
+;[BGCtrl 718 187] ;Looking right
+;type = anim 
+;time = 91 
+;ctrlID = 718,719
+;value = 187 
+
+;============================Rock Fly==================================
+
+
+
+[BGCtrl Start Up Spot]
+type = posset ;CONTROLLER_TYPE
+time = 0,1,787;START_TIME, END_TIME, LOOPTIME
+ctrlID = 718,719,715,716
+;x=3387  
+;y= 290 
+x=-126;3387  
+y=-96; 290 
+
+[BGCtrl 718 187] ;Looking right
+type = anim 
+time = 0,1,787
+ctrlID = 718,719 
+value = 187 
+[BGCtrl 718 187] ;Looking right
+type = anim 
+time = 0,1,787
+ctrlID = 715,716
+value = 185 
+[BGCtrl 391x47 DR]
+type = velset  
+time = 0,65,787;94-65
+ctrlID = 718,719,715,716
+x=4.1595
+y=0.5 
+[BGCtrl STOP]
+type = velset 
+time = 66,80,787;48
+ctrlID = 718,719,715,716
+x=0
+y=0
+[BGCtrl 57x51 UR]
+type = velset 
+time = 81,97,787;23-16
+ctrlID = 718,719,715,716
+x=2.478
+y=-2.217
+[BGCtrl 467x47 DR]
+type = velset 
+time = 98,160,787;110-77
+ctrlID = 718,719,715,716
+x=4.245
+y=0.4274
+[BGCtrl 718 188] ;Looking left
+type = anim
+time = 161,162,787
+ctrlID = 718,719 
+value = 188 
+[BGCtrl 718 188] ;Looking left
+type = anim
+time = 161,162,787
+ctrlID = 715,716
+value = 186 
+[BGCtrl 121x31 DL]
+type = velset 
+time = 161,183,787;32-22
+ctrlID = 718,719,715,716
+x=-3.78125
+y=0.96875
+[BGCtrl STOP]
+type = velset 
+time = 184,332,787;148;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+ctrlID = 718,719,715,716
+x=0
+y=0
+[BGCtrl 77x69 UL]
+type = velset 
+time = 333,353,787;31-20
+ctrlID = 718,719,715,716
+x=-2.4838
+y=-2.2258
+[BGCtrl 213x33 DL]
+type = velset 
+time = 354,390,787;52-36
+ctrlID = 718,719,715,716
+x=-4.0961
+y=0.6346
+[BGCtrl 718 187] ;Looking right
+type = anim 
+time = 391,392,787
+ctrlID = 718,719 
+value = 187 
+[BGCtrl 718 187] ;Looking right
+type = anim 
+time = 391,392,787
+ctrlID = 715,716
+value = 185 
+[BGCtrl 215x59 DR BACK]
+type = velset 
+time = 391,432,787;59-41
+ctrlID = 718,719,715,716
+x=3.644
+y=1
+[BGCtrl STOP]
+type = velset 
+time = 433,640,787;48;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+ctrlID = 718,719,715,716
+x=0
+y=0
+[BGCtrl 718 188] ;Looking left
+type = anim
+time = 641,642,787
+ctrlID = 718,719 
+value = 188 
+[BGCtrl 718 188] ;Looking left
+type = anim
+time = 641,642,787
+ctrlID = 715,716
+value = 186 
+[BGCtrl 269x37 UL BACK]
+type = velset 
+time = 641,686,787;65-45
+ctrlID = 718,719,715,716
+x=-4.1384
+y=-0.5692
+[BGCtrl 282x66 DL BACK]
+type = velset 
+time = 687,738,787;74-51
+ctrlID = 718,719,715,716
+x=-3.8108
+y=0.8919
+[BGCtrl STOP]
+type = velset 
+time = 739,787,787;48
+ctrlID = 718,719,715,716
+x=0
+y=0
+   
+[BGCtrl vis]
+type=Visible
+value = 0
+ctrlID = 719,715;;;;;;;;;;;;;;;top
+time = 0,66,787; 
+[BGCtrl vis]
+type=Visible
+value = 1
+ctrlID = 719,715;;;;;;;;;;;;;;;top
+time = 66,391,787; 
+[BGCtrl vis]
+type=Visible
+value = 0
+ctrlID = 719,715;;;;;;;;;;;;;;;top
+time = 391,787,787; 
+
+   
+[BGCtrl vis]
+type=Visible
+value = 1
+ctrlID = 718,716;;;;;;;;;;;;;;;top
+time = 0,66,787; 
+[BGCtrl vis]
+type=Visible
+value = 0
+ctrlID = 718,716;;;;;;;;;;;;;;;top
+time = 66,391,787; 
+[BGCtrl vis]
+type=Visible
+value = 1
+ctrlID = 718,716;;;;;;;;;;;;;;;top
+time = 391,787,787; 
+
+
+
+;===============
+[BGCtrl SunShine Stop]
+type = velset 
+time = 0,18,551 
+ctrlID = 30000
+x=0 
+[BGCtrl SunShine Go]
+type = veladd
+time = 19,50,551 
+ctrlID = 30000
+x= 0.0108  
+[BGCtrl SunShine Go]
+type = veladd
+time = 119,150,551 
+ctrlID = 30000
+x=-0.0108   
+
+[BGCtrl SunShine Stop]
+type = velset 
+time = 151,198,551 
+ctrlID = 30000
+x=0 
+[BGCtrl SunShine Go]
+type = veladd
+time = 199,230,551 
+ctrlID = 30000
+x=-0.0108  
+[BGCtrl SunShine Go]
+type = veladd
+time = 299,330,551 
+ctrlID = 30000
+x=0.0108  
+
+[BGCtrl SunShine Stop]
+type = velset 
+time = 331,551,551 
+ctrlID = 30000
+x=0 
+
+
+;===============
+[BGCtrl SunShine Go]
+type = veladd
+time = 31,51,551 
+ctrlID = 30000 
+y=-0.01
+[BGCtrl SunShine Stop]
+type = veladd
+time = 61,81,551 
+ctrlID = 30000 
+y= 0.01
+[BGCtrl SunShine Go]
+type = veladd
+time = 194,214,551 
+ctrlID = 30000 
+y= 0.005
+[BGCtrl SunShine Stop]
+type = veladd
+time = 224,244,551 
+ctrlID = 30000 
+y=-0.005
+[BGCtrl SunShine Go]
+type = veladd
+time = 294,314,551 
+ctrlID = 30000 
+y= 0.005
+[BGCtrl SunShine Stop]
+type = veladd
+time = 324,344,551 
+ctrlID = 30000 
+y=-0.005
+
+
+
+
+;===============
+[BGCtrl Fuzzball 1 Origin]
+type = velset 
+time = 0,1,474  
+ctrlID = 249,250 
+x=-1.4
+y=-0.001 
+[BGCtrl Fuzzball 1 Origin]
+type = velset 
+time = 0,1,474  
+ctrlID = 252 
+x=-3.1
+y=-0.001 
+[BGCtrl Fuzzball 1 Origin]
+type = velset 
+time = 0,1,474  
+ctrlID = 250 
+x=-1.69
+y=-0.001 
+[BGCtrl Fuzzball Go]
+type = veladd
+time = 19,50,474  
+ctrlID =  250 
+y=-0.0118  
+[BGCtrl Fuzzball Go]
+type = veladd
+time = 19,50,474  
+ctrlID = 249,252  
+y=0.0138  
+[BGCtrl Fuzzball Go]
+type = veladd
+time = 79,110,474  
+ctrlID = 249,252  
+y=-0.0138 
+[BGCtrl Fuzzball Go]
+type = veladd
+time = 79,110,474  
+ctrlID =  250 
+y= 0.0118   
+[BGCtrl Fuzzball Go]
+type = veladd
+time = 119,170,474 
+ctrlID = 249,250,252 
+y= 0.0068   
+[BGCtrl Fuzzball Go]
+type = veladd
+time = 186,195,474 
+ctrlID = 249,250,252 
+y= 0.0068   
+;[BGCtrl Fuzzball PAUSE]
+;type = Enable
+;time = 197,237,474
+;ctrlID = 250
+;value = 0
+
+;[BGCtrl Fuzzball Reset]
+;type = Enable
+;time = 238,239,474 
+;ctrlID = 250
+;value = 1
+[BGCtrl Fuzz 01 2nd Spot]
+type = posadd ;CONTROLLER_TYPE
+time = 237,238,474 ;START_TIME, END_TIME, LOOPTIME
+ctrlID = 249,250,252 
+x=380 
+y=20 
+[BGCtrl Fuzzball Stop]
+type = velset 
+time = 240,241,474  
+ctrlID = 250 
+x=-1.73
+y=-0.002
+[BGCtrl Fuzzball Stop]
+type = velset 
+time = 240,241,474  
+ctrlID = 252 
+x=-2.73
+y=-0.002
+[BGCtrl Fuzzball Stop]
+type = velset 
+time = 240,241,474  
+ctrlID = 249  
+x=-1.4
+y=0.001
+[BGCtrl Fuzzball Go]
+type = veladd
+time = 259,290,474  
+ctrlID = 250 
+y=-0.0118  
+[BGCtrl Fuzzball Go]
+type = veladd
+time = 259,290,474  
+ctrlID = 249,252   
+y=-0.0068  
+[BGCtrl Fuzzball Go]
+type = veladd
+time = 319,350,474 
+ctrlID = 249,250,252  
+y= 0.0118   
+[BGCtrl Fuzzball Go]
+type = veladd
+time = 359,410,474  
+ctrlID = 249  
+y= 0.0047   
+[BGCtrl Fuzzball Go]
+type = veladd
+time = 359,410,474  
+ctrlID = 250,252  
+y= 0.0068   
+;[BGCtrl Fuzzball Reset]
+;type = Enable
+;time = 426,475,474 
+;ctrlID = 250
+;value = 0
+[BGCtrl Fuzz 01 2nd Spot]
+type = posset ;CONTROLLER_TYPE
+time = 473,474,474 ;START_TIME, END_TIME, LOOPTIME
+ctrlID = 249,250,252  
+x=410 
+y=-20 
+
+
+;============================ANIMATIONS=============================
+
+[Begin Action 44]
+44,44, 0,0, 10
+44,45, 0,0, 10
+44,46, 0,0, 10
+44,45, 0,0, 3
+
+[Begin Action 5]
+250,0, 0,0, 10, , A
+
+[Begin Action 6]
+1,112, 0,0, 10
+
+[Begin Action 7]
+10,2, 0,0, 10
+
+[Begin Action 185]
+187,3, 0,0, 2
+187,3, 0,1, 2
+187,3, 0,2, 2
+187,3, 0,2, 2
+187,3, 0,1, 2
+187,3, 0,1, 2
+187,3, 0,0, 2
+187,3, 0,-1, 2
+
+
+[Begin Action 186]
+187,3, 63,0, 2, H
+187,3, 63,1, 2, H
+187,3, 63,2, 2, H
+187,3, 63,2, 2, H
+187,3, 63,1, 2, H
+187,3, 63,1, 2, H
+187,3, 63,0, 2, H
+187,3, 63,-1, 2, H
+
+
+[Begin Action 187]
+187,1, 0,0, 2, , AS156D156
+187,7, 0,1, 2, , AS156D156
+187,2, 0,2, 2, , AS156D156
+187,8, 0,2, 2, , AS156D156
+187,1, 0,1, 2, , AS156D156
+187,7, 0,1, 2, , AS156D156
+187,2, 0,0, 2, , AS156D156
+187,8, 0,-1, 2, , AS156D156
+
+
+[Begin Action 188]
+187,1, 63,0, 2, H, AS156D156
+187,7, 63,1, 2, H, AS156D156
+187,2, 63,2, 2, H, AS156D156
+187,8, 63,2, 2, H, AS156D156
+187,1, 63,1, 2, H, AS156D156
+187,7, 63,1, 2, H, AS156D156
+187,2, 63,0, 2, H, AS156D156
+187,8, 63,-1, 2, H, AS156D156
+
+
+
+
+
+[Begin Action 249]
+251,0, 0,0, 30, , AS0D256
+251,0, 0,0, 3, , AS46D256
+251,0, 0,0, 3, , AS68D256
+251,0, 0,0, 3, , AS90D256
+251,0, 0,0, 4, , AS112D256
+251,0, 0,0, 4, , AS134D256
+251,0, 0,0, 67, , AS156D256
+251,0, 0,0, 4, , AS146D256
+251,0, 0,0, 4, , AS136D256
+251,0, 0,0, 4, , AS126D256
+251,0, 0,0, 4, , AS116D256
+251,0, 0,0, 4, , AS106D256
+251,0, 0,0, 4, , AS96D256
+251,0, 0,0, 4, , AS86D256
+251,0, 0,0, 4, , AS76D256
+251,0, 0,0, 4, , AS66D256
+251,0, 0,0, 4, , AS56D256
+251,0, 0,0, 4, , AS46D256
+251,0, 0,0, 4, , AS36D256
+251,0, 0,0, 4, , AS26D256
+251,0, 0,0, 4, , AS16D256
+251,0, 0,0, 67, , AS6D256
+
+[Begin Action 250] 
+251,0, 0,0, 3, , AS24D256
+251,0, 0,0, 3, , AS46D256
+251,0, 0,0, 3, , AS68D256
+251,0, 0,0, 3, , AS90D256
+251,0, 0,0, 4, , AS112D256
+251,0, 0,0, 4, , AS134D256
+251,0, 0,0, 120, , AS156D256
+251,0, 0,0, 4, , AS146D256
+251,0, 0,0, 4, , AS136D256
+251,0, 0,0, 4, , AS126D256
+251,0, 0,0, 4, , AS116D256
+251,0, 0,0, 4, , AS106D256
+251,0, 0,0, 4, , AS96D256
+251,0, 0,0, 4, , AS86D256
+251,0, 0,0, 4, , AS76D256
+251,0, 0,0, 4, , AS66D256
+251,0, 0,0, 4, , AS56D256
+251,0, 0,0, 4, , AS46D256
+251,0, 0,0, 4, , AS36D256
+251,0, 0,0, 4, , AS26D256
+251,0, 0,0, 4, , AS16D256
+251,0, 0,0, 41, , AS6D256
+
+[Begin Action 251]
+251,0, 0,0, 3, , AS24D256
+251,0, 0,0, 3, , AS46D256
+251,0, 0,0, 3, , AS68D256
+251,0, 0,0, 3, , AS90D256
+251,0, 0,0, 4, , AS112D256
+251,0, 0,0, 4, , AS134D256
+251,0, 0,0, 222, , AS156D256
+251,0, 0,0, 4, , AS146D256
+251,0, 0,0, 4, , AS136D256
+251,0, 0,0, 4, , AS126D256
+251,0, 0,0, 4, , AS116D256
+251,0, 0,0, 4, , AS106D256
+251,0, 0,0, 4, , AS96D256
+251,0, 0,0, 4, , AS86D256
+251,0, 0,0, 4, , AS76D256
+251,0, 0,0, 4, , AS66D256
+251,0, 0,0, 4, , AS56D256
+251,0, 0,0, 4, , AS46D256
+251,0, 0,0, 4, , AS36D256
+251,0, 0,0, 4, , AS26D256
+251,0, 0,0, 4, , AS16D256
+251,0, 0,0, 41, , AS6D256
+
+[Begin Action 252]
+250,2, 0,0, 3, , AS24D256
+250,2, 0,0, 3, , AS46D256
+250,2, 0,0, 3, , AS68D256
+250,2, 0,0, 3, , AS90D256
+250,2, 0,0, 4, , AS112D256
+250,2, 0,0, 4, , AS134D256
+250,2, 0,0, 82, , AS156D256
+250,2, 0,0, 4, , AS146D256
+250,2, 0,0, 4, , AS136D256
+250,2, 0,0, 4, , AS126D256
+250,2, 0,0, 4, , AS116D256
+250,2, 0,0, 4, , AS106D256
+250,2, 0,0, 4, , AS96D256
+250,2, 0,0, 4, , AS86D256
+250,2, 0,0, 4, , AS76D256
+250,2, 0,0, 4, , AS66D256
+250,2, 0,0, 4, , AS56D256
+250,2, 0,0, 4, , AS46D256
+250,2, 0,0, 4, , AS36D256
+250,2, 0,0, 4, , AS26D256
+250,2, 0,0, 4, , AS16D256
+250,2, 0,0, 79, , AS6D256
+
+[Begin Action 643]
+643,9, 0,0, 4
+643,10, 0,0, 4
+643,11, 0,0, 4
+643,12, 0,0, 4
+643,13, 0,0, 4
+643,14, 0,0, 4
+643,15, 0,0, 4
+643,16, 0,0, 4
+643,2, 0,0, 4
+643,3, 0,0, 4
+643,4, 0,0, 4
+643,5, 0,0, 4
+643,6, 0,0, 4
+643,7, 0,0, 4
+643,8, 0,0, 4
+
+[Begin Action 644]
+643,2, 0,0, 4
+643,3, 0,0, 4
+643,4, 0,0, 4
+643,5, 0,0, 4
+643,6, 0,0, 4
+643,7, 0,0, 4
+643,8, 0,0, 4
+643,9, 0,0, 4
+643,10, 0,0, 4
+643,11, 0,0, 4
+643,12, 0,0, 4
+643,13, 0,0, 4
+643,14, 0,0, 4
+643,15, 0,0, 4
+643,16, 0,0, 4
+
+[Begin Action 645]
+643,2, 0,0, 5
+643,3, 0,0, 5
+643,4, 0,0, 5
+643,5, 0,0, 5
+643,6, 0,0, 5
+643,7, 0,0, 5
+643,8, 0,0, 5
+643,9, 0,0, 5
+643,10, 0,0, 5
+643,11, 0,0, 5
+643,12, 0,0, 5
+643,13, 0,0, 5
+643,14, 0,0, 5
+643,15, 0,0, 5
+643,16, 0,0, 5
+
+[Begin Action 646]
+653,7, 1,0, 5
+653,8, 0,0, 5
+653,9, 0,0, 5
+653,10, 0,0, 5
+653,11, 0,0, 5
+653,12, 0,0, 5
+653,13, 0,0, 5
+653,14, 0,0, 5
+653,15, 0,0, 5
+653,16, 0,0, 5
+653,2, 0,0, 5
+653,3, 0,0, 5
+653,4, 0,0, 5
+653,5, 0,0, 5
+653,6, 0,0, 5
+
+[Begin Action 774]
+999,1005, 80,130, 2
+999,1010, 80,130, 3
+999,1001, 80,130, 3
+999,1013, 80,130, 3
+999,1015, 80,130, 2
+999,1012, 80,130, 2
+999,1004, 80,130, 3
+999,1011, 80,130, 4
+999,1005, 80,130, 4
+999,1010, 80,130, 5
+999,1001, 80,130, 4
+999,1013, 80,130, 4
+999,1015, 80,130, 3
+999,1012, 80,130, 2
+999,1004, 80,130, 2
+999,1011, 80,130, 3
+
+[Begin Action 775]
+999,1010, 80,130, 2
+999,1001, 80,130, 3
+999,1013, 80,130, 3
+999,1015, 80,130, 4
+999,1012, 80,130, 5
+999,1004, 80,130, 4
+999,1011, 80,130, 3
+999,1005, 80,130, 3
+999,1010, 80,130, 4
+999,1001, 80,130, 5
+999,1013, 80,130, 4
+999,1015, 80,130, 3
+999,1012, 80,130, 3
+999,1004, 80,130, 2
+999,1011, 80,130, 2
+999,1005, 80,130, 3
+
+[Begin Action 776]
+999,1004, 80,130, 5
+999,1012, 80,130, 4
+999,1015, 80,130, 3
+999,1013, 80,130, 3
+999,1001, 80,130, 2
+999,1010, 80,130, 2
+999,1005, 80,130, 3
+999,1011, 80,130, 4
+999,1004, 80,130, 3
+999,1012, 80,130, 4
+999,1015, 80,130, 3
+999,1013, 80,130, 3
+999,1001, 80,130, 4
+999,1010, 80,130, 4
+999,1005, 80,130, 3
+999,1011, 80,130, 3
+
+[Begin Action 777]
+999,1013, 80,130, 3
+999,1015, 80,130, 3
+999,1012, 80,130, 3
+999,1004, 80,130, 3
+999,1011, 80,130, 3
+999,1005, 80,130, 3
+999,1010, 80,130, 3
+999,1001, 80,130, 3
+999,1013, 80,130, 3
+999,1015, 80,130, 3
+999,1012, 80,130, 3
+999,1004, 80,130, 3
+999,1011, 80,130, 3
+999,1005, 80,130, 3
+999,1010, 80,130, 3
+999,1001, 80,130, 3
+
+[Begin Action 888]
+8076,0, 0,0, 7
+888,0, 0,0, 6
+888,1, 0,0, 3
+888,2, 0,0, 5
+888,3, 0,0, 5
+888,2, 0,0, 4
+888,1, 0,0, 3
+888,0, 0,0, 5
+
+[Begin Action 889]
+888,3, 0,0, 6
+888,2, 0,0, 3
+888,1, 0,0, 3
+888,0, 0,0, 6
+8076,0, 0,0, 7
+888,0, 0,0, 6
+888,1, 0,0, 3
+888,2, 0,0, 7
+
+[Begin Action 890]
+808,1, 0,0, 6
+889,0, 0,0, 3
+889,2, 0,0, 3
+889,3, 0,0, 7
+889,1, 0,0, 4
+889,0, 0,0, 5
+808,1, 0,0, 6
+889,0, 0,0, 4
+889,1, 0,0, 4
+889,3, 0,0, 7
+889,2, 0,0, 4
+889,0, 0,0, 5
+
+[Begin Action 891]
+808,1, 0,0, 7
+889,0, 0,0, 5
+889,2, 0,0, 5
+889,3, 0,0, 8
+889,2, 0,0, 5
+889,0, 0,0, 6
+
+[Begin Action 892]
+887,0, 0,0, 6
+887,1, 0,0, 3
+887,2, 0,0, 6
+887,4, 0,0, 9
+887,3, 0,0, 4
+887,1, 0,0, 7
+
+[Begin Action 893]
+887,0, 0,0, 6
+887,1, 0,0, 3
+887,2, 0,0, 6
+887,4, 0,0, 9
+887,3, 0,0, 4
+887,1, 0,0, 5
+887,0, 0,0, 6
+887,1, 0,0, 3
+887,2, 0,0, 4
+887,4, 0,0, 5
+887,3, 0,0, 4
+887,1, 0,0, 7
+887,0, 0,0, 8
+887,1, 0,0, 6
+887,2, 0,0, 4
+887,4, 0,0, 3
+887,3, 0,0, 4
+887,1, 0,0, 7
+
+[Begin Action 996]
+999,1012, 80,130, 4
+999,1015, 80,130, 5
+999,1013, 80,130, 5
+999,1001, 80,130, 5
+999,1010, 80,130, 3
+999,1005, 80,130, 3
+999,1011, 80,130, 3
+999,1004, 80,130, 4
+999,1012, 80,130, 5
+999,1015, 80,130, 5
+999,1013, 80,130, 5
+999,1001, 80,130, 5
+999,1010, 80,130, 5
+999,1005, 80,130, 4
+999,1011, 80,130, 4
+999,1004, 80,130, 5
+
+
+[Begin Action 997]
+999,1011, 80,130, 4
+999,1004, 80,130, 4
+999,1012, 80,130, 3
+999,1015, 80,130, 3
+999,1013, 80,130, 4
+999,1001, 80,130, 4
+999,1010, 80,130, 4
+999,1005, 80,130, 5
+999,1011, 80,130, 5
+999,1004, 80,130, 6
+999,1012, 80,130, 6
+999,1015, 80,130, 6
+999,1013, 80,130, 5
+999,1001, 80,130, 5
+999,1010, 80,130, 5
+999,1005, 80,130, 5
+
+
+[Begin Action 998]
+999,1001, 80,130, 5
+999,1010, 80,130, 5
+999,1005, 80,130, 4
+999,1011, 80,130, 4
+999,1004, 80,130, 3
+999,1012, 80,130, 5
+999,1015, 80,130, 5
+999,1013, 80,130, 5
+
+
+[Begin Action 999]
+999,1001, 80,130, 5
+999,1010, 80,130, 5
+999,1005, 80,130, 5
+999,1011, 80,130, 5
+999,1004, 80,130, 5
+999,1012, 80,130, 4
+999,1015, 80,130, 4
+999,1013, 80,130, 4
+999,1001, 80,130, 4
+999,1010, 80,130, 4
+999,1005, 80,130, 5
+999,1011, 80,130, 5
+999,1004, 80,130, 5
+999,1012, 80,130, 5
+999,1015, 80,130, 5
+999,1013, 80,130, 5
+
+[Begin Action 20]
+28351,0, 0,0, 5
+28351,3, 1,-1, 5
+28351,4, -3,-4, 5
+28351,5, 1,-3, 5
+28351,3, 1,-1, 5
+28351,4, -3,-4, 5
+28351,5, 1,-3, 5
+28351,3, 1,-1, 5
+28351,0, 0,0, 5
+28351,2, 2,-3, 5
+28351,4, -3,-4, 5
+28351,3, 1,-1, 5
+28351,0, 0,0, 5
+28351,4, -3,-4, 5
+28351,3, 1,-1, 5
+28351,0, 0,0, 5
+28351,3, 1,-1, 5
+28351,5, 1,-3, 5
+
+[Begin Action 21] 
+28351,3, 1,-1, 5
+28351,4, -3,-4, 5
+28351,3, 1,-1, 5
+28351,0, 0,0, 5
+28351,4, -3,-4, 5
+28351,0, 0,0, 5
+28351,3, 1,-1, 5
+28351,4, -3,-4, 5
+28351,5, 1,-3, 5
+28351,3, 1,-1, 5
+28351,0, 0,0, 5
+28351,2, 2,-3, 5
+28351,4, -3,-3, 5
+
+[Begin Action 22]
+28351,4, -3,-4, 5
+28351,0, 0,0, 5
+28351,3, 1,-1, 5
+28351,4, -3,-4, 5
+28351,5, 1,-3, 5
+28351,3, 1,-1, 5
+28351,0, 0,0, 5
+28351,3, 1,-1, 5
+28351,4, -3,-4, 5
+28351,0, 0,0, 5
+28351,2, 2,-3, 5
+28351,5, 1,-3, 5
+28351,3, 1,-1, 5
+28351,6, 1,-2, 5
+
+[Begin Action 30000]
+30000,0, 0,0, 10, , A
+
+
+[Begin Action 31000]
+33000,0, 0,0, 10, , S
+
+[Begin Action 35]
+6650,0, 0,0, 2
+6650,1, 0,0, 2
+6650,2, 0,0, 2
+6650,4, 0,0, 2
+6650,5, 0,0, 2
+6650,7, 0,0, 2
+6650,8, 0,0, 2
+6650,10, 0,0, 2
+6650,11, 0,0, 2
+6650,12, 0,0, 2
+6650,9, 0,0, 3
+6650,6, 0,0, 3
+6650,3, 0,0, 3
+
+[Begin Action 36]
+6660,0, 0,0, 3
+6660,1, 0,0, 3
+6660,3, 0,0, 3
+6660,4, 0,0, 3
+6660,5, 0,0, 3
+6660,7, 0,0, 3
+6660,9, 0,0, 3
+6660,8, 0,0, 3
+6660,6, 0,0, 3
+6660,2, 0,0, 3
+
+[Begin Action 37]
+6670,0, 0,0, 4
+6670,1, 0,0, 4
+6670,2, 0,0, 4
+6670,3, 0,0, 4
+6670,4, 0,0, 4
+6670,5, 0,0, 4
+6670,6, 0,0, 4
+6670,7, 0,0, 4
+6670,2, 0,0, 4
+6670,9, 0,0, 4
+6670,10, 0,0, 4
+6670,11, 0,0, 4
+6670,12, 0,0, 4
+6670,13, 0,0, 4
+6670,14, 0,0, 4
+6670,15, 0,0, 4
+6670,16, 0,0, 4
+
+
+[Begin Action 38]
+6671,10, 0,0, 4
+6671,11, 0,0, 3
+6671,12, 0,0, 3
+6671,13, 0,0, 3
+6671,14, 0,0, 4
+6671,15, 0,0, 4
+6671,16, 0,0, 4
+6671,0, 0,0, 3
+6671,1, 0,0, 3
+6671,2, 0,0, 3
+6671,3, 0,0, 4
+6671,4, 0,0, 4
+6671,5, 0,0, 4
+6671,6, 0,0, 4
+6671,7, 0,0, 4
+6671,2, 0,0, 4
+6671,9, 0,0, 4
+
+
+[Begin Action 39]
+6673,4, 0,0, 5
+6673,5, 0,0, 4
+6673,6, 0,0, 4
+6673,7, 0,0, 4
+6673,2, 0,0, 5
+6673,9, 0,0, 5
+6673,10, 0,0, 5
+6673,11, 0,0, 4
+6673,12, 0,0, 4
+6673,13, 0,0, 4
+6673,14, 0,0, 5
+6673,15, 0,0, 5
+6673,16, 0,0, 4
+6673,0, 0,0, 4
+6673,1, 0,0, 4
+6673,2, 0,0, 5
+6673,3, 0,0, 5
+
+[Begin Action 40]
+6674,7, 0,0, 4
+6674,2, 0,0, 4
+6674,9, 0,0, 4
+6674,10, 0,0, 4
+6674,11, 0,0, 4
+6674,12, 0,0, 4
+6674,13, 0,0, 5
+6674,14, 0,0, 4
+6674,15, 0,0, 5
+6674,16, 0,0, 4
+6674,0, 0,0, 5
+6674,1, 0,0, 4
+6674,2, 0,0, 5
+6674,3, 0,0, 5
+6674,4, 0,0, 4
+6674,5, 0,0, 5
+6674,6, 0,0, 4
+
+[Begin Action 41]
+6651,11, 0,0, 3
+6651,12, 0,0, 3
+6651,9, 0,0, 3
+6651,6, 0,0, 3
+6651,3, 0,0, 3
+6651,0, 0,0, 3
+6651,1, 0,0, 3
+6651,2, 0,0, 3
+6651,4, 0,0, 3
+6651,5, 0,0, 3
+6651,7, 0,0, 3
+6651,8, 0,0, 3
+6651,10, 0,0, 3
+

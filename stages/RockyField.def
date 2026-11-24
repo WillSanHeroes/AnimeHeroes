@@ -1,0 +1,732 @@
+[Info]
+name = "DBFZ Rocky Field (Day)"
+displayname = "Rocky Field"
+;versiondate = 09,30,2009
+;mugenversion = 1.1
+author = "jafar"
+
+;--------------------------------------------------------
+[Camera]
+startx = 0
+starty = 0
+boundleft = -95
+boundright = 95
+boundhigh = -395
+boundlow = 0
+verticalfollow = 1.1
+floortension = 99
+tension = 80
+overdrawhigh = 0
+overdrawlow = 0
+cuthigh = 0
+cutlow = 0
+zoomin = 1.4
+zoomout = .9
+;--------------------------------------------------------
+[PlayerInfo]
+;--- Player 1 ---
+p1startx = -70          ;Starting x coordinates
+p1starty = 0            ;Starting y coordinates
+p1facing = 1            ;Direction player faces: 1=right, -1=left
+
+;--- Player 2 ---
+p2startx = 70
+p2starty = 0
+p2facing = -1
+
+;--- Common ---
+ ;Don't change these values.
+leftbound  = -1000 ;Left bound (x-movement)
+rightbound =  1000 ;Right bound
+
+;--------------------------------------------------------
+[Bound]
+screenleft = 15    ;Dist from left of screen that player can move to
+screenright = 15   ;Right edge
+
+;--------------------------------------------------------
+[StageInfo]
+zoffset = 220
+autoturn = 1
+resetBG = 0    ;1e.
+localcoord = 320, 240
+hires = 1
+xscale = 0.24
+yscale = 0.24
+
+;--------------------------------------------------------
+[Shadow]
+intensity = 96
+color = 0,0,0
+yscale = .3
+fade.range = 0,0
+
+;--------------------------------------------------------
+[Reflection]
+intensity = 0
+
+;--------------------------------------------------------
+[Music]
+bgmusic = sound/RockyField.mp3
+bgmvolume = 100
+
+;========================================================
+;--------------------------------------------------------
+; Background definition
+
+;-------------------------------------
+; Main background definition
+[BGdef]
+spr = RockyField.sff
+debugbg = 0
+
+[BG SKY]
+type  = normal
+spriteno = 1, 12
+layerno = 0
+start = 0, 100
+delta = 0.10, 0.10
+mask  = 1
+
+[BG BACK LEFT R]
+type  = normal
+spriteno = 3007, 0
+layerno = 0
+start = 0, 100
+delta = 0.10, 0.10
+mask  = 1
+
+[BG BACK LEFT G]
+type  = normal
+spriteno = 3007, 1
+layerno = 0
+start = 0, 100
+delta = 0.10, 0.10
+mask  = 1
+trans = add
+
+[BG BACK LEFT B]
+type  = normal
+spriteno = 3007, 2
+layerno = 0
+start = 0, 100
+delta = 0.10, 0.10
+mask  = 1
+trans = add
+
+[BG BACK FOG]
+type  = anim
+actionno = 3
+layerno = 0
+start = -400, 280
+delta = 0.10, 0.10
+mask  = 1
+
+[BG BACK FOG]
+type  = anim
+actionno = 4
+layerno = 0
+start = -400,280
+delta = 0.10, 0.10
+mask  = 1
+
+[BG BACK FOG]
+type  = anim
+actionno = 5
+layerno = 0
+start = -400, 280
+delta = 0.10, 0.10
+mask  = 1
+
+[BG BACK RIGHT R]
+type  = normal
+spriteno = 3006, 0
+layerno = 0
+start = 0, 100
+delta = 0.10, 0.10
+mask  = 1
+
+[BG BACK RIGHT G]
+type  = normal
+spriteno = 3006, 1
+layerno = 0
+start = 0, 100
+delta = 0.10, 0.10
+mask  = 1
+trans = add
+
+[BG BACK RIGHT B]
+type  = normal
+spriteno = 3006, 2
+layerno = 0
+start = 0, 100
+delta = 0.10, 0.10
+mask  = 1
+trans = add
+
+[BG BACK RIGHT 2 R]
+type  = normal
+spriteno = 3005, 0
+layerno = 0
+start = 0, 100
+delta = 0.10, 0.10
+mask  = 1
+
+[BG BACK RIGHT 2 G]
+type  = normal
+spriteno = 3005, 1
+layerno = 0
+start = 0, 100
+delta = 0.10, 0.10
+mask  = 1
+trans = add
+
+[BG BACK RIGHT 2 B]
+type  = normal
+spriteno = 3005, 2
+layerno = 0
+start = 0, 100
+delta = 0.10, 0.10
+mask  = 1
+trans = add
+
+[BG BACK CENTER ROCKS R]
+type  = normal
+spriteno = 3004, 0
+layerno = 0
+start = 0, 100
+delta = 0.13, 0.12
+mask  = 1
+
+[BG BACK CENTER ROCKS G]
+type  = normal
+spriteno = 3004, 1
+layerno = 0
+start = 0, 100
+delta = 0.13, 0.12
+mask  = 1
+trans = add
+
+[BG BACK CENTER ROCKS B]
+type  = normal
+spriteno = 3004, 2
+layerno = 0
+start = 0, 100
+delta = 0.13, 0.12
+mask  = 1
+trans = add
+
+[BG BACK RIGHT 3 R]
+type  = normal
+spriteno = 3003, 0
+layerno = 0
+start = 43, 80
+delta = 0.16, 0.16
+mask  = 1
+
+[BG BACK RIGHT 3 G]
+type  = normal
+spriteno = 3003, 1
+layerno = 0
+start = 43, 80
+delta = 0.16, 0.16
+mask  = 1
+trans = add
+
+[BG BACK RIGHT 3 B]
+type  = normal
+spriteno = 3003, 2
+layerno = 0
+start = 43, 80
+delta = 0.16, 0.16
+mask  = 1
+trans = add
+
+[BG FRONT ROCK LEFT]
+type  = normal
+spriteno = 1, 6
+layerno = 0
+start = -20, 40
+delta = 1.20, 0.70
+mask  = 1
+
+[BG FRONT ROCK RIGHT R]
+type  = normal
+spriteno = 3002, 0
+layerno = 0
+start = 0, 0
+delta = 1.25, 0.75
+mask  = 1
+
+[BG FRONT ROCK RIGHT G]
+type  = normal
+spriteno = 3002, 1
+layerno = 0
+start = 0, 0
+delta = 1.25, 0.75
+mask  = 1
+trans = add
+
+[BG FRONT ROCK RIGHT B]
+type  = normal
+spriteno = 3002, 2
+layerno = 0
+start = 0, 0
+delta = 1.25, 0.75
+mask  = 1
+trans = add
+
+[BG FRONT ROCK LEFT 2]
+type  = normal
+spriteno = 1, 4
+layerno = 0
+start = -5, 10
+delta = 1.18, 0.73
+mask  = 1
+
+[BG BIG FRONT ROCK LEFT R]
+type  = normal
+spriteno = 3001, 0
+layerno = 0
+start = 0, 0
+delta = 1.25, 0.75
+mask  = 1
+
+[BG BIG FRONT ROCK LEFT G]
+type  = normal
+spriteno = 3001, 1
+layerno = 0
+start = 0, 0
+delta = 1.25, 0.75
+mask  = 1
+trans = add
+
+[BG BIG FRONT ROCK LEFT B]
+type  = normal
+spriteno = 3001, 2
+layerno = 0
+start = 0, 0
+delta = 1.25, 0.75
+mask  = 1
+trans = add
+
+[BG SUN LIGHT 1]
+type  = anim
+actionno = 1
+layerno = 0
+start = 0, 0
+delta = 1.35, 0.85
+mask  = 1
+
+[BG SUN LIGHT 2]
+type  = anim
+actionno = 2
+layerno = 0
+start = -77, 46
+delta = 1.35, 0.85
+mask  = 1
+
+[BG BIG LIGHT LEFT]
+type  = normal
+spriteno = 1, 13
+layerno = 0
+start = 80, -760
+delta = 1.45, 1.15
+mask  = 1
+trans = add
+
+[BG FRONT ROCK LEFT 3]
+type  = normal
+spriteno = 1, 3
+layerno = 0
+start = 0, 0
+delta = 1.38, 0.77
+mask  = 1
+
+[BG DARK FRONT ROCK LEFT]
+type  = normal
+spriteno = 1, 1
+layerno = 0
+start = 20, 5
+delta = 1.75, 1.75
+mask  = 1
+
+[BG FLOOR R]
+type  = normal
+spriteno = 3000, 0
+layerno = 0
+start = 0, 0
+delta = 2, 2
+mask  = 1
+
+[BG FLOOR G]
+type  = normal
+spriteno = 3000, 1
+layerno = 0
+start = 0, 0
+delta = 2, 2
+mask  = 1
+trans = add
+
+[BG FLOOR B]
+type  = normal
+spriteno = 3000, 2
+layerno = 0
+start = 0, 0
+delta = 2, 2
+mask  = 1
+trans = add
+
+[BG FLOOR FOG]
+type  = anim
+actionno = 200
+layerno = 0
+start = 0, 750
+delta = 2, 2
+mask  = 1
+
+[BG CENTER LIGHT]
+type  = anim
+actionno = 6
+layerno = 0
+start = 150, 50
+delta = 0.21, 0.21
+mask  = 1
+
+[BG CENTER LIGHT]
+type  = anim
+actionno = 7
+layerno = 0
+start = 150, 50
+delta = 0.23, 0.23
+mask  = 1
+
+[BG CENTER LIGHT]
+type  = anim
+actionno = 8
+layerno = 0
+start = 150, 50
+delta = 0.25, 0.25
+mask  = 1
+
+[Begin Action 6]
+1,14, 0,0, 20, , AS192D256
+1,14, 0,0, 10, , AS199D256
+1,14, 0,0, 10, , AS205D256
+1,14, 0,0, 10, , AS210D256
+1,14, 0,0, 10, , AS215D256
+1,14, 0,0, 10, , AS220D256
+1,14, 0,0, 10, , AS235D256
+1,14, 0,0, 10, , AS240D256
+1,14, 0,0, 10, , AS250D256
+1,14, 0,0, 10, , AS240D256
+1,14, 0,0, 10, , AS235D256
+1,14, 0,0, 10, , AS220D256
+1,14, 0,0, 10, , AS183D256
+1,14, 0,0, 10, , AS164D256
+1,14, 0,0, 10, , AS141D256
+1,14, 0,0, 100, , AS112D256
+1,14, 0,0, 10, , AS112D256
+1,14, 0,0, 10, , AS141D256
+1,14, 0,0, 10, , AS164D256
+1,14, 0,0, 10, , AS183D256
+1,14, 0,0, 10, , AS220D256
+1,14, 0,0, 10, , AS235D256
+1,14, 0,0, 10, , AS240D256
+1,14, 0,0, 10, , AS250D256
+1,14, 0,0, 10, , AS240D256
+1,14, 0,0, 10, , AS235D256
+1,14, 0,0, 10, , AS220D256
+1,14, 0,0, 10, , AS203D256
+
+[Begin Action 7]
+1,15, 0,0, 20, , AS192D256
+1,15, 0,0, 10, , AS199D256
+1,15, 0,0, 10, , AS205D256
+1,15, 0,0, 10, , AS210D256
+1,15, 0,0, 10, , AS215D256
+1,15, 0,0, 10, , AS220D256
+1,15, 0,0, 10, , AS235D256
+1,15, 0,0, 10, , AS240D256
+1,15, 0,0, 10, , AS250D256
+1,15, 0,0, 10, , AS240D256
+1,15, 0,0, 10, , AS235D256
+1,15, 0,0, 10, , AS220D256
+1,15, 0,0, 10, , AS183D256
+1,15, 0,0, 10, , AS164D256
+1,15, 0,0, 10, , AS141D256
+1,15, 0,0, 100, , AS112D256
+1,15, 0,0, 10, , AS112D256
+1,15, 0,0, 10, , AS141D256
+1,15, 0,0, 10, , AS164D256
+1,15, 0,0, 10, , AS183D256
+1,15, 0,0, 10, , AS220D256
+1,15, 0,0, 10, , AS235D256
+1,15, 0,0, 10, , AS240D256
+1,15, 0,0, 10, , AS250D256
+1,15, 0,0, 10, , AS240D256
+1,15, 0,0, 10, , AS235D256
+1,15, 0,0, 10, , AS220D256
+1,15, 0,0, 10, , AS203D256
+
+[Begin Action 8]
+1,16, 0,0, 20, , AS192D256
+1,16, 0,0, 10, , AS199D256
+1,16, 0,0, 10, , AS205D256
+1,16, 0,0, 10, , AS210D256
+1,16, 0,0, 10, , AS215D256
+1,16, 0,0, 10, , AS220D256
+1,16, 0,0, 10, , AS235D256
+1,16, 0,0, 10, , AS240D256
+1,16, 0,0, 10, , AS250D256
+1,16, 0,0, 10, , AS240D256
+1,16, 0,0, 10, , AS235D256
+1,16, 0,0, 10, , AS220D256
+1,16, 0,0, 10, , AS183D256
+1,16, 0,0, 10, , AS164D256
+1,16, 0,0, 10, , AS141D256
+1,16, 0,0, 100, , AS112D256
+1,16, 0,0, 10, , AS112D256
+1,16, 0,0, 10, , AS141D256
+1,16, 0,0, 10, , AS164D256
+1,16, 0,0, 10, , AS183D256
+1,16, 0,0, 10, , AS220D256
+1,16, 0,0, 10, , AS235D256
+1,16, 0,0, 10, , AS240D256
+1,16, 0,0, 10, , AS250D256
+1,16, 0,0, 10, , AS240D256
+1,16, 0,0, 10, , AS235D256
+1,16, 0,0, 10, , AS220D256
+1,16, 0,0, 10, , AS203D256
+
+[Begin Action 1]
+-1,0, 0,0, 150
+2,6, 0,0, 5, , AS13D256
+2,5, 0,0, 7, , AS15D256
+2,4, 0,0, 10, , AS21D256
+2,3, 0,0, 15, , AS29D256
+2,2, 0,0, 20, , AS38D256
+2,1, 0,0, 30, , AS41D256
+2,0, 0,0, 40, , AS45D256
+2,0, 0,0, 50, , AS52D256
+2,0, 0,0, 260, , AS55D256
+2,0, 0,0, 50, , AS52D256
+2,0, 0,0, 40, , AS45D256
+2,1, 0,0, 30, , AS41D256
+2,2, 0,0, 20, , AS38D256
+2,3, 0,0, 15, , AS29D256
+2,4, 0,0, 10, , AS21D256
+2,5, 0,0, 7, , AS15D256
+2,6, 0,0, 5, , AS13D256
+-1,0, 0,0, 482
+
+[Begin Action 2]
+-1,0, 0,0, 613
+2,6, 0,0, 5, , AS13D256
+2,5, 0,0, 7, , AS15D256
+2,4, 0,0, 10, , AS21D256
+2,3, 0,0, 15, , AS29D256
+2,2, 0,0, 20, , AS38D256
+2,1, 0,0, 30, , AS41D256
+2,0, 0,0, 40, , AS45D256
+2,0, 0,0, 50, , AS52D256
+2,0, 0,0, 260, , AS55D256
+2,0, 0,0, 50, , AS52D256
+2,0, 0,0, 40, , AS45D256
+2,1, 0,0, 30, , AS41D256
+2,2, 0,0, 20, , AS38D256
+2,3, 0,0, 15, , AS29D256
+2,4, 0,0, 10, , AS21D256
+2,5, 0,0, 7, , AS15D256
+2,6, 0,0, 5, , AS13D256
+-1,0, 0,0, 19
+
+[Begin Action 3]
+100,0, 2,56, 15, ,AS12D256
+100,0, 42,42, 15, ,AS12D256
+100,0, 68,30, 15, ,AS12D256
+100,0, 92,22, 15, ,AS12D256
+100,0, 118,12, 15, ,AS12D256
+100,0, 134,4, 15, ,AS12D256
+100,0, 166,-12, 15, ,AS12D256
+100,0, 208,-28, 15, ,AS12D256
+100,0, 252,-48, 15, ,AS12D256
+100,0, 274,-58, 15, ,AS12D256
+100,0, 300,-70, 15, ,AS12D256
+100,0, 334,-84, 15, ,AS12D256
+100,0, 370,-100, 15, ,AS12D256
+100,0, 408,-118, 15, ,AS12D256
+100,0, 450,-136, 15, ,AS12D256
+100,0, 484,-150, 15, ,AS12D256
+100,0, 520,-166, 15, ,AS12D256
+100,0, 544,-178, 15, ,AS12D256
+100,0, 564,-187, 15, ,AS12D256
+100,0, 584,-192, 15, ,AS12D256
+100,0, 608,-204, 15, ,AS12D256
+100,0, 630,-208, 15, ,AS12D256
+100,0, 662,-222, 15, ,AS12D256
+100,0, 688,-240, 15, ,AS12D256
+100,0, 704,-244, 15, ,AS12D256
+100,0, 718,-250, 15, ,AS12D256
+100,0, 746,-258, 15, ,AS12D256
+100,0, 754,-260, 15, ,AS12D256
+
+[Begin Action 4]
+-1,0, 0,0, 157
+loopstart
+100,0, 2,56, 15, ,AS12D256
+100,0, 42,42, 15, ,AS12D256
+100,0, 68,30, 15, ,AS12D256
+100,0, 92,22, 15, ,AS12D256
+100,0, 118,12, 15, ,AS12D256
+100,0, 134,4, 15, ,AS12D256
+100,0, 166,-12, 15, ,AS12D256
+100,0, 208,-28, 15, ,AS12D256
+100,0, 252,-48, 15, ,AS12D256
+100,0, 274,-58, 15, ,AS12D256
+100,0, 300,-70, 15, ,AS12D256
+100,0, 334,-84, 15, ,AS12D256
+100,0, 370,-100, 15, ,AS12D256
+100,0, 408,-118, 15, ,AS12D256
+100,0, 450,-136, 15, ,AS12D256
+100,0, 484,-150, 15, ,AS12D256
+100,0, 520,-166, 15, ,AS12D256
+100,0, 544,-178, 15, ,AS12D256
+100,0, 564,-187, 15, ,AS12D256
+100,0, 584,-192, 15, ,AS12D256
+100,0, 608,-204, 15, ,AS12D256
+100,0, 630,-208, 15, ,AS12D256
+100,0, 662,-222, 15, ,AS12D256
+100,0, 688,-240, 15, ,AS12D256
+100,0, 704,-244, 15, ,AS12D256
+100,0, 718,-250, 15, ,AS12D256
+100,0, 746,-258, 15, ,AS12D256
+100,0, 754,-260, 15, ,AS12D256
+
+[Begin Action 5]
+100,0, 450,-136, 15, ,AS12D256
+100,0, 484,-150, 15, ,AS12D256
+100,0, 520,-166, 15, ,AS12D256
+100,0, 544,-178, 15, ,AS12D256
+100,0, 564,-187, 15, ,AS12D256
+100,0, 584,-192, 15, ,AS12D256
+100,0, 608,-204, 15, ,AS12D256
+100,0, 630,-208, 15, ,AS12D256
+100,0, 662,-222, 15, ,AS12D256
+100,0, 688,-240, 15, ,AS12D256
+100,0, 704,-244, 15, ,AS12D256
+100,0, 718,-250, 15, ,AS12D256
+100,0, 746,-258, 15, ,AS12D256
+100,0, 754,-260, 15, ,AS12D256
+100,0, 2,56, 15, ,AS12D256
+100,0, 42,42, 15, ,AS12D256
+100,0, 68,30, 15, ,AS12D256
+100,0, 92,22, 15, ,AS12D256
+100,0, 118,12, 15, ,AS12D256
+100,0, 134,4, 15, ,AS12D256
+100,0, 166,-12, 15, ,AS12D256
+100,0, 208,-28, 15, ,AS12D256
+100,0, 252,-48, 15, ,AS12D256
+100,0, 274,-58, 15, ,AS12D256
+100,0, 300,-70, 15, ,AS12D256
+100,0, 334,-84, 15, ,AS12D256
+100,0, 370,-100, 15, ,AS12D256
+100,0, 408,-118, 15, ,AS12D256
+
+[Begin Action 200]
+200,0, 0,0, 7, , AS188D256
+200,1, 0,0, 7, , AS188D256
+200,2, 0,0, 7, , AS188D256
+200,3, 0,0, 7, , AS188D256
+200,4, 0,0, 7, , AS188D256
+200,5, 0,0, 7, , AS188D256
+200,6, 0,0, 7, , AS188D256
+200,7, 0,0, 7, , AS188D256
+200,8, 0,0, 7, , AS188D256
+200,9, 0,0, 7, , AS188D256
+200,10, 0,0, 7, , AS188D256
+200,11, 0,0, 7, , AS188D256
+200,12, 0,0, 7, , AS188D256
+200,13, 0,0, 7, , AS188D256
+200,14, 0,0, 7, , AS188D256
+200,15, 0,0, 7, , AS188D256
+200,16, 0,0, 7, , AS188D256
+200,17, 0,0, 7, , AS188D256
+200,18, 0,0, 7, , AS188D256
+200,19, 0,0, 7, , AS188D256
+200,20, 0,0, 7, , AS188D256
+200,21, 0,0, 7, , AS188D256
+200,22, 0,0, 7, , AS188D256
+200,23, 0,0, 7, , AS188D256
+200,24, 0,0, 7, , AS188D256
+200,25, 0,0, 7, , AS188D256
+200,26, 0,0, 7, , AS188D256
+200,27, 0,0, 7, , AS188D256
+200,28, 0,0, 7, , AS188D256
+200,29, 0,0, 7, , AS188D256
+200,30, 0,0, 7, , AS188D256
+200,31, 0,0, 7, , AS188D256
+200,32, 0,0, 7, , AS188D256
+200,33, 0,0, 7, , AS188D256
+200,34, 0,0, 7, , AS188D256
+200,35, 0,0, 7, , AS188D256
+200,36, 0,0, 7, , AS188D256
+200,37, 0,0, 7, , AS188D256
+200,38, 0,0, 7, , AS188D256
+200,39, 0,0, 7, , AS188D256
+200,40, 0,0, 7, , AS188D256
+200,41, 0,0, 7, , AS188D256
+200,42, 0,0, 7, , AS188D256
+200,43, 0,0, 7, , AS188D256
+200,44, 0,0, 7, , AS188D256
+200,45, 0,0, 7, , AS188D256
+200,46, 0,0, 7, , AS188D256
+200,47, 0,0, 7, , AS188D256
+200,48, 0,0, 7, , AS188D256
+200,49, 0,0, 7, , AS188D256
+200,50, 0,0, 7, , AS188D256
+200,51, 0,0, 7, , AS188D256
+200,52, 0,0, 7, , AS188D256
+200,53, 0,0, 7, , AS188D256
+200,54, 0,0, 7, , AS188D256
+200,55, 0,0, 7, , AS188D256
+200,56, 0,0, 7, , AS188D256
+200,57, 0,0, 7, , AS188D256
+200,58, 0,0, 7, , AS188D256
+200,59, 0,0, 7, , AS188D256
+200,60, 0,0, 7, , AS188D256
+200,61, 0,0, 7, , AS188D256
+200,62, 0,0, 7, , AS188D256
+200,63, 0,0, 7, , AS188D256
+200,64, 0,0, 7, , AS188D256
+200,65, 0,0, 7, , AS188D256
+200,66, 0,0, 7, , AS188D256
+200,67, 0,0, 7, , AS188D256
+200,68, 0,0, 7, , AS188D256
+200,69, 0,0, 7, , AS188D256
+200,70, 0,0, 7, , AS188D256
+200,71, 0,0, 7, , AS188D256
+200,72, 0,0, 7, , AS188D256
+200,73, 0,0, 7, , AS188D256
+200,74, 0,0, 7, , AS188D256
+200,75, 0,0, 7, , AS188D256
+200,76, 0,0, 7, , AS188D256
+200,77, 0,0, 7, , AS188D256
+200,78, 0,0, 7, , AS188D256
+200,79, 0,0, 7, , AS188D256
+200,80, 0,0, 7, , AS188D256
+200,81, 0,0, 7, , AS188D256
+200,82, 0,0, 7, , AS188D256
+200,83, 0,0, 7, , AS188D256
+200,84, 0,0, 7, , AS188D256
+200,85, 0,0, 7, , AS188D256
+200,86, 0,0, 7, , AS188D256
+200,87, 0,0, 7, , AS188D256
+200,88, 0,0, 7, , AS188D256
+200,89, 0,0, 7, , AS188D256
+200,90, 0,0, 7, , AS188D256
+200,91, 0,0, 7, , AS188D256
+200,92, 0,0, 7, , AS188D256
+200,93, 0,0, 7, , AS188D256
+200,94, 0,0, 7, , AS188D256
+200,95, 0,0, 7, , AS188D256

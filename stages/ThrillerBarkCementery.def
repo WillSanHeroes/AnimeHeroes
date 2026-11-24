@@ -1,0 +1,1161 @@
+;                        EDITED STAGE
+;=============================================================
+;  STAGE INFORMATION :
+;
+;  Resolution : 1280 * 720
+;  Mugen Version : Mugen 1.1 only
+;  Versiondate :March,2016
+;  Reedicion : Daniel's 
+;
+;=============================================================
+
+
+;--------------------------------------------------------
+[Info]
+name = "Thriller Bark Cementery"
+displayname = "Thriller Bark Cementery"
+author="Team OP OS\n ReEdit: Daniel's" 
+mugenversion = 1.1
+
+;--------------------------------
+[Camera]
+startx =0
+starty =0
+boundleft=-360
+boundright=370
+boundhigh=-225 
+boundlow =0
+tension =120
+tensionhigh = 140
+tensionlow = 25
+verticalfollow = .6
+floortension = 99
+overdrawhigh 	= 120
+overdrawlow 	= 120
+cuthigh = 0
+cutlow = 0
+zoomin = .95
+zoomout = .55
+;--------------------------------
+[PlayerInfo]
+;--- Player 1 ---
+p1startx = -70          ;Starting x coordinates
+p1starty = 0            ;Starting y coordinates
+p1startz = 0            ;Starting z coordinates
+p1facing = 1            ;Direction player faces: 1=right, -1=left
+;--- Player 2 ---
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+;--- Player 3 ---
+p3startx = -100
+p3starty = 0
+p3facing = 1
+;--- Player 4 ---
+p4startx =100
+p4starty = 0
+p4facing = -1
+;--- Common ---
+leftbound = -4000
+rightbound = 4000
+topbound = 0
+botbound = 0
+;--------------------------------
+[Bound]
+screenleft = 15
+screenright = 15
+;--------------------------------
+[StageInfo]
+zoffset = 130
+localcoord = 256,144
+zoffsetlink = 40 
+autoturn = 1
+resetBG = 0
+hires = 1
+;--------------------------------
+[Shadow]
+color = 80,80,80
+yscale = 0.2
+;--------------------------------
+[Music]
+bgmusic =sound/ThrillerBarkCementery.mp3
+bgmvolume =255
+;--------------------------------
+[BGdef]
+spr = ThrillerBarkCementery.sff
+debugbg = 0;1
+
+
+
+;=======================================
+[BG 1 sky]
+type  = normal
+spriteno = 0,0
+layerno= 0
+start = 0,0
+delta = 0.65, 0.95
+mask = 0
+tile = 1, 1
+zoomdelta = .7
+
+[BG moon]
+type  = normal
+spriteno = 0, 3
+layerno = 0                
+start = -200, -200
+delta = 0.8, 1.2
+mask  = 1
+scalestart = .4,.4
+zoomdelta = .8
+
+;=============================================
+
+[BG 0 mountain]
+type  = normal
+spriteno = 3, 2
+layerno = 0                
+start = 0, -30
+delta = 1.2, 1.55
+trans = none
+mask  = 1
+tile  = 1, 0
+scalestart = 1.2,1.2
+ID = 30
+zoomdelta = .9
+
+
+
+;;;;------ Bosques ------------------------
+[BG Nube]
+type  = anim
+actionno=1
+layerno = 0                
+start = -300, -560
+delta = 1.3, 1.62
+mask  = 1
+velocity = 0.4, 0
+tile  = 1, 0
+tilespacing = 600,0
+scalestart = 1.2,1.2
+zoomdelta = .93
+
+[BG Nubes Grupo]
+type  = anim
+actionno=2
+layerno = 0                
+start = -200, -500
+delta = 1.3, 1.62
+mask  = 1
+velocity = 0.7, 0
+tile  = 1, 0
+tilespacing = 600,0
+scalestart = 1.2,1.2
+zoomdelta = .93
+
+[BG Nube]
+type  = anim;
+actionno=1;
+layerno = 0                
+start = 100, -460
+delta = 1.3, 1.62
+mask  = 1
+velocity = 0.4, 0
+tile  = 1, 0
+tilespacing = 600,0
+scalestart = 1.2,1.2
+zoomdelta = .93
+
+[BG Nubes Grupo]
+type  = anim
+actionno=2
+layerno = 0                
+start = 0, -400
+delta = 1.3, 1.62
+mask  = 1
+velocity = 0.7, 0
+tile  = 1, 0
+tilespacing = 600,0
+scalestart = 1.2,1.2
+zoomdelta = .93
+
+[BG Nubes Grupo]
+type  = anim
+actionno=1
+layerno = 0                
+start = -300, -360
+delta = 1.3, 1.62
+mask  = 1
+velocity = -0.3, 0
+tile  = 1, 0
+tilespacing = 600,0
+scalestart = 1.2,1.2
+zoomdelta = .93
+
+[BG Nube]
+type  = anim
+actionno=1
+layerno = 0                
+start = 0, -300
+delta = 1.3, 1.62
+mask  = 1
+velocity = 0.85, 0
+tile  = 1, 0
+tilespacing = 600,0
+scalestart = 1.2,1.2
+zoomdelta = .93
+;
+[BG 0 trees]
+type  = normal
+spriteno = 2,6
+layerno = 0                
+start = 0,180
+delta = 1.3, 1.62
+trans = none
+mask  = 1
+tile  = 0, 0
+scalestart = .8,.8
+ID = 30
+zoomdelta = .93
+
+[BG 0 trees]
+type  = normal
+spriteno = 2,6
+layerno = 0                
+start = 1600,180
+delta = 1.3, 1.62
+trans = none
+mask  = 1
+tile  = 0, 0
+scalestart = .8,.8
+ID = 30
+zoomdelta = .93
+
+
+;================================================
+[BG 0 Oars]
+type  = anim
+actionno = 25
+layerno = 0                
+start = -900,10
+delta = 1.35, 1.65
+trans = none
+mask  = 1
+tile  = 1, 0
+scalestart = .8,.8
+Id = 31
+zoomdelta = .94
+
+;================================================
+[BG 0 Castle]
+type  = normal
+spriteno = 4, 3
+layerno = 0                
+start = 760, 60
+delta = 1.4, 1.68
+trans = none
+mask  = 1
+tile  = 0, 0
+scalestart = 1.2,1.2
+ID = 30
+zoomdelta = .95
+
+[BG Nube]
+type  = anim
+actionno=2
+layerno = 0                
+start = -100, -260
+delta = 1.4, 1.68
+mask  = 1
+velocity = 1.2, 0
+tile  = 1, 0
+tilespacing = 600,0
+scalestart = 1.2,1.2
+zoomdelta = .95
+
+[BG Nubes Grupo]
+type  = anim
+actionno=1
+layerno = 0                
+start = -300, -200
+delta = 1.4, 1.68
+mask  = 1
+velocity = -0.3, 0
+tile  = 1, 0
+tilespacing = 600,0
+scalestart = 1.2,1.2
+zoomdelta = .95
+
+[BG Nube]
+type  = anim
+actionno=1
+layerno = 0                
+start = 0, -160
+delta = 1.4, 1.68
+mask  = 1
+velocity = 0.85, 0
+tile  = 1, 0
+tilespacing = 600,0
+scalestart = 1.2,1.2
+zoomdelta = .95
+
+[BG Nubes Grupo]
+type  = anim
+actionno=2
+layerno = 0                
+start = -200, -100
+delta = 1.4, 1.68
+mask  = 1
+velocity = -0.5, 0
+tile  = 1, 0
+tilespacing = 600,0
+scalestart = 1.2,1.2
+zoomdelta = .95
+
+[BG Nube]
+type  = anim
+actionno=1
+layerno = 0                
+start = 100, -60
+delta = 1.4, 1.68
+mask  = 1
+velocity = -0.65, 0
+tile  = 1, 0
+tilespacing = 600,0
+scalestart = 1.2,1.2
+zoomdelta = .95
+
+[BG Nubes Grupo]
+type  = anim
+actionno=2
+layerno = 0                
+start = 0, -20
+delta = 1.4, 1.68
+mask  = 1
+velocity = 1, 0
+tile  = 1, 0
+tilespacing = 600,0
+scalestart = 1.2,1.2
+zoomdelta = .95
+
+[BG Neblina 2]
+type  = normal
+spriteno = 10, 7
+layerno = 0
+velocity = 0.1, 0
+start = -1000, 30
+delta = 1.4, 1.68
+trans = add
+mask  = 0
+tile  = 1, 0
+scalestart = 1.2,1.2
+zoomdelta = .95
+
+
+;;================================================
+[BG Neblina]
+type  = normal
+spriteno = 10, 6
+layerno = 0
+velocity = -0.2, 0
+start = -1000, 85
+delta = 1.5, 1.72
+trans = add
+mask  = 0
+tile  = 1, 0
+scalestart = 1.2,1.2
+zoomdelta = .96
+;;
+[BG 0 Mansion2]
+type  = normal
+spriteno = 4, 4
+layerno = 0                
+start = 735, 180
+delta = 1.5, 1.72
+trans = none
+mask  = 1
+tile  = 0, 0
+scalestart = 1.2,1.2
+ID = 30
+zoomdelta = .96
+
+;
+;;;================================================;
+[BG 0 Mansion]
+type  = normal
+spriteno = 4, 0
+layerno = 0                
+start = 800, 180
+delta = 1.6, 1.75
+trans = none
+mask  = 1
+tile  = 0, 0
+scalestart = 1.2,1.2
+ID = 30
+zoomdelta = .97
+;
+[BG 0 arboles black]
+type  = normal
+spriteno = 2,5
+layerno = 0                
+start = 0,180
+delta = 1.6, 1.75
+trans = none
+mask  = 1
+tile  = 0, 0
+scalestart = 1,1
+ID = 30
+zoomdelta = .97
+
+;;;================================================;
+[BG Nubes Grupo]
+type  = anim
+actionno=1
+layerno = 0                
+start = 0, 150
+delta = 1.7, 1.8
+mask  = 1
+velocity = -1.4, 0
+tile  = 1, 0
+tilespacing = 600,0
+scalestart = 1.2,1.2
+
+[BG 0 forest]
+type  = normal
+spriteno = 2,2
+layerno = 0                
+start = -500,-130
+delta =  1.7, 1.8
+trans = none
+mask  = 1
+tile  = 0, 0
+scalestart = .85,.85
+ID = 30
+
+[BG 0]
+type = anim
+actionno = 69
+start = -500,-130
+delta =1.7, 1.8
+mask=1
+id = 30
+scalestart = .85,.85
+
+
+[BG 0 bosque mansion]
+type  = normal
+spriteno = 3, 0
+layerno = 0                
+start = 830, 200
+delta = 1.7, 1.8
+trans = none
+mask  = 1
+tile  = 0, 0
+scalestart = 1.2,1.2
+ID = 30
+;
+
+
+;;================================================
+[BG 0 arboles mansion L]
+type  = normal
+spriteno = 2,3
+layerno = 0                
+start = 0,180
+delta = 1.85, 1.87
+trans = none
+mask  = 1
+tile  = 0, 0
+scalestart = 1,1
+ID = 30
+
+[BG 0 arboles mansion R]
+type  = normal
+spriteno = 2, 4
+layerno = 0                
+start = 0,180
+delta = 1.85, 1.87
+trans = none
+mask  = 1
+tile  = 0, 0
+scalestart = 1,1
+ID = 30
+
+[BG 0 Cementerio ]
+type  = normal
+spriteno = 2, 0
+layerno = 0                
+start = -500,220
+delta = 1.85, 1.87
+mask  = 1
+tile  = 0, 0
+scalestart = 1.1,1.1
+ID = 30
+
+[BG 0 tree R]
+type  = normal
+spriteno = 2, 1
+layerno = 0                
+start = 170,170
+delta = 1.85, 1.87
+mask  = 1
+tile  = 0, 0
+scalestart = .43,.43
+ID = 30
+
+[BG 0 tree L]
+type  = normal
+spriteno = 2, 7
+layerno = 0                
+start = -900,170
+delta = 1.85, 1.87
+mask  = 1
+tile  = 0, 0
+scalestart = .43,.43
+ID = 30
+
+[BG 0]
+type = anim
+actionno = 67
+start = 174,109
+delta = 1.85, 1.87
+mask=1
+id = 30
+scalestart = .43,.43
+
+[BG 0]
+type = anim
+actionno = 68
+start = 254,117
+delta = 1.85, 1.87
+mask=1
+id = 30
+scalestart = .43,.43
+
+[BG 0]
+type = anim
+actionno = 688
+start = 91,117
+delta = 1.85, 1.87
+mask=1
+id = 30
+scalestart = .43,.43
+
+[BG 0]
+type = anim
+actionno = 34
+start = 460, -50
+delta = 1.85, 1.87
+mask=1
+;id = 30
+layerno = 0
+scalestart = .7,.7
+
+[BG 0]
+type = anim
+actionno = 34
+start = -1300, -50
+delta = 1.85, 1.87
+mask=1
+;id = 30
+layerno = 0
+scalestart = .7,.7
+
+[BG Hildon]
+type  = anim
+actionno = 8
+layerno = 0
+start = -1300, 95
+delta = 1.85, 1.87
+mask = 1
+velocity = 1.5, -0.01
+tile = 1, 0
+tilespacing = 3700, 0
+scalestart = .7,.7
+
+;;================================================
+
+[BG Nubes Grupo]
+type  = anim
+actionno=1
+layerno = 0                
+start = -400, 170
+delta = 1.9, 1.89
+velocity = 0.7, 0
+tile  = 1, 0
+tilespacing = 70,0
+scalestart = 1.2,1.2
+
+
+[BG Neblina 2]
+type  = normal
+spriteno = 10, 7
+layerno = 0
+velocity = 0.3, 0
+start = -500, 195
+delta = 1.9, 1.89
+trans = add
+mask  = 0
+tile  = 1, 0
+scalestart = 1.2,1.2
+
+;;================================================
+
+[BG Farol A]
+type  = anim
+actionno = 27
+layerno = 0
+start = 740, 160
+delta = 1.925, 1.9
+trans = none
+mask  = 1
+tile  = 0, 0
+scalestart = 1.2,1.2
+ID = 30
+
+[BG Luz 1 - Farol A]
+type  = anim
+actionno = 91
+layerno = 0
+start = 675, -20
+delta = 1.925, 1.9
+mask = 1
+scalestart = 1.2,1.2
+ID = 30
+
+[BG Luz 2 - Farol A]
+type  = anim
+actionno = 92
+layerno = 0
+start = 810, -20
+delta = 1.925, 1.9
+mask = 1
+scalestart = 1.2,1.2
+ID = 30
+
+[BG Farol B]
+type  = anim
+actionno = 26
+layerno = 0
+start = 1180, 160
+delta = 1.925, 1.9
+trans = none
+mask  = 1
+tile  = 0, 0
+scalestart = 1.2,1.2
+ID = 30
+
+[BG Luz 1 - Farol B]
+type  = anim
+actionno = 91
+layerno = 0
+start = 1105, -20
+delta = 1.925, 1.9
+mask = 1
+scalestart = 1.2,1.2
+ID = 30
+
+[BG Luz 2 - Farol B]
+type  = anim
+actionno = 92
+layerno = 0
+start = 1240, -20
+delta = 1.925, 1.9
+mask = 1
+scalestart = 1.2,1.2
+ID = 30
+
+;;================================================
+
+;;================================================
+;
+;;-------- Suelo -------------------
+;
+[BG 0 Suelo L]
+type  = normal
+spriteno = 1, 1
+layerno = 0                
+start = 0, 340
+delta = 2, 2
+trans = none
+mask  = 1
+ID = 30
+
+[BG 0 Suelo R]
+type  = normal
+spriteno = 1, 2
+layerno = 0                
+start = 0, 340
+delta = 2, 2
+trans = none
+mask  = 1
+ID = 30
+
+[BG Zombie B]
+type  = anim
+actionno = 7
+layerno = 0
+start = 500, 230
+delta = 2, 2
+mask = 1
+scalestart = .64,.64
+ID = 30
+
+[BG Zombie A - Cabeza]
+type  = anim
+actionno = 61
+layerno = 0
+start = 735, 120
+delta = 2, 2
+mask = 1
+scalestart = .64,.64
+ID = 30
+
+[BG Zombie A]
+type  = anim
+actionno = 6
+layerno = 0
+start = 765, 230
+delta = 2, 2
+mask = 1
+scalestart = .64,.64
+ID = 30
+
+
+;;================================================
+[BG 0 Rejas 1]
+type  = normal
+spriteno = 4, 7
+layerno = 1                
+start = 1185, 350
+delta = 2.35, 2.35
+trans = none
+mask  = 1
+tile  = 0, 0
+scalestart = 1.2,1.2
+ID = 30
+
+[BG fog1]
+type =normal
+spriteno =10,9
+start =0,360
+delta = 2.35, 2.35
+mask = 1
+trans = add
+velocity = .3,0
+tile = 1,0
+scalestart = 1,1
+layerno = 1
+
+[BG Tint Sub]
+type = normal
+spriteno 	= 0, 5
+start = 0,0
+delta= 0, 0
+trans= sub
+layerno= 1
+tile=1,1
+
+[BG Dummy, Players]
+type  = dummy
+id = 40
+
+
+;=======================================
+
+[BGCtrlDef Oars]
+; reset the whole deal every 600 ticks.
+looptime = 3600
+ctrlID = 31
+
+; Set velocity of 2 pixels/sec rightward at time 0.
+[BGCtrl Walk Right]
+type = VelSet
+time = 0
+x = .7
+ctrlId = 31
+
+; Set velocity of 2 pixels/sec leftward at time 300.
+[BGCtrl Walk Left]
+type = VelSet
+time = 1800
+x = -.7
+ctrlId = 31
+
+[BGCtrl Shake Amount Y]
+type = SinY
+time = 0
+value = 6,120,0  
+ctrlId = 31
+
+[BGCtrl Shake Amount X]
+type = SinX
+time = 100
+value = 6,120,0
+ctrlId = 31
+
+
+;---------------------
+[BGCtrlDef Shake Scenery]
+looptime = 114
+ctrlId = 30,40
+
+[BGCtrl Shake Amount Y]
+type = SinY
+time = 0
+value = 1,3,0
+
+[BGCtrl Shake Amount Y]
+type = SinY
+time = 57
+value = 0,0,0
+;-----------------------
+
+; nube1
+[Begin action 1]
+0,1, 0,0, 5, , AS130D256
+
+
+; nube2
+[Begin action 2]
+0,2, 0,0, 5, , AS130D256
+
+
+; oars
+[Begin Action 25]
+25,22, 0,0, -1
+
+
+;Zombie B
+[Begin Action 7]
+7,0, 0,0, 12
+7,1, 0,0, 12
+7,2, 0,0, 12
+7,1, 0,0, 12
+7,0, 0,0, 12
+7,1, 0,0, 12
+7,2, 0,0, 12
+7,1, 0,0, 12
+7,0, 0,0, 12
+7,1, 0,0, 12
+7,2, 0,0, 12
+7,1, 0,0, 12
+7,0, 0,0, 12
+7,1, 0,0, 12
+7,2, 0,0, 12
+7,1, 0,0, 12
+7,0, 0,0, 12
+7,1, 0,0, 12
+7,2, 0,0, 8
+7,7, 0,0, 10
+7,6, 0,0, 12
+7,4, 0,0, 12,H
+7,3, 0,0, 12,H
+7,5, 0,0, 4,H
+7,7, 0,0, 8,H
+7,4, 0,0, 2,H
+7,3, 0,0, 12,H
+7,2, 0,0, 12,H
+7,1, 0,0, 12,H
+7,0, 0,0, 12,H
+7,1, 0,0, 12,H
+7,5, 0,0, 12
+
+
+
+; Zombie A 
+[Begin Action 6]
+6,0, 0,0, 12
+6,1, 0,0, 12
+6,2, 0,0, 12
+6,1, 0,0, 12
+6,0, 0,0, 12
+6,1, 0,0, 12
+6,2, 0,0, 12
+6,1, 0,0, 12
+6,0, 0,0, 12
+6,1, 0,0, 12
+6,2, 0,0, 12
+6,1, 0,0, 12
+6,0, 0,0, 12
+6,1, 0,0, 12
+6,2, 0,0, 12
+6,1, 0,0, 12
+6,3, 0,0, 8
+6,4, 0,0, 12
+6,5, 0,0, 54
+6,3, 0,0, 12
+6,0, 0,0, 12
+6,1, 0,0, 12
+6,2, 0,0, 12
+6,1, 0,0, 12
+6,0, 0,0, 12
+6,1, 0,0, 12
+6,2, 0,0, 6
+
+;Hildon
+[Begin Action 8]
+8,0, 0,0, 5,H
+8,1, 0,-5, 3,H
+8,2, 0,-9, 5,H
+8,1, 0,-12, 4,H
+8,0, 0,-14, 5,H
+8,1, 0,-15, 3,H
+8,2, 0,-14, 5,H
+8,1, 0,-12, 4,H
+8,0, 0,-9, 5,H
+8,1, 0,-5, 3,H
+8,2, 0,0, 5,H
+8,1, 0,5, 4,H
+8,0, 0,9, 5,H
+8,1, 0,12, 3,H
+8,2, 0,14, 5,H
+8,1, 0,15, 4,H
+8,0, 0,14, 5,H
+8,1, 0,12, 3,H
+8,2, 0,9, 5,H
+8,1, 0,5, 4,H
+
+
+[Begin Action 26]
+4,1, 0,0, 10
+
+[Begin Action 27]
+4,1, 0,0, 10, H
+
+[Begin Action 34]
+33,22, 0,0, 2,, A
+33,23, 0,0, 2,, A
+33,24, 0,0, 2,, A
+33,25, 0,0, 2,, A
+33,26, 0,0, 2,, A
+33,27, 0,0, 2,, A
+33,28, 0,0, 2,, A
+33,29, 0,0, 2,, A
+33,30, 0,0, 2,, A
+33,31, 0,0, 2,, A
+33,32, 0,0, 2,, A
+33,33, 0,0, 2,, A
+33,34, 0,0, 2,, A
+33,35, 0,0, 2,, A
+33,36, 0,0, 2,, A
+33,37, 0,0, 2,, A
+33,38, 0,0, 2,, A
+33,39, 0,0, 2,, A
+33,40, 0,0, 2,, A
+33,41, 0,0, 2,, A
+33,42, 0,0, 2,, A
+33,43, 0,0, 2,, A
+33,44, 0,0, 2,, A
+33,0, 0,0, 2,, A
+33,1, 0,0, 2,, A
+33,2, 0,0, 2,, A
+33,3, 0,0, 2,, A
+33,4, 0,0, 2,, A
+33,5, 0,0, 2,, A
+33,6, 0,0, 2,, A
+33,7, 0,0, 2,, A
+33,8, 0,0, 2,, A
+33,9, 0,0, 2,, A
+33,10, 0,0, 2,, A
+33,11, 0,0, 2,, A
+33,12, 0,0, 2,, A
+33,13, 0,0, 2,, A
+33,14, 0,0, 2,, A
+33,15, 0,0, 2,, A
+33,16, 0,0, 2,, A
+33,17, 0,0, 2,, A
+33,18, 0,0, 2,, A
+33,19, 0,0, 2,, A
+33,20, 0,0, 2,, A
+33,21, 0,0, 2,, A
+
+; Zombie A - Cabeza
+[Begin Action 61]
+-1,-1, 0,0, 212
+6,6, 0,0, 2
+6,6, -66,7, 2
+6,6, -90,11, 2
+6,6, -119,18, 2
+6,6, -160,25, 2
+6,6, -198,35, 2
+6,6, -236,43, 6
+6,9, -232,-4, 2
+6,8, -231,-33, 2
+6,7, -219,-55, 2
+6,6, -208,-74, 2
+6,9, -197,-87, 2
+6,8, -184,-106, 2
+6,7, -169,-122, 2
+6,6, -151,-116, 2
+6,9, -129,-112, 2
+6,8, -110,-105, 2
+6,7, -98,-96, 2
+6,6, -72,-82, 2
+6,9, -61,-67, 2
+6,8, -43,-53, 2
+6,7, -34,-46, 2
+6,6, -26,-36, 2
+6,9, -13,-22, 2
+6,8, -8,-10, 2
+-1,-1, 0,0, 90
+
+
+[Begin Action 67]
+28,0, 0,0, 5,, A
+28,1, 0,0, 5,, A
+28,2, 0,0, 5,, A
+28,3, 0,0, 5,, A
+28,4, 0,0, 5,, A
+28,5, 0,0, 5,, A
+28,6, 0,0, 5,, A
+28,7, 0,0, 5,, A
+28,8, 0,0, 5,, A
+28,9, 0,0, 5,, A
+28,10, 0,0, 5,, A
+28,11, 0,0, 5,, A
+28,12, 0,0, 5,, A
+28,13, 0,0, 5,, A
+28,14, 0,0, 5,, A
+28,15, 0,0, 5,, A
+28,16, 0,0, 5,, A
+28,17, 0,0, 5,, A
+
+[Begin Action 68]
+29,0, 0,0, 5,, A
+29,1, 0,0, 5,, A
+29,2, 0,0, 5,, A
+29,3, 0,0, 5,, A
+29,4, 0,0, 5,, A
+29,5, 0,0, 5,, A
+29,6, 0,0, 5,, A
+29,7, 0,0, 5,, A
+29,8, 0,0, 5,, A
+29,9, 0,0, 5,, A
+29,10, 0,0, 5,, A
+29,11, 0,0, 5,, A
+29,12, 0,0, 5,, A
+29,13, 0,0, 5,, A
+29,14, 0,0, 5,, A
+29,15, 0,0, 5,, A
+29,16, 0,0, 5,, A
+29,17, 0,0, 5,, A
+29,18, 0,0, 5,, A
+29,19, 0,0, 5,, A
+
+[Begin Action 69]
+60,0, 0,0, 1,, A
+60,1, 0,0, 1,, A
+60,2, 0,0, 1,, A
+60,3, 0,0, 1,, A
+60,4, 0,0, 1,, A
+60,5, 0,0, 1,, A
+60,6, 0,0, 1,, A
+60,7, 0,0, 1,, A
+60,8, 0,0, 1,, A
+60,9, 0,0, 1,, A
+60,10, 0,0, 1,, A
+60,11, 0,0, 1,, A
+60,12, 0,0, 1,, A
+60,13, 0,0, 1,, A
+60,14, 0,0, 1,, A
+60,15, 0,0, 1,, A
+60,16, 0,0, 1,, A
+60,17, 0,0, 1,, A
+60,18, 0,0, 1,, A
+60,19, 0,0, 1,, A
+60,20, 0,0, 1,, A
+60,21, 0,0, 1,, A
+60,22, 0,0, 1,, A
+60,23, 0,0, 1,, A
+60,24, 0,0, 1,, A
+60,25, 0,0, 1,, A
+60,26, 0,0, 1,, A
+60,27, 0,0, 1,, A
+60,28, 0,0, 1,, A
+60,29, 0,0, 1,, A
+60,30, 0,0, 1,, A
+60,31, 0,0, 1,, A
+60,32, 0,0, 1,, A
+60,33, 0,0, 1,, A
+60,34, 0,0, 1,, A
+60,35, 0,0, 1,, A
+60,36, 0,0, 1,, A
+60,37, 0,0, 1,, A
+60,38, 0,0, 1,, A
+60,39, 0,0, 1,, A
+60,40, 0,0, 1,, A
+60,41, 0,0, 1,, A
+60,42, 0,0, 1,, A
+60,43, 0,0, 1,, A
+60,44, 0,0, 1,, A
+60,45, 0,0, 1,, A
+60,46, 0,0, 1,, A
+60,47, 0,0, 1,, A
+60,48, 0,0, 1,, A
+60,49, 0,0, 1,, A
+60,50, 0,0, 1,, A
+60,51, 0,0, 1,, A
+60,52, 0,0, 1,, A
+60,53, 0,0, 1,, A
+60,54, 0,0, 1,, A
+60,55, 0,0, 1,, A
+60,56, 0,0, 1,, A
+60,57, 0,0, 1,, A
+60,58, 0,0, 1,, A
+60,59, 0,0, 1,, A
+60,60, 0,0, 1,, A
+60,61, 0,0, 1,, A
+60,62, 0,0, 1,, A
+60,63, 0,0, 1,, A
+60,64, 0,0, 1,, A
+60,65, 0,0, 1,, A
+60,66, 0,0, 1,, A
+
+[Begin Action 91]
+91,3, 0,0, 5,, A
+91,2, 0,0, 5,, A
+91,1, 0,0, 5,, A
+91,0, 0,0, 5,, A
+91,1, 0,0, 5,, A
+91,2, 0,0, 5,, A
+91,3, 0,0, 5,, A
+91,4, 0,0, 5,, A
+91,5, 0,0, 5,, A
+91,4, 0,0, 5,, A
+
+[Begin Action 92]
+91,4, 0,0, 6,, A
+91,5, 0,0, 6,, A
+91,4, 0,0, 6,, A
+91,3, 0,0, 6,, A
+91,2, 0,0, 6,, A
+91,1, 0,0, 6,, A
+91,0, 0,0, 6,, A
+91,1, 0,0, 6,, A
+91,2, 0,0, 6,, A
+91,3, 0,0, 6,, A
+
+
+[Begin Action 688]
+29,0, 0,0, 5, H, A
+29,1, 0,0, 5, H, A
+29,2, 0,0, 5, H, A
+29,3, 0,0, 5, H, A
+29,4, 0,0, 5, H, A
+29,5, 0,0, 5, H, A
+29,6, 0,0, 5, H, A
+29,7, 0,0, 5, H, A
+29,8, 0,0, 5, H, A
+29,9, 0,0, 5, H, A
+29,10, 0,0, 5, H, A
+29,11, 0,0, 5, H, A
+29,12, 0,0, 5, H, A
+29,13, 0,0, 5, H, A
+29,14, 0,0, 5, H, A
+29,15, 0,0, 5, H, A
+29,16, 0,0, 5, H, A
+29,17, 0,0, 5, H, A
+29,18, 0,0, 5, H, A
+29,19, 0,0, 5, H, A
+

@@ -1,0 +1,174 @@
+[Info]
+name = "HeavyTraffic"
+displayname = "Heavy Traffic"
+versiondate = 12,11,2026
+mugenversion = 1.1
+ikemenversion = 1
+author = "NONAME01150"
+attachedchar = "HeavyTraffic.chr"
+
+;--------------------------------------------------------
+[Camera]
+startx = 0
+starty = 0
+
+boundleft = 0
+boundright = 320
+boundhigh = 0
+boundlow = 0
+
+verticalfollow = 1
+
+floortension = 0
+tension = 60
+
+overdrawhigh = 0
+overdrawlow = 0
+
+cuthigh = 35
+cutlow = 25
+
+zoomout = 1
+zoomin = 1
+
+;--------------------------------------------------------
+[PlayerInfo]
+p1startx = -70
+p1starty = 0
+p1startz = -55
+p1facing = 1
+p2startx = 70
+p2starty = 0
+p2startz = -55
+p2facing = -1
+
+leftbound  = -1000 ;Left bound (x-movement)
+rightbound =  6000 ;Right bound
+topbound = -120
+botbound = 12
+
+;--------------------------------------------------------
+[Bound]
+screenleft = 0
+screenright = 0
+
+;--------------------------------------------------------
+[StageInfo]
+zoffset = 225
+autoturn = 1
+resetBG = 1
+localcoord = 320, 240
+xscale = 1
+yscale = 1
+
+;--------------------------------------------------------
+[Shadow]
+intensity = 0
+color = 0,0,0
+yscale = 0
+fade.range = -400,-100
+
+;--------------------------------------------------------
+[Reflection]
+intensity = 0
+
+;--------------------------------------------------------
+[Music]
+bgmusic = ApotosDaySD.ogg
+;bgmloopstart = <sample number>
+;bgmloopend = <sample number>
+bgmvolume = 255
+
+;-------------------------------------
+[BGdef]
+spr = HeavyTraffic.sff
+debugbg = 0
+
+;-------------------------------------
+; IKEMEN GO ONLY, preview animation used in the Select screen
+[Begin Action 9000]
+9000,1, 0,0,-1
+;-------------------------------------
+
+;[BG Road]
+;type = normal
+;spriteno = 0,0
+;start = -160,80
+;tile = 3,0
+;maskwindow = 0,74,387,118
+
+;Screen 1
+[BG Sky]
+type = normal
+spriteno = 100,12
+id = 0
+start = -160,-11
+tile = 13,0
+mask = 1
+
+[BG Road]
+type = normal
+spriteno = 0,5
+id = 1
+start = -160,176
+tile = 5,0
+
+[BG Road Mid]
+type = normal
+spriteno = 0,4
+id = 1
+start = -160,172
+tile = 5,0
+
+[BG Sidewalk]
+type = normal
+spriteno = 0,3
+id = 1
+start = -160,151
+tile = 5,0
+
+[BG Sidewalk 2]
+type = normal
+spriteno = 0,3
+id = 1
+start = -160,219
+tile = 5,0
+
+[BG Sidewalk Mid]
+type = normal
+spriteno = 0,2
+id = 1
+start = -160,146
+tile = 5,0
+
+[BG Ocean BG]
+type = normal
+spriteno = 100,14
+id = 2
+start = -160,73
+tile = 4,0
+mask = 1
+
+;[BG Ocean]
+;type = normal
+;spriteno = 100,13
+;id = 2
+;start = -160,73
+;tile = 0,0
+;mask = 1
+;
+;[BG Ocean 2]
+;type = normal
+;spriteno = 100,15
+;id = 2
+;start = -86,73
+;tile = 0,0
+;mask = 1
+
+[BG Rail]
+type = normal
+spriteno = 0,1
+id = 3
+start = -160,123
+tile = 5,0
+mask = 1

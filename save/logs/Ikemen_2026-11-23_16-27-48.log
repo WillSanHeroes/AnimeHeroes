@@ -1,0 +1,33 @@
+Version: modern-input
+Build Time: 2026.11.17
+Platform: windows (amd64)
+OpenGL 3.3
+RAM in Use: 18 MB / OS Reserved: 49 MB
+Active Goroutines: 3
+Timestamp: 2026-11-23 16:27:48
+
+Engine error
+
+Error: external/script/main.lua:1200: 
+Unable to add character. No such file or directory: %0
+
+stack traceback:
+	[G]: in function 'panicError'
+	external/script/main.lua:1200: in function 'f_commandLine'
+	external/script/main.lua:1277: in main chunk
+	[G]: ?
+
+Go stack traceback:
+goroutine 1 [running, locked to thread]:
+runtime/debug.Stack()
+	runtime/debug/stack.go:26 +0x5e
+main.handlePanic({0x7ff7ceda0fd8, 0x28ac0ab1b680})
+	github.com/ikemen-engine/Ikemen-GO/src/main.go:402 +0x3a5
+main.realMain.func1()
+	github.com/ikemen-engine/Ikemen-GO/src/main.go:66 +0x1d
+panic({0x7ff7ceda0fd8?, 0x28ac0ab1b680?})
+	runtime/panic.go:859 +0x125
+main.realMain()
+	github.com/ikemen-engine/Ikemen-GO/src/main.go:232 +0x576
+main.main()
+	github.com/ikemen-engine/Ikemen-GO/src/main.go:59 +0xf

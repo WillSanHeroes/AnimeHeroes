@@ -1,0 +1,32 @@
+; Definition file for Kung Fu Man
+; Contains all the filenames needed for the character
+
+; Player information
+[Info]
+name="Marine Rumble 1"
+displayname="Morgan Troops"
+versiondate=04,14,2002
+mugenversion=1.0
+author="Team One Piece OS"
+pal.defaults=1
+
+; Files for the player
+[Files]
+cmd=MarineRumble1.cmd
+sprite=MarineRumble1.sff
+anim=MarineRumble1.air
+sound=MarineRumble1.snd
+stcommon =common1.cns
+st=constants.cns
+cns=constants.cns
+pal1=01.act
+st1=Swordman.cns
+st2=Rifleman.cns
+st3=Swordman2.cns
+st4=FatMaceMan.cns
+st5=CapMorgan.cns
+
+
+[Arcade]
+intro.storyboard=
+ending.storyboard=

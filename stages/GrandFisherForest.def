@@ -1,0 +1,116 @@
+;==========================================================
+;Game:   Bleach DS 4th: Flame Bringer
+;Release: 28, Aug, 2010 
+;Update : 29, Dez, 2014
+;https://rurouniroad.blogspot.com/
+;==========================================================
+
+[Info]
+name   = "Forest"
+author = "Rurouni"         
+
+;------------------------------------------------------
+[Camera]
+startx = 0
+starty = 0
+boundleft = -42 
+boundright = 42
+boundhigh = -319
+boundlow = 10
+verticalfollow = 0.65
+floortension = 0
+tension = 60
+zoomstart = .1
+zoomin = 1.3
+zoomout = .8
+;------------------------------------------------------
+[PlayerInfo]
+p1startx = -70
+p1starty = 0
+p1startz = 0
+p1facing = 1
+            
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+leftbound  = -800 
+rightbound = 800 
+topbound  =  0     
+botbound  =  0
+     
+;------------------------------------------------------
+[Scaling]
+topz     = 0       
+botz     = 50     
+topscale = 1       
+botscale = 1.2     
+
+;------------------------------------------------------
+[Bound]
+screenleft = 25    
+screenright = 25   
+
+;------------------------------------------------------
+[StageInfo]
+Hires = 0
+zoffset = 196
+autoturn = 1
+resetBG = 0
+
+;------------------------------------------------------
+[Shadow]
+intensity = 30
+color = 40,40,40
+yscale = .2
+fade.range= -400,-100
+
+;------------------------------------------------------
+[Music]
+bgmusic =  sound/GrandFisherForest.mp3
+bgvolume = 255
+
+;------------------------------------------------------
+[BGdef]
+spr = GrandFisherForest.sff
+debugbg = 0
+
+;------------------------------------------------------
+[BG 0]
+type = normal
+spriteno = 0, 0
+start = -256,106
+delta = 0.784,0.854
+mask = 1
+
+[BG 1]
+type = normal
+spriteno = 0, 1
+start = -256,106
+delta = 0.8,0.75
+tile = 1,0
+tilespacing = 5,0
+velocity = -0.552,0
+mask = 1
+
+[BG 2]
+type = normal
+spriteno = 0, 2
+start = -256,106
+delta = 1,1
+mask = 1
+
+[BG 3]
+type = normal
+spriteno = 0, 3
+start = -256,106
+delta = 1,1
+layerno = 1
+mask = 1
+
+;==========================================================
+;Extra Credits
+;Sprites  Ripped by Owari
+;BG Music Ripped by Ichiron47
+;==========================================================

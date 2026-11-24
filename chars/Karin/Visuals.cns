@@ -1,0 +1,1785 @@
+;===============================================================================
+; VISUALS ======================================================================
+;===============================================================================
+
+;-------------------------------------------------------------------------------
+; GuardSpark1
+[Statedef 800]
+type    = A
+movetype= I
+physics = N
+anim = 7000
+sprpriority = 5
+
+[State 0, PalFX]
+type = PalFX
+trigger1 = !Time
+time = 99999
+add = -128,-64,0
+mul = 512,512,512
+color = 0
+ignorehitpause = 1
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = Fvar(1);+(time*1)
+scale = 1,1
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 256,256
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+
+[State 200, End]
+type = Destroyself
+trigger1 = AnimTime = 0
+
+;-------------------------------------------------------------------------------
+; HitSparks A
+[Statedef 801]
+type    = A
+movetype= I
+physics = N
+
+; [GUIDELINES] ===================
+; - 001: Hitspark A1 ADD ||(FG/Pr=3)
+; - 002: Hitspark B1 ADD ||(FG/Pr=3)
+; - 012: Hitspark B1 RED ||(FG/Pr=3)
+; ================================
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = !Time
+Fv = 1
+value = Random%360
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = Fvar(1)+(Time*.5)
+scale = 1+(Time*.025),1+(Time*.025)
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+TriggerALL = IsHelper(001)
+trigger1 = !Time
+value = 7001
+elem = 1
+[State 0, ChangeAnim]
+type = ChangeAnim
+TriggerALL = IsHelper(002)||IsHelper(012)
+trigger1 = !Time
+value = 7002
+elem = 1
+
+[State 0, SprPriority]
+type = SprPriority
+TriggerALL = IsHelper(001)
+trigger1   = !Time
+value      = 3
+ignorehitpause = 1
+[State 0, SprPriority]
+type = SprPriority
+TriggerALL = IsHelper(002)||IsHelper(012)
+trigger1   = !Time
+value      = 4
+ignorehitpause = 1
+
+[State 0, PalFXWiz] ;Hitspark A1 ADD
+type = PalFX
+TriggerALL = IsHelper(001)
+trigger1 = !Time
+time = 99999
+add = 0,-64,-156
+mul = 512,512,512
+color = 0
+[State 0, PalFXWiz] ;Hitspark B1 ADD
+type = PalFX
+TriggerALL = IsHelper(002)
+trigger1 = !Time
+time = 99999
+add = 0,-100,-156
+mul = 512,512,512
+color = 0
+[State 0, PalFXWiz] ;Hitspark B1 RED
+type = PalFX
+TriggerALL = IsHelper(012)
+trigger1 = !Time
+time = 99999
+add = 0,-128,-116
+mul = 512,512,512
+color = 0
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = !Time
+Fv = 2
+value = 0
+[State 0, VarAdd]
+type = VarAdd
+TriggerALL = IsHelper(001)
+trigger1 = AnimElemTime(3)>0
+Fv = 2
+value = 30
+
+[State 0, Trans]
+type = Trans
+TriggerALL = IsHelper(001)
+trigger1 = 1
+trans = addalpha
+alpha = 256-FVAR(2),256
+[State 0, Trans]
+type = Trans
+TriggerALL = IsHelper(002)||IsHelper(012)
+trigger1 = 1
+trans = addalpha
+alpha = 256,256
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+
+[State 200, End]
+type = Destroyself
+trigger1 = AnimTime = 0
+
+;-------------------------------------------------------------------------------
+; HitSparks B
+[Statedef 802]
+type    = A
+movetype= I
+physics = N
+anim = Cond(!IsHelper(021),7002,7006)
+;sprpriority = Cond(IsHelper(001),4,Cond(IsHelper(002),3,Cond(IsHelper(003),0,-1)))
+
+; [GUIDELINES] ========================
+; - 001: Default Hitspark |------|
+; - 002: Blue Hitspark    |------|
+; - 003: Yellow Hitspark  |------|     ;NARUTO
+; - 011: Default Hitspark |BACKGROUND|
+; - 012: Blue Hitspark    |BACKGROUND|
+; - 021: Default Hitspark |SLOW|
+; - 022: Blue Hitspark    |SLOW|
+; =====================================
+
+[State 0, SprPriority]
+type = SprPriority
+trigger1 = IsHelper(001)
+trigger2 = IsHelper(002)
+trigger3 = IsHelper(003)
+trigger4 = IsHelper(004)
+trigger5 = IsHelper(005)
+trigger6 = IsHelper(006)
+trigger7 = IsHelper(007)
+trigger8 = IsHelper(008)
+trigger9 = IsHelper(009)
+trigger10= IsHelper(010)
+trigger11= IsHelper(021)
+trigger12= IsHelper(022)
+trigger13= IsHelper(023)
+trigger14= IsHelper(024)
+trigger15= IsHelper(025)
+trigger16= IsHelper(026)
+trigger17= IsHelper(027)
+trigger18= IsHelper(028)
+trigger19= IsHelper(029)
+trigger20= IsHelper(030)
+value = 4
+ignorehitpause = 1
+
+[State 0, SprPriority]
+type = SprPriority
+trigger1 = IsHelper(011)
+trigger2 = IsHelper(012)
+trigger3 = IsHelper(013)
+trigger4 = IsHelper(014)
+trigger5 = IsHelper(015)
+trigger6 = IsHelper(016)
+trigger7 = IsHelper(017)
+trigger8 = IsHelper(018)
+trigger9 = IsHelper(019)
+trigger10= IsHelper(020)
+value = 0
+ignorehitpause = 1
+
+; Default
+[State 0, PalFXWiz]
+type = PalFX
+TriggerALL = IsHelper(001)||IsHelper(011)||IsHelper(021)
+trigger1 = Time = 0
+time = 99999
+add = 0,0,0
+mul = 300,300,300
+color = 256
+;add = 0,-80,-140
+;mul = 512,512,512
+;color = 0
+
+; Blue
+[State 0, PalFXWiz]
+type = PalFX
+TriggerALL = IsHelper(002)||IsHelper(012)||IsHelper(022)
+trigger1 = Time = 0
+time = 99999
+add = -128,-64,0
+mul = 512,512,512
+color = 0
+
+; Yellow
+;[State 0, PalFXWiz]
+;type = PalFX
+;TriggerALL = IsHelper(003)||IsHelper(013)||IsHelper(023)
+;trigger1 = Time = 0
+;time = 99999
+;add = 0,-45,-128
+;mul = 512,512,512
+;color = 0
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+Fv = 1
+value = random%360
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = Fvar(1)+(time*.5)
+scale = 1+(Time*.025),1+(Time*.025)
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 256,256
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+
+[State 200, End]
+type = Destroyself
+trigger1 = AnimTime = 0
+
+;-------------------------------------------------------------------------------
+; ShockSparks A
+[Statedef 803]
+type    = A
+movetype= I
+physics = N
+
+; [GUIDELINES] =============================
+; - 001: Shockspark Red ADD    ||(FG/Pr=3)
+; - 002: Shockspark Yellow ADD ||(FG/Pr=3)
+; ==========================================
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+Fv = 1
+value = random%360
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = Fvar(1)+(time*.5)
+scale = 1+(Time*.05),1+(Time*.05)
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+TriggerALL = IsHelper(001)||IsHelper(002)
+trigger1 = !Time
+value = 7201
+elem = 1
+
+[State 0, SprPriority]
+type = SprPriority
+TriggerALL = IsHelper(001)||IsHelper(002)
+trigger1   = !Time
+value      = 3
+ignorehitpause = 1
+
+[State 0, PalFXWiz] ;Shockspark Red ADD
+type = PalFX
+TriggerALL = IsHelper(001)
+trigger1 = !Time
+time = 99999
+add = 0,-150,-225
+mul = 512,512,512
+color = 0
+[State 0, PalFXWiz] ;Shockspark Yellow ADD
+type = PalFX
+TriggerALL = IsHelper(002)
+trigger1 = !Time
+time = 99999
+add = 0,-75,-225
+mul = 512,512,512
+color = 0
+
+[State 0, VarSet]
+type = VarSet
+;TriggerALL = IsHelper(001)
+trigger1 = !Time
+Fv = 2
+value = 0
+[State 0, VarAdd]
+type = VarAdd
+;TriggerALL = IsHelper(001)
+trigger1 = AnimElemTime(3)>0
+Fv = 2
+value = 30
+
+[State 0, Trans]
+type = Trans
+;TriggerALL = IsHelper(001)
+trigger1 = 1
+trans = addalpha
+alpha = 300-(Time*25),256
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+
+[State 200, End]
+type = Destroyself
+trigger1 = Time>=20
+
+;-------------------------------------------------------------------------------
+; SlashSparks A
+[Statedef 805]
+type    = A
+movetype= I
+physics = N
+
+; [GUIDELINES] ===================
+; - 001: Slashspark A1 ADD ||(FG/Pr=3)
+; ================================
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = !Time
+Fv = 1
+value = Random%360
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+scale = 1+(Time*.025),1+(Time*.025)
+value = Fvar(1)
+
+[State 0, ChangeAnim weak]
+type = ChangeAnim
+TriggerALL = IsHelper(001)
+trigger1 = !Time
+value = 7004
+elem = 1
+[State 0, ChangeAnim strong]
+type = ChangeAnim
+TriggerALL = IsHelper(005)
+trigger1 = !Time
+value = 7003
+elem = 1
+[State 0, ChangeAnim heavy]
+type = ChangeAnim
+TriggerALL = IsHelper(006)
+trigger1 = !Time
+value = 7005
+elem = 1
+
+
+[State 0, SprPriority]
+type = SprPriority
+trigger1   = !Time
+value      = 3
+ignorehitpause = 1
+
+[State 0, PalFXWiz] ;Slashspark A1 ADD
+type = PalFX
+trigger1 = !Time
+time = 99999
+add = 0,-64,-156
+;add = 0,-128,-116
+mul = 512,512,512
+color = 0
+
+;[State 0, VarSet]
+;type = VarSet
+;trigger1 = !Time
+;Fv = 2
+;value = 0
+;[State 0, VarAdd]
+;type = VarAdd
+;TriggerALL = IsHelper(001)
+;trigger1 = AnimElemTime(3)>0
+;Fv = 2
+;value = 30
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 256-ceil(FVAR(2)),256
+;alpha = 256-FVAR(2),256
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+
+[State 200, End]
+type = Destroyself
+trigger1 = AnimTime = 0
+;-------------------------------------------------------------------------------
+; Strong HitSpark
+[Statedef 806]
+type    = A
+movetype= I
+physics = N
+sprpriority = 200
+
+; [GUIDELINES] ===================
+; - 001: Hitspark A1 ADD ||(FG/Pr=3)
+; - 002: Hitspark B1 ADD ||(FG/Pr=3)
+; - 012: Hitspark B1 RED ||(FG/Pr=3)
+; ================================
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = !Time
+Fv = 1
+value = Random%360
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = Fvar(1)+(Time*.5)
+scale = 1+(Time*.025),1+(Time*.025)
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = !Time
+value = 7011
+elem = 1
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = !Time
+Fv = 2
+value = 0
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = AnimElemTime(3)>0
+Fv = 2
+value = 10
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 256-FVAR(2),256
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+
+[State 200, End]
+type = Destroyself
+trigger1 = AnimTime = 0
+;-------------------------------------------------------------------------------
+; explosion HitSpark
+[Statedef 807]
+type    = A
+movetype= I
+physics = N
+sprpriority = 200
+
+; [GUIDELINES] ===================
+; - 001: Hitspark A1 ADD ||(FG/Pr=3)
+; - 002: Hitspark B1 ADD ||(FG/Pr=3)
+; - 012: Hitspark B1 RED ||(FG/Pr=3)
+; ================================
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = !Time
+Fv = 1
+value = Random%360
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = Fvar(1)+(Time*.5)
+scale = 1+(Time*.025),1+(Time*.025)
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = !Time
+value = 7012
+elem = 1
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = !Time
+Fv = 2
+value = 0
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = AnimElemTime(3)>0
+Fv = 2
+value = 10
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 256-FVAR(2),256
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+
+[State 200, End]
+type = Destroyself
+trigger1 = AnimTime = 0
+;-------------------------------------------------------------------------------
+; Flames HitSpark
+[Statedef 808]
+type    = A
+movetype= I
+physics = N
+sprpriority = 200
+
+; [GUIDELINES] ===================
+; - 001: Hitspark A1 ADD ||(FG/Pr=3)
+; - 002: Hitspark B1 ADD ||(FG/Pr=3)
+; - 012: Hitspark B1 RED ||(FG/Pr=3)
+; ================================
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = !Time
+Fv = 1
+value = Random%360
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = Fvar(1)+(Time*.5)
+scale = 1+(Time*.025),1+(Time*.025)
+
+[State 0, Normal flames]
+type = ChangeAnim
+TriggerALL = IsHelper(001)
+trigger1 = !Time
+value = 7206
+elem = 1
+[State 0, Red flames]
+type = ChangeAnim
+TriggerALL = IsHelper(002)
+trigger1 = !Time
+value = 7207
+elem = 1
+
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = !Time
+Fv = 2
+value = 0
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = AnimElemTime(3)>0
+Fv = 2
+value = 10
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 256-FVAR(2),256
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+
+[State 200, End]
+type = Destroyself
+trigger1 = AnimTime = 0
+
+;-------------------------------------------------------------------------------
+; Fire HitSparks 
+[Statedef 809]
+type    = A
+movetype= I
+physics = N
+
+; [GUIDELINES] ===================
+; - 001: Hitspark A1 ADD ||(FG/Pr=3)
+; - 002: Hitspark B1 ADD ||(FG/Pr=3)
+; - 012: Hitspark B1 RED ||(FG/Pr=3)
+; ================================
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = !Time
+Fv = 1
+value = Random%360
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = Fvar(1)+(Time*.5)
+scale = 1+(Time*.025),1+(Time*.025)
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+TriggerALL = IsHelper(001)
+trigger1 = !Time
+value = 7009
+elem = 1
+[State 0, ChangeAnim]
+type = ChangeAnim
+TriggerALL = IsHelper(002)
+trigger1 = !Time
+value = 7008
+elem = 1
+
+[State 0, SprPriority]
+type = SprPriority
+TriggerALL = IsHelper(001)
+trigger1   = !Time
+value      = 3
+ignorehitpause = 1
+[State 0, SprPriority]
+type = SprPriority
+TriggerALL = IsHelper(002)||IsHelper(012)
+trigger1   = !Time
+value      = 4
+ignorehitpause = 1
+
+[State 0, PalFXWiz] ;Hitspark A1 ADD
+type = PalFX
+TriggerALL = IsHelper(001)
+trigger1 = !Time
+time = 99999
+add = 0,-64,-156
+mul = 512,512,512
+color = 0
+[State 0, PalFXWiz] ;Hitspark B1 ADD
+type = PalFX
+TriggerALL = IsHelper(002)
+trigger1 = !Time
+time = 99999
+add = 0,-100,-156
+mul = 512,512,512
+color = 0
+[State 0, PalFXWiz] ;Hitspark B1 RED
+type = PalFX
+TriggerALL = IsHelper(012)
+trigger1 = !Time
+time = 99999
+add = 0,-128,-116
+mul = 512,512,512
+color = 0
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = !Time
+Fv = 2
+value = 0
+[State 0, VarAdd]
+type = VarAdd
+TriggerALL = IsHelper(001)
+trigger1 = AnimElemTime(3)>0
+Fv = 2
+value = 30
+
+[State 0, Trans]
+type = Trans
+TriggerALL = IsHelper(001)
+trigger1 = 1
+trans = addalpha
+alpha = 256-FVAR(2),256
+[State 0, Trans]
+type = Trans
+TriggerALL = IsHelper(002)
+trigger1 = 1
+trans = addalpha
+alpha = 256,256
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+
+[State 200, End]
+type = Destroyself
+trigger1 = AnimTime = 0
+;-------------------------------------------------------------------------------
+; SlashSparks Normals
+[Statedef 810]
+type    = S
+movetype= I
+physics = N
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 7004
+sprpriority = 4
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = !Time
+Fv = 1
+value = Random%360
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+scale = 1+(Time*.025),1+(Time*.025)
+value = Fvar(1)
+
+
+[State 0, PalFXWiz] ;Slashspark A1 ADD
+type = PalFX
+trigger1 = !Time
+time = 99999
+add = 0,-64,-156
+;add = 0,-128,-116
+mul = 512,512,512
+color = 0
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = add
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+
+[State 200, End]
+type = Destroyself
+trigger1 = AnimTime = 0
+;-------------------------------------------------------------------------------
+; Ultimate SlashSparks 
+[Statedef 815]
+type    = A
+movetype= I
+physics = N
+
+; [GUIDELINES] ===================
+; - 001: Slashspark A1 ADD ||(FG/Pr=3)
+; ================================
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = !Time
+Fv = 1
+value = Random%360
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+scale = 1+(Time*.025),1+(Time*.025)
+value = Fvar(1)
+
+[State 0, ChangeAnim weak]
+type = ChangeAnim
+TriggerALL = IsHelper(001)
+trigger1 = !Time
+value = 7004
+elem = 1
+[State 0, ChangeAnim strong]
+type = ChangeAnim
+TriggerALL = IsHelper(005)
+trigger1 = !Time
+value = 7003
+elem = 1
+[State 0, ChangeAnim heavy]
+type = ChangeAnim
+TriggerALL = IsHelper(006)
+trigger1 = !Time
+value = 7005
+elem = 1
+
+
+[State 0, SprPriority]
+type = SprPriority
+trigger1   = !Time
+value      = 3
+ignorehitpause = 1
+
+[State 0, PalFXWiz] ;Slashspark A1 ADD
+type = PalFX
+trigger1 = !Time
+time = 99999
+add = 0,-150,-150
+mul = 512,512,512
+color = 0
+
+
+;[State 0, VarSet]
+;type = VarSet
+;trigger1 = !Time
+;Fv = 2
+;value = 0
+;[State 0, VarAdd]
+;type = VarAdd
+;TriggerALL = IsHelper(001)
+;trigger1 = AnimElemTime(3)>0
+;Fv = 2
+;value = 30
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 256-ceil(FVAR(2)),256
+;alpha = 256-FVAR(2),256
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+
+[State 200, End]
+type = Destroyself
+trigger1 = AnimTime = 0
+;-------------------------------------------------------------------------------
+; Shockwave FX1
+[Statedef 820]
+type    = A
+movetype= I
+physics = N
+
+; [GUIDELINES] ==================================
+; - 000: Standard Shockwave GRAY || (FG/SPR:3)
+; - 001: Pulse Shockwave RED     || (FG/SPR:3)
+; ===============================================
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+TriggerALL = IsHelper(000)
+trigger1 = !Time
+value = 7022
+elem = 1
+persistent = 0
+[State 0, ChangeAnim]
+type = ChangeAnim
+TriggerALL = IsHelper(001)
+trigger1 = !Time
+value = 7025
+elem = 1
+persistent = 0
+
+[State 0, SprPriority]
+type = SprPriority
+TriggerALL = IsHelper(000)
+trigger1 = !Time
+value = 3
+ignorehitpause = 1
+[State 0, SprPriority]
+type = SprPriority
+TriggerALL = IsHelper(001)
+trigger1 = !Time
+value = 3
+ignorehitpause = 1
+
+[State 0, VelSet]
+type = VelSet
+TriggerALL = IsHelper(000)
+trigger1 = 1
+x = -.5
+ignorehitpause = 1
+[State 0, VelSet]
+type = VelSet
+TriggerALL = IsHelper(001)
+trigger1 = 1
+x = -.5
+ignorehitpause = 1
+
+[State 0, PalFX]
+type = PalFX
+TriggerALL = IsHelper(000)
+trigger1 = !Time
+time = 99999
+add = 0,-150,-140
+mul = 512,512,512
+color = 0
+ignorehitpause = 1
+[State 0, PalFX]
+type = PalFX
+TriggerALL = IsHelper(001)
+trigger1 = !Time
+time = 99999
+add = 0,-100,-90
+mul = 512,512,512
+color = 0
+ignorehitpause = 1
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = Time=0
+fv = 7
+value = 0
+[State 0, VarSet]
+type = VarSet
+trigger1 = Time=0
+fv = 8
+value = 0
+
+[State 0, VarAdd]
+type = VarAdd
+TriggerALL = IsHelper(000)
+trigger1 = Time = [1,5]
+fv = 7
+value = .025
+[State 0, VarAdd]
+type = VarAdd
+TriggerALL = IsHelper(000)
+trigger1 = Time >=9
+fv = 7
+value = -.05
+
+[State 0, VarAdd]
+type = VarAdd
+TriggerALL = IsHelper(000)
+trigger1 = Time >= 9
+fv = 8
+value = 40
+
+[State 0, AngleDraw]
+type = AngleDraw
+TriggerALL = IsHelper(000)
+trigger1 = 1
+scale = 1*Helper(999999),Fvar(16),1*Helper(999999),Fvar(16)+FVAR(7)
+ignorehitpause = 1
+[State 0, AngleDraw]
+type = AngleDraw
+TriggerALL = IsHelper(001)
+trigger1 = 1
+scale = 1+(Time*0.05),1+(Time*0.05)
+ignorehitpause = 1
+
+[State 0, Trans]
+type = Trans
+TriggerALL = IsHelper(000)
+trigger1 = 1
+trans = AddAlpha
+Alpha = 256-FVAR(8),256
+[State 0, Trans]
+type = Trans
+TriggerALL = IsHelper(001)
+trigger1 = 1
+trans = AddAlpha
+Alpha = 256,256
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = NoShadow
+ignorehitpause = 0
+
+[State 200, End]
+type = Destroyself
+trigger1 = AnimTime = 0
+
+;-------------------------------------------------------------------------------
+; Shockwave FX2
+[Statedef 821]
+type    = A
+movetype= I
+physics = N
+anim = 7023
+sprpriority = 0
+velset = -.5,0
+
+[State 0, PalFX]
+type = PalFX
+TriggerALL = IsHelper(001)
+trigger1 = !Time
+time = 99999
+add = 0,-150,-140
+mul = 512,512,512
+color = 0
+ignorehitpause = 1
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = Time=0
+fv = 6
+value = 0
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = Time = [1,7]
+fv = 6
+value = .025
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+scale = 1*Helper(999999),Fvar(16),1*Helper(999999),Fvar(16)+FVAR(6)
+ignorehitpause = 1
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = AddAlpha
+Alpha = 256,256
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = NoShadow
+ignorehitpause = 0
+
+[State 200, End]
+type = Destroyself
+trigger1 = AnimTime = 0
+
+;-------------------------------------------------------------------------------
+; Wave FX
+[Statedef 822]
+type    = A
+movetype= I
+physics = N
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 7024
+sprpriority = 3
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+scale = .15+time*.05,.15+time*.05
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 256-(time*30),256
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+ignorehitpause = 1
+
+[State 200, End]
+type = Destroyself
+trigger1 = Time >= 20
+
+;-------------------------------------------------------------------------------
+; Dash Body Pulse FX
+;[Statedef 823]
+;type    = A
+;movetype= I
+;physics = N
+;ctrl = 0
+;;anim = 469
+;;sprpriority = 3
+;
+;; [GUIDELINES] ========================
+;; - ***: Afterimage  (Foreground)
+;; =====================================
+;
+;[State 0, ChangeAnim]
+;type = ChangeAnim
+;trigger1 = !Time
+;value = Parent,anim
+;elem = Parent,AnimElemNo(0)
+;
+;[State 0, SprPriority]
+;type = SprPriority
+;trigger1 = 1
+;value = 0
+;
+;[State 0, PalFXWiz]
+;type = PalFX
+;trigger1 = Time = 0
+;time = 99999
+;add = 0,0,0
+;mul = 256,256,256
+;color = 256
+;
+;[State 0, ScreenBound]
+;type = ScreenBound
+;trigger1 = 1
+;value = 0
+;movecamera = 0,0
+;
+;[State 0, AngleDraw]
+;type = AngleDraw
+;TriggerALL = IsHelper(002)
+;trigger1 = 1
+;scale = 1+(Time*.0175),1+(Time*.0175)
+;
+;[State 0, PlayerPush]
+;type = PlayerPush
+;trigger1 = 1
+;value = 0
+;[State 0, NotHitBy]
+;type = NotHitBy
+;trigger1 = 1
+;value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+;time = 1
+;
+;[State 0, Trans]
+;type = Trans
+;trigger1 = 1
+;trans = addalpha
+;alpha = 200-(Time*25),150+(Time*20)
+;
+;[State 0, AssertSpecial]
+;type = AssertSpecial
+;Trigger1 = 1
+;flag = NoShadow
+;
+;[State 0, DestroySelf]
+;type = DestroySelf
+;trigger1 = Time>=10
+
+;-------------------------------------------------------------------------------
+; Dash Dust FX
+[Statedef 830]
+type    = A
+movetype= I
+physics = N
+anim = 7030
+sprpriority = 3
+velset = -.5,0
+
+[State 0, PalFXWiz]
+type = PalFX
+trigger1 = 1
+time = 99999
+add = 0,0,0
+mul = 256,256,256
+color = 0
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = Time=0;4
+fv = 6
+value = 0
+
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = Time = [1,4]
+fv = 6
+value = .1
+
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = Time >= 5
+fv = 6
+value = -.05
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+scale = 1*Helper(999999),Fvar(16),1*Helper(999999),Fvar(16)+FVAR(6)
+ignorehitpause = 1
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = AddAlpha
+Alpha = 256,256;256-(Time*10),256
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = NoShadow
+ignorehitpause = 0
+
+[State 200, End]
+type = Destroyself
+trigger1 = AnimTime = 0
+
+;-------------------------------------------------------------------------------
+; Dash Dust FX (Big)
+[Statedef 831]
+type    = A
+movetype= I
+physics = N
+anim = 7031
+sprpriority = 3
+velset = -.5,0
+
+[State 0, PalFXWiz]
+type = PalFX
+trigger1 = 1
+time = 99999
+add = 0,0,0
+mul = 300,300,300
+color = 0
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = Time=0;4
+fv = 6
+value = 0
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+scale = 1*Helper(999999),Fvar(16),1*Helper(999999),Fvar(16)
+ignorehitpause = 1
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = AddAlpha
+Alpha = 256-(Time*5),256
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = NoShadow
+ignorehitpause = 0
+
+[State 200, End]
+type = Destroyself
+trigger1 = AnimTime = 0
+
+;-------------------------------------------------------------------------------
+; Dash Dust FX (Slow)
+[Statedef 832]
+type    = A
+movetype= I
+physics = N
+anim = 7032
+sprpriority = 3
+velset = -.25,0
+
+[State 0, PalFXWiz]
+type = PalFX
+trigger1 = 1
+time = 99999
+add = 0,0,0
+mul = 300,300,300
+color = 0
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = Time=0;4
+fv = 6
+value = 0
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+scale = 1*Helper(999999),Fvar(16),1*Helper(999999),Fvar(16)
+ignorehitpause = 1
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = AddAlpha
+Alpha = 256-(Time*5),256
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = NoShadow
+ignorehitpause = 0
+
+[State 200, End]
+type = Destroyself
+trigger1 = AnimTime = 0
+
+;-------------------------------------------------------------------------------
+; Rock Group ADD
+[Statedef 833]
+type    = A
+movetype= I
+physics = N
+anim = 7033
+sprpriority = 5
+
+[State 0, PalFXWiz]
+type = PalFX
+trigger1 = 1
+time = 99999
+add = 0,0,0
+mul = 256,256,256
+color = 256
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+scale = 1,1
+ignorehitpause = 1
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = Add
+;Alpha = 256-(Time*10),256
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = NoShadow
+ignorehitpause = 0
+
+[State 200, End]
+type = Destroyself
+trigger1 = AnimTime = 0
+
+;-------------------------------------------------------------------------------
+; Rock Group SUB
+[Statedef 834]
+type    = A
+movetype= I
+physics = N
+anim = 7033
+sprpriority = 4
+
+[State 0, PalFXWiz]
+type = PalFX
+trigger1 = 1
+time = 99999
+add = 0,0,0
+mul = 512,512,512
+color = 0
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+scale = 1,1
+ignorehitpause = 1
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = SUB
+;Alpha = 256-(Time*10),256
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = NoShadow
+ignorehitpause = 0
+
+[State 200, End]
+type = Destroyself
+trigger1 = AnimTime = 0
+
+;-------------------------------------------------------------------------------
+; SPECIAL CHARGE
+[Statedef 850]
+type    = A
+movetype= I
+physics = N
+
+; [GUIDELINES] ========================
+; - 001: Blue Charge || (FG/SPR:3)
+; =====================================
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+TriggerALL = IsHelper(001)
+trigger1 = !Time
+value = 7100
+elem = 1
+ignorehitpause = 1
+[State 0, SprPriority]
+type = SprPriority
+TriggerALL = IsHelper(001)
+trigger1 = !Time
+value = 10
+ignorehitpause = 1
+
+[State 0, PalFXWiz]
+type = PalFX
+TriggerALL = IsHelper(001)
+trigger1 = 1
+time = 99999
+add = -128,-64,0
+mul = 512,512,512
+color = 0
+ 
+[State 0, VarSet]
+type = VarSet
+trigger1 = !Time
+Fv = 0
+value = 0
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = AnimElemTime(15)>=0
+Fv = 0
+value = 25
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+scale = 1,1
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 256-ceil(FVAR(0)),256
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+
+[State 200, End]
+type = Destroyself
+trigger1 = AnimTime = 0
+;-------------------------------------------------------------------------------
+; SP CHARGE ADD
+[Statedef 851]
+type    = A
+movetype= I
+physics = N
+
+; [GUIDELINES] ========================
+; - 001: Blue Charge || (FG/SPR:3)
+; =====================================
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+TriggerALL = IsHelper(001)
+trigger1 = !Time
+value = 7101
+elem = 1
+ignorehitpause = 1
+[State 0, SprPriority]
+type = SprPriority
+TriggerALL = IsHelper(001)
+trigger1 = !Time
+value = 10
+ignorehitpause = 1
+[State 0, ChangeAnim]
+type = ChangeAnim
+TriggerALL = IsHelper(002)
+trigger1 = !Time
+value = 7102
+elem = 1
+ignorehitpause = 1
+[State 0, SprPriority]
+type = SprPriority
+TriggerALL = IsHelper(002)
+trigger1 = !Time
+value = 11
+ignorehitpause = 1
+
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+scale = 1,1
+
+[State 0, PalFXWiz]
+type = PalFX
+trigger1 = 1
+time = -1
+add = 0,-100,-100
+mul = 512,256,256
+sinadd = 0,0,0,1
+invertall = 0
+color = 256
+
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = add
+ignorehitpause = 1
+
+
+[State 200, End]
+type = Destroyself
+trigger1 = AnimTime = 0
+;-------------------------------------------------------------------------------
+; SP CHARGE SUB
+[Statedef 852]
+type    = A
+movetype= I
+physics = N
+
+; [GUIDELINES] ========================
+; - 001: Blue Charge || (FG/SPR:3)
+; =====================================
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+TriggerALL = IsHelper(001)
+trigger1 = !Time
+value = 7101
+elem = 1
+ignorehitpause = 1
+[State 0, SprPriority]
+type = SprPriority
+TriggerALL = IsHelper(001)
+trigger1 = !Time
+value = 10
+ignorehitpause = 1
+[State 0, ChangeAnim]
+type = ChangeAnim
+TriggerALL = IsHelper(002)
+trigger1 = !Time
+value = 7102
+elem = 1
+ignorehitpause = 1
+[State 0, SprPriority]
+type = SprPriority
+TriggerALL = IsHelper(002)
+trigger1 = !Time
+value = 11
+ignorehitpause = 1
+
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+scale = 1,1
+
+[State 0, PalFXWiz]
+type = PalFX
+trigger1 = 1
+time = -1
+add = 0,-100,-256
+mul = 510,0,256
+sinadd = 0,0,0,1
+invertall = 0
+color = 256
+
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = sub
+ignorehitpause = 1
+
+
+[State 200, End]
+type = Destroyself
+trigger1 = AnimTime = 0
+;-------------------------------------------------------------------------------
+; GAIN CHARGE
+[Statedef 855]
+type    = A
+movetype= I
+physics = N
+anim = 7105
+sprpriority = 5
+
+;[State 0, PalFXWiz]
+;type = PalFX
+;trigger1 = 1
+;time = 99999
+;add = 0,0,0
+;mul = 256,256,256
+;color = 0
+
+[State 0, BindToParent]
+type = BindToParent
+TriggerALL = Parent,StateNo = 1000
+trigger1 = 1
+pos = -1*Helper(999999),Fvar(16),-22*Helper(999999),Fvar(16)
+[State 0, BindToParent]
+type = BindToParent
+TriggerALL = Parent,StateNo = 1030
+trigger1 = 1
+pos = 5*Helper(999999),Fvar(16),-30*Helper(999999),Fvar(16)
+[State 0, BindToParent]
+type = BindToParent
+TriggerALL = Parent,StateNo = 1050
+trigger1 = 1
+pos = 5*Helper(999999),Fvar(16),-25*Helper(999999),Fvar(16)
+[State 0, BindToParent]
+type = BindToParent
+TriggerALL = Parent,StateNo = 1100
+trigger1 = 1
+pos = 0*Helper(999999),Fvar(16),-25*Helper(999999),Fvar(16)
+[State 0, BindToParent]
+type = BindToParent
+TriggerALL = Parent,StateNo = 3000
+trigger1 = 1
+pos = 2*Helper(999999),Fvar(16),-27*Helper(999999),Fvar(16)
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+Fv = 1
+value = random%360
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = Fvar(1)+(time*.5)
+scale = 1,1;+(Time*.025)
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 256,256
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+
+[State 200, End]
+type = Destroyself
+trigger1 = AnimTime = 0
+
+;-------------------------------------------------------------------------------
+; SUPER PORTRAIT
+;[Statedef 875]
+;type    = S
+;movetype= I
+;physics = S
+;velset = 0,0
+;ctrl = 0
+;anim = 7500
+;sprpriority = -1
+;
+;[State 0, PosSet]
+;type = PosSet
+;trigger1 = 1
+;x = 0
+;y = 0
+;
+;[State 0, AngleDraw]
+;type = AngleDraw
+;trigger1 = 1
+;scale = 1,1
+;
+;[State 0, Trans]
+;type = Trans
+;trigger1 = 1
+;trans = default
+;
+;[State 0, AssertSpecial]
+;type = AssertSpecial
+;trigger1 = 1
+;flag = noshadow
+;
+;[State 200, End]
+;type = Destroyself
+;trigger1 = AnimTime = 0
+
+;-------------------------------------------------------------------------------
+; SUPER PORTRAIT
+[Statedef 875]
+type    = S
+movetype= I
+physics = S
+velset = 0,0
+ctrl = 0
+anim = 9999
+sprpriority = -1
+
+;PORTRAIT
+[State 0, Explod]
+type = Explod
+trigger1 = time = 0
+anim = 7500
+ID = 7500
+pos = 160,120
+postype = back
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+scale = .5,.5
+sprpriority = -3
+ontop = 0
+ownpal = 1
+removeongethit = 1
+pausemovetime = 99999
+supermovetime = 99999
+
+;GLOW SHADOW ADD
+;[State 0, Explod]
+;type = Explod
+;trigger1 = time = 0
+;anim = 7505
+;ID = 7505
+;pos = 160,100
+;postype = back
+;facing = 1
+;vfacing = 1
+;bindtime = 1
+;removetime = -2
+;scale = .5,.5
+;sprpriority = 8
+;ontop = 0
+;ownpal = 1
+;removeongethit = 1
+;pausemovetime = 99999
+;supermovetime = 99999
+;trans = addalpha 
+;alpha = 156,256
+
+;GLOW SHADOW SUB
+[State 0, Explod]
+type = Explod
+trigger1 = time = 0
+anim = 7505
+ID = 7505
+pos = 160,100
+postype = back
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+scale = .5,.5
+sprpriority = -4
+ontop = 0
+ownpal = 1
+removeongethit = 1
+pausemovetime = 99999
+supermovetime = 99999
+Trans = SUB
+
+[State 200, End]
+type = Destroyself
+trigger1 = Time >= 50
+;-------------------------------------------------------------------------------
+; SloMo
+[Statedef 3515]
+type    = A
+movetype= I
+physics = N
+anim = 9999
+
+[State 0, Pause]
+type = Pause
+trigger1 = time = [0,5]
+time = 2
+
+[State 200, End]
+type = Destroyself
+trigger1 = time = 10

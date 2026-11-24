@@ -1,0 +1,904 @@
+;========================================================
+; Marine Ship
+;========================================================
+;--------------------------------------------------------
+[Info]
+ ;Name of the stage.
+name = "Marine Ship"
+displayname = "Marine Ship"
+author = "Team One Piece OPOS"
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -193
+boundright = 120
+boundhigh = -65
+boundlow = 0
+verticalfollow = 0.8
+floortension = 60
+tension = 80
+cuthigh = 0
+cutlow = 4
+zoomin = 1.2
+zoomout = .75
+
+[PlayerInfo]
+p1startx = -70
+p1starty = 0
+p1startz = 0
+p1facing = 1
+;--- Player 2 ---
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+;--- Common ---
+leftbound  = -1000
+rightbound =  1000
+topbound  =  0
+botbound  =  0
+
+[Scaling]
+topz     = 0
+botz     = 50
+topscale = 1
+botscale = 1.6
+
+[Bound]
+screenleft = 15
+screenright = 15
+
+[StageInfo]
+zoffset = -10;215 ;Regula la altura a la que aparecen los chars 
+zoffsetlink = 30 ;
+autoturn = 1
+resetBG = 1
+hires = 1
+
+[Shadow]
+color = 80,80,80
+yscale = 0.2
+
+[Music];
+ bgmusic = sound/MarineShip.mp3
+ bgvolume =255
+
+[BGdef]
+spr = MarineShip.sff
+debugbg = 1
+
+;=======================================
+[BG 1 cielo]
+type  = anim
+actionno = 0
+layerno = 0
+start = 0,0
+delta = 0.75,1
+mask = 0
+tile = 1, 0
+velocity= 0,0
+
+
+
+[BG Nube]
+type  = normal
+spriteno = 0, 1
+layerno = 0                
+start = -0, 30
+delta = 1, 1
+trans = Add
+mask  = 1
+velocity = 0.4, 0
+tile  = 1, 0
+tilespacing = 75,0
+;window = 0,0, 319, 239
+
+[BG Nuebes Grupo]
+type  = normal
+spriteno = 0, 2
+layerno = 0                
+start = -0, 60
+delta = 1, 1
+trans = Add
+mask  = 1
+velocity = 0.7, 0
+tile  = 1, 0
+tilespacing = 75,0
+;window = 0,0, 319, 239
+
+[BG rocio de marea]
+type  = normal
+spriteno = 10, 0
+layerno = 0
+velocity = -0.1, 0
+start = -1500, 200
+delta = 1.2,1.2
+trans = add
+mask  = 0
+tile  = 1, 0
+
+[BG Mar]
+type  = anim
+actionno = 12
+layerno = 0
+start = -1000, 200
+delta = 1.2,1.2
+mask  = 1
+tile  = 1, 0
+trans = none
+
+
+
+
+;----- Barcos -----------------
+
+[BG Barco 1]
+type  = anim
+actionno = 30
+start = -200, 290
+delta = 1.3,1.3
+mask  = 1
+
+[BG Barco 2]
+type  = anim
+actionno = 31
+start = 100, 290
+delta = 1.35,1.3
+mask  = 1
+
+[BG Barco 3]
+type  = anim
+actionno = 32
+start = 400, 290
+delta = 1.4,1.3
+mask  = 1
+
+
+
+[BG Marea]
+type  = anim
+actionno = 6
+layerno = 0
+start = -350, 150
+delta = 1.3,1.3
+mask  = 1
+tile  = 1, 0
+tilespacing = 0,0
+
+
+
+;-------------------------
+
+
+[BG 6 anim]
+type  = anim
+actionno = 6
+layerno = 0
+start = 600, 230
+delta = 1.75, 1.75
+mask  = 1
+tile  = 1, 0
+tilespacing = 0,0
+
+
+
+
+
+;----- Ship ----------------------
+
+
+
+[BG Dummy]
+type  = dummy
+id = 30
+start = 0,220
+sin.y = -5, 400
+
+
+
+[BG 0 Piso Base]
+type  = normal
+spriteno = 1, 0
+layerno = 0                
+start = 0, 440
+delta = 2, 2
+trans = none
+mask  = 1
+tile  = 0, 0
+id = 1
+sin.y = -10, 400
+
+
+
+[BG 0 Mastil]
+type  = normal
+spriteno = 2, 1
+layerno = 0                
+start = 700, -120
+delta = 1.9, 1.9
+trans = none
+mask  = 1
+tile  = 0, 0
+id = 1
+positionlink = 1
+
+
+
+[BG Piso Sombra]
+type        = anim
+actionno    = 4
+layerno     = 0
+start       = 700, -75
+delta       = 2, 2
+tile        = 0,0
+mask        = 1
+id = 1
+positionlink = 1
+
+
+[BG 0 Domo]
+type  = normal
+spriteno = 2, 0
+layerno = 0                
+start = 700, -35
+delta = 2, 2
+trans = none
+mask  = 1
+tile  = 0, 0
+id = 1
+positionlink = 1
+
+
+
+
+;----- Marines  ---------------------------
+
+[BG 16 - VeryGood]
+type  = anim
+actionno = 16
+layerno = 0
+start = -340, -115
+delta = 2, 2
+mask = 1
+id = 1
+positionlink = 1
+
+[BG 17 - Muscleman]
+type  = anim
+actionno = 22
+layerno = 0
+start = -500, -105
+delta = 2, 2
+mask = 1
+id = 1
+positionlink = 1
+
+[BG 17 - Rifleman]
+type  = anim
+actionno = 23
+layerno = 0
+start = -580, -88
+delta = 2, 2
+mask = 1
+id = 1
+positionlink = 1
+
+
+
+[BG 15 - Heavy Axeman]
+type  = anim
+actionno = 19
+layerno = 0
+start = -490, -80
+delta = 2, 2
+mask = 1
+id = 1
+positionlink = 1
+
+
+[BG 17 - Bazzoka]
+type  = anim
+actionno = 20
+layerno = 0
+start = -500, -65
+delta = 2, 2
+mask = 1
+id = 1
+positionlink = 1
+
+
+[BG 15 - Swordmanman]
+type  = anim
+actionno = 25
+layerno = 0
+start = -550, -60
+delta = 2, 2
+mask = 1
+id = 1
+positionlink = 1
+
+
+[BG 15 - Axeman]
+type  = anim
+actionno = 18
+layerno = 0
+start = -310,-55
+delta = 2, 2
+mask = 1
+id = 1
+positionlink = 1
+
+
+[BG 17 - Recruit]
+type  = anim
+actionno = 17
+layerno = 0
+start = -600, -50
+delta = 2, 2
+mask = 1
+id = 1
+positionlink = 1
+
+
+
+[BG 15 - Swordmanman]
+type  = anim
+actionno = 252
+layerno = 0
+start = 0, -110
+delta = 2, 2
+mask = 1
+id = 1
+positionlink = 1
+
+:-------
+
+
+[BG 15 - Major Drake]
+type  = anim
+actionno = 15
+layerno = 0
+start = -140, -110
+delta = 2, 2-
+mask = 1
+id = 1
+positionlink = 1
+
+[BG 17 - Recruit]
+type  = anim
+actionno = 172
+layerno = 0
+start = 70, -115
+delta = 2, 2
+mask = 1
+id = 1
+positionlink = 1
+
+
+
+[BG 15 - Rifleman]
+type  = anim
+actionno = 232
+layerno = 0
+start = -100, -100
+delta = 2, 2
+mask = 1
+id = 1
+positionlink = 1
+
+
+
+
+[BG 15 - Axeman]
+type  = anim
+actionno = 182
+layerno = 0
+start = -210, -95
+delta = 2, 2
+mask = 1
+id = 1
+positionlink = 1
+
+[BG 15 - Heavy Bazzoka]
+type  = anim
+actionno = 21
+layerno = 0
+start = 150, -90
+delta = 2, 2
+mask = 1
+id = 1
+positionlink = 1
+
+[BG 15 - Muscleman]
+type  = anim
+actionno = 222
+layerno = 0
+start = 70, -85
+delta = 2, 2
+mask = 1
+id = 1
+positionlink = 1
+
+[BG 17 - Bazzoka]
+type  = anim
+actionno = 202
+layerno = 0
+start = -40, -85
+delta = 2, 2
+mask = 1
+id = 1
+positionlink = 1
+
+[BG 15 - Rifleman]
+type  = anim
+actionno = 232
+layerno = 0
+start = -230, -75
+delta = 2, 2
+mask = 1
+id = 1
+positionlink = 1
+
+
+[BG 15 - Heavy Rifleman]
+type  = anim
+actionno = 24
+layerno = 0
+start = 170, -75
+delta = 2, 2
+mask = 1
+id = 1
+positionlink = 1
+
+[BG 15 - Rifleman]
+type  = anim
+actionno = 232
+layerno = 0
+start = -115, -60
+delta = 2, 2
+mask = 1
+id = 1
+positionlink = 1
+
+[BG 15 - Muscleman]
+type  = anim
+actionno = 222
+layerno = 0
+start = 300, -65
+delta = 2, 2
+mask = 1
+id = 1
+positionlink = 1
+
+
+[BG 15 - Swordmanman]
+type  = anim
+actionno = 252
+layerno = 0
+start = 100, -60
+delta = 2, 2
+mask = 1
+id = 1
+positionlink = 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+;=======================================
+
+: Cielo Relampagueante
+[Begin Action 0]
+0,3, 0,0, 300
+0,4, 0,0, 1
+0,5, 0,0, 1
+0,6, 0,0, 1
+0,7, 0,0, 1
+0,4, 0,0, 1
+0,5, 0,0, 1
+0,6, 0,0, 1
+0,7, 0,0, 1
+0,6, 0,0, 3
+0,5, 0,0, 3
+0,4, 0,0, 3
+0,3, 0,0, 150
+0,4, 0,0, 1
+0,5, 0,0, 1
+0,6, 0,0, 1
+0,7, 0,0, 1
+0,4, 0,0, 1
+0,5, 0,0, 1
+0,6, 0,0, 1
+0,7, 0,0, 1
+0,4, 0,0, 1
+0,5, 0,0, 1
+0,6, 0,0, 1
+0,7, 0,0, 1
+0,4, 0,0, 1
+0,5, 0,0, 1
+0,6, 0,0, 1
+0,7, 0,0, 1
+0,6, 0,0, 3
+0,5, 0,0, 3
+0,4, 0,0, 3
+
+[Begin action 6]
+6,0,0,0,5,,A
+6,1,0,0,5,,A
+6,2,0,0,5,,A
+6,3,0,0,5,,A
+6,4,0,0,5,,A
+6,5,0,0,5,,A
+6,6,0,0,5,,A
+6,7,0,0,5,,A
+6,8,0,0,5,,A
+6,9,0,0,5,,A
+6,10,0,0,5,,A
+6,11,0,0,5,,A
+6,12,0,0,5,,A
+6,13,0,0,5,,A
+6,14,0,0,5,,A
+6,15,0,0,5,,A
+6,16,0,0,5,,A
+6,17,0,0,5,,A
+6,18,0,0,5,,A
+6,19,0,0,5,,A
+6,20,0,0,5,,A
+6,21,0,0,5,,A
+6,22,0,0,5,,A
+6,23,0,0,5,,A
+6,24,0,0,5,,A
+6,23,0,0,5,,A
+6,22,0,0,5,,A
+6,21,0,0,5,,A
+6,20,0,0,5,,A
+6,21,0,0,5,,A
+6,22,0,0,5,,A
+6,23,0,0,5,,A
+6,24,0,0,5,,A
+6,23,0,0,5,,A
+6,22,0,0,5,,A
+6,21,0,0,5,,A
+6,20,0,0,5,,A
+6,19,0,0,5,,A
+6,18,0,0,5,,A
+6,17,0,0,5,,A
+6,16,0,0,5,,A
+6,15,0,0,5,,A
+6,14,0,0,5,,A
+6,13,0,0,5,,A
+6,12,0,0,5,,A
+6,11,0,0,5,,A
+6,10,0,0,5,,A
+6,9,0,0,5,,A
+6,8,0,0,5,,A
+6,7,0,0,5,,A
+6,6,0,0,5,,A
+6,5,0,0,5,,A
+6,4,0,0,5,,A
+6,3,0,0,5,,A
+6,2,0,0,5,,A
+6,1,0,0,5,,A
+6,0,0,0,5,,A
+
+
+
+
+
+
+;Mar
+[Begin Action 12]
+11,0, 0,0, 3
+11,1, 0,0, 3
+11,2, 0,0, 3
+11,3, 0,0, 3
+11,4, 0,0, 3
+11,5, 0,0, 3
+11,6, 0,0, 3
+11,7, 0,0, 3
+11,8, 0,0, 3
+11,9, 0,0, 3
+11,10, 0,0, 3
+11,11, 0,0, 3
+11,12, 0,0, 3
+11,13, 0,0, 3
+11,14, 0,0, 3
+11,15, 0,0, 3
+11,16, 0,0, 3
+11,17, 0,0, 3
+11,18, 0,0, 3
+11,19, 0,0, 3
+
+
+
+;-- Barcos ---------------------
+[Begin Action 30]
+3,0, 0, 0, 4
+3,0, 0,-1, 4
+3,0, 0,-2, 4
+3,0, 0,-3, 4
+3,0, 0,-4, 4
+3,0, 0,-4, 4
+3,0, 0,-5, 4
+3,0, 0,-5, 4
+3,0, 0,-5, 4
+3,0, 0,-4, 4
+3,0, 0,-4, 4
+3,0, 0,-3, 4
+3,0, 0,-2, 4
+3,0, 0,-1, 4
+3,0, 0, 0, 4
+3,0, 0, 1, 4
+3,0, 0, 2, 4
+3,0, 0, 3, 4
+3,0, 0, 4, 4
+3,0, 0, 4, 4
+3,0, 0, 5, 4
+3,0, 0, 5, 4
+3,0, 0, 5, 4
+3,0, 0, 4, 4
+3,0, 0, 4, 4
+3,0, 0, 3, 4
+3,0, 0, 2, 4
+3,0, 0, 1, 4
+
+
+
+[Begin Action 31]
+3,0, 0, 4, 4
+3,0, 0, 4, 4
+3,0, 0, 3, 4
+3,0, 0, 2, 4
+3,0, 0, 1, 4
+3,0, 0, 0, 4
+3,0, 0,-1, 4
+3,0, 0,-2, 4
+3,0, 0,-3, 4
+3,0, 0,-4, 4
+3,0, 0,-4, 4
+3,0, 0,-5, 4
+3,0, 0,-5, 4
+3,0, 0,-5, 4
+3,0, 0,-4, 4
+3,0, 0,-4, 4
+3,0, 0,-3, 4
+3,0, 0,-2, 4
+3,0, 0,-1, 4
+3,0, 0, 0, 4
+3,0, 0, 1, 4
+3,0, 0, 2, 4
+3,0, 0, 3, 4
+3,0, 0, 4, 4
+3,0, 0, 4, 4
+3,0, 0, 5, 4
+3,0, 0, 5, 4
+3,0, 0, 5, 4
+
+
+
+
+[Begin Action 32]
+3,0, 0,-5, 4
+3,0, 0,-5, 4
+3,0, 0,-5, 4
+3,0, 0,-4, 4
+3,0, 0,-4, 4
+3,0, 0,-3, 4
+3,0, 0,-2, 4
+3,0, 0,-1, 4
+3,0, 0, 0, 4
+3,0, 0, 1, 4
+3,0, 0, 2, 4
+3,0, 0, 3, 4
+3,0, 0, 4, 4
+3,0, 0, 4, 4
+3,0, 0, 5, 4
+3,0, 0, 5, 4
+3,0, 0, 5, 4
+3,0, 0, 4, 4
+3,0, 0, 4, 4
+3,0, 0, 3, 4
+3,0, 0, 2, 4
+3,0, 0, 1, 4
+3,0, 0, 0, 4
+3,0, 0,-1, 4
+3,0, 0,-2, 4
+3,0, 0,-3, 4
+3,0, 0,-4, 4
+3,0, 0,-4, 4
+
+
+
+; Piso SOmbra
+[Begin Action 4]
+4,0, 0,0, 10,, S
+
+;-------------------------------
+; Marines
+
+
+;Major Drake
+[Begin Action 15]
+15,0, 0,0, 12,H
+15,1, 0,0, 10,H
+15,2, 0,0, 12,H
+15,1, 0,0, 10,H
+
+
+;Very Good
+[Begin Action 16]
+16,0, 0,0, 4
+16,1, 0,0, 4
+16,2, 0,0, 6
+16,3, 0,0, 6
+16,4, 0,0, 8
+16,5, 0,0, 2
+16,6, 0,0, 2
+16,7, 0,0, 2
+16,8, 0,0, 2
+16,9, 0,0, 2
+16,10, 0,0, 2
+16,11, 0,0, 3
+16,12, 0,0, 4
+16,13, 0,0, 3
+16,14, 0,0, 2
+16,15, 0,0, 2
+16,16, 0,0, 2
+16,17, 0,0, 2
+16,7, 0,0, 6
+16,6, 0,0, 6
+16,5, 0,0, 6
+
+
+
+;Recruit
+[Begin Action 17]
+17,0, 0,0, 8
+17,0, 0,0, 8
+17,1, 0,0, 7
+17,2, 0,0, 6
+17,3, 0,0, 5
+17,4, 0,0, 5
+17,5, 0,0, 5
+17,2, 0,0, 6
+17,1, 0,0, 7
+17,0, 0,0, 9
+17,1, 0,0, 6
+17,2, 0,0, 5
+17,1, 0,0, 6
+17,2, 0,0, 6
+17,1, 0,0, 7
+17,0, 0,0, 9
+17,1, 0,0, 6
+17,2, 0,0, 5
+17,1, 0,0, 6
+[Begin Action 172]
+17,0, 0,0, 8,H
+17,0, 0,0, 8,H
+17,1, 0,0, 7,H
+17,2, 0,0, 6,H
+17,3, 0,0, 5,H
+17,4, 0,0, 5,H
+17,5, 0,0, 5,H
+17,2, 0,0, 6,H
+17,1, 0,0, 7,H
+17,0, 0,0, 9,H
+17,1, 0,0, 6,H
+17,2, 0,0, 5,H
+17,1, 0,0, 6,H
+17,2, 0,0, 6,H
+17,1, 0,0, 7,H
+17,0, 0,0, 9,H
+17,1, 0,0, 6,H
+17,2, 0,0, 5,H
+17,1, 0,0, 6,H
+
+
+; Axeman
+[Begin Action 18]
+18,0, 0,0, 10
+18,1, 0,0, 9
+18,2, 0,0, 8
+18,1, 0,0, 9
+[Begin Action 182]
+18,0, 0,0, 10,H
+18,1, 0,0, 9,H
+18,2, 0,0, 8,H
+18,1, 0,0, 9,H
+
+
+; Heavy Axeman
+[Begin Action 19]
+19,0, 0,0, 12
+19,1, 0,0, 13
+19,2, 0,0, 14
+19,1, 0,0, 13
+
+
+; Bazzoka
+[Begin Action 20]
+20,0, 0,0, 8
+20,1, 0,0, 8
+20,2, 0,0, 8
+20,1, 0,0, 8
+[Begin Action 202]
+20,0, 0,0, 8,H
+20,1, 0,0, 8,H
+20,2, 0,0, 8,H
+20,1, 0,0, 8,H
+
+; Heavy Bazzoka
+[Begin Action 21]
+21,0, 0,0, 11,H
+21,1, 0,0, 10,H
+21,2, 0,0, 9,H
+21,1, 0,0, 10,H
+
+
+; Muscle Man
+[Begin Action 22]
+22,0, 0,0, 6
+22,1, 0,0, 6
+22,2, 0,0, 6
+22,1, 0,0, 6
+; Muscle Man
+[Begin Action 222]
+22,0, 0,0, 6,H
+22,1, 0,0, 6,H
+22,2, 0,0, 6,H
+22,1, 0,0, 6,H
+
+
+; Rifleman
+[Begin Action 23]
+23,0, 0,0, 12
+23,1, 0,0, 11
+23,2, 0,0, 10
+23,1, 0,0, 11
+[Begin Action 232]
+23,0, 0,0, 12,H
+23,1, 0,0, 11,H
+23,2, 0,0, 10,H
+23,1, 0,0, 11,H
+
+
+; Heavy Rifleman
+[Begin Action 24]
+24,0, 0,0, 13,H
+24,1, 0,0, 11,H
+24,2, 0,0, 10,H
+24,1, 0,0, 11,H
+
+; Swordman
+[Begin Action 25]
+25,0, 0,0, 8
+25,1, 0,0, 8
+25,2, 0,0, 8
+25,1, 0,0, 8
+[Begin Action 252]
+25,0, 0,0, 8,H
+25,1, 0,0, 8,H
+25,2, 0,0, 8,H
+25,1, 0,0, 8,H
+
+
+
+
+
+
+
+
+
+
+

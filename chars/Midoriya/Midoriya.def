@@ -1,0 +1,39 @@
+w;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Izuku Midoriya"
+displayname = "Midoriya"
+versiondate = 03/11/2020
+mugenversion = 1.1
+author = "EDIT BY MateoG9 & Willsan"
+pal.defaults = 1,2
+
+[Files]
+sprite = Midoriya.sff
+anim = Midoriya.air
+sound = Midoriya.snd
+cmd = Midoriya.cmd
+cns = Midoriya.cns
+stcommon = common1.cns
+st = Midoriya.cns
+st1 = IA.cns
+st2 = Specials.cns
+st3 = Supers.cns
+st4 = Ultimate.cns
+st5 = Awakening.cns
+st6 = 100%.cns
+st7 = Visuals.cns
+st8 =Configs.cns
+st9=Glows.zss
+pal1 = Deku1.act
+pal2 = Deku2.act
+pal3 = Deku3.act
+pal4 = Deku4.act
+pal5 = Deku5.act
+pal6 = Deku6.act
+pal7 = Deku7.act
+pal8 = Deku8.act
+movelist=movelist.dat ;Ikemen feature

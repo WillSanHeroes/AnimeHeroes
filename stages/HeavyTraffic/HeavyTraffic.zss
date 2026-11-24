@@ -1,0 +1,612 @@
+[Function AiInput(i)]
+
+let i = 2**$i;
+if !(map(_N115input) & $i)
+{
+	map(_N115input) := map(_N115input) + $i;
+}
+
+#1 is up, 2 is down, 4 is left, 8 is right
+#above operation converts from int to binary, making 3 into 8. Reuse it to activate more bits
+
+[Function AiUnit()]
+
+#Move to
+if var(0) = 1
+{
+	let a = pos x + camerapos x;
+	if $a > var(1) + 4 || $a < var(1) - 4
+	{
+		if var(1) > pos x + camerapos x
+		{
+			call AiInput(3);
+		}
+		else if var(1) < pos x + camerapos x
+		{
+			call AiInput(2);
+		}
+	}
+	else
+	{
+		map(_N115input) := 0;
+	}
+}
+
+[Function Anim(i)]
+
+if $i != anim
+{
+	changeanim{value: $i}
+}
+
+[Function Accel(x,z)]
+
+if $x < 0
+{
+	velset{x: max(vel x + $x / 16.0,-map(maxvel))}
+}
+else
+{
+	velset{x: min(vel x + $x / 16.0,map(maxvel))}
+}
+
+if $z < 0
+{
+	velset{z: max(vel z + $z / 16.0,-map(maxvel))}
+}
+else
+{
+	velset{z: min(vel z + $z / 16.0,map(maxvel))}
+}
+
+[Function Clsn1(i,l,u,r,d)]
+
+Overrideclsn{group: clsn1;
+index: $i;
+rect: $l,$u,$r,$d}
+
+[Function Size(i,l,u,r,d)]
+
+Overrideclsn{group: Size;
+index: $i;
+rect: $l,$u,$r,$d}
+
+[Function Helper(i)]
+
+switch $i
+{
+	case 1:
+	helper{helpertype: normal;
+	ID: $i;
+	pos: -101, 0;
+	postype: left;
+	facing: 1;
+	stateno: 5900;
+	ownpal: 1;
+	OwnProjectile: 1;
+	Preserve: 0;
+	standby: 0;
+	size.weight: 400}
+	case 1000; 1001:
+	helper{helpertype: normal;
+	ID: $i;
+	pos: 0, 0;
+	postype: left;
+	facing: 1;
+	stateno: 5900;
+	ownpal: 1;
+	OwnProjectile: 1;
+	Preserve: 1;
+	standby: ($i != 1001);
+	size.depth: 0, 8;
+	immortal: 1}
+}
+
+[Function AChar()]
+
+if !ishelper
+{
+	let subprocess = map(subprocess);
+	switch stateno
+	{
+		case 0:
+		if map(screen) = 0
+		{
+			map(subprocess) := 3;
+			if numhelper(1000) && helper(1000),var(0) != 222
+			{
+				helper(1000),var(0) := 222;
+				helper(1000),var(1) := -80;
+			}
+			if numhelper(1001) && helper(1001),var(0) != 4 && helper(1001),var(1) >= 0
+			{
+				helper(1001),var(0) := 4;
+				helper(1001),var(1) := 4;
+				posset{z: -80; redirectid: helper(1001),id}
+			}
+			if map(watermove) <= 0
+			{
+				ModifyStageBG{id: 2;
+				index: 0;
+				start.x: stagebgvar(2, 0, start.x) - 1}
+				map(watermove) := 2**randomrange(3,4);
+			}
+			if stagebgvar(2, 0, start.x) <= -382
+			{
+				ModifyStageBG{id: 2;
+				index: 0;
+				start.x: stagebgvar(2, 0, start.x) + 222}
+			}
+			map(watermove) := map(watermove) - 1;
+
+			if gametime % 360 = 0
+			{
+				if numhelper(1)
+				{
+					for i = 1; numhelper(1); 1
+					{
+						if helperindex($i),pos x + helperindex($i),camerapos x >= 600
+						{
+							destroyself{removeexplods: 1;
+							redirectid: helperindex($i),id}
+						}
+					}
+				}
+			}
+			if map(truckspawn) <= 0 && numhelper < gameoption(config.HelperMax)
+			{
+				call Helper(1);
+				playerid(lastplayerid),var(0) := 1; #Objective
+				playerid(lastplayerid),var(1) := 800; #Objective Pos X
+				posadd{z: -8 - gametime % 40; redirectid: lastplayerid}
+				map(truckspawn) := max(16,gametime % 256);
+			}
+			map(truckspawn) := map(truckspawn) - 1;
+		}
+	}
+	if $subprocess != map(subprocess)
+	{
+		for i = 0; 1; 1
+		{
+			if map(subprocess) & (2**$i) && !numhelper(1000 + $i)
+			{
+				call Helper(1000 +  $i);
+			}
+			else
+			{
+				if numhelper(1000 + $i)
+				{
+					destroyself{redirectid: helper(1000 + $i),id}
+				}
+			}
+		}
+	}
+}
+
+[Function HoleHelper()]
+
+if ishelper(1000)
+{
+	call anim(-2);
+	assertspecial{flag: runlast}
+	switch stateno
+	{
+		case 5900:
+		if !time && stateno != prevstateno
+		{
+			modifyplayer{helpername: "Hole Subprocess"}
+		}
+		if !standby
+		{
+			tagout{}
+		}
+		for i = 0; numstagebg(2) - 1; 1
+		{
+			if !numstagebg(2)
+			{
+				break;
+			}
+			let a = stagebgvar(2, $i, start.x);
+			let b = stagebgvar(2, $i, tile.x);
+			let c = var(0 + 2 * $i); #X range addition starting from start.x
+			let d = var(1 + 2 * $i); #Z range of which 0 leads to the entire block being water hole and any number out of 0 making that end be a water hole (-4 makes z-4 and lower be a hole, +8 makes z+8 and higher be a hole)
+			for j = 0; numplayer - 1; 1
+			{
+				let death = 0;
+				if roundstate >= 2 && playerindexexist($j) && playerindex($j),id != id && playerindex($j),id != root,id #&& playerindex($j),alive && !playerindex($j),isasserted(invisible)
+				{
+					let death = $death + 1;
+					if playerindex($j),ishelper
+					{
+						let death = $death + 1;
+						if playerindex($j),helpervar(helpertype) = 3 || playerindex($j),isasserted(ProjTypeCollision) #|| playerindex($j),IsClsnProxy
+						{
+							playerindex($j),map(_N115_InWater) := 0;
+							continue;
+						}
+					}
+					let death = $death + 1;
+					if playerindex($j),standby
+					{
+						playerindex($j),map(_N115_InWater) := 0;
+						continue;
+					}
+					let death = $death + 1;
+					if floor(playerindex($j),pos y + playerindex($j),groundlevel) >= 0
+					{
+						let death = $death + 1;
+						if floor(playerindex($j),pos x + playerindex($j),camerapos x) = [$a,$a+$c*$b]
+						{
+							let death = $death + 1;
+							if sign($d) = 1 && floor(playerindex($j),pos z) >= $d || sign($d) = -1 && ceil(playerindex($j),pos z) <= $d || sign($d) = 0
+							{
+								let death = $death + 1;
+								if playerindex($j),alive
+								{
+									lifeset{value: 0; redirectid: playerindex($j),id}
+								}
+								if !playerindex($j),map(_N115_InWater)
+								{
+									explod{anim: 3;
+									space: stage;
+									pos: playerindex($j),pos x + playerindex($j),camerapos x,playerindex($j),pos z;
+									ownpal: 1;
+									ignorehitpause: 1}
+									playsnd{value: S101,1}
+									playerindex($j),map(_N115_InWater) := 1;
+								}
+								groundleveloffset{value: 40; redirectid: playerindex($j),id}
+								assertspecial{flag: invisible; redirectid: playerindex($j),id}
+								#changeanim{value: -2; redirectid: playerindex($j),id}
+							}
+							else
+							{
+								playerindex($j),map(_N115_InWater) := 0;
+								continue;
+							}
+						}
+						else
+						{
+							playerindex($j),map(_N115_InWater) := 0;
+							continue;
+						}
+					}
+					else
+					{
+						playerindex($j),map(_N115_InWater) := 0;
+						continue;
+					}
+				}
+			}
+			if debugmode(debugdisplay)
+			{
+				text{removetime: 1;
+				layerno: 1;
+				localcoord: 320,240;
+				text: "%v\n%v\ndeath %v";
+				params: $a,$b,$death;
+				pos: 222 + ($a + 160) - camerapos x,120;
+				scale: 1,1}
+			}
+		}
+	}
+	if stateno != 5900
+	{
+		changestate{value: 5900}
+	}
+}
+
+[Function FenceHelper()]
+
+if ishelper(1001)
+{
+	assertspecial{flag: SizePushOnly}
+	Call Size(0,0,-20,128 * 32,0);
+	call anim(-2);
+	playerpush{value: 1; priority: 9999; affectteam: B}
+	switch stateno
+	{
+		case 5900:
+		if !time && stateno != prevstateno
+		{
+			modifyplayer{helpername: "Fence Subprocess"}
+		}
+		#if !standby
+		#{
+		#	tagout{}
+		#}
+		if var(0) < 0 #|| var(1) <= 0
+		{
+			destroyself{}
+		}
+		else
+		{
+			for i = 1; var(1); 1
+			{
+				break;
+				explod{anim: var(0);
+				ID: 1001;
+				postype: p1;
+				pos: 128 * $i,0;
+				facing: 1;
+				removetime: 1;
+				scale: 1,1;
+				ownpal: 0;
+				ignorehitpause: 1;
+				syncid: id;
+				synclayer: 1;
+				syncparams: 1}
+			}
+		}
+	}
+}
+
+[Function Truck()]
+
+if ishelper(1)
+{
+	if map(animtime) != 0
+	{
+		assertspecial{flag: animfreeze}
+		let a = ceil(abs(vel x));
+		let b = ceil(abs(vel z));
+		if $a > 0 || $b > 0
+		{
+			map(animtime) := map(animtime) - max($a,$b);
+		}
+	}
+	else
+	{
+		if map(animtime) <= 0
+		{
+			map(animtime) := 16;
+		}
+	}
+	assertspecial{flag: nokovelocity}
+	switch stateno
+	{
+		case 5900:
+		map(maxvel) := 2;
+		modifyplayer{lifemax: 125;
+		helpername: "MMX Truck"}
+		lifeset{value: lifemax}
+		assertspecial{flag: invisible}
+		remappal{source: 1000, 0;
+		dest: 1000, randomrange(0,1)}
+		for i = 1; 2; 1
+		{
+			explod{anim: $i;
+			ID: $i;
+			postype: p1;
+			pos: 0,0;
+			facing: 1;
+			bindID: id;
+			bindtime: -1;
+			removetime: -1;
+			sprpriority: 0;
+			ownpal: 0;
+			ignorehitpause: 1;
+			animelem: animelemno(0);
+			animfreeze: 0;
+			syncid: id;
+			synclayer: -1;
+			syncparams: 1}
+		}
+		changestate{value: 0}
+		case 0:
+		call Anim(0);
+		let a = gametime % 3;
+		if abs(vel x) > 0.0625
+		{
+			#velset{x: vel x - 0.0625 * sign(vel x)}
+			call Accel($a * -sign(vel x),0);
+		}
+		else
+		{
+			velset{x: 0}
+		}
+		if abs(vel z) > 0.0625
+		{
+			#velset{z: vel z - 0.0625 * sign(vel z)}
+			call Accel($a * -sign(vel z),0);
+		}
+		else
+		{
+			velset{z: 0}
+		}
+		if map(_N115input) & 15
+		{
+			changestate{value: 20}
+		}
+		case 20:
+		call Anim(0);
+		let a = gametime % 3;
+		call Accel(($a * map(_N115input) & 8) - $a * (map(_N115input) & 4),0);
+		if abs(vel x) >= 1 #&& movetype != A
+		{
+			let a = randomrange(-1,1);
+			statetypeset{movetype: A}
+			Call Hitdef();
+			modifyhitdef{damage: 60,5;
+			hitflag: MAFD-;
+			animtype: DiagUp;
+			priority: 1, miss;
+			ground.velocity: 0,-5,$a;
+			air.velocity: 0,-1,$a;
+			fall: 1;
+			attack.depth: 2,2;
+			ignorereversaldef: 1}
+		}
+		else if abs(vel x) < 1 && movetype = A
+		{
+			statetypeset{movetype: I}
+		}
+		if vel x >= 1
+		{
+			call Clsn1(0,22,-32,37,0);
+		}
+		else if vel x <= -1
+		{
+			call Clsn1(0,-45,-32,-37,0);
+		}
+		if !(map(_N115input) & 15)
+		{
+			changestate{value: 0}
+		}
+		case 5150:
+		call Anim(0);
+		if !time
+		{
+			let x = 24;
+			for i = 0; 2; 1
+			{
+				if $i > 0
+				{
+					let x = cond($i = 1, -32, -19);
+				}
+				explod{anim: 5;
+				ID: 100;
+				postype: p1;
+				pos: $x,-5;
+				facing: facing;
+				vel: 0,0;
+				accel: 0,- (16 / 256.0);
+				removetime: -2;
+				sprpriority: sprpriority - 1;
+				shadow: 0;
+				ownpal: 1;
+				ignorehitpause: 1;
+				reflection: 0}
+			}
+		}
+		let a = 32 / 256.0;
+		if vel x != 0
+		{
+			#let a = min(vel x + 8 / 256.0, vel x - vel x);
+			#let b = max(vel x - 8 / 256.0, vel x - vel x);
+			if abs(vel x) < $a
+			{
+				velset{x: 0}
+			}
+			velset{x: (vel x + $a / 1.5) * -sign(vel x)}
+		}
+		if pos y < 0
+		{
+			velset{y: max(vel y + $a, -7)}
+		}
+		else
+		{
+			velset{y: 0}
+			posset{y: 0}
+			offset{y: 3}
+		}
+		if time > 72
+		{
+			let a = floor((time - 72) / 8.0);
+			if time % (8 - $a) = 0
+			{
+				assertspecial{flag: invisible}
+			}
+			if $a >= 7
+			{
+				destroyself{}
+			}
+		}
+	}
+	for i = 1; 2; 1
+	{
+		modifyexplod{anim: $i;
+		id: $i;
+		animelem: animelemno(0)}
+	}
+	if life <= 0 && stateno != 5150
+	{
+		playsnd{value: S102,0}
+		for i = 1; 2; 1
+		{
+			if numexplod($i)
+			{
+				modifyexplod{id: $i;
+				bindtime: 0;
+				vel: 0.25 * randomrange(-12,12), -3;
+				accel: 0, (24 / 256.0)}
+			}
+		}
+		posadd{y: -1}
+		if movetype = H
+		{
+			for i = 0; numplayer - 1; 1
+			{
+				break;
+				if playerindexexist($i) && playerindex($i),movetype != I
+				{
+					if playerindex($i),movehitvar(frame) && playerindex($i),movehitvar(playerid) = ID
+					{
+						let hit = cond(facing = playerindex($i),facing, 1, -1);
+						break;
+					}
+				}
+			}
+			#velset{x: gethitvar(xvel) * $hit; y: gethitvar(yvel); z: gethitvar(zvel)}
+		}
+		velset{y: -3}
+		changestate{value: 5150}
+	}
+	else
+	{
+		Call Size(0, -36, -32, 21, 0);
+		assertspecial{flag: SizePushOnly}
+		playerpush{value: 1;
+		affectteam: B}
+	}
+	if hitoverridden && movetype != H
+	{
+		statetypeset{movetype: H}
+	}
+	else if !hitoverridden && movetype = H
+	{
+		if prevmovetype = A
+		{
+			statetypeset{movetype: A}
+		}
+		else
+		{
+			statetypeset{movetype: I}
+		}
+	}
+	hitoverride{attr: SCA,AA,AP;
+	stateno: stateno;
+	forceair: (statetype = A || statetype = L);
+	keepstate: 1}
+	call AiUnit();
+}
+
+[StateDef 5900;]
+
+if !ishelper
+{
+	tagout{}
+	changestate{value: 0}
+}
+
+Call HoleHelper();
+Call FenceHelper();
+
+Call Truck();
+
+[StateDef 0; physics: N; anim: -2;]
+
+Call AChar();
+Call Truck();
+
+[StateDef 20;]
+
+Call Truck();
+
+[StateDef 5150;]
+
+Call Truck();
+
+[StateDef -4;]
+
+assertspecial{flag: SizePushOnly; flag2: noautoturn}

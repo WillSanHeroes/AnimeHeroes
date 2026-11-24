@@ -1,0 +1,192 @@
+[Info]
+
+name = "IK plus"
+displayname = "IK plus" 
+versiondate = 03,05,2017 
+mugenversion = 1.0
+author = "Toni"
+
+;--------------------------------------------------------
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -184 
+boundright = 184 
+boundhigh = -150 
+boundlow = 2
+verticalfollow = 0.25
+floortension = 90
+tension = 50
+overdrawhigh = 0
+overdrawlow = 0
+cuthigh = 35
+cutlow = 25
+zoomin = 1.3
+zoomout = .8
+;--------------------------------------------------------
+[PlayerInfo]
+;--- Player 1 ---
+p1startx = -70          ;Starting x coordinates
+p1starty = 0            ;Starting y coordinates
+p1facing = 1            ;Direction player faces: 1=right, -1=left
+;--- Player 2 ---
+p2startx = 70
+p2starty = 0
+p2facing = -1
+;--- Common ---
+ ;Don't change these values.
+leftbound  = -1000 ;Left bound (x-movement)
+rightbound =  1000 ;Right bound
+
+;--------------------------------------------------------
+[Bound]
+ ;Distance from left/right edge of screen that player can move to
+ ;Typically 15
+screenleft = 20    ;Dist from left of screen that player can move to
+screenright = 20   ;Right edge
+
+
+;--------------------------------------------------------
+[StageInfo]
+zoffset = 215
+autoturn = 1
+resetBG = 1
+ ;Width and height of the local coordinate space of the stage.
+localcoord = 320, 240
+ ;Horizontal and vertical scaling factor for drawing.
+xscale = 1
+yscale = 1
+
+;--------------------------------------------------------
+[Shadow]
+ ;This controls the darkness of the shadow. Valid values range
+ ;from 0 (lightest) to 256 (darkest). Defaults to 128 if omitted.
+intensity = 15
+
+ ;This is the shadow color given in r,g,b. Valid values for each
+ ;range from 0 (lightest) to 255 (darkest).
+ ;Defaults to 0,0,0 if omitted.
+ ;intensity and color's effects add up to give the final shadow
+ ;result.
+color = 18,20,20
+
+ ;This is the scale factor of the shadow. Use a big scale factor
+ ;to make the shadow longer. You can use a NEGATIVE scale factor
+ ;to make the shadow fall INTO the screen.
+ ;Defaults to 0.4 if omitted.
+yscale = .3
+
+ ;This parameter lets you set the range over which the shadow is
+ ;visible. The first value is the high level, and the second is
+ ;the middle level. Both represent y-coordinates of the player.
+ ;A shadow is invisible if the player is above the high level,
+ ;and fully visible if below the middle level. The shadow is
+ ;faded in between the two levels. This gives an effect of the
+ ;shadow fading away as the player gets farther away from the
+ ;ground. If omitted, defaults to no level effects (shadow is
+ ;always fully visible).
+;fade.range = -400,-100
+fade.range = 0,-50
+
+;--------------------------------------------------------
+[Reflection]
+ ;Intensity of reflection (from 0 to 256). Set to 0 to have no
+ ;reflection. Defaults to 0.
+intensity = 0
+
+;--------------------------------------------------------
+[Music]
+bgmusic = sound/ikplus.mp3
+bgmvolume = 255
+
+;--------------------------------------------------------
+
+[BGdef]
+spr = ikplus.sff
+debugbg = 0
+
+[BG sky]
+type  = normal
+spriteno = 20,2
+start = 0, 254
+mask = 0
+delta = 0.4, 0.41 
+
+[BG clouds]
+type  = normal
+spriteno = 20,3
+start = 0, 254
+mask = 1
+delta = 0.42, 0.43 
+
+[BG mountains]
+type  = normal
+spriteno = 20,4
+start = 0, 254
+mask = 1
+delta = 0.45, 0.45
+
+[BG water]
+type  = normal
+spriteno = 20,5
+start = 0, 254
+mask = 0
+delta = 0.4, 0.45
+
+[BG water]
+type = Anim
+actionno = 21 
+start = 0, 254
+mask = 0
+delta = 0.4, 0.45 
+
+[Begin Action 21]
+21,0, 0,0, 6
+21,1, 0,0, 6
+21,2, 0,0, 6
+21,3, 0,0, 6
+21,4, 0,0, 6
+21,5, 0,0, 6
+21,6, 0,0, 6
+21,7, 0,0, 6
+21,8, 0,0, 6
+21,9, 0,0, 6
+21,10, 0,0, 6
+21,11, 0,0, 6
+
+[BG reflection]
+type = Anim
+actionno = 6 
+start = 0, 254
+mask = 1
+delta = 0.45, 0.45 
+
+[Begin Action 6]
+20,6, 0,0, -1, ,AS188D68
+
+
+[BG floor]
+type = parallax
+spriteno = 20,7
+start = 0, 244
+mask = 1
+delta = 0.68, 0.98
+xscale = 1, 1.72
+yscalestart = 110
+yscaledelta = 0.1
+
+[BG gate]
+type  = normal
+spriteno = 20,0
+start = 0, 252
+mask = 1
+delta = 0.79, 0.94
+
+[BG tree]
+type  = normal
+spriteno = 20,8
+start = 0, 252
+mask = 1
+delta = 0.79, 0.94
+

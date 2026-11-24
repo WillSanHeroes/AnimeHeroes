@@ -1,0 +1,405 @@
+;                        EDITED STAGE
+;=============================================================
+;  STAGE INFORMATION :
+;
+;  Resolution : 1280 * 720
+;  Mugen Version : Mugen 1.1 only
+;  Versiondate : Septiembre,2014
+;  Reedicion : Daniel's 
+;
+;=============================================================
+
+
+[Info]
+name = "Starry Night"
+displayname = "Starry Night"
+mugenversion = 1.1
+author = "Chrono_Strife & Roken\n ReEdit: Daniel's"
+ 
+[camera]
+startx = 0
+starty = 0
+boundleft =-380
+boundright = 380
+boundhigh=-380 
+boundlow =0
+verticalfollow = .70
+floortension = 100
+tension =190;120
+tensionhigh = 160
+tensionlow = 25
+overdrawhigh = 100
+overdrawlow = 100
+cuthigh = 0
+cutlow = 0
+zoomin = 1.3
+zoomout = .7
+
+;--------------------------------------------------------
+[PlayerInfo]
+;--- Player 1 ---
+p1startx = -200
+p1starty = 0
+p1startz = 0
+p1facing = 1
+
+;--- Player 2 ---
+p2startx = 200
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+;--- Player 3 ---
+p3startx = -290
+p3starty = 0
+p3facing = 1
+
+;--- Player 4 ---
+p4startx = 290
+p4starty = 0
+p4facing = -1
+
+;--- Common ---
+
+leftbound  = -4000
+rightbound =  4000
+topbound  =  0
+botbound  =  0
+
+;--------------------------------------------------------
+[Scaling]
+ ;No need to change these values
+topz     = 0
+botz     = 50
+topscale = 1
+botscale = 1.2
+
+;--------------------------------------------------------
+[Bound]
+screenleft = 60
+screenright = 60
+
+;--------------------------------------------------------
+[StageInfo]
+zoffset   = 460
+autoturn  = 1
+;hires = 1
+localcoord=896,504
+
+;--------------------------------------------------------
+[Shadow]
+color = 108,108,108
+yscale = 0.5
+
+;--------------------------------------------------------
+[Music]
+ bgmusic = sound/StarryNight.mp3
+ bgmvolume = 170
+;========================================================
+
+; Main background definition
+[BGdef]
+spr = StarryNight.sff
+debugbg = 1
+
+
+[BG 1]
+type  = normal
+spriteno = 20, 0
+start = 0, -50
+delta = 0, 0
+mask = 0
+tile = 1,1
+tilespacing = 0,0
+trans = none
+
+
+[BG Sky]
+type  = normal
+spriteno = 1,1
+layerno = 0
+start = 0, 255
+delta = .1,.6
+velocity = 0,0
+trans = none
+mask  = 1
+
+
+;stars----
+
+[BG Stars]
+type = anim
+actionno  = 3
+start = -200,-340
+delta =  .1,.6
+tile=1,0
+tilespacing=900,0
+
+
+[BG Stars]
+type = anim
+actionno  = 3
+start = 400,-170
+delta =  .1,.6
+tile=1,0
+tilespacing=900,0
+
+[BG Stars]
+type = anim
+actionno  = 3
+start = 0,0
+delta =  .1,.6
+tile=1,0
+tilespacing=900,0
+
+
+
+
+
+
+;----------------
+
+[BG SkyGradient]
+type  = normal
+spriteno = 1,4
+layerno = 0
+start = 0, 275
+delta = .15, .6
+velocity = 0,0
+trans = none
+mask  = 1
+tile  = 1, 0
+
+[BG Shooting_Star1]
+type  = anim
+actionno = 1
+layerno = 0
+start = 700, -1510
+velocity = -55, 10
+delta = .15, .6
+tile  = 1, 1
+tilespacing = 10308,6300
+scalestart=.5,.5
+
+[BG Shooting_Star2]
+type  = anim
+actionno = 2
+layerno = 0
+start = 5750, -4510
+velocity = 55, 10
+delta = .15,.6
+tile  = 1, 1
+tilespacing = 10308,6300
+scalestart=.5,.5
+
+[BG Clouds]
+type  = normal
+spriteno = 1,3
+layerno = 0
+start = 0, 585
+delta = .25,.65
+velocity = 0.25,0
+trans = add
+alpha = 120,256
+mask  = 1
+tile  = 1, 0
+
+[BG DistantMountains]
+type  = normal
+spriteno =0, 6
+layerno = 0                
+start = 0, 267
+delta = .4,.8
+trans = none
+mask  = 1
+tile  = 1, 0
+
+[BG MidMountains-Back]
+type  = normal
+spriteno = 0, 5
+layerno = 0                
+start = -200, 313
+delta =.5,.8
+trans = none
+mask  = 1
+tile  = 1, 0
+alpha = 220,0
+scalestart= 0.8,0.8
+
+[BG MistBG2]
+type  = normal
+spriteno = 1,7
+layerno = 0
+start = 0, 233
+delta = .55,.85
+velocity = 0.1,0
+trans = add
+alpha = 60,256
+mask  = 1
+tile  = 1, 0
+scalestart = 0.5,0.5
+
+[BG MidMountains-Front]
+type  = normal
+spriteno = 0,4
+layerno = 0                
+start = 0, 320
+delta = .6,.9
+trans = none
+mask  = 1
+tile  = 1, 0
+
+[BG MistBG]
+type  = normal
+spriteno = 1,7
+layerno = 0
+start = 0, 258
+delta = .75,1
+velocity = 0.15,0
+trans = add
+alpha = 80,256
+mask  = 1
+tile  = 1, 0
+scalestart = 0.75,0.75
+
+[BG MidMountains-Hills]
+type  = normal
+spriteno = 0, 3
+layerno = 0                
+start = 0, 310
+delta = .7,.95
+trans = none
+mask  = 1
+tile  = 1, 0
+
+[BG Bushes]
+type  = normal
+spriteno = 0, 2
+layerno = 0                
+start = 0, 500
+delta = .8,1
+trans = none
+mask  = 1
+tile  = 1, 0
+
+[BG Ground]
+type  = normal
+spriteno = 0,1
+layerno = 0                
+start = 0, 500
+delta = .85,1
+trans = none
+mask  = 1
+tile  = 1, 0
+
+[BG Mist]
+type  = normal
+spriteno = 1,7
+layerno = 1
+start = 0, 430
+delta = .9,1
+velocity = 0.2,0
+trans = add
+alpha = 100,256
+mask  = 1
+tile  = 1, 0
+
+[BG ForeGround]
+type  = normal
+spriteno = 0,0
+layerno = 1
+start = 0, 450
+delta = 1.3,1.3
+trans = none
+mask  = 1
+tile  = 1, 0
+scalestart=1,1.4
+
+
+;--------------------anim-------------------------------------------
+; star1
+[Begin Action 1]
+1,5, 0,0, 40, , A, 0.8,0.2, 10
+; star
+[Begin Action 2]
+1,6, 0,0, 40, , AS200D256, 0.8,0.2, 170
+
+;stars
+[Begin Action 3]
+6,0,0,0,5,,A
+6,1,0,0,5,,A
+6,2,0,0,5,,A
+6,3,0,0,5,,A
+6,4,0,0,5,,A
+6,5,0,0,5,,A
+6,6,0,0,5,,A
+6,7,0,0,5,,A
+6,8,0,0,5,,A
+6,9,0,0,5,,A
+6,10,0,0,5,,A
+6,11,0,0,5,,A
+6,12,0,0,5,,A
+6,13,0,0,5,,A
+6,14,0,0,5,,A
+6,15,0,0,5,,A
+6,16,0,0,5,,A
+6,17,0,0,5,,A
+6,18,0,0,5,,A
+6,19,0,0,5,,A
+6,20,0,0,5,,A
+6,21,0,0,5,,A
+6,22,0,0,5,,A
+6,23,0,0,5,,A
+6,24,0,0,5,,A
+6,25,0,0,5,,A
+6,26,0,0,5,,A
+6,27,0,0,5,,A
+6,28,0,0,5,,A
+6,29,0,0,5,,A
+6,30,0,0,5,,A
+6,31,0,0,5,,A
+6,32,0,0,5,,A
+6,33,0,0,5,,A
+6,34,0,0,5,,A
+6,35,0,0,5,,A
+6,36,0,0,5,,A
+6,37,0,0,5,,A
+6,38,0,0,5,,A
+6,39,0,0,5,,A
+6,40,0,0,5,,A
+6,41,0,0,5,,A
+6,42,0,0,5,,A
+6,43,0,0,5,,A
+6,44,0,0,5,,A
+6,45,0,0,5,,A
+6,46,0,0,5,,A
+6,47,0,0,5,,A
+6,48,0,0,5,,A
+6,49,0,0,5,,A
+6,50,0,0,5,,A
+6,51,0,0,5,,A
+6,52,0,0,5,,A
+6,53,0,0,5,,A
+6,54,0,0,5,,A
+6,55,0,0,5,,A
+6,56,0,0,5,,A
+6,57,0,0,5,,A
+6,58,0,0,5,,A
+6,59,0,0,5,,A
+6,60,0,0,5,,A
+6,61,0,0,5,,A
+6,62,0,0,5,,A
+6,63,0,0,5,,A
+6,64,0,0,5,,A
+6,65,0,0,5,,A
+6,66,0,0,5,,A
+6,67,0,0,5,,A
+6,68,0,0,5,,A
+6,69,0,0,5,,A
+6,70,0,0,5,,A
+6,71,0,0,5,,A
+6,72,0,0,5,,A
+6,73,0,0,5,,A
+6,74,0,0,5,,A
+
+

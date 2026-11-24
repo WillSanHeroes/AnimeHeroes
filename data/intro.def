@@ -1,0 +1,17 @@
+[Info]
+localcoord = 1280,720
+
+;------------------------------------
+[Scene 0]
+; Fade
+bg.name = BG1          ;Name of BG to show (no spaces allowed)
+bgm = intro.mp3
+fadein.time = 30
+fadeout.time = 60
+end.time = 2000
+music = video/intro.webm 
+
+[BG1 Intro]
+type = video
+path = intro.webm
+ 
