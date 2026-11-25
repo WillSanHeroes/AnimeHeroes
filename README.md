@@ -18,7 +18,7 @@ Refer to [our wiki](https://github.com/ikemen-engine/Ikemen-GO/wiki) to see a co
 Ready-to-use builds are available in the [releases section](https://github.com/ikemen-engine/Ikemen-GO/releases). Stable releases use tags such as `v1.0.0`, while release candidates use tags such as `v1.0.0-rc.1` and are marked as pre-releases. [Nightly builds](https://github.com/ikemen-engine/Ikemen-GO/releases/tag/nightly) are updated after each commit to `develop` and may be less stable.
 
 ### System requirements
-| Platform | Minimum |
+| Platform | Minimum |||
 |---|---|
 | Windows | Windows 10 (64-bit) |
 | macOS | macOS 13 Ventura (Apple Silicon) |
