@@ -19,6 +19,8 @@ st3=Supers.cns
 st4=HTM.cns
 st6=Configs.cns
 st7=data\glows\Glow(green).zss
+
+;Movelist
 movelist = movelist.dat
 movelist.2 = data\movelist_general.dat
 movelist1 = movelistHTM.dat
