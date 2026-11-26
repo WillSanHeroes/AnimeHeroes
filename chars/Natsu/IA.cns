@@ -14,6 +14,32 @@
 ;var(40) = 50
 ;ignorehitpause = 1
 
+[State 0, Change Movelist]
+type = ChangeMovelist
+trigger1 = var(2) = 0 && var(3) = 0
+value = 0
+[State 0, Change Movelist]
+type = ChangeMovelist
+trigger1 = var(3) = 1
+value = 1
+[State 0, Change Movelist]
+type = ChangeMovelist
+trigger1 = var(2) = 1
+value = 2
+
+[State 0, Change Character Name]
+type = ModifyPlayer
+trigger1 = var(2) = 0 && var(3) = 0
+displayname = "Natsu"
+[State 0, Change Character Name]
+type = ModifyPlayer
+trigger1 = var(3) = 1
+displayname = "Natsu -Modo Raienryu-"
+[State 0, Change Character Name]
+type = ModifyPlayer
+trigger1 = var(2) = 1
+displayname = "Natsu -Dragon Force-"
+
 [State -2, Secret]
 type = VarSet
 triggerall = GameMode != "arcade"

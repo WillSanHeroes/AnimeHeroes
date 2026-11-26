@@ -413,19 +413,6 @@ Triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = numhelper(700) > 0
 ;---------------------------------------------------------------------------
-; Cho Enryu no Hoko
-[State -1, Cho Enryu no Hoko]
-type = ChangeState
-Triggerall = var(3) = 2
-triggerall = var(41) = 1
-triggerall = teammode != simul
-Triggerall = power >= powermax
-value = 23100
-triggerall = command = "z"
-Triggerall = statetype != A
-trigger1 = ctrl
-trigger2 = numhelper(700) > 0
-;---------------------------------------------------------------------------
 ; Shiranui Gata: Guren Hoo Ken
 [State -1, Shiranui Gata: Guren Hoo Ken]
 type = ChangeState

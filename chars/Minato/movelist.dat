@@ -1,34 +1,16 @@
 <#faa912>-TRANSFORM-</> <#f80ae0>ONLY AWAKE</>
 KCM Mode		_TAP^X
-_!Kyuubi Mode (in KCM)		_TAP^X
-_!Cancel		_D+^X
 
 <#00FF7F>-SKILLS-</>
 Rasengan <#1E90FF>[1 LVL]</>		^S+^A
-_!KCM: Oodama Rasengan (Hold ^A: Hiraishin Rasenrengan)
-_!Kyuubi: Cho Oodama Rasengan
-Hiraishin no Jutsu LV2 <#1E90FF>1.5 LEVEL</>		^S+^B
-_!KCM: Cho Mini Bijuudama (Break Guard)
-_!Kyuubi: Rasengan Throw (Break Guard)
-Hiraishin Dance <#1E90FF>1.5 LEVEL</>		^S+^C
-_!KCM: Hiraishin Dance LV2
-_!Kyuubi: Beast Drop
-
-<#FFFF00>-SUPER-</>
-Hiraishin: Cho Oodama Rasengan <#1E90FF>2 LEVEL</>		^S+^Y
-_!Awake: Rasenrengan (Break Guard)
-_!KCM: Kurama Bijuudama
-_!KCM Awake: Kurama Hunt (Break Guard)
-_!Kyuubi: Chakra Cannon
+Hiraishin no Jutsu LV2 <#1E90FF>[1.5 LVL]</>		^S+^B
+Hiraishin Dance <#1E90FF>[1.5 LVL]</>		^S+^C
+Rasenrengan <#f5f00c>(Break Def)</> <#1E90FF>[2 LVL]</>		^S+^Y
 
 <#DC143C>-ULTIMATE-</> <#f80ae0>ONLY AWAKE</>
-Flash Hurricane of Space-Time Sequential Steps:
-Style Zero <#1E90FF>3 LEVEL</>		_TAP^Z
+Hiraishin: Cho Oodama Rasengan <#1E90FF>[3 LVL]</>		_TAP^Z
 
 <#8045ff>-UNIQUES-</>
-Hiraishin no Jutsu <#1E90FF>1 LEVEL</>		_D+^S
-_!Mark the opponent
-_!Press again: Hiraishin Attack (teleport)
-_!KCM: Hiraishin Rasengan
-_!Kyuubi: Angry Roar
-Renzoku Bijuudama (Kyuubi) <#1E90FF>1.5 LEVEL</>		_D+^C
+Hiraishin no Jutsu <#f5f00c>(Break Def/TMP)</> <#1E90FF>[1 LVL]</>		_D+^S
+_!Opponent Marked <_D+^S: Hiraishn Attack>
+_!Some skills teleport

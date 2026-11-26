@@ -8,6 +8,29 @@
 ;trigger1 = command = "z"
 ;var(40) = 980
 ;ignorehitpause = 1
+;[State 0, AwakeBarFill]
+;type = VarSet
+;trigger1 = command = "x"
+;var(40) = 50
+;ignorehitpause = 1
+
+[State 0, Change Movelist]
+type = ChangeMovelist
+trigger1 = var(2) = 0
+value = 0
+[State 0, Change Movelist]
+type = ChangeMovelist
+trigger1 = var(2) = 1
+value = 1
+
+[State 0, Change Character Name]
+type = ModifyPlayer
+trigger1 = var(2) = 0
+displayname = "Urouge"
+[State 0, Change Character Name]
+type = ModifyPlayer
+trigger1 = var(2) = 1
+displayname = "Urouge -Karmic Return-"
 
 [State -2, PowerAdd Base]
 type = poweradd

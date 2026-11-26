@@ -20,9 +20,14 @@ st3=Super.cns
 st4=DevilFruit.cns
 st5=Configs.cns
 st6=Data\glows\Glow(white).zss
-movelist = movelist.dat ;Ikemen feature
 
 ;Paletas
 pal1=1.act
 pal2=2.act
 pal3=3.act
+
+;Movelist
+movelist = movelist.dat
+movelist.2 = data\movelist_general.dat
+movelist1 = movelistDF.dat
+movelist1.2 = data\movelist_general.dat

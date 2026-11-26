@@ -27,4 +27,11 @@ st4=RaienryuuMode.cns
 st5=Dragonforce.cns
 st6 = Configs.cns
 st7 = Glows.zss
-movelist = movelist.dat ;Ikemen feature
+
+;Movelist
+movelist = movelist.dat
+movelist.2 = data\movelist_general.dat
+movelist1 = movelistMR.dat
+movelist1.2 = data\movelist_general.dat
+movelist2 = movelistDF.dat
+movelist2.2 = data\movelist_general.dat

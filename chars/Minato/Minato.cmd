@@ -428,6 +428,18 @@ Triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = numhelper(700) > 0
 ;---------------------------------------------------------------------------
+; Rasenrengan
+[State -1, Rasenrengan]
+type = ChangeState
+triggerall = var(2) = 0
+Triggerall = power >= 2000
+triggerall = numhelper(1550) = 0
+value = 1500
+triggerall = command = "hold_s" && command = "y"
+Triggerall = statetype != A
+trigger1 = ctrl
+trigger2 = numhelper(700) > 0
+;---------------------------------------------------------------------------
 ;Kcm
 ;---------------------------------------------------------------------------
 ; Oodama Rasengan
@@ -460,20 +472,6 @@ triggerall = var(2) = 1
 Triggerall = power >= 1500
 value = 30200
 triggerall = command = "hold_s" && command = "c"
-Triggerall = statetype != A
-trigger1 = ctrl
-trigger2 = numhelper(700) > 0
-;===========================================================================
-;SUPERS:
-;===========================================================================
-; Rasenrengan
-[State -1, Rasenrengan]
-type = ChangeState
-triggerall = var(2) = 0
-Triggerall = power >= 2000
-triggerall = numhelper(1550) = 0
-value = 1500
-triggerall = command = "hold_s" && command = "y"
 Triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = numhelper(700) > 0

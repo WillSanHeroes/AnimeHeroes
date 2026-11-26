@@ -1501,19 +1501,19 @@ volume = 50
 
 [State 0, PlaySnd]
 type = PlaySnd
-trigger1 = time = 30
+trigger1 = time = 15
 value = S60,1
 volume = 50
 
 [State 0, PlaySnd]
 type = PlaySnd
-trigger1 = time = 35
+trigger1 = time = 20
 value = S5,37
 volume = 999
 
 [State 0, Soru Jus Helper]
 type = Helper
-trigger1 = time = 30
+trigger1 = time = 15
 helpertype = normal
 name = "Soru Jus Helper"
 ID = 30020
@@ -1526,7 +1526,7 @@ Size.Yscale = .3*Helper(999999),Fvar(16)
 
 [State 0, FX]
 type = Helper
-trigger1 = time = 40
+trigger1 = time = 25
 helpertype = normal
 name = "FX"
 ID = 30010
@@ -1559,7 +1559,7 @@ volume = 999
 
 [State 0, FX]
 type = Helper
-trigger1 = time = 30
+trigger1 = time = 15
 helpertype = normal
 name = "FX"
 ID = 430
@@ -1573,21 +1573,16 @@ Size.Yscale = .15*Helper(999999),Fvar(16)
 
 [State 0, VelSet]
 type = VelSet
-trigger1 = time = 30
+trigger1 = time = 15
 x = 10
 y = -4
 
 [State 0, StateTypeSet]
 type = StateTypeSet
-trigger1 = time = 30
+trigger1 = time = 15
 statetype = A
 movetype = A
 physics = A
-
-[State 0, AssertSpecial]
-type = AssertSpecial
-trigger1 = 1
-flag = unguardable
 
 [State 200, 1]
 type = HitDef
