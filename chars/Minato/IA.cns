@@ -14,6 +14,24 @@ ignorehitpause = 1
 ;var(40) = 50
 ;ignorehitpause = 1
 
+[State 0, Change Movelist]
+type = ChangeMovelist
+trigger1 = var(2) = 0
+value = 0
+[State 0, Change Movelist]
+type = ChangeMovelist
+trigger1 = var(2) = 1
+value = 1
+
+[State 0, Change Character Name]
+type = ModifyPlayer
+trigger1 = var(2) = 0
+displayname = "Minato"
+[State 0, Change Character Name]
+type = ModifyPlayer
+trigger1 = var(2) = 1
+displayname = "Minato -KCM-"
+
 [State -2, PowerAdd]
 type = poweradd
 triggerall = RoundState = 2

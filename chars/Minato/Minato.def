@@ -33,5 +33,5 @@ movelist = movelist.dat
 movelist.2 = data\movelist_general.dat
 movelist1 = movelistKCM.dat
 movelist1.2 = data\movelist_general.dat
-movelist2 = movelistKYUUBI.dat
+movelist2 = movelistKM.dat
 movelist2.2 = data\movelist_general.dat

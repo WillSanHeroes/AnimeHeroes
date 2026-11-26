@@ -1,7 +1,7 @@
 <#faa912>-TRANSFORM-</> <#f80ae0>ONLY AWAKE</>
 KCM Mode		_TAP^X
 
-<#00FF7F>-SKILLS-</>
+<#00FF7F>-SPECIALS-</>
 Rasengan <#1E90FF>[1 LVL]</>		^S+^A
 Hiraishin no Jutsu LV2 <#1E90FF>[1.5 LVL]</>		^S+^B
 Hiraishin Dance <#1E90FF>[1.5 LVL]</>		^S+^C
@@ -12,5 +12,5 @@ Hiraishin: Cho Oodama Rasengan <#1E90FF>[3 LVL]</>		_TAP^Z
 
 <#8045ff>-UNIQUES-</>
 Hiraishin no Jutsu <#f5f00c>(Break Def/TMP)</> <#1E90FF>[1 LVL]</>		_D+^S
-_!Opponent Marked <_D+^S: Hiraishn Attack>
+_!Opponent Marked < _D+^S : Hiraishn Attack>
 _!Some skills teleport
