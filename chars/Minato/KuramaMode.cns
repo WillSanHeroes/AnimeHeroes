@@ -166,6 +166,15 @@ ctrl = 0
 anim = 10001
 sprpriority = 0
 
+[State 0, Change Movelist]
+type = ChangeMovelist
+trigger1 = animtime = 0
+value = 2
+[State 0, Change Character Name]
+type = ModifyPlayer
+trigger1 = animtime = 0
+displayname = "Minato -Kyuubi Mode-"
+
 [State 0]
 Type=Zoom
 triggerall =teammode!=simul
