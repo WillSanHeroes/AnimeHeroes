@@ -11,9 +11,39 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"regexp"
+	"strconv"
 	"strings"
 	"sync"
+	"syscall"
 )
+
+const (
+	barUpdate = iota
+	barVerify
+)
+
+var percentRe = regexp.MustCompile(`(\d{1,3})%`)
+
+type span struct {
+	bar    int
+	lo, hi int
+}
+
+func (s span) set(text string, pct int) {
+	if pct < 0 {
+		pct = 0
+	}
+	if pct > 100 {
+		pct = 100
+	}
+	v := s.lo + (s.hi-s.lo)*pct/100
+	if s.bar == barVerify {
+		setState(text, true, false, v, -1)
+		return
+	}
+	setState(text, true, false, -1, v)
+}
 
 const (
 	repoURL    = "https://github.com/WillSanHeroes/AnimeHeroes.git"
@@ -49,14 +79,13 @@ func (a *app) log(msg string) {
 	fmt.Fprintln(f, msg)
 }
 
-func (a *app) ensureGit(status func(string)) error {
+func (a *app) ensureGit(s span) error {
 	if fileExists(a.gitExe()) {
 		return nil
 	}
-	status("Baixando o Git...")
-	setUI("Baixando o Git...", true, false)
+	s.set("Baixando o Git...", 0)
 	zipPath := filepath.Join(a.root, "runtime", "MinGit.zip")
-	if err := download(minGitURL, zipPath, minGitHash); err != nil {
+	if err := download(minGitURL, zipPath, minGitHash, func(pct int) { s.set("Baixando o Git...", pct) }); err != nil {
 		return fmtErr("falha ao baixar o Git", err)
 	}
 	dest := filepath.Join(a.root, "runtime", "git")
@@ -70,14 +99,14 @@ func (a *app) ensureGit(status func(string)) error {
 	return nil
 }
 
-func (a *app) ensureLFS() error {
+func (a *app) ensureLFS(s span) error {
 	lfs := filepath.Join(a.root, "runtime", "git", "cmd", "git-lfs.exe")
 	if fileExists(lfs) {
 		return nil
 	}
-	setUI("Baixando o Git LFS...", true, false)
+	s.set("Baixando o Git LFS...", 0)
 	zipPath := filepath.Join(a.root, "runtime", "git-lfs.zip")
-	if err := download(lfsURL, zipPath, ""); err != nil {
+	if err := download(lfsURL, zipPath, "", func(pct int) { s.set("Baixando o Git LFS...", pct) }); err != nil {
 		return fmtErr("falha ao baixar o Git LFS", err)
 	}
 	dest := filepath.Join(a.root, "runtime", "lfs")
@@ -93,10 +122,52 @@ func (a *app) ensureLFS() error {
 }
 
 func (a *app) command(args ...string) *exec.Cmd {
-	cmd := exec.Command(a.gitExe(), args...)
+	cmd := hidden(exec.Command(a.gitExe(), args...))
 	cmd.Dir = a.game
 	cmd.Env = a.gitEnv()
 	return cmd
+}
+
+func hidden(cmd *exec.Cmd) *exec.Cmd {
+	cmd.SysProcAttr = &syscall.SysProcAttr{HideWindow: true, CreationFlags: 0x08000000}
+	return cmd
+}
+
+func (a *app) validRepo() bool {
+	if !fileExists(filepath.Join(a.game, ".git", "HEAD")) {
+		return false
+	}
+	return a.command("rev-parse", "--verify", "HEAD").Run() == nil
+}
+
+func (a *app) clone() error {
+	backup := filepath.Join(a.root, "runtime", "save-backup")
+	_ = os.RemoveAll(backup)
+	if saveDir := filepath.Join(a.game, "save"); dirExists(saveDir) {
+		if err := copyTree(saveDir, backup); err != nil {
+			return fmtErr("falha ao guardar o progresso", err)
+		}
+	}
+	var err error
+	for attempt := 1; attempt <= 3; attempt++ {
+		if dirExists(a.game) {
+			if err := os.RemoveAll(a.game); err != nil {
+				return fmtErr("falha ao limpar a pasta game", err)
+			}
+		}
+		label := "Baixando o jogo..."
+		if attempt > 1 {
+			label = fmt.Sprintf("Baixando o jogo (tentativa %d de 3)...", attempt)
+		}
+		cmd := hidden(exec.Command(a.gitExe(), "clone", "--depth", "1", "--branch", "main", "--single-branch", "--progress", repoURL, a.game))
+		cmd.Env = a.gitEnv()
+		cmd.Dir = a.root
+		if err = a.runCmdProgress(label, span{lo: 10, hi: 98}, cmd); err == nil {
+			return a.restoreSave(backup)
+		}
+		a.log(fmt.Sprintf("clone tentativa %d: %v", attempt, err))
+	}
+	return err
 }
 
 func (a *app) gitEnv() []string {
@@ -139,8 +210,11 @@ func (a *app) run(status func(string), args ...string) error {
 	return nil
 }
 
-func (a *app) runProgress(label string, args ...string) error {
-	cmd := a.command(args...)
+func (a *app) runProgress(label string, s span, args ...string) error {
+	return a.runCmdProgress(label, s, a.command(args...))
+}
+
+func (a *app) runCmdProgress(label string, s span, cmd *exec.Cmd) error {
 	stdout, err := cmd.StdoutPipe()
 	if err != nil {
 		return err
@@ -155,16 +229,18 @@ func (a *app) runProgress(label string, args ...string) error {
 	sc.Buffer(make([]byte, 64*1024), 1024*1024)
 	sc.Split(splitProgress)
 	var last string
+	pct := 0
+	s.set(label, 0)
 	for sc.Scan() {
 		line := strings.TrimSpace(sc.Text())
 		if line == "" {
 			continue
 		}
 		last = line
-		if len(line) > 90 {
-			line = line[:90]
+		if p := gitPercent(line, pct); p != pct {
+			pct = p
+			s.set(label, pct)
 		}
-		setUI(label+"\n"+line, true, false)
 	}
 	err = cmd.Wait()
 	a.track(nil)
@@ -174,7 +250,37 @@ func (a *app) runProgress(label string, args ...string) error {
 		}
 		return fmt.Errorf("%s", lastLine(last))
 	}
+	s.set(label, 100)
 	return nil
+}
+
+func gitPercent(line string, current int) int {
+	m := percentRe.FindStringSubmatch(line)
+	if m == nil {
+		return current
+	}
+	n, _ := strconv.Atoi(m[1])
+	if n > 100 {
+		n = 100
+	}
+	low := strings.ToLower(line)
+	v := n
+	switch {
+	case strings.Contains(low, "counting"):
+		v = n * 5 / 100
+	case strings.Contains(low, "compressing"):
+		v = 5 + n*5/100
+	case strings.Contains(low, "receiving"), strings.Contains(low, "downloading"):
+		v = 10 + n*70/100
+	case strings.Contains(low, "resolving"):
+		v = 80 + n*12/100
+	case strings.Contains(low, "updating files"), strings.Contains(low, "checking out"):
+		v = 92 + n*8/100
+	}
+	if v < current {
+		return current
+	}
+	return v
 }
 
 func (a *app) track(cmd *exec.Cmd) {
@@ -215,12 +321,11 @@ func (a *app) update() error {
 	if gameRunning() {
 		return fmt.Errorf("Feche o jogo antes de atualizar.")
 	}
-	if err := a.ensureGit(func(string) {}); err != nil {
+	if err := a.ensureGit(span{lo: 0, hi: 10}); err != nil {
 		return err
 	}
-	installed := fileExists(filepath.Join(a.game, ".git")) || dirExists(filepath.Join(a.game, ".git"))
-	if !installed {
-		if dirExists(a.game) {
+	if !a.validRepo() {
+		if dirExists(a.game) && !dirExists(filepath.Join(a.game, ".git")) {
 			empty, err := isEmptyDir(a.game)
 			if err != nil {
 				return err
@@ -228,16 +333,8 @@ func (a *app) update() error {
 			if !empty {
 				return fmt.Errorf("A pasta game já existe e não é uma instalação do jogo.")
 			}
-			_ = os.Remove(a.game)
 		}
-		setUI("Baixando o jogo...", true, false)
-		if err := os.MkdirAll(filepath.Dir(a.game), 0755); err != nil {
-			return err
-		}
-		cmd := exec.Command(a.gitExe(), "clone", "--branch", "main", "--single-branch", "--progress", repoURL, a.game)
-		cmd.Env = a.gitEnv()
-		cmd.Dir = a.root
-		if err := a.runCmdProgress("Baixando o jogo...", cmd); err != nil {
+		if err := a.clone(); err != nil {
 			return fmtErr("falha ao baixar o jogo", err)
 		}
 	} else {
@@ -245,22 +342,22 @@ func (a *app) update() error {
 		_ = os.RemoveAll(backup)
 		saveDir := filepath.Join(a.game, "save")
 		if dirExists(saveDir) {
-			setUI("Guardando o progresso...", true, false)
+			setState("Guardando o progresso...", true, false, -1, 10)
 			if err := copyTree(saveDir, backup); err != nil {
 				return fmtErr("falha ao guardar o progresso", err)
 			}
 		}
-		setUI("Baixando atualização...", true, false)
-		if err := a.runProgress("Baixando atualização...", "fetch", "origin", "main"); err != nil {
+		if err := a.runProgress("Baixando atualização...", span{lo: 12, hi: 90}, "fetch", "--depth", "1", "--progress", "origin", "main"); err != nil {
 			a.restoreSave(backup)
 			return fmtErr("falha ao buscar a main", err)
 		}
+		setState("Aplicando a atualização...", true, false, -1, 92)
 		if err := a.run(nil, "reset", "--hard", "origin/main"); err != nil {
 			a.restoreSave(backup)
 			return fmtErr("falha ao aplicar a main", err)
 		}
 		if dirExists(backup) {
-			setUI("Restaurando o progresso...", true, false)
+			setState("Restaurando o progresso...", true, false, -1, 97)
 			if err := a.restoreSave(backup); err != nil {
 				return err
 			}
@@ -270,14 +367,13 @@ func (a *app) update() error {
 		a.log("core.longpaths: " + err.Error())
 	}
 	if a.needsLFS() {
-		if err := a.ensureLFS(); err != nil {
+		if err := a.ensureLFS(span{lo: 90, hi: 93}); err != nil {
 			return err
 		}
-		setUI("Baixando arquivos grandes...", true, false)
 		if err := a.run(nil, "lfs", "install", "--local"); err != nil {
 			return fmtErr("falha ao preparar o Git LFS", err)
 		}
-		if err := a.runProgress("Baixando arquivos grandes...", "lfs", "pull"); err != nil {
+		if err := a.runProgress("Baixando arquivos grandes...", span{lo: 93, hi: 100}, "lfs", "pull"); err != nil {
 			return fmtErr("falha ao baixar arquivos grandes", err)
 		}
 	}
@@ -314,52 +410,15 @@ func (a *app) play() error {
 	return nil
 }
 
-func (a *app) runCmdProgress(label string, cmd *exec.Cmd) error {
-	stdout, err := cmd.StdoutPipe()
-	if err != nil {
-		return err
-	}
-	cmd.Stderr = cmd.Stdout
-	a.track(cmd)
-	if err := cmd.Start(); err != nil {
-		a.track(nil)
-		return err
-	}
-	sc := bufio.NewScanner(stdout)
-	sc.Buffer(make([]byte, 64*1024), 1024*1024)
-	sc.Split(splitProgress)
-	var last string
-	for sc.Scan() {
-		line := strings.TrimSpace(sc.Text())
-		if line == "" {
-			continue
-		}
-		last = line
-		if len(line) > 90 {
-			line = line[:90]
-		}
-		setUI(label+"\n"+line, true, false)
-	}
-	err = cmd.Wait()
-	a.track(nil)
-	if err != nil {
-		if last == "" {
-			last = err.Error()
-		}
-		return fmt.Errorf("%s", lastLine(last))
-	}
-	return nil
-}
-
 func gameRunning() bool {
-	out, err := exec.Command("tasklist", "/FI", "IMAGENAME eq AnimeHeroes.exe", "/NH").Output()
+	out, err := hidden(exec.Command("tasklist", "/FI", "IMAGENAME eq AnimeHeroes.exe", "/NH")).Output()
 	if err != nil {
 		return false
 	}
 	return strings.Contains(strings.ToLower(string(out)), "animeheroes.exe")
 }
 
-func download(url, dest, wantHash string) error {
+func download(url, dest, wantHash string, progress func(pct int)) error {
 	if err := os.MkdirAll(filepath.Dir(dest), 0755); err != nil {
 		return err
 	}
@@ -377,13 +436,38 @@ func download(url, dest, wantHash string) error {
 	}
 	defer f.Close()
 	sum := sha256.New()
-	if _, err := io.Copy(f, io.TeeReader(resp.Body, sum)); err != nil {
+	body := &progressReader{r: resp.Body, total: resp.ContentLength, fn: progress}
+	if _, err := io.Copy(f, io.TeeReader(body, sum)); err != nil {
 		return err
+	}
+	if progress != nil {
+		progress(100)
 	}
 	if wantHash != "" && !strings.EqualFold(hex.EncodeToString(sum.Sum(nil)), wantHash) {
 		return fmt.Errorf("arquivo baixado não confere")
 	}
 	return nil
+}
+
+type progressReader struct {
+	r     io.Reader
+	read  int64
+	total int64
+	last  int
+	fn    func(pct int)
+}
+
+func (p *progressReader) Read(b []byte) (int, error) {
+	n, err := p.r.Read(b)
+	p.read += int64(n)
+	if p.fn != nil && p.total > 0 {
+		pct := int(p.read * 100 / p.total)
+		if pct != p.last {
+			p.last = pct
+			p.fn(pct)
+		}
+	}
+	return n, err
 }
 
 func dirExists(path string) bool {

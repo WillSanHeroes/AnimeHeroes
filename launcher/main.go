@@ -4,8 +4,13 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"runtime"
 	"sync"
 )
+
+func init() {
+	runtime.LockOSThread()
+}
 
 const (
 	idUpdate = 1
@@ -18,6 +23,8 @@ var (
 	uiText    string
 	uiBusy    bool
 	uiCanPlay bool
+	uiVerify  int
+	uiUpdate  int
 	theApp    *app
 )
 
@@ -46,19 +53,33 @@ func exeDir() (string, error) {
 
 func (a *app) refresh() {
 	go func() {
-		setUI("Verificando...", true, false)
+		setState("Verificando...", true, false, 0, 0)
 		text, canPlay := a.look()
-		setUI(text, false, canPlay)
+		a.finish(text, canPlay)
 	}()
 }
 
+func (a *app) finish(text string, canPlay bool) {
+	switch text {
+	case "Atualizado":
+		setState(text, false, canPlay, 100, 100)
+	case "Jogo não instalado", "Atualização disponível":
+		setState(text, false, canPlay, 100, 0)
+	default:
+		setState(text, false, canPlay, -1, -1)
+	}
+}
+
 func (a *app) look() (string, bool) {
+	setState("Verificando...", true, false, 10, -1)
 	if !fileExists(filepath.Join(a.game, "AnimeHeroes.exe")) {
 		return "Jogo não instalado", false
 	}
-	if err := a.ensureGit(func(string) {}); err != nil {
+	setState("Verificando o Git...", true, false, 25, -1)
+	if err := a.ensureGit(span{bar: barVerify, lo: 25, hi: 70}); err != nil {
 		return "Jogo instalado. Não foi possível verificar a main: " + err.Error(), true
 	}
+	setState("Comparando com a main...", true, false, 80, -1)
 	local, remote, err := a.revs()
 	if err != nil {
 		return "Jogo instalado. Não foi possível verificar a main: " + err.Error(), true
@@ -71,22 +92,25 @@ func (a *app) look() (string, bool) {
 
 func (a *app) startUpdate() {
 	go func() {
-		setUI("Preparando a atualização...", true, false)
+		setState("Preparando a atualização...", true, false, -1, 0)
 		if err := a.update(); err != nil {
 			a.log(err.Error())
 			canPlay := fileExists(filepath.Join(a.game, "AnimeHeroes.exe"))
 			setUI(err.Error(), false, canPlay)
 			return
 		}
+		setState("Atualização concluída", true, false, 0, 100)
 		text, canPlay := a.look()
-		setUI(text, false, canPlay)
+		a.finish(text, canPlay)
 	}()
 }
 
 func (a *app) startPlay() {
-	if err := a.play(); err != nil {
-		setUI(err.Error(), false, fileExists(filepath.Join(a.game, "AnimeHeroes.exe")))
-	}
+	go func() {
+		if err := a.play(); err != nil {
+			setUI(err.Error(), false, fileExists(filepath.Join(a.game, "AnimeHeroes.exe")))
+		}
+	}()
 }
 
 func fileExists(path string) bool {
