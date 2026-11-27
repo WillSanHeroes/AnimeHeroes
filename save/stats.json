@@ -1,15 +1,16 @@
 {
-  "playtime": 487.17,
+  "playtime": 711.45,
   "currentArc": 0,
   "modes": {
     "versus": {
-      "playtime": 51.9,
-      "clear": 9,
+      "playtime": 276.18,
+      "clear": 10,
       "clearcount": {
         "minato": 1,
         "ichigotybw": 1,
         "karin": 2,
-        "squirtle": 1
+        "squirtle": 1,
+        "godgundam": 1
       }
     },
     "freeforall": {

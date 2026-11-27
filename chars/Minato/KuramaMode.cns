@@ -92,21 +92,21 @@ trigger2 = p2bodydist x < 100
 trigger2 = p2bodydist y < -50
 value = 10500
 
-[State 0, RASEN SHURIKEN]
-type = ChangeState
-triggerall = power >= 1500
-trigger1 = ailevel = 0 && command = "hold_s" && command = "b"
-trigger2 = ailevel > 0 && random < (ailevel * 100)
-trigger2 = p2bodydist x >= 200
-value = 10700
-
 [State 0, BEAST DROP]
 type = ChangeState
 triggerall = power >= 1500
-trigger1 = ailevel = 0 && command = "hold_s" && command = "c"
+trigger1 = ailevel = 0 && command = "hold_s" && command = "b"
 trigger2 = ailevel > 0 && random < (ailevel * 100)/2
 trigger2 = p2bodydist x = [100,200]
 value = 10800
+
+[State 0, RASEN SHURIKEN]
+type = ChangeState
+triggerall = power >= 1500
+trigger1 = ailevel = 0 && command = "hold_s" && command = "c"
+trigger2 = ailevel > 0 && random < (ailevel * 100)
+trigger2 = p2bodydist x >= 200
+value = 10700
 
 [State 0, CHAKRA CANNON]
 type = ChangeState
@@ -149,11 +149,11 @@ trigger2 = p2bodydist x < 100
 trigger2 = p2bodydist y > -75
 value = 10900
 
-[State 200, End]
-type = ChangeState
-trigger1 = numhelper(10080) = 0 || var(41) = 0
-trigger2 = ailevel = 0 && command = "holddown" && command = "x"
-value = 10002
+;[State 200, End]
+;type = ChangeState
+;trigger1 = numhelper(10080) = 0 || var(41) = 0
+;trigger2 = ailevel = 0 && command = "holddown" && command = "x"
+;value = 10002
 ;-------------------------------------------------------------------------------
 ; INTRO
 [Statedef 10001]
@@ -748,29 +748,21 @@ trigger2 = p2bodydist x < 100
 trigger2 = p2bodydist y < -50
 value = 10500
 
-[State 0, ANGRY ROAR]
+[State 0, BEAST DROP]
 type = ChangeState
-triggerall = power >= 1000
-trigger1 = ailevel = 0 && command = "holddown" && command = "s"
+triggerall = power >= 1500
+trigger1 = ailevel = 0 && command = "hold_s" && command = "b"
 trigger2 = ailevel > 0 && random < (ailevel * 100)/2
-trigger2 = p2bodydist x < 50
-value = 10600
+trigger2 = p2bodydist x = [100,200]
+value = 10800
 
 [State 0, RASEN SHURIKEN]
 type = ChangeState
 triggerall = power >= 1500
-trigger1 = ailevel = 0 && command = "hold_s" && command = "b"
+trigger1 = ailevel = 0 && command = "hold_s" && command = "c"
 trigger2 = ailevel > 0 && random < (ailevel * 100)
 trigger2 = p2bodydist x >= 200
 value = 10700
-
-[State 0, BEAST DROP]
-type = ChangeState
-triggerall = power >= 1500
-trigger1 = ailevel = 0 && command = "hold_s" && command = "c"
-trigger2 = ailevel > 0 && random < (ailevel * 100)/2
-trigger2 = p2bodydist x = [100,200]
-value = 10800
 
 [State 0, CHAKRA CANNON]
 type = ChangeState
@@ -780,28 +772,38 @@ trigger2 = ailevel > 0 && random < (ailevel * 100)*1.25
 trigger2 = p2bodydist x = [100,300]
 value = 11000
 
-[State 0, RENZOKU BIJUUDAMA]
+[State 0, ANGRY ROAR]
 type = ChangeState
-triggerall = power >= 1500
-trigger1 = ailevel = 0 && command = "holddown" && command = "c"
-trigger2 = ailevel > 0 && random < (ailevel * 100)
-trigger2 = p2bodydist x = [75,150]
-value = 10900
+triggerall = power >= 500
+trigger1 = ailevel = 0 && command = "holddown" && command = "s"
+trigger2 = ailevel > 0 && random < (ailevel * 100)/2
+trigger2 = p2bodydist x < 50
+value = 10600
 
 [State 0, A]
 type = ChangeState
 trigger1 = ailevel = 0 && command = "a"
+trigger2 = ailevel > 0 && random < (ailevel * 100)
+trigger2 = p2bodydist x < 50
+trigger2 = p2bodydist y < -100
 value = 10200
 
 [State 0, B]
 type = ChangeState
 trigger1 = ailevel = 0 && command = "b"
+trigger2 = ailevel > 0 && random < (ailevel * 100)
+trigger2 = p2bodydist x < 50
+trigger2 = p2bodydist y > -200
 value = 10300
 
 [State 0, C]
 type = ChangeState
+triggerall = power >= 500	
 trigger1 = ailevel = 0 && command = "c"
-value = 10400
+trigger2 = ailevel > 0 && random < (ailevel * 100)/2
+trigger2 = p2bodydist x < 100
+trigger2 = p2bodydist y > -75
+value = 10900
 
 [State 200, End]
 type = ChangeState
@@ -858,29 +860,21 @@ trigger2 = p2bodydist x < 100
 trigger2 = p2bodydist y < -50
 value = 10500
 
-[State 0, ANGRY ROAR]
+[State 0, BEAST DROP]
 type = ChangeState
-triggerall = power >= 1000
-trigger1 = ailevel = 0 && command = "holddown" && command = "s"
+triggerall = power >= 1500
+trigger1 = ailevel = 0 && command = "hold_s" && command = "b"
 trigger2 = ailevel > 0 && random < (ailevel * 100)/2
-trigger2 = p2bodydist x < 50
-value = 10600
+trigger2 = p2bodydist x = [100,200]
+value = 10800
 
 [State 0, RASEN SHURIKEN]
 type = ChangeState
 triggerall = power >= 1500
-trigger1 = ailevel = 0 && command = "hold_s" && command = "b"
+trigger1 = ailevel = 0 && command = "hold_s" && command = "c"
 trigger2 = ailevel > 0 && random < (ailevel * 100)
 trigger2 = p2bodydist x >= 200
 value = 10700
-
-[State 0, BEAST DROP]
-type = ChangeState
-triggerall = power >= 1500
-trigger1 = ailevel = 0 && command = "hold_s" && command = "c"
-trigger2 = ailevel > 0 && random < (ailevel * 100)/2
-trigger2 = p2bodydist x = [100,200]
-value = 10800
 
 [State 0, CHAKRA CANNON]
 type = ChangeState
@@ -890,28 +884,38 @@ trigger2 = ailevel > 0 && random < (ailevel * 100)*1.25
 trigger2 = p2bodydist x = [100,300]
 value = 11000
 
-[State 0, RENZOKU BIJUUDAMA]
+[State 0, ANGRY ROAR]
 type = ChangeState
-triggerall = power >= 1500
-trigger1 = ailevel = 0 && command = "holddown" && command = "c"
-trigger2 = ailevel > 0 && random < (ailevel * 100)
-trigger2 = p2bodydist x = [75,150]
-value = 10900
+triggerall = power >= 500
+trigger1 = ailevel = 0 && command = "holddown" && command = "s"
+trigger2 = ailevel > 0 && random < (ailevel * 100)/2
+trigger2 = p2bodydist x < 50
+value = 10600
 
 [State 0, A]
 type = ChangeState
 trigger1 = ailevel = 0 && command = "a"
+trigger2 = ailevel > 0 && random < (ailevel * 100)
+trigger2 = p2bodydist x < 50
+trigger2 = p2bodydist y < -100
 value = 10200
 
 [State 0, B]
 type = ChangeState
 trigger1 = ailevel = 0 && command = "b"
+trigger2 = ailevel > 0 && random < (ailevel * 100)
+trigger2 = p2bodydist x < 50
+trigger2 = p2bodydist y > -200
 value = 10300
 
 [State 0, C]
 type = ChangeState
+triggerall = power >= 500	
 trigger1 = ailevel = 0 && command = "c"
-value = 10400
+trigger2 = ailevel > 0 && random < (ailevel * 100)/2
+trigger2 = p2bodydist x < 100
+trigger2 = p2bodydist y > -75
+value = 10900
 
 [State 200, End]
 type = ChangeState
@@ -1090,29 +1094,21 @@ trigger2 = p2bodydist x < 100
 trigger2 = p2bodydist y < -50
 value = 10500
 
-[State 0, ANGRY ROAR]
+[State 0, BEAST DROP]
 type = ChangeState
-triggerall = power >= 1000
-trigger1 = ailevel = 0 && command = "holddown" && command = "s"
+triggerall = power >= 1500
+trigger1 = ailevel = 0 && command = "hold_s" && command = "b"
 trigger2 = ailevel > 0 && random < (ailevel * 100)/2
-trigger2 = p2bodydist x < 50
-value = 10600
+trigger2 = p2bodydist x = [100,200]
+value = 10800
 
 [State 0, RASEN SHURIKEN]
 type = ChangeState
 triggerall = power >= 1500
-trigger1 = ailevel = 0 && command = "hold_s" && command = "b"
+trigger1 = ailevel = 0 && command = "hold_s" && command = "c"
 trigger2 = ailevel > 0 && random < (ailevel * 100)
 trigger2 = p2bodydist x >= 200
 value = 10700
-
-[State 0, BEAST DROP]
-type = ChangeState
-triggerall = power >= 1500
-trigger1 = ailevel = 0 && command = "hold_s" && command = "c"
-trigger2 = ailevel > 0 && random < (ailevel * 100)/2
-trigger2 = p2bodydist x = [100,200]
-value = 10800
 
 [State 0, CHAKRA CANNON]
 type = ChangeState
@@ -1122,28 +1118,38 @@ trigger2 = ailevel > 0 && random < (ailevel * 100)*1.25
 trigger2 = p2bodydist x = [100,300]
 value = 11000
 
-[State 0, RENZOKU BIJUUDAMA]
+[State 0, ANGRY ROAR]
 type = ChangeState
-triggerall = power >= 1500
-trigger1 = ailevel = 0 && command = "holddown" && command = "c"
-trigger2 = ailevel > 0 && random < (ailevel * 100)
-trigger2 = p2bodydist x = [75,150]
-value = 10900
+triggerall = power >= 500
+trigger1 = ailevel = 0 && command = "holddown" && command = "s"
+trigger2 = ailevel > 0 && random < (ailevel * 100)/2
+trigger2 = p2bodydist x < 50
+value = 10600
 
 [State 0, A]
 type = ChangeState
 trigger1 = ailevel = 0 && command = "a"
+trigger2 = ailevel > 0 && random < (ailevel * 100)
+trigger2 = p2bodydist x < 50
+trigger2 = p2bodydist y < -100
 value = 10200
 
 [State 0, B]
 type = ChangeState
 trigger1 = ailevel = 0 && command = "b"
+trigger2 = ailevel > 0 && random < (ailevel * 100)
+trigger2 = p2bodydist x < 50
+trigger2 = p2bodydist y > -200
 value = 10300
 
 [State 0, C]
 type = ChangeState
+triggerall = power >= 500	
 trigger1 = ailevel = 0 && command = "c"
-value = 10400
+trigger2 = ailevel > 0 && random < (ailevel * 100)/2
+trigger2 = p2bodydist x < 100
+trigger2 = p2bodydist y > -75
+value = 10900
 
 [State 200, End]
 type = ChangeState
@@ -1818,22 +1824,22 @@ sprpriority = 2
 
 [State 0, PlaySnd]
 type = PlaySnd
-trigger1 = time = 50
+trigger1 = time = 40
 value = S0,30
 volume = 999
 [State 0, PlaySnd]
 type = PlaySnd
-trigger1 = time = 50
+trigger1 = time = 40
 value = S0,30
 volume = 999
 [State 0, PlaySnd]
 type = PlaySnd
-trigger1 = time = 50
+trigger1 = time = 40
 value = S0,30
 volume = 999
 [State 0, PlaySnd]
 type = PlaySnd
-trigger1 = time = 50
+trigger1 = time = 40
 value = S0,30
 volume = 999
 
@@ -1861,34 +1867,19 @@ stateno = 10150
 time = 1
 ignorehitpause = 0
 
-[State 3000, SuperPause]
-type = SuperPause
+;Super Charge
+[state 600, Super Charge]
+type = explod
 trigger1 = time = 0
-time = 30
-movetime = 30
-anim = -1
-sound = -1
-pos = 32,-80
-darken = 0
-unhittable = 1
-
-[State 3000, Super Charge]
-type = Explod
-trigger1 = Time = 0
-anim = 7400
-ID = 7400
-pos = -5*Helper(999999),Fvar(16),-75*Helper(999999),Fvar(16)
-sprpriority = 2
-supermove = 1
-removetime = -2
+id = 30956
+anim = 30956
+postype = p1
+pos = -5,-75
 bindtime = -1
-ownpal = 1
-scale = .7*Helper(999999),Fvar(16),.7*Helper(999999),Fvar(16)
-removeongethit = 1
-ontop = 1
-supermovetime 	= 999
-ignorehitpause  = 1
-
+removetime = -2
+supermovetime = -2
+ontop= 1
+scale = .4,.4
 [State 3000, PlaySnd - Super Charge]
 type = PlaySnd
 trigger1 = Time = 0
@@ -1912,14 +1903,14 @@ scale = .3*Helper(999999),Fvar(16),.3*Helper(999999),Fvar(16)
 sprpriority = 2
 ontop = 1
 ownpal = 1
-Removetime = 35
+Removetime = 25
 Removeongethit = 1
 Bindtime = -1
-Supermovetime = 35
+Supermovetime = 25
 
 [State 0, Cho Oodama Rasengan]
 type = Helper
-trigger1 = time = 40
+trigger1 = time = 30
 helpertype = normal
 name = "Cho Oodama Rasengan"
 ID = 10550
@@ -1932,7 +1923,7 @@ size.yscale = .4*Helper(999999),Fvar(16)
 
 [State 0, ChangeAnim]
 type = ChangeAnim
-trigger1 = time > 40 && numhelper(10550) > 0
+trigger1 = time > 30 && numhelper(10550) > 0
 value = 10500
 elem = 2
 
@@ -2097,7 +2088,7 @@ type = HitDef
 trigger1 = !movecontact
 attr = S, SP
 animtype  = Heavy
-damage    = 10,4
+damage    = 12,5
 Hitflag = MAFDE
 guardflag = MA
 pausetime = 0,10
@@ -2389,22 +2380,22 @@ volume = 40
 
 [State 0, PlaySnd]
 type = PlaySnd
-trigger1 = time = 30
+trigger1 = time = 20
 value = S0,32
 volume = 999
 [State 0, PlaySnd]
 type = PlaySnd
-trigger1 = time = 30
+trigger1 = time = 20
 value = S0,32
 volume = 999
 [State 0, PlaySnd]
 type = PlaySnd
-trigger1 = time = 30
+trigger1 = time = 20
 value = S0,32
 volume = 999
 [State 0, PlaySnd]
 type = PlaySnd
-trigger1 = time = 30
+trigger1 = time = 20
 value = S0,32
 volume = 999
 
@@ -2417,7 +2408,7 @@ Channel = 9
 
 [State 0, StopSnd]
 type = StopSnd
-trigger1 = time = 45
+trigger1 = time = 35
 channel = 9
 
 [State 0, HitOverride]
@@ -2428,34 +2419,19 @@ stateno = 10150
 time = 1
 ignorehitpause = 0
 
-[State 3000, SuperPause]
-type = SuperPause
+;Super Charge
+[state 600, Super Charge]
+type = explod
 trigger1 = time = 0
-time = 30
-movetime = 30
-anim = -1
-sound = -1
-pos = 32,-80
-darken = 0
-unhittable = 1
-
-[State 3000, Super Charge]
-type = Explod
-trigger1 = Time = 0
-anim = 7400
-ID = 7400
-pos = -5*Helper(999999),Fvar(16),-75*Helper(999999),Fvar(16)
-sprpriority = 2
-supermove = 1
-removetime = -2
+id = 30956
+anim = 30956
+postype = p1
+pos = -5,-75
 bindtime = -1
-ownpal = 1
-scale = .7*Helper(999999),Fvar(16),.7*Helper(999999),Fvar(16)
-removeongethit = 1
-ontop = 1
-supermovetime 	= 999
-ignorehitpause  = 1
-
+removetime = -2
+supermovetime = -2
+ontop= 1
+scale = .4,.4
 [State 3000, PlaySnd - Super Charge]
 type = PlaySnd
 trigger1 = Time = 0
@@ -2474,12 +2450,11 @@ postype = p1
 ownpal = 1
 size.xscale = .1*Helper(999999),Fvar(16)
 size.yscale = .1*Helper(999999),Fvar(16)
-Supermovetime = 30
-
+Supermovetime = 20
 
 [State 0, Rasen Shuriken]
 type = Helper
-trigger1 = time = 45
+trigger1 = time = 35
 helpertype = normal
 name = "Rasen Shuriken"
 ID = 10750
@@ -2490,7 +2465,7 @@ ownpal = 1
 
 [State 0, ChangeAnim]
 type = ChangeAnim
-trigger1 = time > 47 && numhelper(10750) > 0
+trigger1 = time > 37 && numhelper(10750) > 0
 value = 10700
 elem = 3
 
@@ -2539,7 +2514,7 @@ value = -var(1)
 [State 0, DestroySelf]
 type = DestroySelf
 trigger1 = root,movetype = H
-trigger2 = root,time >= 46
+trigger2 = root,time >= 36
 ;-------------------------------------------------------------------------------
 ; Rasen Shuriken Aspas
 [Statedef 10731]
@@ -2966,29 +2941,29 @@ sprpriority = 2
 
 [State 0, PlaySnd]
 type = PlaySnd
-trigger1 = time = 50
+trigger1 = time = 40
 value = S0,156
 volume = 999
 [State 0, PlaySnd]
 type = PlaySnd
-trigger1 = time = 50
+trigger1 = time = 40
 value = S0,156
 volume = 999
 [State 0, PlaySnd]
 type = PlaySnd
-trigger1 = time = 50
+trigger1 = time = 40
 value = S0,156
 volume = 999
 
 [State 0, PlaySnd]
 type = PlaySnd
-trigger1 = time = 55
+trigger1 = time = 45
 value = S5,8
 volume = 50
 
 [State 0, Viento]
 type = Explod
-trigger1 = time = 30
+trigger1 = time = 20
 anim = 7022
 ID = 1051
 pos = -50*Helper(999999),Fvar(16),30*Helper(999999),Fvar(16)
@@ -3001,7 +2976,7 @@ trans = sub
 
 [State 0, Viento]
 type = Explod
-trigger1 = time = 30
+trigger1 = time = 20
 anim = 7022
 ID = 1051
 pos = -50*Helper(999999),Fvar(16),30*Helper(999999),Fvar(16)
@@ -3013,7 +2988,7 @@ ownpal = 1
 
 [State 0, Viento]
 type = Explod
-trigger1 = time = 30
+trigger1 = time = 20
 anim = 7022
 ID = 1051
 pos = 50*Helper(999999),Fvar(16),30*Helper(999999),Fvar(16)
@@ -3027,7 +3002,7 @@ trans = sub
 
 [State 0, Viento]
 type = Explod
-trigger1 = time = 30
+trigger1 = time = 20
 anim = 7022
 ID = 1051
 pos = 50*Helper(999999),Fvar(16),30*Helper(999999),Fvar(16)
@@ -3046,63 +3021,24 @@ stateno = 10150
 time = 1
 ignorehitpause = 0
 
-[State 3000, SuperPause]
-type = SuperPause
+;Super Charge
+[state 600, Super Charge]
+type = explod
 trigger1 = time = 0
-time = 30
-movetime = 30
-anim = -1
-sound = -1
-pos = 32,-80
-darken = 0
-unhittable = 1
-
-[State 3000, VarSet]
-type = Varset
-trigger1 = time = 0
-v = 12
-value = -100
-
-[State 3000, VarSet]
-type = Varset
-trigger1 = time = 30
-v = 12
-value = 0
-
-[State 3000, VarAdd]
-type = VarAdd
-trigger1 = time >= 20 && Var(12) < 0
-v = 12
-value = 6
-
-[State 3000, BGColorFX]
-type = BGPalFX
-trigger1 = Time > 0
-time = 1
-add = Var(12),Var(12),Var(12)
-
-[State 3000, Super Charge]
-type = Explod
-trigger1 = Time = 0
-anim = 7400
-ID = 7400
-pos = 5*Helper(999999),Fvar(16),-45*Helper(999999),Fvar(16)
-sprpriority = 2
-supermove = 1
-removetime = -2
+id = 30956
+anim = 30956
+postype = p1
+pos = -5,-75
 bindtime = -1
-ownpal = 1
-scale = .7*Helper(999999),Fvar(16),.7*Helper(999999),Fvar(16)
-removeongethit = 1
-ontop = 1
-supermovetime 	= 999
-ignorehitpause  = 1
-
+removetime = -2
+supermovetime = -2
+ontop= 1
+scale = .4,.4
 [State 3000, PlaySnd - Super Charge]
 type = PlaySnd
 trigger1 = Time = 0
 value = S950,1
-volume = 50
+volume = 999
 
 [State 0, ScreenBound]
 type = ScreenBound
@@ -3112,56 +3048,56 @@ movecamera = 1,0
 
 [State 0, AngleDraw]
 type = AngleDraw
-trigger1 = time = [30,40]
+trigger1 = time = [20,30]
 value = 90
 
 [State 0, VelSet]
 type = VelSet
-trigger1 = time = 30
+trigger1 = time = 20
 y = -30
 
 [State 0, StateTypeSet]
 type = StateTypeSet
-trigger1 =  time = 30
+trigger1 =  time = 20
 statetype = A
 movetype = A
 physics = N
 
 [State 0, VelSet]
 type = VelSet
-trigger1 = time = 40
+trigger1 = time = 30
 y = 0
 
 [State 0, PosAdd]
 type = PosAdd
-trigger1 = time = 40
+trigger1 = time = 30
 x = ifelse(p2bodydist x < 150,p2bodydist x,150)
 
 [State 0, AngleDraw]
 type = AngleDraw
-trigger1 = time >= 60
+trigger1 = time >= 50
 value = -90
 
 [State 0, VelSet]
 type = VelSet
-trigger1 = time = 60
+trigger1 = time = 50
 y = 30
 
 [State 0, PlaySnd]
 type = PlaySnd
-trigger1 = time = 30
+trigger1 = time = 20
 value = S60,1
 volume = 50
 
 [State 0, EnvShake]
 type = EnvShake
-trigger1 = time = 30
+trigger1 = time = 20
 time = 20
 Ampl = -8
 
 [State 200, End]
 type = ChangeState
-trigger1 = time > 60 && pos y >= -50*Helper(999999),Fvar(16)
+trigger1 = time > 50 && pos y >= -50*Helper(999999),Fvar(16)
 value = 10801
 ;-------------------------------------------------------------------------------
 ; Caida
