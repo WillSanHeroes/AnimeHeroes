@@ -1,0 +1,8 @@
+launcher/game/
+launcher/runtime/
+launcher/*.exe
+tools/sffopt/*.exe
+tools/sffopt/oxipng/
+tools/sffopt/*.zip
+*.opt.bak
+*.opt.tmp
