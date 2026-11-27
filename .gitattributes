@@ -1,4 +1,0 @@
-/chars/Allstar/Allstar.sff filter=lfs diff=lfs merge=lfs -text
-/chars/IchigoTYBW/IchigoTYBW.sff filter=lfs diff=lfs merge=lfs -text
-/chars/Karin/Karin.sff filter=lfs diff=lfs merge=lfs -text
-/stages/NarutoBridge.sff filter=lfs diff=lfs merge=lfs -text
